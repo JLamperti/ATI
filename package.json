@@ -1,0 +1,22 @@
+{
+  "name": "ati-website",
+  "version": "1.0.0",
+  "description": "The website around the ATI-scale",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JLamperti/ATI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JLamperti/ATI/issues"
+  },
+  "homepage": "https://github.com/JLamperti/ATI#readme",
+  "devDependencies": {
+    "eslint": "^4.11.0"
+  }
+}
