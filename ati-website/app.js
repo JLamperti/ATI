@@ -1,4 +1,3 @@
-
 var express = require('express'),
   path = require('path'),
   favicon = require('serve-favicon'),
@@ -6,9 +5,11 @@ var express = require('express'),
   cookieParser = require('cookie-parser'),
   bodyParser = require('body-parser');
 
+//import the routers
 var index = require('./routes/index'),
-  users = require('./routes/users');
-
+  profile = require('./routes/profile'),
+  form = require('./routes/form'),
+  results = require('./routes/results');
 
 var app = express();
 
@@ -26,8 +27,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//set up routing
 app.use('/', index);
-app.use('/users', users);
+app.use('/profile', profile);
+app.use('/results', results);
+app.use('/form', form);
 
 // catch 404 and forward to error handler
 
