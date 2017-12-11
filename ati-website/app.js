@@ -3,6 +3,7 @@ var express = require('express'),
   favicon = require('serve-favicon'),
   logger = require('morgan'),
   cookieParser = require('cookie-parser'),
+  i18n = require('i18n'),
   bodyParser = require('body-parser');
 
 //import the routers
@@ -17,6 +18,17 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 
 app.set('view engine', 'ejs');
+ 
+i18n.configure({
+  // setup some locales - other locales default to en silently
+  locales: ['en', 'de'],
+ 
+  // sets a custom cookie name to parse locale settings from
+  cookie: 'locale',
+ 
+  // where to store json files - defaults to './locales'
+  directory: __dirname + '/locales'
+});
 
 
 // uncomment after placing your favicon in /public
@@ -26,6 +38,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+// i18n init parses req for language headers, cookies, etc.
+app.use(i18n.init);
 
 //set up routing
 app.use('/', index);
