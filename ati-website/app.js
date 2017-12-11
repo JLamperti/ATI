@@ -1,14 +1,16 @@
-
 var express = require('express'),
   path = require('path'),
   favicon = require('serve-favicon'),
   logger = require('morgan'),
   cookieParser = require('cookie-parser'),
+  i18n = require('i18n'),
   bodyParser = require('body-parser');
 
+//import the routers
 var index = require('./routes/index'),
-  users = require('./routes/users');
-
+  profile = require('./routes/profile'),
+  form = require('./routes/form'),
+  results = require('./routes/results');
 
 var app = express();
 
@@ -16,6 +18,17 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 
 app.set('view engine', 'ejs');
+ 
+i18n.configure({
+  // setup some locales - other locales default to en silently
+  locales: ['en', 'de'],
+ 
+  // sets a custom cookie name to parse locale settings from
+  cookie: 'locale',
+ 
+  // where to store json files - defaults to './locales'
+  directory: __dirname + '/locales'
+});
 
 
 // uncomment after placing your favicon in /public
@@ -25,9 +38,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+// i18n init parses req for language headers, cookies, etc.
+app.use(i18n.init);
 
+//set up routing
 app.use('/', index);
-app.use('/users', users);
+app.use('/profile', profile);
+app.use('/results', results);
+app.use('/form', form);
 
 // catch 404 and forward to error handler
 
