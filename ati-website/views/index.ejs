@@ -2,14 +2,139 @@
 <html>
 
 <head lang="en">
-       <%- include ./partials/head %>
+    <%- include ./partials/head %>
 </head>
 
-<body class="container">
-    <header>
+<body>
+    <header class="container-fluid">
         <%- include ./partials/header %>
     </header>
-    <section>
+
+
+    <img src="./images/Titelbild.jpg" alt="Two men one table" style="width:100%;margin-top:0px;"></img>
+
+    <div style="height:30%; background-color: white; margin-top:1%">
+        <div class="container">
+            <div class="row">
+                <div class="col-4 col-sm-4 col-md-4" align="center">
+                    <a href="#scientist">
+                        <img src="./images/dummiePic.png" style="width:50%;height:50%" alt="Forscher" class="img-cicle"></img>
+                    </a>
+                    </br>
+                    <p>Forscher</p>
+                </div>
+                <div class="col-4 col-sm-4 col-md-4" align="center">
+                    <a href="#developer">
+                        <img src="./images/dummiePic.png" style="width:50%;height:50%" alt="Entwickler" class="img-cicle" href="#developer"></img>
+                    </a>
+                    </br>
+                    <p>Entwickler</p>
+                </div>
+                <div class="col-4 col-sm-4 col-md-4" align="center">
+                    <a href="#teacher">
+                        <img src="./images/dummiePic.png" style="width:50%;height:50%" alt="Kursleiter" class="img-cicle"></img>
+                    </a>
+                    </br>
+                    <p>Kursleiter</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div style="height:40%; background-color: white;">Was ist Technikaffinität</div>
+    <div class="container" style="height:50%; background-color: white;">
+        <p>die Skala</p>
+        <div class="row justify-content-md-center" style="height:60">
+            <div class="col col-md-5" style=" background-color:red;">
+            </div>
+
+            <div class="col col-md-2" style=" background-color:yellow;">
+
+            </div>
+
+            <div class="col col-md-5" style="background-color:purple;">
+            </div>
+        </div>
+
+
+    </div>
+
+    <div style="height:90%; background-color: green;">Was wie Warum</div>
+
+    <div id="scientist" style="height:90%; background-color: white;">Forscher</div>
+
+    <div id="developer" style="height:90%; background-color: grey;">Entwickler</div>
+
+    <div id="teacher" style="height:90%; background-color: white;">Kursleiter</div>
+
+    <div style="height:60%; background-color: grey;">Wer wir sind</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--
         <h1 id="title"><%= title %></h1>
         <p>Welcome to the <%= title %>-Project</p>
         <div>
@@ -34,8 +159,8 @@
             <p>Der Fragebogen ist aus verschiedenen Perspektiven eine hilfreiches Werkzeug. Forschern ist es möglich, hilfreiche Daten über ihre Probanden zu erhalten, Systementwickler können ihn einsetzen, um die Technikaffinität der Benutze vor Evaluation ihrer Prototypen zu ermitteln, und Interessierte können einfach etwas über ihre Persönlichkeitseigenschaft Technikaffinität erfahren.</p>
         </div>
         <a href="/dl">Fragebogen herunterladen</a></br>
-		<a href="/toggle"><%= __('toggletext') %></a>
-    </section>
+		<a href="/toggle"><%= __('toggletext') %></a> -->
+
     <footer>
         <%- include ./partials/footer %>
     </footer>

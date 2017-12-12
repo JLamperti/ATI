@@ -1,8 +1,32 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+html {
+  height: 100%;
+  min-height:100%;
+ 
+}
+body{
+  height: 100%;
+  min-height:100%;
+}
+.navbar-noMargin{
+margin-top:0;
+}
+#userTypes{
+  background-color: orange;
+  width: 100%;
+  height: 20%;
+  min-height: 20%;
+  max-height:20%;
+  flex: 1;
+  overflow-y:auto;
 }
 
-a {
-  color: #00B7FF;
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+.row > [class*='col-'] {
+	 display: flex;
+	 flex-direction: column;
 }
