@@ -6,6 +6,9 @@ html {
 body{
   height: 100%;
   min-height:100%;
+  color: #223241;
+  text-align: justify;
+  font-familiy: "Arial", Helvetica, sans-serif;
 }
 .navbar-noMargin{
 margin-top:0;
@@ -41,3 +44,83 @@ row.match-my-cols {
   margin-bottom: -99999px;
   padding-bottom: 99999px;
 }
+
+.div-padding-min{
+  padding-left:5%;
+  padding-right:5%;
+}
+
+.div-padding-row{
+  padding-left:5%;
+  padding-right:5%;
+  padding-top:7.5%;
+  padding-bottom:7.5%
+}
+
+.author-images{
+  height:50%;
+  width:50%;
+}
+.scientist-developer-teacher-images{
+  width:35%;
+  height:35%;
+}
+.scientist-developer-teacher-text{
+  font-size:large;
+  margin-top:10px;
+}
+.scale-text{
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+  padding-top: 1.5%;
+  background-color: #E4E4E4;
+
+  
+}
+.scale-buttons{
+
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+  padding-top: .5%;
+  padding-bottom: 1.5%;
+  margin-bottom: 0.25%;
+  background-color: #E4E4E4;
+
+}
+
+#div-what-why-how{
+  background: #344853;
+  color:white;
+}
+
+.background-light-grey{
+  background-color: #E4E4E4;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+
+  color: #C5EFF7;
+}
+
+
+@media (min-width: 768px) {
+.container-flex{
+  display:flex;
+  flex-direction:column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+}
+
+@media (min-width: 1200px) {
+  .container-flex{
+    display:flex;
+    flex-direction:row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  .padding-md{
+    margin-left:7.5%;
+  }
+  }
+

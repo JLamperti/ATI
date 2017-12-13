@@ -1,5 +1,6 @@
 {
 	"toggletext": "Switch to english",
+<<<<<<< HEAD
 
 	"scale": "Skala",
 	"background":"Hintergrund",
@@ -33,4 +34,8 @@
 	"frankeText":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.",
 
 
+=======
+	"teacher": "Kursleiter",
+	"developer": "Entwickler"
+>>>>>>> edc794e95925b5e396be5178a24c2d3967027478
 }
