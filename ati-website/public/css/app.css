@@ -30,3 +30,14 @@ margin-top:0;
 	 display: flex;
 	 flex-direction: column;
 }
+
+.bottom-left {position:absolute; bottom:0; left: 0; margin-left: 1%;}
+
+row.match-my-cols {
+  overflow: hidden; 
+}
+
+.row.match-my-cols [class*="col-"]{
+  margin-bottom: -99999px;
+  padding-bottom: 99999px;
+}
