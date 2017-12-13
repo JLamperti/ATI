@@ -10,6 +10,13 @@ body{
   text-align: justify;
   font-familiy: "Arial", Helvetica, sans-serif;
 }
+footer{
+  background-color: #344853;
+   color:white;
+    height:15%;
+     padding-top:.75%;
+     padding-bottom:auto;
+}
 .navbar-noMargin{
 margin-top:0;
 }
@@ -66,8 +73,7 @@ row.match-my-cols {
   height:35%;
 }
 .scientist-developer-teacher-text{
-  font-size:large;
-  margin-top:10px;
+  font-size:large;  
 }
 .scale-text{
   padding-left: 1.5%;
@@ -109,6 +115,9 @@ row.match-my-cols {
   flex-direction:column;
   flex-wrap: nowrap;
   justify-content: flex-start;
+}
+.padding-xs{
+  padding-left:5%;
 }
 }
 

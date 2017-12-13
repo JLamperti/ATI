@@ -52,19 +52,19 @@
 
     </div>
 
-    <div class="row" >
+    <div class="row">
         <div>
-            <div class="col-md-3 col-xs-1 padding-md" ></div>
-            <div align:"center" class="col-xs-10 col-md-8">
+            <div class="col-md-3 padding-md padding-xs"></div>
+            <div align: "center" class="col-md-8">
                 <h2>Was ist Technikaffinität</h2>
                 <p>s, accumsan dui. Duis rhoncus erat a elit finibus, eget vestibulum massa scelerisque. Praesent sit amet cursus
                     ante. Proin scelerisque dolor nibh, eu sagittis massa venenatis a. Nunc at arcu aliquam, pharetra eros
-                    
+
                 </p>
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row" style="margin-bottom:7.5%">
         <div style="height:30%; background-color: white; margin-bottom:3%">
             <div class="row">
                 <div class="col-xs-1 col-md-5">
@@ -81,24 +81,30 @@
             </div>
             <div class="row">
                 <div class="col-xs-1 col-md-5"></div>
-                <div class="col-xs-4 scale-text">Nutzen Sie unseren Fragebogen für Entwicklungs- und Forschungszwecke. Laden Sie ihn für Ihre Studie herunter</div>
+                <div class="col-xs-4 scale-text"><div style="width:80%">Nutzen Sie unseren Fragebogen für Entwicklungs- und Forschungszwecke. Laden Sie ihn für Ihre Studie herunter</div></div>
                 <div class="col-xs-2">
                     </br>
                     </br>
                     </br>
                     </br>
                 </div>
-                <div class="col-xs-4 scale-text">Oder Nutzen Sie den Fragebogen und finden schnell heraus, wie affin Sie selbst im Umgang mit Technik sind</div>
+                <div class="col-xs-4 scale-text"><div style="width:80%">Oder Nutzen Sie den Fragebogen und finden schnell heraus, wie affin Sie selbst im Umgang mit Technik sind</div></div>
                 <div class="col-xs-1 col-md-1"></div>
             </div>
             <div class="row">
                 <div class="col-xs-1 col-md-5"> </div>
                 <div class="col-xs-4 scale-buttons">
-                    <button class="button col-xs-12 col-md-4"> Download</button>
+                    <!--  <a href="/dl"> <button class="button col-xs-12 col-md-4" > Download</button></a>  -->
+                    <a href="/dl">
+                        <input type="image" src="./images/Download_Button.png" style="height:20%; width:40%" />
+                    </a>
                 </div>
                 <div class="col-xs-2"></div>
                 <div class="col-xs-4 scale-buttons">
-                    <button class="col-xs-12 col-md-4 button pull-left">Loslegen</button>
+                    <!-- <button class="col-xs-12 col-md-4 button pull-left">Loslegen</button> -->
+                    <a href="#">
+                        <input type="image" src="./images/TesteDich_Button.png" style="height:20%; width:40%" />
+                    </a>
                 </div>
                 <div class="button col-xs-1 col-md-1"></div>
             </div>
@@ -120,7 +126,7 @@
 
 
 
-    <div class="container-flex div-padding-row" id="div-what-why-how">
+    <div class="container-flex div-padding-row" id="div-what-why-how" >
         <div class="div-padding-min">
             <h2>Was</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel nulla leo. Vestibulum id porta arcu, vitae
@@ -247,99 +253,11 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!--
-        <h1 id="title"><%= title %></h1>
-        <p>Welcome to the <%= title %>-Project</p>
-        <div>
-            <h3>Teste deine Technikaffinität</h3>
-            <p>
-                Nutze unseren Fragebogen und finde schnell heraus, wie affin du zum Umgang mit Technik bist. Vergleiche dich mit anderen.
-            </p>
-            <p>
-                Oder nutze den Fragebogen für Entwicklungs- oder Forscherzwecke. Lade ihn für deine Studie herunter.
-            </p>
-        </div>
-        <div>
-            <h3>Was?</h3>
-            <p>Mit unserem Fragebogen kannst du unkompliziert deine Technikaffinität oder die deiner Probanden messen. Dazu kann derFragebogen direkt auf dieser Seite ausgefüllt, oder einfach heruntergeladen werden. Das Ausfüllen nimmt fünf Minuten in Anspruch und ist auf diverson Geräten möglich. Außerdem gibt es viele weitere Features, wie der Zukang eines Vergleichs der Ergebnisse alter Teilnehmer.</p>
-        </div>
-        <div>
-            <h3>Wie?</h3>
-            <p>Mit der Technikaffinität behandelt der Fragebogen eine aktuelles Thema, welches derzeit in wissenschaftlichen Studien noch wenig berücksichtigt wird. Damit die Nutzer ein objektives, zuverlässiges und gültiges Ergebnis erhalten, wurde der Fragebogen sowie das Feedback in einem wissenschaftlichen Kontext entwickelt. Zudem kann mithilfe der Online-Version schnell und ohne viel Aufwand eine relativ große Reichweite erlangt werden.</p>
-        </div>
-        <div>
-            <h3>Warum?</h3>
-            <p>Der Fragebogen ist aus verschiedenen Perspektiven eine hilfreiches Werkzeug. Forschern ist es möglich, hilfreiche Daten über ihre Probanden zu erhalten, Systementwickler können ihn einsetzen, um die Technikaffinität der Benutze vor Evaluation ihrer Prototypen zu ermitteln, und Interessierte können einfach etwas über ihre Persönlichkeitseigenschaft Technikaffinität erfahren.</p>
-        </div>
-        <a href="/dl">Fragebogen herunterladen</a></br>
-		<a href="/toggle"><%= __('toggletext') %></a> -->
-
-    <footer>
+    <a href="/toggle">
+        <%= __('toggletext') %>
+    </a>
+
+    <footer align="center">
         <%- include ./partials/footer %>
     </footer>
 
