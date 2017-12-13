@@ -23,5 +23,11 @@
 	"whoWeAre": "Wer wir sind",
 	"wesselText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.",
 	"attigText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.",
-	"frankeText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet."
+	"frankeText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.",
+	"teachter": "teachter",
+	"WhyText": "WhyText",
+	"Scientist": "Scientist",
+	"whoWeAreHead": "whoWeAreHead",
+	"why": "why",	
+	"imageL": "./images/english.png"
 }

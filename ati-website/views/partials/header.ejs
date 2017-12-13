@@ -1,50 +1,4 @@
-<!--<nav class="navbar navbar-default navbar-noMargin navbar-expand-lg" style="padding-right:1%">
-    
-    <div class="navbar-header">
-        <a class="navbar-brand" href="#">ATI</a>
-    </div>
-   
-    <ul class="nav navbar-nav">
-        <li>
-            <a href="#home">Home</a>
-        </li>
-        <li>
-            <a href="#scale">Skala</a>
-        </li>
-        <li>
-            <a href="#information">Hintergrund</a>
-        </li>
-        <li>
-            <a href="#scientist">Forscher</a>
-        </li>
-        <li>
-            <a href="#developer">Entwickler</a>
-        </li>
-        <li>
-            <a href="#teacher">Kursleiter</a>
-        </li>
-        <li>
-            <a href="#authors">Autoren</a>
-        </li>
-    </ul>
 
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            <a href="#">
-                <span class="glyphicon glyphicon-user"></span>Login</a>
-        </li>
-
-        <li >
-            <a href="/toggle">
-                <%= __('toggletext') %>
-            </a>
-           
-               
-        </li>
-    </ul>
-
-
-</nav>-->
 <nav class="navbar navbar-default navbar-noMargin" style="padding-right:1%">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -82,13 +36,17 @@
               </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+              <li><a href="#" style="margin-right:2%"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
               <li >
-                  <a href="/toggle">
-                      wechsel
+                  <div class="row" style="padding-top:10%">
+                  <a href="/toggle"> <img src="<%= __('imageL') %>" >
+                    
+                        <%= __('toggletext') %>
+                        
+                    
                   </a>
                  
-                     
+                </div>
               </li>
             </ul>
           </div>
