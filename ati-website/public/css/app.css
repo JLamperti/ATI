@@ -8,6 +8,7 @@ body{
   min-height:100%;
   color: #223241;
   text-align: justify;
+  font-familiy: "Arial", Helvetica, sans-serif;
 }
 .navbar-noMargin{
 margin-top:0;
@@ -69,17 +70,22 @@ row.match-my-cols {
   margin-top:10px;
 }
 .scale-text{
-  border-top: 1px solid rgba(0,0,0,.5);
-  border-left: 1px solid rgba(0,0,0,.5);
-  border-right: 1px solid rgba(0,0,0,.5);
-  padding-top:0.25%;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+  padding-top: 1.5%;
+  background-color: #E4E4E4;
+
+  
 }
 .scale-buttons{
-  border-bottom:1px solid rgba(0,0,0,.5);
-  border-left:1px solid rgba(0,0,0,.5);
-  border-right:1px solid rgba(0,0,0,.5);
-  padding-bottom:.5%;
+
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+  padding-top: .5%;
+  padding-bottom: 1.5%;
   margin-bottom: 0.25%;
+  background-color: #E4E4E4;
+
 }
 
 #div-what-why-how{
@@ -91,9 +97,10 @@ row.match-my-cols {
   background-color: #E4E4E4;
 }
 
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
 
-
-
+  color: #C5EFF7;
+}
 
 
 @media (min-width: 768px) {
@@ -111,6 +118,9 @@ row.match-my-cols {
     flex-direction:row;
     flex-wrap: nowrap;
     justify-content: flex-start;
+  }
+  .padding-md{
+    margin-left:7.5%;
   }
   }
 
