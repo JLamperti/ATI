@@ -1,5 +1,36 @@
 {
 	"toggletext": "Switch to english",
+
+
+	"scale": "Skala",
+	"background":"Hintergrund",
+	"authors": "Autoren",
+
+	"scientist": "Forscher",
+	"developer": "Entwickler",
 	"teacher": "Kursleiter",
-	"developer": "Entwickler"
+
+	"definitionAffinityHeader": "Was bedeutet Technikaffinität?",
+	"definitionAffinity": "Die Eigenschaft der Technikaffinität beschreibt, wie gerne und interessiert Personen sich mit Technik und interaktiven Systemen auseinandersetzen. Um die Technikaffinität herauszufinden, haben wir einen Fragebogen entwickelt.",
+
+	"theScale": "Die Skala",
+	"downloadText": "Nutze unseren Fragebogen für Entwicklungs- und Forschungszwecke. Lade ihn für deine Studie herunter.",
+	"testYourselfText": "Oder nutze den Fragebogen und finde schnell heraus, wie affin du selbst im Umgang mit Technik bist.",
+
+	"what": "Was",
+	"whatText": "Mit unserem Fragebogen kannst du schnell und unkompliziert deine Technikaffinität oder die deiner Probanden messen. Dazu kann der Fragebogen direkt auf dieser Seite ausgefüllt, oder einfach heruntergeladen werden. Das Ausfüllen nimmt fünf Minuten in Anspruch und ist auf diversen Gerät möglich. Außerdem gibt es viele weitere Features, wie der Zugang eines Vergleichs der Ergebnisse aller Teilnehmer.",
+	"how": "Wie",
+	"howText": "Mit der Technikaffinität behandelt der Fragebogen ein aktuelles Thema, welches derzeit in wissenschaftlichen Studien noch wenig berücksichtigt wird. Damit die Nutzer ein objektives, zuverlässiges und gültiges Ergebnis erhalten, wurde der Fragebogen, sowie das Feedback in wissenschaftlichem Kontext entwickelt. Zudem kann mithilfe der Online-Version schnell und ohne viel Aufwand eine relativ große Reichweite erlangt werden.",
+	"Why": "Warum",
+	"whyText":"Der Fragebogen ist aus verschiedenen Perspektiven ein hilfreiches Werkzeug. Forschern ist es möglich, hilfreiche Daten über ihre Probanden zu erhalten. Systementwickler können ihn einsetzen, um die Technikaffinität der Benutzer vor Evaluationen ihrer Prototypen zu ermitteln. Oder einfach für Interessenten, die etwas über ihre Persönlichkeitseigenschaften, bezüglich Technikaffinität, herauszufinden möchten.",
+
+	"scientistText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. P",
+	"developerText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. P",
+	"teacherText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. P",
+
+	"whoWeAre": "Wer wir sind",
+	"wesselText":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.",
+	"attigText":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.",
+	"frankeText":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet."
+
 }
