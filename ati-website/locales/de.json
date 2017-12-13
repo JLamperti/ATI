@@ -31,7 +31,8 @@
 	"wesselText":"Dipl.-Psychologe Dr. Daniel Wessel ist tätig im Bereich Forschung und Lehre am Institut für Multimediale und Interaktive Systeme an der Universität zu Lübeck.",
 	"attigText":"Christiane Attig absolvierte 2016 ihren M.Sc. in Psychologie an der Technischen Universität Chemnitz. Nun ist sie dort in der Professur für Allgemeine Psychologie I & Arbeitspsychologie tätig.",
 	"frankeText":"Dipl.-Psychologe Prof. Dr. Thomas Franke ist tätig im Bereich Forschung und Lehre am Institut für Multimediale und Interaktive Systeme an der Universität zu Lübeck.",
-	"imageL": "./images/german.png"
+	"imageL": "./images/german.png",
+	"imageTitle": "./images/Titelbild_Deutsch.jpg"
 }
 
 

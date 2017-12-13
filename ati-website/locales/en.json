@@ -32,5 +32,6 @@
 	"attigText":"Christiane Attig completed her M.Sc. in Psychology at Chemnitz University of Technology. Now she is working there in the professorship of General Psychology I & Industrial Psychology.",
 	"frankeText":"Dipl.-Psych. Prof. Dr. Thomas Franke works in the field of research and teaching at the Institute for Multimedia and Interactive Systems at the University of Lübeck.",
 
-	"imageL": "./images/english.png"
+	"imageL": "./images/english.png",
+	"imageTitle": "./images/Titelbild_Englisch.jpg"
 }
