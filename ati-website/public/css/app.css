@@ -31,4 +31,13 @@ margin-top:0;
 	 flex-direction: column;
 }
 
-.bottomright {position:absolute; bottom:0;  margin-bottom:7px; margin:7px; right: 0;}
+.bottom-left {position:absolute; bottom:0; left: 0; margin-left: 1%;}
+
+row.match-my-cols {
+  overflow: hidden; 
+}
+
+.row.match-my-cols [class*="col-"]{
+  margin-bottom: -99999px;
+  padding-bottom: 99999px;
+}
