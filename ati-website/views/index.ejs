@@ -10,273 +10,219 @@
         <%- include ./partials/header %>
     </header>
 
-    <img src="./images/Titelbild_Titel_Deutsch.jpg" alt="Two men one table" style="width:100%;margin-top:-20px;"></img>
+    <img id="home" src="./images/Titelbild_Titel_Deutsch.jpg" alt="Two men one table" style="width:100%;margin-top:-20px;"></img>
 
-    <div style="height:30%; background-color: white; margin-top:2%">
-        <div class="container">
-            <div class="row">
-                <div class="col-4 col-sm-4 col-md-4" align="center">
-                    <a href="#scientist">
-                        <img src="./images/Forscher_Icon.png" alt="Forscher" class="scientist-developer-teacher-images"></img>
-                    </a>
-
-
-
-                    <p class="scientist-developer-teacher-text">
-                        <h3>
-                            <b>Forscher</b>
-                        </h3>
-                    </p>
-
-                </div>
-                <div class="col-4 col-sm-4 col-md-4 .col-" align="center">
-                    <a href="#developer">
-                        <img src="./images/Entwickler_Icon.png" s alt="Entwickler" class="scientist-developer-teacher-images" href="#developer"></img>
-                    </a>
-
-
-
-
-                    <p class="scientist-developer-teacher-text">
-                        <h3>
-                            <b>Entwickler</b>
-                        </h3>
-                    </p>
-
-                </div>
-                <div class="col-4 col-sm-4 col-md-4" align="center">
-                    <a href="#teacher">
-                        <img src="./images/Kursleiter_Icon.png" alt="Kursleiter" class="scientist-developer-teacher-images"></img>
-                    </a>
-
-
-                    <p style="font-size:large; color:#344853; margin-top:10px;">
-                        <h3><b>Kursleiter</b></h3>
-                    </p>
-
-                </div>
-            </div>
+    <div class="container-flex-scale-def scale-container" align="center">
+        <div class="image-for-groups"></div>
+        <div>
+            <a href="#scientist">
+                <img src="./images/Forscher_Icon.png" alt="Forscher" class="scientist-developer-teacher-images"></img>
+            </a>
+            <p class="scientist-developer-teacher-text">
+                <h3>
+                    <b>
+                        <%= __('scientist') %>
+                    </b>
+                </h3>
+            </p>
         </div>
+        <div>
+            <a href="#developer">
+                <img src="./images/Entwickler_Icon.png" s alt="Entwickler" class="scientist-developer-teacher-images" href="#developer"></img>
+            </a>
+            <p class="scientist-developer-teacher-text">
+                <h3>
+                    <b>
+                        <%= __('developer') %>
+                    </b>
+                </h3>
+            </p>
+        </div>
+        <div>
+            <a href="#teacher">
+                <img src="./images/Kursleiter_Icon.png" alt="Kursleiter" class="scientist-developer-teacher-images"></img>
+            </a>
+            <p>
+                <h3>
+                    <b>
+                        <%= __('teacher') %>
+                    </b>
+                </h3>
+            </p>
+        </div>
+        <div style="width:20%"></div>
 
     </div>
 
-    <div class="row">
-        <div>
-            <div class="col-md-3 padding-md padding-xs"></div>
-            <div align: "center" class="col-md-8 col-8">
-                <h2>Was ist Technikaffinität</h2>
-                <p>s, accumsan dui. Duis rhoncus erat a elit finibus, eget vestibulum massa scelerisque. Praesent sit amet cursus
-                    ante. Proin scelerisque dolor nibh, eu sagittis massa venenatis a. Nunc at arcu aliquam, pharetra eros
 
+
+
+    <div class="container-flex-scale-def" style="margin-left:10%">
+        <h2>
+            <%= __('definitionAffinityHeader') %>
+        </h2>
+
+    </div>
+    <div class="container-flex-scale-def" style="margin-left:10%">
+        <p>
+            <%= __('definitionAffinity') %>
+        </p>
+    </div>
+
+
+    </div>
+    <div style="margin-left:10%; margin-top:7.5%">
+        <h3>
+            <%= __('theScale') %>
+        </h3>
+    </div>
+
+    <div class="container-flex-scale">
+        <div style="width:10%"></div>
+        <div class="div-scale">
+            <div style="width:80%">
+                <%= __('downloadText') %>
+            </div>
+            <input type="image" src="./images/Download_Button.png" class="scale-image" />
+        </div>
+        <div style="width:10%">
+
+        </div>
+        <div class="div-scale">
+            <div style="width:80%">
+                <%= __('testYourselfText') %>
+            </div>
+            <a href="./files/skala.pdf">
+                <input type="image" src="./images/TesteDich_Button.png" class="scale-image" />
+            </a>
+        </div>
+        <div style="width:10%"></div>
+    </div>
+
+    <div id="information">
+        <div class="container-flex div-padding-row" id="div-what-why-how">
+            <div class="div-padding-min">
+                <h2>
+                    <%= __('what') %>
+                </h2>
+                <p>
+                    <%= __('whatText') %>
+                </p>
+            </div>
+            <div class="div-padding-min">
+                <h2>
+                    <%= __('how') %>
+                </h2>
+                <p>
+                    <%= __('howText') %>
+                </p>
+            </div>
+            <div class="div-padding-min">
+                <h2>
+                    <%= __('why') %>
+                </h2>
+                <p>
+                    <%= __('whyText') %>
                 </p>
             </div>
         </div>
-    </div>
-    <div class="row" style="margin-bottom:7.5%; margin-top:7.5%">
-        <div style="height:30%; background-color: white; margin-bottom:3%">
-            <div class="row">
-                <div class="col-xs-1 col-md-5 col-5">
+
+
+
+        <div class="row div-padding-row">
+            <div class="col-xs-12">
+                <div id="scientist">
+                    <h2>
+                        <%= __('Scientist') %>
+                    </h2>
+                    <p>
+                        <%= __('scientistText') %>
+                    </p>
 
                 </div>
-                <div class="col-xs-4 col-4">
-                    <h2>Die Skala</h2>
-                </div>
-                <div class="col-xs-2 col-2">
+            </div>
+        </div>
+        <div class="row div-padding-row background-light-grey">
+
+            <div class="col-xs-12">
+
+                <div id="developer">
+                    <h2>
+                        <%= __('developer') %>
+                    </h2>
+                    <p>
+                        <%= __('developerText') %>
+                    </p>
 
                 </div>
-                <div class="col-xs-4 col-4"></div>
-                <div class="col-xs-1 col-md-1 col-1"></div>
             </div>
-            <div class="row">
-                <div class="col-xs-1 col-md-5 col-5"></div>
-                <div class="col-xs-4 scale-text col-4">
-                    <div style="width:80%">Nutzen Sie unseren Fragebogen für Entwicklungs- und Forschungszwecke. Laden Sie ihn für Ihre Studie herunter</div>
+        </div>
+        <div class="row div-padding-row">
+            <div class="col-xs-12">
+                <div id="teacher">
+                    <h2>
+                        <%= __('teacher') %>
+                    </h2>
+                    <p>
+                        <%= __('teacherText') %>
+                    </p>
+
                 </div>
-                <div class="col-xs-2 col-2">
-                    </br>
-                    </br>
-                    </br>
-                    </br>
-                </div>
-                <div class="col-xs-4 col-4 scale-text">
-                    <div style="width:80%">Oder Nutzen Sie den Fragebogen und finden schnell heraus, wie affin Sie selbst im Umgang mit Technik
-                        sind</div>
-                </div>
-                <div class="col-xs-1 col-md-1 col-1"></div>
-            </div>
-            <div class="row">
-                <div class="col-xs-1 col-md-5 col-5"> </div>
-                <div class="col-xs-4 scale-buttons">
-                    <!--  <a href="/dl"> <button class="button col-xs-12 col-md-4" > Download</button></a>  -->
-                    <a href="/dl">
-                        <input type="image" src="./images/Download_Button.png" style="height:20%; width:40%" />
-                    </a>
-                </div>
-                <div class="col-xs-2 col-2"></div>
-                <div class="col-xs-4 scale-buttons">
-                    <!-- <button class="col-xs-12 col-md-4 button pull-left">Loslegen</button> -->
-                    <a href="#">
-                        <input type="image" src="./images/TesteDich_Button.png" style="height:20%; width:40%" />
-                    </a>
-                </div>
-                <div class="button col-xs-1 col-md-1 col-1"></div>
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="container-flex div-padding-row" id="div-what-why-how">
-        <div class="div-padding-min">
-            <h2>Was</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel nulla leo. Vestibulum id porta arcu, vitae
-                aliquet velit. Duis non tincidunt mi. Fusce quis eros felis. Donec a dictum dolor. Mauris ante turpis, vestibulum
-                sed egestas eget, interdum eget arcu. Duis fermentum laoreet pharetra. Nulla malesuada nibh at velit pretium
-                blandit. Fusce arcu justo, mollis eget ornare at, sodales vel ante.</p>
-        </div>
-        <div class="div-padding-min">
-            <h2>Wie</h2>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel nulla leo. Vestibulum id porta arcu, vitae aliquet velit.
-                Duis non tincidunt mi. Fusce quis eros felis. Donec a dictum dolor. Mauris ante turpis, vestibulum sed egestas
-                eget, interdum eget arcu. Duis fermentum laoreet pharetra. Nulla malesuada nibh at velit pretium blandit.
-                Fusce arcu justo, mollis eget ornare at, sodales vel ante.
-            </p>
-        </div>
-        <div class="div-padding-min">
-            <h2>Warum</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel nulla leo. Vestibulum id porta arcu, vitae
-                aliquet velit. Duis non tincidunt mi. Fusce quis eros felis. Donec a dictum dolor. Mauris ante turpis, vestibulum
-                sed egestas eget, interdum eget arcu. Duis fermentum laoreet pharetra. Nulla malesuada nibh at velit pretium
-                blandit. Fusce arcu justo, mollis eget ornare at, sodales vel ante.</p>
-        </div>
-    </div>
-
-
-
-    <div class="row div-padding-row">
-        <div class="col-xs-12">
-            <div id="scientist">
-                <h2>Forscher</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel nulla leo. Vestibulum id porta arcu, vitae
-                    aliquet velit. Duis non tincidunt mi. Fusce quis eros felis. Donec a dictum dolor. Mauris ante turpis,
-                    vestibulum sed egestas eget, interdum eget arcu. Duis fermentum laoreet pharetra. Nulla malesuada nibh
-                    at velit pretium blandit. Fusce arcu justo, mollis eget ornare at, sodales vel ante. Donec metus mi,
-                    fermentum nec imperdiet vel, egestas eget elit. Mauris tempus aliquam erat non volutpat. Donec luctus
-                    ultrices euismod. Aenean lacinia justo ac diam vestibulum consequat. Curabitur metus nisl, pulvinar vel
-                    hendrerit vitae, molestie non orci. Donec volutpat porttitor maximus. Ut at lacus a ipsum euismod sagittis.
-                    Nam ut fermentum ligula, in luctus risus. Nulla sed sodales ante, vel viverra est. Vestibulum efficitur
-                    hendrerit turpis, porta egestas enim luctus vitae. Pellentesque pretium convallis nisi eu pulvinar. Duis
-                    gravida lacus non ex accumsan, in condimentum leo vehicula. Vivamus non vulputate libero. Suspendisse
-                    suscipit dictum arcu, eu hendrerit dui tincidunt tristique. Ut nec magna elementum nisi euismod commodo
-                    quis vitae neque. Cras ut libero sed leo ullamcorper feugiat vel sagittis lacus.</p>
-
-            </div>
-        </div>
-    </div>
-    <div class="row div-padding-row background-light-grey">
-
-        <div class="col-xs-12">
-
-            <div id="developer">
-                <h2>Entwickler</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel nulla leo. Vestibulum id porta arcu, vitae
-                    aliquet velit. Duis non tincidunt mi. Fusce quis eros felis. Donec a dictum dolor. Mauris ante turpis,
-                    vestibulum sed egestas eget, interdum eget arcu. Duis fermentum laoreet pharetra. Nulla malesuada nibh
-                    at velit pretium blandit. Fusce arcu justo, mollis eget ornare at, sodales vel ante. Donec metus mi,
-                    fermentum nec imperdiet vel, egestas eget elit. Mauris tempus aliquam erat non volutpat. Donec luctus
-                    ultrices euismod. Aenean lacinia justo ac diam vestibulum consequat. Curabitur metus nisl, pulvinar vel
-                    hendrerit vitae, molestie non orci. Donec volutpat porttitor maximus. Ut at lacus a ipsum euismod sagittis.
-                    Nam ut fermentum ligula, in luctus risus. Nulla sed sodales ante, vel viverra est. Vestibulum efficitur</p>
-
-            </div>
-        </div>
-    </div>
-    <div class="row div-padding-row">
-        <div class="col-xs-12">
-            <div id="teacher">
-                <h2>Kursleiter</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel nulla leo. Vestibulum id porta arcu, vitae
-                    aliquet velit. Duis non tincidunt mi. Fusce quis eros felis. Donec a dictum dolor. Mauris ante turpis,
-                    vestibulum sed egestas eget, interdum eget arcu. Duis fermentum laoreet pharetra. Nulla malesuada nibh
-                    at velit pretium blandit. Fusce arcu justo, mollis eget ornare at, sodales vel ante. Donec metus mi,
-                    fermentum nec imperdiet vel, egestas eget elit. Mauris tempus aliquam erat non volutpat. Donec luctus
-                    ultrices euismod. Aenean lacinia justo ac diam vestibulum consequat. Curabitur metus nisl, pulvinar vel
-                    hendrerit vitae, molestie non orci. Donec volutpat porttitor maximus. Ut at lacus a ipsum euismod sagittis.
-                    Nam ut fermentum ligula, in luctus risus. Nulla sed sodales ante, vel viverra est. Vestibulum efficitur
-                    hendrerit turpis, porta egestas enim luctus vitae. Pellentesque pretium convallis nisi eu pulvinar. Duis
-                    gravida lacus non ex accumsan, in condimentum leo vehicula. Vivamus non vulputate libero. Suspendisse
-                    suscipit dictum arcu, eu hendrerit dui tincidunt tristique. Ut nec magna elementum nisi euismod commodo
-                    quis vitae neque. Cras ut libero sed leo ullamcorper feugiat vel sagittis lacus.</p>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="div-padding-row background-light-grey">
+    <div class="div-padding-row background-light-grey" id="authors">
         <div>
             <h3>
-                Wer wir sind
+                <%= __('whoWeAreHead') %>
             </h3>
             <p>
-                at velit pretium blandit. Fusce arcu justo, mollis eget ornare at, sodales vel ante. Donec metus mi, fermentum nec imperdiet
-                vel, egestas eget elit. Mauris tempus aliquam erat non volutpat. Donec luctus ultrices euismod. Aenean lacinia
-                justo ac diam vestibulum consequat. Curabitur metus nisl, pulvinar vel
+                <%= __('whoWeAre') %>
             </p>
         </div>
 
         <div class="container-flex div-padding-row" style="margin-top:-5%">
 
             <div class="div-padding-min" align="center">
-                <img src="./images/dummy-user.jpg" alt="Prof. Franke" class="author-images"></img>
+                <img src="./images/dummy-user.png" alt="Prof. Franke" class="author-images"></img>
                 </br>
                 <p style="margin-top:1%">Prof. Franke</p>
-                <p>nec imperdiet vel, egestas eget elit. Mauris tempus aliquam erat non volutpat. Donec luctus ultrices euismod.
-                    Aenean lacinia justo ac diam vestibulum consequat. Curabitur metus nisl, pulvinar ve</p>
+                <p>
+                    <%= __('frankeText') %>
+                </p>
             </div>
             <div class="div-padding-min" align="center">
-                <img src="./images/dummy-user.jpg" alt="Dr. Wessel" class="author-images"></img>
+                <img src="./images/dummy-user.png" alt="Dr. Wessel" class="author-images"></img>
                 </br>
                 <p style="margin-top:1%">Dr. Wessel</p>
-                <p>nec imperdiet vel, egestas eget elit. Mauris tempus aliquam erat non volutpat. Donec luctus ultrices euismod.
-                    Aenean lacinia justo ac diam vestibulum consequat. Curabitur metus nisl, pulvinar ve</p>
+                <p>
+                    <%= __('wesselText') %>
+                </p>
             </div>
             <div class="div-padding-min" align="center">
-                <img src="./images/dummy-user.jpg" alt="Fr. Attig" class="author-images"></img>
+                <img src="./images/dummy-user.png" alt="Fr. Attig" class="author-images"></img>
                 </br>
                 <p style="margin-top:1%">Fr. Attig</p>
-                <p><%= __('attigText') %></p>
+                <p>
+                    <%= __('attigText') %>
+                </p>
             </div>
         </div>
     </div>
 
 
 
-
+    <!--
     <a href="/toggle">
         <%= __('toggletext') %>
         
     </a>
     
+-->
 
-   
-        <footer align="center">
-          
-            <%- include ./partials/footer %>
-        </footer>
+    <footer>
+        <%- include ./partials/footer %>
+    </footer>
 
 </body>
 

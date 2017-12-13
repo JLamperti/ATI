@@ -1,61 +1,96 @@
-<nav class="navbar navbar-default navbar-noMargin">
-    <!-- brand -->
-         <div class="navbar-header">
+<!--<nav class="navbar navbar-default navbar-noMargin navbar-expand-lg" style="padding-right:1%">
+    
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">ATI</a>
+    </div>
+   
+    <ul class="nav navbar-nav">
+        <li>
+            <a href="#home">Home</a>
+        </li>
+        <li>
+            <a href="#scale">Skala</a>
+        </li>
+        <li>
+            <a href="#information">Hintergrund</a>
+        </li>
+        <li>
+            <a href="#scientist">Forscher</a>
+        </li>
+        <li>
+            <a href="#developer">Entwickler</a>
+        </li>
+        <li>
+            <a href="#teacher">Kursleiter</a>
+        </li>
+        <li>
+            <a href="#authors">Autoren</a>
+        </li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a href="#">
+                <span class="glyphicon glyphicon-user"></span>Login</a>
+        </li>
+
+        <li >
+            <a href="/toggle">
+                <%= __('toggletext') %>
+            </a>
+           
+               
+        </li>
+    </ul>
+
+
+</nav>-->
+<nav class="navbar navbar-default navbar-noMargin" style="padding-right:1%">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+            </button>
             <a class="navbar-brand" href="#">ATI</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                 <li>
+                  <a href="#home">Home</a>
+              </li>
+              
+                
+              <li>
+                  <a href="#scale">Skala</a>
+              </li>
+              <li>
+                  <a href="#information">Hintergrund</a>
+              </li>
+              <li>
+                  <a href="#scientist">Forscher</a>
+              </li>
+              <li>
+                  <a href="#developer">Entwickler</a>
+              </li>
+              <li>
+                  <a href="#teacher">Kursleiter</a>
+              </li>
+              <li>
+                  <a href="#authors">Autoren</a>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+              <li >
+                  <a href="/toggle">
+                      wechsel
+                  </a>
+                 
+                     
+              </li>
+            </ul>
+          </div>
         </div>
-        <!-- Elements -->
-        <ul class="nav navbar-nav">
-            <li >
-                <a href="#">Home</a>
-            </li>
-            <li>
-                <a href="#scale">Skala</a>
-            </li>
-            <li>
-                <a href="#information">Hintergrund</a>
-            </li>
-            <li>
-                <a href="#scientist">Forscher</a>
-            </li>
-            <li>
-                <a href="#developer">Entwickler</a>
-            </li>
-            <li>
-                <a href="#teacher">Kursleiter</a>
-            </li>
-            <li>
-                <a href="#authors">Autoren</a>
-            </li>
-        </ul>
-
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a href="#">
-                    <span class="glyphicon glyphicon-user"></span>Login</a>
-            </li>
-
-            <li style="margin-right:5%">
-                    <a href="/toggle">
-                                                <%= __('toggletext') %>
-                    </a>
-                <!--
-                <div class="dropdown show">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                        Deutsch
-                                        </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <p>
-                            <a class="dropdown-item" href="#">Deutsch</a>
-                        </p>
-                        <a class="dropdown-item" href="#">English</a>
-                    </div>
-                </div> -->
-            </li>
-        </ul>
-
-
-</nav>
-
-
-
+      </nav>
