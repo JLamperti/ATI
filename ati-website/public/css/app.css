@@ -30,3 +30,5 @@ margin-top:0;
 	 display: flex;
 	 flex-direction: column;
 }
+
+.bottomright {position:absolute; bottom:0;  margin-bottom:7px; margin:7px; right: 0;}
