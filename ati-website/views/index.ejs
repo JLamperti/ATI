@@ -10,7 +10,7 @@
         <%- include ./partials/header %>
     </header>
 
-    <img id="home" src="./images/Titelbild_Titel_Deutsch.jpg" alt="Two men one table" style="width:100.75%;margin-top:-20px;margin-right:10px" align="center"></img>
+    <img id="home" src=<%= __('imageTitle') %> alt="Two men one table" style="width:100.75%;margin-top:-20px;margin-right:10px" align="center"></img>
 
     <div class="container-flex-scale-def " align="center" >
         <div class="image-for-groups"></div>
@@ -133,7 +133,7 @@
             <div class="col-xs-12">
                 <div id="scientist">
                     <h2>
-                        <%= __('Scientist') %>
+                        <%= __('scientist') %>
                     </h2>
                     <p>
                         <%= __('scientistText') %>
