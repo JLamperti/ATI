@@ -10,9 +10,13 @@
         <%- include ./partials/header %>
     </header>
 
-    <img id="home" src=<%= __('imageTitle') %> alt="Two men one table" style="width:100.75%;margin-top:-20px;margin-right:10px" align="center"></img>
+    <div style="width:100%;height:70%;margin-top:-20px; background-image: url('./images/titleImg.jpg');background-size:cover" align="center">
+<h1 style="padding-top:5%"><%= __('title') %></h1>
+    </div>
 
-    <div class="container-flex-scale-def " align="center" >
+
+
+    <div class="container-flex-scale-def " align="center">
         <div class="image-for-groups"></div>
         <div>
             <a href="#scientist">
@@ -38,7 +42,7 @@
                 </h3>
             </p>
         </div>
-        <div >
+        <div>
             <a href="#teacher">
                 <img src="./images/Kursleiter_Icon.png" alt="Kursleiter" class="scientist-developer-teacher-images"></img>
             </a>
@@ -174,9 +178,9 @@
     <div class="div-padding-row background-light-grey" id="authors">
         <div>
             <h3>
-                    <%= __('whoWeAre') %>
+                <%= __('whoWeAre') %>
             </h3>
-            
+
         </div>
 
         <div class="container-flex div-padding-row" style="margin-top:-5%">
@@ -208,15 +212,6 @@
         </div>
     </div>
 
-
-
-    <!--
-    <a href="/toggle">
-        <%= __('toggletext') %>
-        
-    </a>
-    
--->
 
     <footer>
         <%- include ./partials/footer %>

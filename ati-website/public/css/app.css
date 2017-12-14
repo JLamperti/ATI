@@ -23,6 +23,14 @@ footer{
      padding-top:.75%;
      padding-bottom:auto;
 }
+.bgImg{
+  background-image: url('./images/titleImg.jpg');
+  background-size: cover;
+  min-width: 100%;
+  min-height:50%;
+
+}
+
 #userTypes{
   background-color: orange;
   width: 100%;
