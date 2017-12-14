@@ -1,38 +1,30 @@
 {
 	"toggletext": "Switch to english",
-
 	"scale": "Skala",
-	"background":"Hintergrund",
+	"background": "Hintergrund",
 	"authors": "Autoren",
-
 	"scientist": "Forscher",
 	"developer": "Entwickler",
 	"teacher": "Kursleiter",
-
 	"definitionAffinityHeader": "Was bedeutet Technikaffinität?",
 	"definitionAffinity": "Die Eigenschaft der Technikaffinität beschreibt, wie gerne und interessiert Personen sich mit Technik und interaktiven Systemen auseinandersetzen. Um die Technikaffinität herauszufinden, haben wir einen Fragebogen entwickelt.",
-
 	"theScale": "Die Skala",
 	"downloadText": "Nutze unseren Fragebogen für Entwicklungs- und Forschungszwecke. Lade ihn für deine Studie herunter.",
 	"testYourselfText": "Oder nutze den Fragebogen und finde schnell heraus, wie affin du selbst im Umgang mit Technik bist.",
-
 	"what": "Was",
 	"whatText": "Mit unserem Fragebogen kannst du schnell und unkompliziert deine Technikaffinität oder die deiner Probanden messen. Dazu kann der Fragebogen direkt auf dieser Seite ausgefüllt, oder einfach heruntergeladen werden. Das Ausfüllen nimmt fünf Minuten in Anspruch und ist auf diversen Gerät möglich. Außerdem gibt es viele weitere Features, wie der Zugang eines Vergleichs der Ergebnisse aller Teilnehmer.",
 	"how": "Wie",
 	"howText": "Mit der Technikaffinität behandelt der Fragebogen ein aktuelles Thema, welches derzeit in wissenschaftlichen Studien noch wenig berücksichtigt wird. Damit die Nutzer ein objektives, zuverlässiges und gültiges Ergebnis erhalten, wurde der Fragebogen, sowie das Feedback in wissenschaftlichem Kontext entwickelt. Zudem kann mithilfe der Online-Version schnell und ohne viel Aufwand eine relativ große Reichweite erlangt werden.",
-	"Why": "Warum",
-	"whyText":"Der Fragebogen ist aus verschiedenen Perspektiven ein hilfreiches Werkzeug. Forschern ist es möglich, hilfreiche Daten über ihre Probanden zu erhalten. Systementwickler können ihn einsetzen, um die Technikaffinität der Benutzer vor Evaluationen ihrer Prototypen zu ermitteln. Oder einfach für Interessenten, die etwas über ihre Persönlichkeitseigenschaften, bezüglich Technikaffinität, herauszufinden möchten.",
-
+	"why": "Warum",
+	"whyText": "Der Fragebogen ist aus verschiedenen Perspektiven ein hilfreiches Werkzeug. Forschern ist es möglich, hilfreiche Daten über ihre Probanden zu erhalten. Systementwickler können ihn einsetzen, um die Technikaffinität der Benutzer vor Evaluationen ihrer Prototypen zu ermitteln. Oder einfach für Interessenten, die etwas über ihre Persönlichkeitseigenschaften, bezüglich Technikaffinität, herauszufinden möchten.",
 	"scientistText": "Du bist Forscher oder Wissenschaftler und beschäftigst dich mit Studien und Probanden? Dann ist die ATI-Skala interessant für dich. Denn die Technikaffinität von Probanden, ist eine in Studien immer wieder auftretende Variable, die bisher noch zu wenig berücksichtigt wird. Ergebnisse von Studien und Forschungen können dadurch beeinflusst werden. Unsere Skala bietet eine einfach und schenlle Möglichkeit die Technikaffinität deiner Probanden zu ermitteln.",
 	"developerText": "Du beschäftigst dich mit der Entwicklung von interaktiven Systemen? Dann kannst du die ATI-Skala einsetzen, um die Technikaffinität von Probanden, für die Evaluationen deiner Produkte, zu ermitteln. Denn so kann sichergestellt werden, dass Probanden mit unterschiedlicher Technikaffinität in der Evalutaion berücksichtigt werden. ",
 	"teacherText": "Du bist Leiter eines Kurses im Bereich der Lehre? Dann kannst du die ATI-Skale einsetzen, um die Technikaffinität deiner Kursteilnehmer besser beurteilen zu können und aufgrund der Erkenntnisse die Didaktik des Kurses an die Eigenschaften der Teilnehmer anzupassen. Besonders in der heutigen Zeit kann die Technikaffinität eine zentrale Rolle in der Lehre annehmen.",
-
 	"whoWeAre": "Wer wir sind",
-	"wesselText":"Dipl.-Psychologe Dr. Daniel Wessel ist tätig im Bereich Forschung und Lehre am Institut für Multimediale und Interaktive Systeme an der Universität zu Lübeck.",
-	"attigText":"Christiane Attig absolvierte 2016 ihren M.Sc. in Psychologie an der Technischen Universität Chemnitz. Nun ist sie dort in der Professur für Allgemeine Psychologie I & Arbeitspsychologie tätig.",
-	"frankeText":"Dipl.-Psychologe Prof. Dr. Thomas Franke ist tätig im Bereich Forschung und Lehre am Institut für Multimediale und Interaktive Systeme an der Universität zu Lübeck.",
+	"wesselText": "Dipl.-Psychologe Dr. Daniel Wessel ist tätig im Bereich Forschung und Lehre am Institut für Multimediale und Interaktive Systeme an der Universität zu Lübeck.",
+	"attigText": "Christiane Attig absolvierte 2016 ihren M.Sc. in Psychologie an der Technischen Universität Chemnitz. Nun ist sie dort in der Professur für Allgemeine Psychologie I & Arbeitspsychologie tätig.",
+	"frankeText": "Dipl.-Psychologe Prof. Dr. Thomas Franke ist tätig im Bereich Forschung und Lehre am Institut für Multimediale und Interaktive Systeme an der Universität zu Lübeck.",
 	"imageL": "./images/german.png",
-	"imageTitle": "./images/Titelbild_Deutsch.jpg"
+	"imageTitle": "./images/Titelbild_Deutsch.jpg",
+	"Scientist": "Scientist"
 }
-
-
