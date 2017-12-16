@@ -1,7 +1,7 @@
 html {
   height: 100%;
   min-height:100%;
- 
+
 }
 a{
   color:white;
@@ -9,12 +9,22 @@ a{
 a:hover{
   color:#C5EFF7;
 }
+
+/*
+Notes:
+generally combine serif and non-serif font for body and headline text
+
+*/
 body{
   height: 100%;
   min-height:100%;
   color: #223241;
   text-align: justify;
-  font-familiy: "Arial", Helvetica, sans-serif;
+  font-family: 'Open Sans', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Titillium Web', sans-serif;
+  font-weight:500;
 }
 footer{
   background-color: #344853;
@@ -53,7 +63,7 @@ footer{
   padding-bottom:7.5%
 }
 .scientist-developer-teacher-text{
-  font-size:large;  
+  font-size:large;
 }
 .scale-image{
   margin-top:3%;
@@ -95,7 +105,7 @@ footer{
   flex-direction:column;
   flex-wrap: nowrap;
   justify-content: flex-start;
- 
+
 }
 .langImg{
   width:10%;
@@ -109,7 +119,7 @@ footer{
   flex-direction:column;
   flex-wrap: nowrap;
   justify-content: flex-start;
-  
+
   margin-bottom:7.5%;
 
 }
@@ -136,7 +146,7 @@ footer{
 
 }
 }
-  
+
   @media (max-width: 768px){
     b{
       font-size: 50%;
@@ -154,10 +164,10 @@ footer{
       width:100%;
     }
     .author-images{
-      
+
       height:60%;
        width:20%;
-     
+
      }
      .langImg{
       width:5%;
@@ -166,22 +176,22 @@ footer{
      .imgLangSmall{
        padding-left:6%;
      }
-   
-    
+
+
   }
 
   @media (min-width: 1200px) {
     .author-images{
       height:50%;
        width:20%;
-     
+
      }
-     
+
      .image-for-groups{
       width:20%
     }
     .scale-container{
-      margin-top:.5%; 
+      margin-top:.5%;
       height:20%;
     }
     .langImg{
@@ -196,7 +206,7 @@ footer{
       height:40%;
       width:100%;
     }
-   
+
     .container-flex{
       display:flex;
       flex-direction:row;
@@ -216,27 +226,26 @@ footer{
         height:40%;
       }
       .author-images{
-        
+
         height:60%;
         width:40%;
-      
+
       }
     .container-flex-scale{
       display:flex;
       flex-direction:row;
       flex-wrap: nowrap;
       justify-content: flex-start;
-     
+
       margin-bottom:7.5%;
   }
-  
-  
- 
- 
-  
-  
-  
-    
-    
-  }
 
+
+
+
+
+
+
+
+
+  }
