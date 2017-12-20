@@ -30,5 +30,10 @@
 	"wesselText": "Dipl.-Psychologe Dr. Daniel Wessel ist tätig im Bereich Forschung und Lehre am Institut für Multimediale und Interaktive Systeme an der Universität zu Lübeck.",
 	"imageL": "./images/german.png",
 	"imageTitle": "./images/Titelbild_Deutsch.jpg",
-	"Scientist": "Scientist"
+	"Scientist": "Scientist",
+	"title": "Skala zur Messung der Technikaffinität in der Interaktion",
+	"title1": "Skala zur Messung",
+	"title2": "der Technikaffinität",
+	"title3": "in der Interaktion"
 }
+

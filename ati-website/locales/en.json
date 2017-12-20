@@ -30,5 +30,10 @@
 	"wesselText": "Dipl.-Psych. Daniel Wessel works in the field of research and teaching at the Institute for Multimedia and Interactive Systems at the University of Lübeck.",
 	"imageL": "./images/english.png",
 	"imageTitle": "./images/Titelbild_Englisch.jpg",
-	"Scientist": "Scientist"
+
+	"Scientist": "Scientist",	
+	"title1": "Scale for measuring",
+	"title2":"the affinity",
+	"title3":"of technology interaction"
 }
+
