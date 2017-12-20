@@ -178,7 +178,7 @@
             </div>
         </div>
     </div>
-    <div class="div-padding-row background-light-grey" id="authors">
+    <div class="div-padding-row background-light-grey" id="authors" align="center">
         <div>
             <h3>
                 <%= __('whoWeAre') %>
@@ -189,27 +189,33 @@
         <div class="container-flex div-padding-row" style="margin-top:-5%">
 
             <div class="div-padding-min" align="center">
-                <img src="./images/dummy-user.png" alt="Prof. Franke" class="author-images"></img>
+                <img src="./images/dummy-user.png" alt="Thomas Franke" class="author-images"></img>
                 </br>
-                <p style="margin-top:1%">Prof. Franke</p>
+                <h4 style="margin-top:1%">
+                  <%- __('frankeName') %>
+                </h4>
                 <p>
-                    <%= __('frankeText') %>
+                  <%= __('frankeText') %>
                 </p>
             </div>
             <div class="div-padding-min" align="center">
-                <img src="./images/dummy-user.png" alt="Dr. Wessel" class="author-images"></img>
+                <img src="./images/dummy-user.png" alt="Christiane Attig" class="author-images"></img>
                 </br>
-                <p style="margin-top:1%">Dr. Wessel</p>
+                <h4 style="margin-top:1%">
+                  <%- __('attigName') %>
+                </h4>
+                <p>
+                  <%= __('attigText') %>
+                </p>
+            </div>
+            <div class="div-padding-min" align="center">
+                <img src="./images/dummy-user.png" alt="Daniel Wessel" class="author-images"></img>
+                </br>
+                <h4 style="margin-top:1%">
+                  <%- __('wesselName') %>
+                </h4>
                 <p>
                     <%= __('wesselText') %>
-                </p>
-            </div>
-            <div class="div-padding-min" align="center">
-                <img src="./images/dummy-user.png" alt="Fr. Attig" class="author-images"></img>
-                </br>
-                <p style="margin-top:1%">Fr. Attig</p>
-                <p>
-                    <%= __('attigText') %>
                 </p>
             </div>
         </div>
