@@ -109,6 +109,8 @@ footer{
 
 
 
+
+
 @media (min-width: 768px) {
 .container-flex{
   display:flex;
@@ -186,8 +188,8 @@ footer{
       height:20%;
     }
     .langImg{
-      width:10%;
-      height:10%;
+      width:12%;
+      height:12%;
      }
     .container-flex-scale-def{
       display:flex;
@@ -222,6 +224,10 @@ footer{
      
       margin-bottom:7.5%;
   }
+
+  .li-header-right{
+    width:60%;
+   }
   
   
  
