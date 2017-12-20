@@ -21,6 +21,10 @@ body{
   color: #223241;
   text-align: justify;
   font-family: 'Open Sans', sans-serif;
+ /*  -moz-transform: scale(0.8, 0.8); 
+  zoom: 0.8; 
+  zoom: 80%; */
+
 }
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Titillium Web', sans-serif;
@@ -71,7 +75,7 @@ footer{
 
 .div-padding-row-SDT{
   padding-left:9.75%;
-  padding-right:9%;
+  padding-right:15%;
   padding-top:7.5%;
   padding-bottom:7.5%
 }
