@@ -45,7 +45,7 @@ footer{
 .div-padding-min{
   padding-left:5%;
   padding-right:5%;
-  width:100%;
+
 }
 .div-padding-row{
   padding-left:5%;
@@ -53,6 +53,7 @@ footer{
   padding-top:7.5%;
   padding-bottom:7.5%
 }
+
 .scientist-developer-teacher-text{
   font-size:large;  
 }
@@ -94,6 +95,9 @@ footer{
   max-height:40%;
    max-width:40%;
  
+ }
+ .row{
+   max-width:100%;
  }
 
 
