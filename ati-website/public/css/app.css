@@ -38,6 +38,10 @@ footer{
   background: #344853;
   color:white;
 }
+.title-txt{
+  padding-top:7.5%;
+   padding-left:15%;
+}
 .bottom-left {position:absolute; bottom:0; left: 0; margin-left: 1%;}
 .navbar-noMargin{
   margin-top:0;
