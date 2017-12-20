@@ -81,6 +81,7 @@ footer{
   padding: 1.5%;
   background-color: #E4E4E4;
   margin-bottom: 0.25%;
+  width:35%;
 }
 .background-light-grey{
   background-color: #E4E4E4;
@@ -109,6 +110,12 @@ footer{
  }
  .row{
    max-width:100%;
+ }
+ .container-flex-scale-title{
+  display:flex;
+  flex-direction:row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
  }
 
 
