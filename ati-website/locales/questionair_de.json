@@ -1,0 +1,22 @@
+{
+    "instruction": "Bitte geben Sie den Grad Ihrer Zustimmung zu folgenden Aussagen an.",
+    "questions": {
+        "question1": "Ich beschäftige mich gern genauer mit technischen Systemen.",
+        "question2": "Ich probiere gern die Funktionen neuer technischer Systeme aus.",
+        "question3": "In erster Linie beschäftige ich mich mit technischen Systemen, weil ich muss.",
+        "question4": "Wenn ich ein neues technisches System vor mir habe, probiere ich es intensiv aus",
+        "question5": "Ich verbringe sehr gern Zeit mit dem Kennenlernen eines neuen technischen Systems.",
+        "question6": "Es genügt mir, dass ein technisches System funktioniert, mir ist es egal, wie oder warum",
+        "question7": "Ich versuche zu verstehen, wie ein technisches System genau funktioniert.",
+        "question8": "Es genügt mir, die Grundfunktionen eines technischen Systems zu kennen.",
+        "question9": "Ich versuche, die Möglichkeiten eines technischen Systems vollständig auszunutzen."
+    },
+    "answers": {
+        "answer1": "stimmt gar nicht",
+        "answer2": "stimmt weitgehend nicht",
+        "answer3": "stimmt eher nicht",
+        "answer4": "stimmt eher",
+        "answer5": "stimmt weitgehend",
+        "answer6": "stimmt völlig"
+    }
+}
