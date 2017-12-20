@@ -20,20 +20,19 @@
 	"developer": "Developer",
 	"developerText": "You develop interactive systems? Then you can use the ATI-scale to determine the affinity of technology of probands when you evaluate your products. That way it can be ensured that probands with different affinity of technology are considered in the evaluation.",
 	"teacher": "Teacher",
-	"teacherText": "You are a teacher in a school or university? Then you can use the ATI-scale to better assess your students' affinity for technology. Based on that knowledge you can adjust the didactics of the course to the characteristics of the participants. This is becoming more important with the increasing use of technology in education.",
+	"teacherText": "You are a teacher at a school or university? Then you can use the ATI-scale to better assess your students' affinity for technology. Based on that knowledge you can adjust the didactics of the course to the characteristics of the participants. This is becoming more important with the increasing use of technology in education.",
 	"whoWeAre": "Who we are",
 	"frankeName": "Univ. Prof Thomas Franke,<br> Graduate Psychologist, PhD",
-	"frankeText": "Dipl.-Psych. Prof. Dr. Thomas Franke works in the field of research and teaching at the Institute for Multimedia and Interactive Systems at the University of Lübeck.",
-	"attigName":"Christiane Attig,<br> MSc Psych.",
-	"attigText": "Christiane Attig completed her M.Sc. in Psychology at Chemnitz University of Technology. Now she is working there in the professorship of General Psychology I & Industrial Psychology.",
+	"frankeText": "Univ. Prof Thomas Franke researches and teaches at the Institute for Multimedia and Interactive Systems at the University of Lübeck.",
+	"attigName":"Christiane Attig,<br> MSc Psychology",
+	"attigText": "Christiane Attig completed her M.Sc. in Psychology at Chemnitz University of Technology, where she now holds the professorship of General Psychology I & Work Psychology.",
 	"wesselName":"Daniel Wessel,<br> Graduate Psychologist, PhD",
-	"wesselText": "Dipl.-Psych. Daniel Wessel works in the field of research and teaching at the Institute for Multimedia and Interactive Systems at the University of Lübeck.",
+	"wesselText": "Daniel Wessel researches and teaches at the Institute for Multimedia and Interactive Systems at the University of Lübeck.",
 	"imageL": "./images/english.png",
 	"imageTitle": "./images/Titelbild_Englisch.jpg",
 
-	"Scientist": "Scientist",	
+	"Scientist": "Scientist",
 	"title1": "Scale for measuring",
 	"title2":"the affinity",
 	"title3":"of technology interaction"
 }
-

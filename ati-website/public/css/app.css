@@ -10,21 +10,21 @@ a:hover{
   color:#C5EFF7;
 }
 
-/*
-Notes:
-generally combine serif and non-serif font for body and headline text
-
-*/
 body{
   height: 100%;
   min-height:100%;
   color: #223241;
   text-align: justify;
   font-family: 'Open Sans', sans-serif;
+  font-size: 175%;
 }
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Titillium Web', sans-serif;
   font-weight:500;
+}
+
+h4{
+    font-size: 110%
 }
 
 footer{
@@ -117,7 +117,7 @@ footer{
 .author-images{
   max-height:40%;
    max-width:40%;
- 
+
  }
  .row{
    max-width:100%;
@@ -178,7 +178,7 @@ footer{
     b{
       font-size: 50%;
     }
-  
+
     .container-flex-scale-def{
       display:flex;
       flex-direction:row;
@@ -236,8 +236,8 @@ footer{
       flex-wrap: nowrap;
       justify-content: flex-start; }
 
-    
-   
+
+
 
     .container-flex-scale{
       display:flex;
@@ -252,15 +252,15 @@ footer{
   .li-header-right{
     width:60%;
    }
-  
-  
- 
- 
-  
-  
-  
-    
-    
+
+
+
+
+
+
+
+
+
   }
 
 
