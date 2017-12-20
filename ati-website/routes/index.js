@@ -21,6 +21,9 @@ router.use('/toggle', function (req, res) {
 	//res.render('index', { title: 'ATI' });
 });
 
+router.get('/about', function(req, res, next){
+	res.render('about', { title: 'ATI' });
+});
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'ATI' });
