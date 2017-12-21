@@ -53,10 +53,7 @@ footer {
   color: white;
 }
 
-.title-txt {
-  padding-top: 7.5%;
-  padding-left: 15%;
-}
+
 
 .bottom-left {
   position: absolute;
@@ -236,6 +233,10 @@ footer {
   .image-for-groups {
     width: 20%
   }
+  .title-txt {
+    padding-top: 7.5%;
+    padding-left: 15%;
+  }
   .scale-container {
     margin-top: .5%;
     height: 20%;
@@ -316,6 +317,10 @@ footer {
     
    max-width:80%;
    max-height:80%
+  }
+  .title-txt {
+    padding-top: 2rem;
+   padding-left: 20rem;
   }
 }
 
