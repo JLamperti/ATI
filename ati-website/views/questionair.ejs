@@ -1,48 +1,9 @@
-<head lang="en">
-    <%- include ./partials/head %>
+<head>
+
 </head>
 
 <body>
-    <table class="table table-sm table-striped">
-        <thead>
-            <tr>
-                <th style="width:5%">#</th>
-                <th style="width:35%">
-                    <%= __('instruction') %>
-                </th>
-                <th style="width:10%">
-                    <%= __('answer1') %>
-                </th>
-                <th style="width:10%">
-                    <%= __('answer2') %>
-                </th>
-                <th style="width:10%">
-                    <%= __('answer3') %>
-                </th>
-                <th style="width:10%">
-                    <%= __('answer4') %>
-                </th>
-                <th style="width:10%">
-                    <%= __('answer5') %>
-                </th>
-                <th style="width:10%">
-                    <%= __('answer6') %>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <% for(var i =0; i < <% __('questions.length') %> ; i++)
-            <% <tr> %>
-            <% <td><%= i %></td>  %>
-            <% <td><%= __('questions[i]') %></td>  %>
-            <% <td><input type="radio" align="center" value="'<%= __('answers[0]') %>'" /></td> %>
-            <% <td><input type="radio" align="center" value="'<%= __('answers[1]') %>'" /></td> %>
-            <% <td><input type="radio" align="center" value="'<%= __('answers[2]') %>'" /></td> %>
-            <% <td><input type="radio" align="center" value="'<%= __('answers[3]') %>'" /></td> %>
-            <% <td><input type="radio" align="center" value="'<%= __('answers[4]') %>'" /></td> %>
-            <% <td><input type="radio" align="center" value="'<%= __('answers[5]') %>'" /></td> %>
-            <% </tr> %>
-         </tbody>
-    </table>
+   
+
     <button class="button">Submit</button>
 </body>

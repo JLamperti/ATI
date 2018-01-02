@@ -7,7 +7,7 @@
         <%- include ./partials/header %>
     </header>
 
-    <div style="width:100%;height:70%;margin-top:-20px; background-image: url('./images/titleImg.jpg');background-size:cover; background-repeat: no-repeat"
+    <div class="title-screen" style="background-image: url('./images/titleImg.jpg');background-size:cover; background-repeat: no-repeat"
         align="center">
         <p class="title-txt">
             <h1>
@@ -120,10 +120,13 @@
         <div class="div-scale" style="padding-top:4rem; padding-bottom:4rem; margin-top: 1rem">
             <div style="width:80%">
                 <%= __('testYourselfText') %>
-            </div>
+            </div><!--
             <a href="./files/skala.pdf">
                 <input type="image" src="./images/TesteDich_Button.png" class="scale-image" />
-            </a>
+            </a> -->
+            <a href="./form">
+                <input type="image" src="./images/TesteDich_Button.png" class="scale-image" />
+            </a>            
         </div>
         <div style="width:10%"></div>
     </div>
