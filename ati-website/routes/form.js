@@ -1,9 +1,11 @@
-var express = require('express');
+var express = require('express'),
+  cookieParser = require('cookie-parser');
 var router = express.Router();
 
+router.use(cookieParser());
 /* GET the questionaire */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+router.get('/form', function(req, res) {
+  res.render('questionair');
 });
 
 module.exports = router;

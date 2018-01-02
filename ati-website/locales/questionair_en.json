@@ -1,4 +1,6 @@
 {
+    "titleQuestionaire": "Test your affinity for technology-interaction ",
+    "sideInstructions": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,",
     "instruction": "Please indicate the degree to which you agree/disagree with the following statements.",
     "questions": {
         "question1": "I like to occupy myself in greater detail with technical systems",
@@ -18,5 +20,21 @@
         "answer4": "slightly agree",
         "answer5": "largely agree",
         "answer6": "completely agree"
+    },
+    "sex":{
+        "desc": "Sex",
+        "male": "male",
+        "female": "female"
+    },
+    "age":{
+        "desc": "Age",
+        "unit": "Years"
+    },  
+    "educationLevel": {
+        "desc": "highest achieved education level",
+        "lesserThanAbitur": "lesser than A level",
+        "aLevel": "A level",
+        "BMD": "Bachelor/Master/Diploma",
+        "hMD": "higher than Master/Diploma"
     }
 }
