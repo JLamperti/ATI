@@ -4,7 +4,7 @@ var router = express.Router();
 
 router.use(cookieParser());
 /* GET the questionaire */
-router.get('/form', function(req, res) {
+router.get('/', function(req, res) {
   res.render('questionair');
 });
 
