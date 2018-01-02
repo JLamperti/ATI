@@ -1,3 +1,5 @@
+"use strict";
+
 var mysql = require('mysql');
 var path	= require('path');
 var fs	= require('fs');
@@ -22,31 +24,25 @@ exports.connectDB = function() {
 	});
 };
 
-//
+//more or less a testing function, that selects all proband once
 exports.selectAll = function (req, res) {	
-	con.query("
-		(SELECT p.ProbandID, p.Age, p.ProbandToken, p.AtiScore
-		FROM (
-			SELECT ProbandToken, MAX(ProbandID) AS maxID
-			FROM Proband GROUP BY ProbandToken
-		) AS x INNER JOIN Proband AS p ON p.ProbandToken = x.ProbandToken AND p.ProbandID = x.maxID
-		WHERE p.ProbandToken IS NOT NULL
-		)
-		UNION (
-			SELECT ProbandID, Age, ProbandToken, AtiScore 
-			FROM Proband p
-			WHERE ProbandToken IS NULL)
+	con.query("\
+		(SELECT p.ProbandID, p.Age, p.ProbandToken, p.AtiScore\
+		FROM (\
+			SELECT ProbandToken, MAX(ProbandID) AS maxID\
+			FROM Proband GROUP BY ProbandToken\
+		) AS x INNER JOIN Proband AS p ON p.ProbandToken = x.ProbandToken AND p.ProbandID = x.maxID \
+		WHERE p.ProbandToken IS NOT NULL\
+		)\
+		UNION (\
+			SELECT ProbandID, Age, ProbandToken, AtiScore \
+			FROM Proband p\
+			WHERE ProbandToken IS NULL)\
 		", function (err, result) {
 				if (err) throw err;
-				console.log('Result in modul: ',result[0]);
-				var string = JSON.stringify(result[0]);
-				console.log('string in module: ',string);
-				console.log('>>>write json');
+				var string = JSON.stringify(result);
 				let json =  JSON.parse(string);
-				console.log('JSON in module: ',json);
-				//fs.writeFile(path.join(__dirname + "/testData.json"), string);
 				res.send(json);
-				console.log(json);
 		});
 };
 

@@ -43,6 +43,15 @@
 				]
 			};
 			new Chartist.Line('.ct-chart', data);
+			
+                    let url = '/results/get/all';
+
+                    fetch(url)
+                        .then(res => res.json())
+                        .then((out) => {
+                            console.log(out);
+                        })
+                        .catch(err => { throw err });
 		</script>
 
 
