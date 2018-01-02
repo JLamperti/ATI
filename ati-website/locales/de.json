@@ -34,44 +34,32 @@
 	"title1": "Skala zur Messung",
 	"title2": "der Technikaffinität",
 	"title3": "in der Interaktion",
-
-	//Questionair
-	 "titleQuestionaire": "Teste deine Technikaffinität",
-    "sideInstructions": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,",
-    "instruction": "Bitte geben Sie den Grad Ihrer Zustimmung zu folgenden Aussagen an.",
-    "questions": {
-        "question1": "Ich beschäftige mich gern genauer mit technischen Systemen.",
-        "question2": "Ich probiere gern die Funktionen neuer technischer Systeme aus.",
-        "question3": "In erster Linie beschäftige ich mich mit technischen Systemen, weil ich muss.",
-        "question4": "Wenn ich ein neues technisches System vor mir habe, probiere ich es intensiv aus",
-        "question5": "Ich verbringe sehr gern Zeit mit dem Kennenlernen eines neuen technischen Systems.",
-        "question6": "Es genügt mir, dass ein technisches System funktioniert, mir ist es egal, wie oder warum",
-        "question7": "Ich versuche zu verstehen, wie ein technisches System genau funktioniert.",
-        "question8": "Es genügt mir, die Grundfunktionen eines technischen Systems zu kennen.",
-        "question9": "Ich versuche, die Möglichkeiten eines technischen Systems vollständig auszunutzen."
-    },
-    "answers": {
-        "answer1": "stimmt gar nicht",
-        "answer2": "stimmt weitgehend nicht",
-        "answer3": "stimmt eher nicht",
-        "answer4": "stimmt eher",
-        "answer5": "stimmt weitgehend",
-        "answer6": "stimmt völlig"
-    },
-    "sex":{
-        "desc": "Geschlecht",
-        "male": "männlich",
-        "female": "weiblich"        
-    },
-    "age":{
-        "desc": "Alter",
-        "unit": "Jahre"
-    },    
-    "educationLevel": {
-        "desc": "Höchste erreichte Bildungsstufe",
-        "lesserThanAbitur": "geringer als Abitur/Fachhochschulreife",
-        "aLevel": "Abitur/Fachhochschulreife",
-        "BMD": "Bachelor/Master/Diplom",
-        "hMD": "Höher als Master/Diplom"
-    }
+	"titleQuestionaire": "Teste deine Technikaffinität",
+	"sideInstructions": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,",
+	"instruction": "Bitte geben Sie den Grad Ihrer Zustimmung zu folgenden Aussagen an.",
+	"questions.question1": "Ich beschäftige mich gern genauer mit technischen Systemen.",
+	"questions.question2": "Ich probiere gern die Funktionen neuer technischer Systeme aus.",
+	"questions.question3": "In erster Linie beschäftige ich mich mit technischen Systemen, weil ich muss.",
+	"questions.question4": "Wenn ich ein neues technisches System vor mir habe, probiere ich es intensiv aus",
+	"questions.question5": "Ich verbringe sehr gern Zeit mit dem Kennenlernen eines neuen technischen Systems.",
+	"questions.question6": "Es genügt mir, dass ein technisches System funktioniert, mir ist es egal, wie oder warum",
+	"questions.question7": "Ich versuche zu verstehen, wie ein technisches System genau funktioniert.",
+	"questions.question8": "Es genügt mir, die Grundfunktionen eines technischen Systems zu kennen.",
+	"questions.question9": "Ich versuche, die Möglichkeiten eines technischen Systems vollständig auszunutzen.",
+	"answers.answer1": "stimmt gar nicht",
+	"answers.answer2": "stimmt weitgehend nicht",
+	"answers.answer3": "stimmt eher nicht",
+	"answers.answer4": "stimmt eher",
+	"answers.answer5": "stimmt weitgehend",
+	"answers.answer6": "stimmt völlig",
+	"sex.desc": "Geschlecht",
+	"sex.male": "männlich",
+	"sex.female": "weiblich",
+	"age.desc": "Alter",
+	"age.unit": "Jahre",
+	"educationLevel.desc": "Höchste erreichte Bildungsstufe",
+	"educationLevel.lesserThanAbitur": "geringer als Abitur/Fachhochschulreife",
+	"educationLevel.aLevel": "Abitur/Fachhochschulreife",
+	"educationLevel.BMD": "Bachelor/Master/Diplom",
+	"educationLevel.hMD": "Höher als Master/Diplom"
 }
