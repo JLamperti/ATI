@@ -33,5 +33,46 @@
   "title": "Scale for Measuring the Affinity for Technology-Interaction",
   "title1": "Scale for measuring",
   "title2": "the affinity",
-  "title3": "for technology-interaction"
+  "title3": "for technology-interaction",
+
+  //Questionair
+  "titleQuestionaire": "Test your affinity for technology-interaction ",
+    "sideInstructions": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,",
+    "instruction": "Please indicate the degree to which you agree/disagree with the following statements.",
+    "questions": {
+        "question1": "I like to occupy myself in greater detail with technical systems",
+        "question2": "I like testing the functions of new technical systems.",
+        "question3": "I predominantly deal with technical systems because I have to.",
+        "question4": "When I have a new technical system in front of me, I try it out intensively",
+        "question5": "I enjoy spending time becoming acquainted with a new technical system.",
+        "question6": "It is enough for me that a technical system works; I don’t care how or why.",
+        "question7": "I try to understand how a technical system exactly works",
+        "question8": "It is enough for me to know the basic functions of a technical system.",
+        "question9": "I try to make full use of the capabilities of a technical system"
+    },
+    "answers": {
+        "answer1": "completely disagree",
+        "answer2": "largely disagree",
+        "answer3": "slightly disagree",
+        "answer4": "slightly agree",
+        "answer5": "largely agree",
+        "answer6": "completely agree"
+    },
+    "sex":{
+        "desc": "Sex",
+        "male": "male",
+        "female": "female"
+    },
+    "age":{
+        "desc": "Age",
+        "unit": "Years"
+    },  
+    "educationLevel": {
+        "desc": "highest achieved education level",
+        "lesserThanAbitur": "lesser than A level",
+        "aLevel": "A level",
+        "BMD": "Bachelor/Master/Diploma",
+        "hMD": "higher than Master/Diploma"
+    }
+
 }

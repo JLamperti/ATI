@@ -1,9 +1,59 @@
-<head>
-
+    <%- include ./partials/head %>
+<title>ATI</title>
 </head>
-
-<body>
-   
-
-    <button class="button">Submit</button>
-</body>
+    <body>
+        <table class="table table-sm table-striped">
+            <thead>
+                <tr>
+                    <th class="col-1">#</th>
+                    <th class="col-5">
+                        <%= __('instruction') %>
+                    </th>
+                    <th class="col-1">
+                        <%= __('answers.answer1') %>
+                    </th>
+                    <th class="col-1">
+                        <%= __('answers.answer2') %>
+                    </th>
+                    <th class="col-1">
+                        <%= __('answers.answer3') %>
+                    </th>
+                    <th class="col-1">
+                        <%= __('answers.answer4') %>
+                    </th>
+                    <th class="col-1">
+                        <%= __('answers.answer5') %>
+                    </th>
+                    <th class="col-1">
+                        <%= __('answers.answer6') %>
+                    </th>
+                </tr>
+            </thead>
+            
+        </table>
+    
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <div> <%= __('sex.desc') %> </div>               
+                </div>
+                <div>
+                        <div class="col-2"><input type="checkbox" align="center" value="<%= __('sex.male') %>" /> <%= __('sex.male') %> </div>
+                        <div class="col-2"><input type="checkbox" align="center" value="<%= __('sex.female') %>" /> <%= __('sex.female') %> </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3"> <%= __('age.desc') %></div>
+                <div class="col-4"><input type="text" /> <%= __('age.unit') %></div>               
+            </div>
+            <div class="row">
+                <div class="col-3"> <%= __('educationLevel.desc') %></div>
+                <div class="col-8">
+                    <div class="row"></div>
+                </div>
+                              
+            </div>
+        </div>
+    
+        <button class="button">Submit</button>
+    </body>
