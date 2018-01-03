@@ -14,4 +14,8 @@ router.get('/get/all', function(req, res) {
 	gData.selectAll(req, res);
 });
 
+router.get('/get/buckets', function(req, res) {
+	gData.selectBuckets(req, res);
+});
+
 module.exports = router;

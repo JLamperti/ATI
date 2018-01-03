@@ -42,14 +42,26 @@
 					[4, 6, 10, 12, 7, 3]
 				]
 			};
+			console.log(data);
 			new Chartist.Line('.ct-chart', data);
 			
-                    let url = '/results/get/all';
+                    let url = '/results/get/buckets';
 
                     fetch(url)
                         .then(res => res.json())
                         .then((out) => {
                             console.log(out);
+							console.log(out[0].amount);
+							var data = {
+								labels: [],
+								series: [[]]
+							};
+							for (i=0;i<5;i++) {
+								data.labels[i] = out[i].bucket;
+								data.series[0][i] = out[i].amount;
+							};
+							new Chartist.Line('.ct-chart', data);
+							console.log(data);
                         })
                         .catch(err => { throw err });
 		</script>

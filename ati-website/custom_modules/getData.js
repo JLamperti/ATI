@@ -7,5 +7,9 @@ exports.setDba = function(newDba) {
 };
 
 exports.selectAll = function(req, res) {
-	dba.selectAll(req, res);
+	dba.manipulateDB("SELECT * FROM allesOhneDuplikate;", req, res);
+};
+
+exports.selectBuckets = function(req, res) {
+	dba.manipulateDB("SELECT * FROM bucketsOhneDuplikate", req, res);
 };
