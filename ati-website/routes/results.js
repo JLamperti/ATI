@@ -18,4 +18,8 @@ router.get('/get/buckets', function(req, res) {
 	gData.selectBuckets(req, res);
 });
 
+router.get('/get/ageAndAti', function(req, res) {
+	gData.selectAgeAndAti(req, res);
+});
+
 module.exports = router;

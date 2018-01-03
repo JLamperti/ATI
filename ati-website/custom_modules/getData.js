@@ -13,3 +13,7 @@ exports.selectAll = function(req, res) {
 exports.selectBuckets = function(req, res) {
 	dba.manipulateDB("SELECT * FROM bucketsOhneDuplikate", req, res);
 };
+
+exports.selectAgeAndAti = function(req, res) {
+	dba.manipulateDB("SELECT Age, AtiScore FROM allesOhneDuplikate;", req, res);
+};
