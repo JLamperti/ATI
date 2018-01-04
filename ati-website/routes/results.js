@@ -22,4 +22,8 @@ router.get('/get/ageAndAti', function(req, res) {
 	gData.selectAgeAndAti(req, res);
 });
 
+router.get('/get/complex', function(req, res) {
+	gData.selectComplex(req, res);
+});
+
 module.exports = router;

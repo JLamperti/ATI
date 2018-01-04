@@ -95,6 +95,14 @@ var options = {
                         })
                         .catch(err => { throw err });
 			
+			url = 'results/get/complex?sel[1]=AtiScore&sel[2]=Age&sel[3]=Education';
+			fetch(url)
+				.then(res => res.json())
+                        .then((out) => {
+                            console.log(out);
+						})
+						.catch(err => {throw err});
+			
 		</script>
 
 
