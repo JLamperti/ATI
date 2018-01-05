@@ -48,7 +48,7 @@
 			*/
 			
 			/*
-                    let url = '/results/get/buckets';
+                    let url = '/db/get/buckets';
 
                     fetch(url)
                         .then(res => res.json())
@@ -69,7 +69,7 @@
                         .catch(err => { throw err });
 						
 			*/
-			let url = '/results/get/ageAndAti';
+			let url = '/db/get/ageAndAti';
 			
 
 var options = {
@@ -95,7 +95,7 @@ var options = {
                         })
                         .catch(err => { throw err });
 			
-			url = 'results/get/complex?sel[1]=AtiScore&sel[2]=Age&sel[3]=Education';
+			url = 'db/get/complex?sel[1]=AtiScore&sel[2]=Age&sel[3]=Education';
 			fetch(url)
 				.then(res => res.json())
                         .then((out) => {
