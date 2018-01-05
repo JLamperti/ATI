@@ -33,6 +33,8 @@ h4 {
   font-size: 110%
 }
 
+
+
 footer {
   background-color: #344853;
 
@@ -58,7 +60,9 @@ footer {
 }
 
 
-
+.table .alignTD{
+  text-align:center;
+}
 .bottom-left {
   position: absolute;
   bottom: 0;
@@ -176,6 +180,18 @@ footer {
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: flex-start;
+}
+.submit-form{ 
+  width:12rem;
+  height:4.5rem;
+  color:white;
+  background-color:#344853;
+  border-radius:3rem;
+  margin-top:2rem;
+  margin-bottom:3rem;
+  box-shadow:none;
+  
+
 }
 
 @media (min-width: 768px) {

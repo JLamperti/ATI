@@ -1,59 +1,221 @@
-    <%- include ./partials/head %>
-<title>ATI</title>
-</head>
-    <body>
-        <table class="table table-sm table-striped">
-            <thead>
-                <tr>
-                    <th class="col-1">#</th>
-                    <th class="col-5">
-                        <%= __('instruction') %>
-                    </th>
-                    <th class="col-1">
-                        <%= __('answers.answer1') %>
-                    </th>
-                    <th class="col-1">
-                        <%= __('answers.answer2') %>
-                    </th>
-                    <th class="col-1">
-                        <%= __('answers.answer3') %>
-                    </th>
-                    <th class="col-1">
-                        <%= __('answers.answer4') %>
-                    </th>
-                    <th class="col-1">
-                        <%= __('answers.answer5') %>
-                    </th>
-                    <th class="col-1">
-                        <%= __('answers.answer6') %>
-                    </th>
-                </tr>
-            </thead>
-            
-        </table>
-    
+<%- include ./partials/head %>
+    <title>ATI</title>
+    </head>
+
+    <body onload="uncheckall()">
+        <nav class="navbar navbar-default navbar-noMargin" style="padding-right:1%">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">ATI</a>
+                </div>     
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li class="li-header-right" style="width:100%">
+                            <a href="/toggle">
+                                <img src="./images/lang_de_en.png" class="langImg">
+                                <%= __('toggletext') %>
+                            </a>
+                        </li>
+                    </ul>
+            </div>
+        </nav>
+
+
         <div class="container">
-            <div class="row">
-                <div class="col-3">
-                    <div> <%= __('sex.desc') %> </div>               
-                </div>
-                <div>
-                        <div class="col-2"><input type="checkbox" align="center" value="<%= __('sex.male') %>" /> <%= __('sex.male') %> </div>
-                        <div class="col-2"><input type="checkbox" align="center" value="<%= __('sex.female') %>" /> <%= __('sex.female') %> </div>
-                </div>
+            <h1><%= __('titleQuestionaire') %></h1>
+            <p>
+                <%= __('descQuestionair') %>
+            </p>
+            <div class="container" style="border-bottom:1px solid black;width:100%;height:10px; margin:3rem 0rem;"></div>
+        </div>
+
+        <div class="container">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead style="border-bottom:1px solid black">
+                        <tr>
+                            <th>#</th>
+                            <th>
+                                <%= __('instruction') %>
+                            </th>
+                            <th class="alignTD">
+                                <%= __('answers.answer1') %>
+                            </th>
+                            <th class="alignTD">
+                                <%= __('answers.answer2') %>
+                            </th>
+                            <th class="alignTD">
+                                <%= __('answers.answer3') %>
+                            </th>
+                            <th>
+                                <%= __('answers.answer4') %>
+                            </th>
+                            <th class="alignTD">
+                                <%= __('answers.answer5') %>
+                            </th>
+                            <th class="alignTD">
+                                <%= __('answers.answer6') %>
+                            </th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <%= __('questions.question1') %>
+                            </td>
+                            <% for(var i=1; i < 7; i++) { %>
+                                <td class="alignTD">
+                                <input type="checkbox" align="center" id="1Answer<%= i %>" onclick="checkCheckbox(1, <%= i %>)" />
+                            </td>
+                            <% } %>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>
+                                <%= __('questions.question2') %>
+                            </td>
+                            <% for(var i=1; i < 7; i++) { %>
+                                <td class="alignTD">
+                                <input type="checkbox" align="center" id="2Answer<%= i %>" onclick="checkCheckbox(2, <%= i %>)" />
+                            </td>
+                            <% } %>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>
+                                <%= __('questions.question3') %>
+                            </td>
+
+                            <% for(var i=1; i < 7; i++) { %>
+                                <td class="alignTD">
+                                <input type="checkbox" align="center" id="3Answer<%= i %>" onclick="checkCheckbox(3, <%= i %>)" />
+                            </td>
+                            <% } %>
+
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>
+                                <%= __('questions.question4') %>
+                            </td>
+                            <% for(var i=1; i < 7; i++) { %>
+                                <td class="alignTD">
+                                <input type="checkbox" align="center" id="4Answer<%= i %>" onclick="checkCheckbox(4, <%= i %>)" />
+                            </td>
+                            <% } %>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>
+                                <%= __('questions.question5') %>
+                            </td>
+                            <% for(var i=1; i < 7; i++) { %>
+                                <td class="alignTD">
+                                <input type="checkbox" align="center" id="5Answer<%= i %>" onclick="checkCheckbox(5, <%= i %>)" />
+                            </td>
+                            <% } %>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>
+                                <%= __('questions.question6') %>
+                            </td>
+                            <% for(var i=1; i < 7; i++) { %>
+                                <td class="alignTD">
+                                <input type="checkbox" align="center" id="6Answer<%= i %>" onclick="checkCheckbox(6, <%= i %>)" />
+                            </td>
+                            <% } %>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>
+                                <%= __('questions.question7') %>
+                            </td>
+                            <% for(var i=1; i < 7; i++) { %>
+                                <td class="alignTD">
+                                <input type="checkbox" align="center" id="7Answer<%= i %>" onclick="checkCheckbox(7, <%= i %>)" />
+                            </td>
+                            <% } %>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>
+                                <%= __('questions.question8') %>
+                            </td>
+                            <% for(var i=1; i < 7; i++) { %>
+                                <td class="alignTD">
+                                <input type="checkbox" align="center" id="8Answer<%= i %>" onclick="checkCheckbox(8, <%= i %>)" />
+                            </td>
+                            <% } %>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>
+                                <%= __('questions.question9') %>
+                            </td>
+                            <% for(var i=1; i < 7; i++) { %>
+                                <td class="alignTD">
+                                <input type="checkbox" align="center" id="9Answer<%= i %>" onclick="checkCheckbox(9, <%= i %>)" />
+                            </td>
+                            <% } %>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="row">
-                <div class="col-3"> <%= __('age.desc') %></div>
-                <div class="col-4"><input type="text" /> <%= __('age.unit') %></div>               
-            </div>
-            <div class="row">
-                <div class="col-3"> <%= __('educationLevel.desc') %></div>
-                <div class="col-8">
-                    <div class="row"></div>
-                </div>
-                              
+            <div class="container" style="border-bottom:1px solid black;width:100%;height:10px; margin:3rem 0rem;"></div>
+        </div>
+
+
+
+        <div class="container">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <tr>
+                        <td style="border-right:1px solid black">
+                            <%= __('sex.desc') %>
+                        </td>
+                        <td>
+                            <input type="checkbox" align="center" id="male" onclick="checkGender('male')"/>
+                            <%= __('sex.male') %>
+                        </td>
+                        <td>
+                            <input type="checkbox" align="center" id="female" onclick="checkGender('female')"/>
+                            <%= __('sex.female') %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border-right:1px solid black">
+                            <%= __('age.desc') %>
+                        </td>
+                        <td>
+                            <input type="number" id="age" />
+                            <%= __('age.unit') %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border-right:1px solid black">
+                            <%= __('educationLevel.desc') %>
+                        </td>
+                        <td>
+                            <input type="checkbox" align="center" id="lesserThanAbitur" onclick="checkEducation('lesserThanAbitur')"/>
+                            <%= __('educationLevel.lesserThanAbitur') %>
+                                </br>
+                                <input type="checkbox" align="center" id="BMD"  onclick="checkEducation('BMD')"/>
+                                <%= __('educationLevel.BMD') %>
+                        </td>
+                        <td>
+                            <input type="checkbox" align="center" id="aLevel"  onclick="checkEducation('aLevel')"/>
+                            <%= __('educationLevel.aLevel') %>
+                                </br>
+                                <input type="checkbox" align="center" id="hMD"  onclick="checkEducation('hMD')"/>
+                                <%= __('educationLevel.hMD') %>
+                        </td>
+                    </tr>
+
+                </table>
             </div>
         </div>
-    
-        <button class="button">Submit</button>
+        <button class="button submit-form center-block">Submit</button>
     </body>
