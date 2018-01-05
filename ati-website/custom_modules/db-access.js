@@ -4,43 +4,49 @@ var mysql = require('mysql');
 var path	= require('path');
 var fs	= require('fs');
 
-//chose the db to connect to
-var con = mysql.createConnection({
+var pool = mysql.createPool({
+	connectionLimit : 100,
 	host: "localhost",
 	user: "ich",
-	password: "meinpw"
+	password: "meinpw",
+	database : "AtiDB"
 });
 
-//connect to the db
-con.connect(function(err) {
-	if (err) throw err;
-	console.log("Database Connected!");
-});
-
-//allow other moduls to make this connect to the db
-exports.connectDB = function() {
-	con.query("USE AtiDB;", function (err, result) {
-		if (err) throw err;
-		console.log("AtiDB wird genutzt.");
-	});
-};
-
-//takes a String containing an sql-statement and performs it
 exports.manipulateDB = function (string, req, res) {
-	try {
+	pool.getConnection(function (err, con) {
 		con.query(string, function (err, result) {
 			if (err) {
 				res.status(406).send('Invalid Parameters for the Database. Check the parameters of your request.');
+				//console.log(err);
 				return console.log('Err: Bad query. (db-acces.js:manipulateDB)');
 			}
 			var string = JSON.stringify(result);
 			let json =  JSON.parse(string);
 			res.send(json);
 		});
-	} catch(err) {
-		res.status(500).send('Something went wrong!');
-		return console.log(err);
-	}
+		con.release();
+	});
+};
+
+exports.manipulateDBTwice = function (stringOne, stringTwo, req, res) {
+	pool.getConnection(function (err, con) {
+		con.query(stringOne, function (err, result) {
+			if (err) {
+				res.status(406).send('Invalid Parameters for the Database. Check the parameters of your request.');
+				//console.log(err);
+				return console.log('Err: Bad query. (db-acces.js:manipulateDBTwice)');
+			}
+		});
+		con.query(stringTwo, function (err, result) {
+			if (err) {
+				res.status(406).send('Invalid Parameters for the Database. Check the parameters of your request.');
+				//console.log(err);
+				return console.log('Err: Bad query. (db-acces.js:manipulateDBTwice)');
+			}
+			res.send('OK');
+		});
+		con.release();
+	});
 };
 
 
