@@ -10,6 +10,10 @@ router.get('/', function(req, res, next) {
   res.render('result', { title: 'ATI' });
 });
 
+router.get('/get/ageAndAti', function(req, res) {
+	gData.selectAgeAndAti(req, res);
+});
+
 router.get('/get/all', function(req, res) {
 	gData.selectAll(req, res);
 });
@@ -18,12 +22,12 @@ router.get('/get/buckets', function(req, res) {
 	gData.selectBuckets(req, res);
 });
 
-router.get('/get/ageAndAti', function(req, res) {
-	gData.selectAgeAndAti(req, res);
-});
-
 router.get('/get/complex', function(req, res) {
 	gData.selectComplex(req, res);
+});
+
+router.get('/get/survey', function(req, res) {
+	gData.selectSurvey(req, res);
 });
 
 module.exports = router;

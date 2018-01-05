@@ -18,6 +18,10 @@ exports.selectAgeAndAti = function(req, res) {
 	dba.manipulateDB("SELECT Age, AtiScore FROM allesOhneDuplikate;", req, res);
 };
 
+exports.selectSurvey = function(req, res) {
+	dba.manipulateDB("SELECT * FROM survey WHERE surveyId=" + req.query.SID + ";", req, res);
+};
+
 exports.selectComplex = function(req, res) {
 	let tmpString = 'SELECT *';
 	let temp = req.query;
