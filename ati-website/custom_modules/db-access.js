@@ -26,13 +26,21 @@ exports.connectDB = function() {
 };
 
 //takes a String containing an sql-statement and performs it
-exports.manipulateDB = function (string, req, res) {	
-	con.query(string, function (err, result) {
-				if (err) throw err;
-				var string = JSON.stringify(result);
-				let json =  JSON.parse(string);
-				res.send(json);
+exports.manipulateDB = function (string, req, res) {
+	try {
+		con.query(string, function (err, result) {
+			if (err) {
+				res.status(406).send('Invalid Parameters for the Database. Check the parameters of your request.');
+				return console.log('Err: Bad query. (db-acces.js:manipulateDB)');
+			}
+			var string = JSON.stringify(result);
+			let json =  JSON.parse(string);
+			res.send(json);
 		});
+	} catch(err) {
+		res.status(500).send('Something went wrong!');
+		return console.log(err);
+	}
 };
 
 
