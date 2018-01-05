@@ -102,7 +102,24 @@ var options = {
                             console.log(out);
 						})
 						.catch(err => {throw err});
-			
+						
+						
+						let testData = JSON.stringify({SID: 1, Token: 'testOnline', Age: 22, Sex: 1, Ati1: 5, Ati2: 5, Ati3: 6,
+								Ati4: 5, Ati5: 4, Ati6: 4, Ati7: 5, Ati8: 5, Ati9: 4, AtiScore: 43/9});
+						
+						let postUrl = '/db/post/proband';
+						fetch(postUrl, {
+							headers: {
+								'Accept' : 'application/json',
+								'Content-Type' : 'application/json'
+							},
+							method: 'POST',
+							body: testData
+						})
+						.then((out) => {
+                            console.log(out);
+						})
+						.catch(err => {throw err});
 		</script>
 
 
