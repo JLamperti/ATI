@@ -7,6 +7,13 @@ gData.setDba(dba);
 pData.setDba(dba);
 
 
+/*
+* For info on what the routes do see the functions
+*/
+
+
+//get-requests
+
 router.get('/ageAndAti', function(req, res) {
 	gData.selectAgeAndAti(req, res);
 });
@@ -28,8 +35,11 @@ router.get('/survey', function(req, res) {
 });
 
 router.get('/surveyByUser', function(req, res) {
-	gData.selectSurveyByUser(res, req);
+	gData.selectSurveyByUser(req, res);
 });
+
+
+//post-requests
 
 router.post('/proband', function(req, res) {
 	pData.insertProband(req, res);

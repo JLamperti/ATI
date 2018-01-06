@@ -1,21 +1,34 @@
 "use strict";
 
-var dba;
+var dba;		//the db-acces object that actually performs sql-statements
 
+/**
+* sets the dba
+* called by db.js after creating a dba
+* 
+* @param newDba the dba of the db.js
+*/
 exports.setDba = function(newDba) {
 	dba=newDba;
 };
 
+/**
+* Inserts a single proband into the database.
+* Parameters have to be in the body of the request.
+* Mandatory-paramters are Ati1 to Ati9 + AtiScore.
+* optional-parameters are all other attributes of a proband except for the ID, 
+* additionally SID (a survey-ID) can be used.
+*/
 exports.insertProband = function(req, res) {
-	let temp = req.body;
-	let stringOne = 'INSERT INTO proband (Ati1, Ati2, Ati3, Ati4, Ati5, Ati6, Ati7, Ati8, Ati9, AtiScore',
-		stringTwo = ') VALUES (' + temp.Ati1 + ', ' + temp.Ati2 + ', ' + temp.Ati3 + ', ' + temp.Ati4 + ', ' 
+	let temp = req.body;		//for quick access
+	let stringOne = 'INSERT INTO proband (Ati1, Ati2, Ati3, Ati4, Ati5, Ati6, Ati7, Ati8, Ati9, AtiScore',						//prepare two strings for the sql-statement containing
+		stringTwo = ') VALUES (' + temp.Ati1 + ', ' + temp.Ati2 + ', ' + temp.Ati3 + ', ' + temp.Ati4 + ', ' 					//the ati-values
 			+ temp.Ati5 + ', ' + temp.Ati6 + ', ' + temp.Ati7 + ', ' + temp.Ati8 + ', ' + temp.Ati9 + ', ' + temp.AtiScore;
-	if (temp.Token) {
+	if (temp.Token) {											//if a token is given, add it to the statement
 		stringOne = stringOne + ', ProbandToken';
 		stringTwo = stringTwo + ', \'' + temp.Token + '\'';
 	}
-	if (temp.Age) {
+	if (temp.Age) {												//repeat for all optional parameters
 		stringOne = stringOne + ', Age';
 		stringTwo = stringTwo + ', ' + temp.Age;
 	}
@@ -63,29 +76,35 @@ exports.insertProband = function(req, res) {
 		stringOne = stringOne + ', Smartwatch';
 		stringTwo = stringTwo + ', ' + temp.Smartwatch;
 	}
-	let tmpString = stringOne + stringTwo + ');';
-	if (temp.SID) {
-		dba.manipulateDBTwice(tmpString,
+	let tmpString = stringOne + stringTwo + ');';				//finalize the statement by combining the two strings
+	if (temp.SID) {												//if a SID is given, 
+		dba.manipulateDBTwice(tmpString,						//perform two sql-statements, insert the proband and insert the proband into the survey
 			'INSERT INTO partOf (PID, SID) VALUES (LAST_INSERT_ID(), ' + temp.SID + ');', req, res);
-	} else {
+	} else {													//if no SID is given, just perform the one statement
 		dba.manipulateDB(tmpString, req, res);
 	}
 };
 
+/**
+* insert a survey and make a user the admin of it.
+* parameters are in the body of the request.
+* mandatory-paramter is UID (user-ID).
+* optional-paramters are Name, Description, MaxProbands, Status, Begin, End
+*/
 exports.insertSurvey = function(req, res) {
-	let temp = req.body;
-	let stringOne = 'INSERT INTO survey (SurveyName',
+	let temp = req.body;		//for quick access
+	let stringOne = 'INSERT INTO survey (SurveyName',		//prepare two strings for the statement
 		stringTwo = ') VALUES (';
-	if (temp.Name) {
+	if (temp.Name) {				//if a nyme is given, use it
 		stringTwo += '\'' + temp.Name + '\'';
-	} else {
+	} else {						//else default to 'survey'
 		stringTwo += '\'survey\'';
 	}
-	if (temp.Description) {
+	if (temp.Description) {			//if a description is given, use it
 		stringOne += ', Description';
 		stringTwo += ', \'' + temp.Description + '\'';
 	}
-	if (temp.MaxProbands) {
+	if (temp.MaxProbands) {			//repeat for all optional parameters
 		stringOne += ', MaxProbands';
 		stringTwo += ', ' + temp.MaxProbands;
 	}
@@ -101,9 +120,8 @@ exports.insertSurvey = function(req, res) {
 		stringOne += ', SurveyEnd';
 		stringTwo += ', ' + temp.End;
 	}
-	let tmpString = stringOne + stringTwo + ');';
-	console.log('>>>>>' + tmpString);
-	dba.manipulateDBTwice(tmpString,
+	let tmpString = stringOne + stringTwo + ');';		//finalize the first statement (for isnert the survey)
+	dba.manipulateDBTwice(tmpString,					//perform both statements
 		'INSERT INTO adminOf (SID, UID) VALUES (LAST_INSERT_ID(), ' + temp.UID + ');', req, res);
 };
 
