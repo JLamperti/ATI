@@ -44,22 +44,35 @@ exports.manipulateDB = function (string, req, res) {
 */
 exports.manipulateDBTwice = function (stringOne, stringTwo, req, res) {
 	pool.getConnection(function (err, con) {			//get a connection from the pool
-		con.query(stringOne, function (err, result) {	//perform the first sql-statement
-			if (err) {			//in case of an error (mostlikely an invalid sql-statement) tell the client and log on the server
-				res.status(406).send('Invalid Parameters for the Database. Check the parameters of your request.');
-				//console.log(err);
-				return console.log('Err: Bad query. (db-acces.js:manipulateDBTwice:One)');	//for more detailed err-log de-comment the line above
-			} else {		//if the first statement was succesfull,
-				con.query(stringTwo, function (err, result) {		//perform the second sql-statement
-					if (err) {		//in case of an error (mostlikely an invalid sql-statement) tell the client and log on the server
-						//TODO: undo first statement
+		con.beginTransaction(function(err) {			//begin a transaction to enable rollback
+			if (err) return console.log(err);
+			con.query(stringOne, function (err, result) {	//perform the first sql-statement
+				if (err) {			//in case of an error (mostlikely an invalid sql-statement) tell the client and log on the server
+					return con.rollback(function() {	//and rollback
 						res.status(406).send('Invalid Parameters for the Database. Check the parameters of your request.');
 						//console.log(err);
-						return console.log('Err: Bad query. (db-acces.js:manipulateDBTwice:Two)');	//for more detailed err-log de-comment the line above
-					}
-					res.send('OK');		//if both queries were succesfull, send an ok
-				});
-			}
+						return console.log('Err: Bad query. (db-acces.js:manipulateDBTwice:One)');	//for more detailed err-log de-comment the line above
+					});
+				} else {		//if the first statement was succesfull,
+					con.query(stringTwo, function (err, result) {		//perform the second sql-statement
+						if (err) {		//in case of an error (mostlikely an invalid sql-statement) tell the client and log on the server
+							return con.rollback(function() {		//and rollback (including the first statement)
+								res.status(406).send('Invalid Parameters for the Database. Check the parameters of your request.');
+								//console.log(err);
+								return console.log('Err: Bad query. (db-acces.js:manipulateDBTwice:Two)');	//for more detailed err-log de-comment the line above
+							});
+						}
+						con.commit(function(err) {					//after successfully doing both queries, commit them
+							if (err) {
+								return con.rollback(function() {	//in case of ann error, rollback
+									console.log(err);
+								});
+							}
+						});
+						res.send('OK');		//if both queries were succesfull, send an ok
+					});
+				}
+			});
 		});
 		con.release();			//release the connection so it can be used for another query
 	});
