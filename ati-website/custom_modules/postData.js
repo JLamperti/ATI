@@ -7,12 +7,6 @@ exports.setDba = function(newDba) {
 };
 
 exports.insertProband = function(req, res) {
-	console.log('body: ' + req.body);
-	console.log('Age: ' + req.body.Age);
-	console.log('Agge: ' + req.body.Agge);
-	console.log('Token: ' + req.body.Token);
-	//if (!temp.Ati1 || !temp.Ati2 || !temp.Ati3 || !temp.Ati4 || !temp.Ati5 || !temp.Ati6 || !temp.Ati7 || !temp.Ati8 || !temp.Ati9 || !temp.AtiScore) {
-	//	res.status(406).send('Invalid 
 	let temp = req.body;
 	let stringOne = 'INSERT INTO proband (Ati1, Ati2, Ati3, Ati4, Ati5, Ati6, Ati7, Ati8, Ati9, AtiScore',
 		stringTwo = ') VALUES (' + temp.Ati1 + ', ' + temp.Ati2 + ', ' + temp.Ati3 + ', ' + temp.Ati4 + ', ' 
@@ -77,3 +71,42 @@ exports.insertProband = function(req, res) {
 		dba.manipulateDB(tmpString, req, res);
 	}
 };
+
+exports.insertSurvey = function(req, res) {
+	let temp = req.body;
+	let stringOne = 'INSERT INTO survey (SurveyName',
+		stringTwo = ') VALUES (';
+	if (temp.Name) {
+		stringTwo += '\'' + temp.Name + '\'';
+	} else {
+		stringTwo += '\'survey\'';
+	}
+	if (temp.Description) {
+		stringOne += ', Description';
+		stringTwo += ', \'' + temp.Description + '\'';
+	}
+	if (temp.MaxProbands) {
+		stringOne += ', MaxProbands';
+		stringTwo += ', ' + temp.MaxProbands;
+	}
+	if (temp.Status) {
+		stringOne += ', SurveyStatus';
+		stringTwo += ', \'' + temp.Status + '\'';
+	}
+	if (temp.Begin) {
+		stringOne += ', SurveyBegin';
+		stringTwo += ', ' + temp.Begin;
+	}
+	if (temp.End) {
+		stringOne += ', SurveyEnd';
+		stringTwo += ', ' + temp.End;
+	}
+	let tmpString = stringOne + stringTwo + ');';
+	console.log('>>>>>' + tmpString);
+	dba.manipulateDBTwice(tmpString,
+		'INSERT INTO adminOf (SID, UID) VALUES (LAST_INSERT_ID(), ' + temp.UID + ');', req, res);
+};
+
+
+
+

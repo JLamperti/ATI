@@ -6,20 +6,16 @@ exports.setDba = function(newDba) {
 	dba=newDba;
 };
 
+exports.selectAgeAndAti = function(req, res) {
+	dba.manipulateDB("SELECT Age, AtiScore FROM allesOhneDuplikate;", req, res);
+};
+
 exports.selectAll = function(req, res) {
 	dba.manipulateDB("SELECT * FROM allesOhneDuplikate;", req, res);
 };
 
 exports.selectBuckets = function(req, res) {
 	dba.manipulateDB("SELECT * FROM bucketsOhneDuplikate", req, res);
-};
-
-exports.selectAgeAndAti = function(req, res) {
-	dba.manipulateDB("SELECT Age, AtiScore FROM allesOhneDuplikate;", req, res);
-};
-
-exports.selectSurvey = function(req, res) {
-	dba.manipulateDB("SELECT * FROM survey WHERE surveyId=" + req.query.SID + ";", req, res);
 };
 
 exports.selectComplex = function(req, res) {
@@ -66,6 +62,15 @@ exports.selectComplex = function(req, res) {
 	}
 	tmpString = tmpString + ';';
 	dba.manipulateDB(tmpString, req, res);
+};
+
+exports.selectSurvey = function(req, res) {
+	dba.manipulateDB("SELECT * FROM survey WHERE surveyId=" + req.query.SID + ";", req, res);
+};
+
+exports.selectSurveyByUser = function(req,res) {
+	dba.manipulateDB("SELECT * FROM survey WHERE SID IN \
+	(SELECT SID FROM partOf WHERE PID=" + req.query.PID + ";", req, res);
 };
 
 

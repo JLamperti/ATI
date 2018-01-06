@@ -69,7 +69,7 @@
                         .catch(err => { throw err });
 						
 			*/
-			let url = '/db/get/ageAndAti';
+			let url = '/db/ageAndAti';
 			
 
 var options = {
@@ -95,7 +95,7 @@ var options = {
                         })
                         .catch(err => { throw err });
 			
-			url = 'db/get/complex?sel[1]=AtiScore&sel[2]=Age&sel[3]=Education';
+			url = 'db/complex?sel[1]=AtiScore&sel[2]=Age&sel[3]=Education';
 			fetch(url)
 				.then(res => res.json())
                         .then((out) => {
@@ -104,10 +104,11 @@ var options = {
 						.catch(err => {throw err});
 						
 						
-						let testData = JSON.stringify({SID: 1, Token: 'testOnline', Age: 22, Sex: 1, Ati1: 5, Ati2: 5, Ati3: 6,
+					/*	let testData = JSON.stringify({SID: 1, Token: 'testOnline', Age: 22, Sex: 1, Ati1: 5, Ati2: 5, Ati3: 6,
 								Ati4: 5, Ati5: 4, Ati6: 4, Ati7: 5, Ati8: 5, Ati9: 4, AtiScore: 43/9});
-						
-						let postUrl = '/db/post/proband';
+					*/
+						let testData = JSON.stringify({UID: 1, Name: 'onlineTest', Description: 'Eine online erstellte Umfrage'});
+						let postUrl = '/db/survey';
 						fetch(postUrl, {
 							headers: {
 								'Accept' : 'application/json',

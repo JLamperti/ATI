@@ -34,17 +34,19 @@ exports.manipulateDBTwice = function (stringOne, stringTwo, req, res) {
 			if (err) {
 				res.status(406).send('Invalid Parameters for the Database. Check the parameters of your request.');
 				//console.log(err);
-				return console.log('Err: Bad query. (db-acces.js:manipulateDBTwice)');
+				return console.log('Err: Bad query. (db-acces.js:manipulateDBTwice:One)');
+			} else {
+				con.query(stringTwo, function (err, result) {
+					if (err) {
+						res.status(406).send('Invalid Parameters for the Database. Check the parameters of your request.');
+						console.log(err);
+						return console.log('Err: Bad query. (db-acces.js:manipulateDBTwice:Two)');
+					}
+					res.send('OK');
+				});
 			}
 		});
-		con.query(stringTwo, function (err, result) {
-			if (err) {
-				res.status(406).send('Invalid Parameters for the Database. Check the parameters of your request.');
-				//console.log(err);
-				return console.log('Err: Bad query. (db-acces.js:manipulateDBTwice)');
-			}
-			res.send('OK');
-		});
+		
 		con.release();
 	});
 };
