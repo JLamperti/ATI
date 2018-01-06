@@ -39,8 +39,10 @@ exports.selectBuckets = function(req, res) {
 * The paramenters are in the url.
 * 
 * parameters:
-* sel[] the parameters to select
-* crit[] the conditions to meet
+* sel[] the parameters to select (valid options are Ati1 to Ati9, AtiScore,
+* 	ProbandToken, Age, Sex, Education, Smartphone, Tablet, Computer, OnlineShopping, 
+* 	SozialeNetzwerke, Videotelefonie, Videoplattformen, Internetforen, Smartwatch)
+* crit[] the conditions to meet (e.g. Age>20, Token='blabla', ...)
 * fromSurv the id of the survey to select the probands from
 */
 exports.selectComplex = function(req, res) {

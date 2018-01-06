@@ -16,8 +16,10 @@ exports.setDba = function(newDba) {
 * Inserts a single proband into the database.
 * Parameters have to be in the body of the request.
 * Mandatory-paramters are Ati1 to Ati9 + AtiScore.
-* optional-parameters are all other attributes of a proband except for the ID, 
-* additionally SID (a survey-ID) can be used.
+* optional-parameters are all other attributes of a proband except for the ID, which are:
+* Age, Sex, Education, Smartphone, Tablet, Computer, OnlineShopping, SozialeNetzwerke, 
+* Videotelefonie, Videoplattformen, Internetforen, Smartwatch.
+* Additionally a SID (a survey-ID) can be used to make the proband part of that survey.
 */
 exports.insertProband = function(req, res) {
 	let temp = req.body;		//for quick access
