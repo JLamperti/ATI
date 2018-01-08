@@ -7,27 +7,63 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">ATI</a>
-                </div>     
-                    <ul class="nav navbar-nav navbar-right">
+                </div>
+                <ul class="nav navbar-nav navbar-right">
 
-                        <li class="li-header-right" style="width:100%">
-                            <a href="/toggle">
-                                <img src="./images/lang_de_en.png" class="langImg">
-                                <%= __('toggletext') %>
-                            </a>
-                        </li>
-                    </ul>
+                    <li class="li-header-right" style="width:100%">
+                        <a href="/toggle">
+                            <img src="./images/lang_de_en.png" class="langImg">
+                            <%= __('toggletext') %>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </nav>
 
 
         <div class="container">
-            <h1><%= __('titleQuestionaire') %></h1>
+            <h1>
+                <%= __('titleQuestionaire') %>
+            </h1>
             <p>
                 <%= __('descQuestionair') %>
             </p>
             <div class="container" style="border-bottom:1px solid black;width:100%;height:10px; margin:3rem 0rem;"></div>
         </div>
+
+        <div class="container">
+            <p>
+                <%= __('createId.descUníqueId') %>
+            </p>
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <div>
+                        <%= __('createId.descMother') %>
+                    </div>
+                    <input type="text" id="letMother">
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <div>
+                        <%= __('createId.descMonth') %>
+                    </div>
+                    <input type="number" id="numMonth">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <div>
+                        <%= __('createId.descBirthplace') %>
+                    </div>
+                    <input type="text" id="letPlace">
+                </div>
+            </div>
+            <div class="container" style="border-bottom:1px solid black;width:100%;height:10px; margin:3rem 0rem;"></div>
+        </div>
+
+
+
+
+
 
         <div class="container">
             <div class="table-responsive">
@@ -67,9 +103,10 @@
                             </td>
                             <% for(var i=1; i < 7; i++) { %>
                                 <td class="alignTD">
-                                <input type="checkbox" align="center" id="1Answer<%= i %>" onclick="checkCheckbox(1, <%= i %>)" />
-                            </td>
-                            <% } %>
+                                    <input type="checkbox" align="center" id="1Answer<%= i %>" onclick="checkCheckbox(1, <%= i %>)" name="one" value="q1answer<%= i%>"
+                                    />
+                                </td>
+                                <% } %>
                         </tr>
                         <tr>
                             <td>2</td>
@@ -78,9 +115,10 @@
                             </td>
                             <% for(var i=1; i < 7; i++) { %>
                                 <td class="alignTD">
-                                <input type="checkbox" align="center" id="2Answer<%= i %>" onclick="checkCheckbox(2, <%= i %>)" />
-                            </td>
-                            <% } %>
+                                    <input type="checkbox" align="center" id="2Answer<%= i %>" onclick="checkCheckbox(2, <%= i %>)" name="two" value="q2answer<%= i%>"
+                                    />
+                                </td>
+                                <% } %>
                         </tr>
                         <tr>
                             <td>3</td>
@@ -90,9 +128,10 @@
 
                             <% for(var i=1; i < 7; i++) { %>
                                 <td class="alignTD">
-                                <input type="checkbox" align="center" id="3Answer<%= i %>" onclick="checkCheckbox(3, <%= i %>)" />
-                            </td>
-                            <% } %>
+                                    <input type="checkbox" align="center" id="3Answer<%= i %>" onclick="checkCheckbox(3, <%= i %>)" name="three" value="q3answer<%= i%>"
+                                    />
+                                </td>
+                                <% } %>
 
                         </tr>
                         <tr>
@@ -102,9 +141,10 @@
                             </td>
                             <% for(var i=1; i < 7; i++) { %>
                                 <td class="alignTD">
-                                <input type="checkbox" align="center" id="4Answer<%= i %>" onclick="checkCheckbox(4, <%= i %>)" />
-                            </td>
-                            <% } %>
+                                    <input type="checkbox" align="center" id="4Answer<%= i %>" onclick="checkCheckbox(4, <%= i %>)" name="four" value="q4answer<%= i%>"
+                                    />
+                                </td>
+                                <% } %>
                         </tr>
                         <tr>
                             <td>5</td>
@@ -113,9 +153,10 @@
                             </td>
                             <% for(var i=1; i < 7; i++) { %>
                                 <td class="alignTD">
-                                <input type="checkbox" align="center" id="5Answer<%= i %>" onclick="checkCheckbox(5, <%= i %>)" />
-                            </td>
-                            <% } %>
+                                    <input type="checkbox" align="center" id="5Answer<%= i %>" onclick="checkCheckbox(5, <%= i %>)" name="five" value="q5answer<%= i%>"
+                                    />
+                                </td>
+                                <% } %>
                         </tr>
                         <tr>
                             <td>6</td>
@@ -124,9 +165,10 @@
                             </td>
                             <% for(var i=1; i < 7; i++) { %>
                                 <td class="alignTD">
-                                <input type="checkbox" align="center" id="6Answer<%= i %>" onclick="checkCheckbox(6, <%= i %>)" />
-                            </td>
-                            <% } %>
+                                    <input type="checkbox" align="center" id="6Answer<%= i %>" onclick="checkCheckbox(6, <%= i %>)" name="six" value="q6answer<%= i%>"
+                                    />
+                                </td>
+                                <% } %>
                         </tr>
                         <tr>
                             <td>7</td>
@@ -135,9 +177,10 @@
                             </td>
                             <% for(var i=1; i < 7; i++) { %>
                                 <td class="alignTD">
-                                <input type="checkbox" align="center" id="7Answer<%= i %>" onclick="checkCheckbox(7, <%= i %>)" />
-                            </td>
-                            <% } %>
+                                    <input type="checkbox" align="center" id="7Answer<%= i %>" onclick="checkCheckbox(7, <%= i %>)" name="seven" value="q7answer<%= i%>"
+                                    />
+                                </td>
+                                <% } %>
                         </tr>
                         <tr>
                             <td>8</td>
@@ -146,9 +189,10 @@
                             </td>
                             <% for(var i=1; i < 7; i++) { %>
                                 <td class="alignTD">
-                                <input type="checkbox" align="center" id="8Answer<%= i %>" onclick="checkCheckbox(8, <%= i %>)" />
-                            </td>
-                            <% } %>
+                                    <input type="checkbox" align="center" id="8Answer<%= i %>" onclick="checkCheckbox(8, <%= i %>)" name="eight" value="q8answer<%= i%>"
+                                    />
+                                </td>
+                                <% } %>
                         </tr>
                         <tr>
                             <td>9</td>
@@ -157,9 +201,10 @@
                             </td>
                             <% for(var i=1; i < 7; i++) { %>
                                 <td class="alignTD">
-                                <input type="checkbox" align="center" id="9Answer<%= i %>" onclick="checkCheckbox(9, <%= i %>)" />
-                            </td>
-                            <% } %>
+                                    <input type="checkbox" align="center" id="9Answer<%= i %>" onclick="checkCheckbox(9, <%= i %>)" name="nine" value="q9answer<%= i%>"
+                                    />
+                                </td>
+                                <% } %>
                         </tr>
                     </tbody>
                 </table>
@@ -177,11 +222,11 @@
                             <%= __('sex.desc') %>
                         </td>
                         <td>
-                            <input type="checkbox" align="center" id="male" onclick="checkGender('male')"/>
+                            <input type="checkbox" align="center" id="male" name="gender" onclick="checkGender('male')" value="male" />
                             <%= __('sex.male') %>
                         </td>
                         <td>
-                            <input type="checkbox" align="center" id="female" onclick="checkGender('female')"/>
+                            <input type="checkbox" align="center" id="female" name="gender" onclick="checkGender('female')" value="female" />
                             <%= __('sex.female') %>
                         </td>
                     </tr>
@@ -199,17 +244,18 @@
                             <%= __('educationLevel.desc') %>
                         </td>
                         <td>
-                            <input type="checkbox" align="center" id="lesserThanAbitur" onclick="checkEducation('lesserThanAbitur')"/>
+                            <input type="checkbox" align="center" id="lesserThanAbitur" name="education" onclick="checkEducation('lesserThanAbitur')"
+                                value="lessALevel" />
                             <%= __('educationLevel.lesserThanAbitur') %>
                                 </br>
-                                <input type="checkbox" align="center" id="BMD"  onclick="checkEducation('BMD')"/>
+                                <input type="checkbox" align="center" id="BMD" name="education" onclick="checkEducation('BMD')" value="BachMastDeg" />
                                 <%= __('educationLevel.BMD') %>
                         </td>
                         <td>
-                            <input type="checkbox" align="center" id="aLevel"  onclick="checkEducation('aLevel')"/>
+                            <input type="checkbox" align="center" id="aLevel" name="education" onclick="checkEducation('aLevel')" value="alevel" />
                             <%= __('educationLevel.aLevel') %>
                                 </br>
-                                <input type="checkbox" align="center" id="hMD"  onclick="checkEducation('hMD')"/>
+                                <input type="checkbox" align="center" id="hMD" name="education" onclick="checkEducation('hMD')" value="higherALevel" />
                                 <%= __('educationLevel.hMD') %>
                         </td>
                     </tr>
@@ -217,5 +263,5 @@
                 </table>
             </div>
         </div>
-        <button class="button submit-form center-block">Submit</button>
+        <button class="button submit-form center-block" onclick="submitForm()">Submit</button>
     </body>
