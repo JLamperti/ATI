@@ -37,13 +37,13 @@
             </p>
             <div class="row">
                 <div class="col-xs-12 col-md-6">
-                    <div>
+                    <div id="descMother">
                         <%= __('createId.descMother') %>
                     </div>
                     <input type="text" id="letMother">
                 </div>
                 <div class="col-xs-12 col-md-6">
-                    <div>
+                    <div id="descMonth">
                         <%= __('createId.descMonth') %>
                     </div>
                     <input type="number" id="numMonth">
@@ -51,7 +51,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 col-md-6">
-                    <div>
+                    <div id="descPlace">
                         <%= __('createId.descBirthplace') %>
                     </div>
                     <input type="text" id="letPlace">
@@ -96,40 +96,44 @@
 
                     </thead>
                     <tbody>
+
                         <tr>
                             <td>1</td>
                             <td>
-                                <%= __('questions.question1') %>
+                                <p id="q1">
+                                    <%= __('questions.question1') %>
+                                </p>
                             </td>
                             <% for(var i=1; i < 7; i++) { %>
                                 <td class="alignTD" onclick="checkradio(1, <%= i %>)">
-                                    <input type="radio" align="center" id="1Answer<%= i %>" name="one" value="q1answer<%= i%>"
-                                    />
+                                    <input type="radio" align="center" id="1Answer<%= i %>" name="one" value="<%= i%>" />
                                 </td>
                                 <% } %>
                         </tr>
                         <tr>
                             <td>2</td>
                             <td>
-                                <%= __('questions.question2') %>
+                                <p id="q2">
+                                    <%= __('questions.question2') %>
+                                </p>
                             </td>
                             <% for(var i=1; i < 7; i++) { %>
                                 <td class="alignTD" onclick="checkradio(2, <%= i %>)">
-                                    <input type="radio" align="center" id="2Answer<%= i %>" name="two" value="q2answer<%= i%>"
-                                    />
+                                    <input type="radio" align="center" id="2Answer<%= i %>" name="two" value="<%= i%>" />
                                 </td>
                                 <% } %>
                         </tr>
                         <tr>
                             <td>3</td>
                             <td>
-                                <%= __('questions.question3') %>
+                                <p id="q3">
+                                    <%= __('questions.question3') %>
+                                </p>
                             </td>
 
                             <% for(var i=1; i < 7; i++) { %>
                                 <td class="alignTD" onclick="checkradio(3, <%= i %>)">
-                                    <input type="radio" align="center" id="3Answer<%= i %>" name="three" value="q3answer<%= i%>"
-                                    />
+                                    <input type="radio" align="center" id="3Answer<%= i %>" name="three" value="<%= i%>" />
                                 </td>
                                 <% } %>
 
@@ -137,74 +141,80 @@
                         <tr>
                             <td>4</td>
                             <td>
-                                <%= __('questions.question4') %>
+                                <p id="q4">
+                                    <%= __('questions.question4') %>
+                                </p>
                             </td>
                             <% for(var i=1; i < 7; i++) { %>
                                 <td class="alignTD" onclick="checkradio(4, <%= i %>)">
-                                    <input type="radio" align="center" id="4Answer<%= i %>" name="four" value="q4answer<%= i%>"
-                                    />
+                                    <input type="radio" align="center" id="4Answer<%= i %>" name="four" value="<%= i%>" />
                                 </td>
                                 <% } %>
                         </tr>
                         <tr>
                             <td>5</td>
                             <td>
-                                <%= __('questions.question5') %>
+                                <p id="q5">
+                                    <%= __('questions.question5') %>
+                                </p>
                             </td>
                             <% for(var i=1; i < 7; i++) { %>
                                 <td class="alignTD" onclick="checkradio(5, <%= i %>)">
-                                    <input type="radio" align="center" id="5Answer<%= i %>" name="five" value="q5answer<%= i%>"
-                                    />
+                                    <input type="radio" align="center" id="5Answer<%= i %>" name="five" value="q5answer<%= i%>" />
                                 </td>
                                 <% } %>
                         </tr>
                         <tr>
                             <td>6</td>
                             <td>
-                                <%= __('questions.question6') %>
+                                <p id="q6">
+                                    <%= __('questions.question6') %>
+                                </p>
                             </td>
                             <% for(var i=1; i < 7; i++) { %>
                                 <td class="alignTD" onclick="checkradio(6, <%= i %>)">
-                                    <input type="radio" align="center" id="6Answer<%= i %>" name="six" value="q6answer<%= i%>"
-                                    />
+                                    <input type="radio" align="center" id="6Answer<%= i %>" name="six" value="<%= i%>" />
                                 </td>
                                 <% } %>
                         </tr>
                         <tr>
                             <td>7</td>
                             <td>
-                                <%= __('questions.question7') %>
+                                <p id="q7">
+                                    <%= __('questions.question7') %>
+                                </p>
                             </td>
                             <% for(var i=1; i < 7; i++) { %>
                                 <td class="alignTD" onclick="checkradio(7, <%= i %>)">
-                                    <input type="radio" align="center" id="7Answer<%= i %>"name="seven" value="q7answer<%= i%>"
-                                    />
+                                    <input type="radio" align="center" id="7Answer<%= i %>" name="seven" value="<%= i%>" />
                                 </td>
                                 <% } %>
                         </tr>
                         <tr>
                             <td>8</td>
                             <td>
-                                <%= __('questions.question8') %>
+                                <p id="q8">
+                                    <%= __('questions.question8') %>
+                                </p>
                             </td>
                             <% for(var i=1; i < 7; i++) { %>
                                 <td class="alignTD" onclick="checkradio(8, <%= i %>)">
-                                    <input type="radio" align="center" id="8Answer<%= i %>" name="eight" value="q8answer<%= i%>"
-                                    />
+                                    <input type="radio" align="center" id="8Answer<%= i %>" name="eight" value="<%= i%>" />
                                 </td>
                                 <% } %>
                         </tr>
                         <tr>
                             <td>9</td>
                             <td>
-                                <%= __('questions.question9') %>
+                                <p id="q9">
+                                    <%= __('questions.question9') %>
+                                </p>
                             </td>
                             <% for(var i=1; i < 7; i++) { %>
 
                                 <td class="alignTD" id="9a<%= i %>" onclick="checkradio(9, <%= i %>)">
 
-                                    <input type="radio" align="center" id="9Answer<%= i %>" name="nine" value="q9answer<%= i%>"
-                                    />
+                                    <input type="radio" align="center" id="9Answer<%= i %>" name="nine" value="<%= i%>" />
 
                                 </td>
                                 <% } %>
@@ -222,7 +232,7 @@
                 <table class="table table-striped">
                     <tr>
                         <td>
-                            <%= __('sex.desc') %>
+                            <p id="sex"><%= __('sex.desc') %></p>
                         </td>
                         <td onclick="checkGender('male')">
                             <input type="radio" align="center" id="male" name="gender" value="male" />
@@ -235,16 +245,18 @@
                     </tr>
                     <tr>
                         <td>
-                            <%= __('age.desc') %>
+                            <p id="descAge">
+                            <%= __('age.desc') %></p>
                         </td>
                         <td>
-                            <input type="number" id="age" />
+                            <input type="number" name="userAge"id="age" />
                             <%= __('age.unit') %>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <%= __('educationLevel.desc') %>
+                            <p id="edu">
+                            <%= __('educationLevel.desc') %></p>
                         </td>
                         <td>
                             <div onclick="checkEducation('lesserThanAbitur')">

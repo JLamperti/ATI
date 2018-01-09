@@ -51,51 +51,123 @@ function checkEducation(ed) {
 
 function createUniqueId() {
     let tempMother = document.getElementById('letMother').value;
-    let tempMonth = document.getElementById('numMonth').value.toString();
+    let tempMonth = document.getElementById('numMonth').value;
     let tempPlace = document.getElementById('letPlace').value;
-    if (tempMother.length == 3 && tempMonth.length == 2 && tempMonth[0] >= 0 && tempMonth[0] <= 1 && tempMonth[1] >= 0 && tempMonth[1] <= 9 && tempPlace.length == 1) {
-        let uId = tempMother.concat(tempMonth);
+    if(tempMother.length == 3){
+        tempMother = invalidNumbers(1,'letMother','descMother')
+    }else{
+        tempMonth= invalidNumbers(0, 'descMother', 0)
+    }
+    if(tempMonth > 0 && tempMonth < 13){
+        tempMonth = invalidNumbers(1,'numMonth','descMonth')
+    }else{
+        tempMonth= invalidNumbers(0, 'descMonth', 0)
+    }
+    if(tempPlace.length == 1){
+        tempPlace=invalidNumbers(1, 'letPlace', 'descPlace');
+    }else{
+        tempPlace=invalidNumbers(0, 'descPlace', 0);
+    }
+    if (tempMother.length == 3 && tempMonth >= 1 && tempMonth <= 12 && tempPlace.length == 1) {
+        let uId = tempMother.concat(tempMonth.toString());
         let res = uId.concat(tempPlace);
         return res;
+    } else {
+        return null;
     }
 }
 
 function createUniqueAnswers() {
-    let answers = {
-        qa1: document.querySelector('input[name = "one"]:checked') != null ? document.querySelector('input[name = "one"]:checked').value : alert('nothing selected  at the first question'),
-        qa2: document.querySelector('input[name = "two"]:checked') != null ? document.querySelector('input[name = "two"]:checked').value : alert('nothing selected  at the second question'),
-        qa3: document.querySelector('input[name = "three"]:checked') != null ? document.querySelector('input[name = "three"]:checked').value : alert('nothing selected  at the third question'),
-        qa4: document.querySelector('input[name = "four"]:checked') != null ? document.querySelector('input[name = "four"]:checked').value : alert('nothing selected  at the fourth question'),
-        qa5: document.querySelector('input[name = "five"]:checked') != null ? document.querySelector('input[name = "five"]:checked').value : alert('nothing selected  at the fifth question'),
-        qa6: document.querySelector('input[name = "six"]:checked') != null ? document.querySelector('input[name = "six"]:checked').value : alert('nothing selected  at the sixth question'),
-        qa7: document.querySelector('input[name = "seven"]:checked') != null ? document.querySelector('input[name = "seven"]:checked').value : alert('nothing selected  at the seventh question'),
-        qa8: document.querySelector('input[name = "eight"]:checked') != null ? document.querySelector('input[name = "eight"]:checked').value : alert('nothing selected  at the eigth question'),
-        qa9: document.querySelector('input[name = "nine"]:checked') != null ? document.querySelector('input[name = "nine"]:checked').value : alert('nothing selected  at the nineth question')
-    }
+    let answers = []
+    qa = document.querySelector('input[name = "one"]:checked') != null ? inValidAnswers(1, 'one', 'q1') : inValidAnswers(0, 'q1', 0);
+    answers.push(qa);
+    qa = document.querySelector('input[name = "two"]:checked') != null ? inValidAnswers(1, 'two', 'q2') : inValidAnswers(0, 'q2', 0);
+    answers.push(qa);
+    qa = document.querySelector('input[name = "three"]:checked') != null ? inValidAnswers(1, 'three', 'q3') : inValidAnswers(0, 'q3', 0);
+    answers.push(qa);
+    qa = document.querySelector('input[name = "four"]:checked') != null ? inValidAnswers(1, 'four', 'q4') : inValidAnswers(0, 'q4', 0);
+    answers.push(qa);
+    qa = document.querySelector('input[name = "five"]:checked') != null ? inValidAnswers(1, 'five', 'q5') : inValidAnswers(0, 'q5', 0);
+    answers.push(qa);
+    qa = document.querySelector('input[name = "six"]:checked') != null ? inValidAnswers(1, 'six', 'q6') : inValidAnswers(0, 'q6', 0);
+    answers.push(qa);
+    qa = document.querySelector('input[name = "seven"]:checked') != null ? inValidAnswers(1, 'seven', 'q7') : inValidAnswers(0, 'q7', 0);
+    answers.push(qa);
+    qa = document.querySelector('input[name = "eight"]:checked') != null ? inValidAnswers(1, 'eight', 'q8') : inValidAnswers(0, 'q8', 0);
+    answers.push(qa);
+    qa = document.querySelector('input[name = "nine"]:checked') != null ? inValidAnswers(1, 'nine', 'q9') : inValidAnswers(0, 'q9', 0);
+    answers.push(qa);
     return answers;
 }
 
-function createUniqueDemographicData() {
-    let demographicData = {
-        sex: document.querySelector('input[name = "gender"]:checked') != null ? document.querySelector('input[name = "gender"]:checked').value : alert('no gender'),
-        age: document.getElementById('age').value,
-        education: document.querySelector('input[name = "education"]:checked') != null ? document.querySelector('input[name = "education"]:checked').value : alert('no education level selected')
+function inValidAnswers(action, id, remove) {
+    //0 for invalid input
+    if (action == 0) {
+        document.getElementById(id).classList.add('invalidInput');
+        return null;
+    } else if (action == 1) {
+        let elem = document.getElementById(remove)
+        elem.classList.contains('invalidInput') ? elem.classList.remove('invalidInput') : '';
+        return document.querySelector('input[name =' + id + ']:checked').value
     }
+    //1 for valid input
+}
+
+function invalidNumbers(action, id, remove){
+    if (action == 0) {
+        document.getElementById(id).classList.add('invalidInput');
+        return null;
+    } else if (action == 1) {
+        let elem = document.getElementById(remove)
+        elem.classList.contains('invalidInput') ? elem.classList.remove('invalidInput') : '';
+        return document.getElementById(id).value
+    }
+}
+
+function createUniqueDemographicData() {
+    let demographicData = []
+    let d = document.querySelector('input[name = "gender"]:checked') != null ? inValidAnswers(1, 'gender', 'sex') : inValidAnswers(0, 'sex', 0);
+    demographicData.push(d);
+    d = document.getElementById('age').value > 0 ? invalidNumbers(1,'age','descAge') : invalidNumbers(0, 'descAge', 0);
+    demographicData.push(d);
+     d = document.querySelector('input[name = "education"]:checked') != null ? inValidAnswers(1, 'education', 'edu') : inValidAnswers(0, 'edu', 0);
+    demographicData.push(d);
+
     return demographicData;
 }
 
 
 function submitForm() {
-
+    let valid = false;
     var result = {
         id: createUniqueId(),
         answers: createUniqueAnswers(),
         demographicData: createUniqueDemographicData()
     }
-    return result;
+
+    let resId = true;
+    if (result.id == null) {
+        resId = false;
+    }
+    let resAns = true;
+    for (i = 0; i < result.answers.length; i++) {
+
+        if (result.answers[i] == null) {
+
+            return resAns = false;
+        }
+    }
+
+    let resDem = true;
+    for (i = 0; i < result.demographicData.length; i++) {
+        if (result.demographicData[i] == null) {
+            return resDem = false;
+        }
+    }
+
+    if (resId != false && resAns != false && resDem != false) {
+        console.log(result);
+        return result;
+    }
 };
 
-function checkCell(e){
-    //document.getElementById(e.explicitOriginalTarget.attributes[0]);
-    console.log('Fiesta');
-}

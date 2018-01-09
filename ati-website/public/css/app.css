@@ -59,7 +59,11 @@ footer {
   color: white;
 }
 
+.invalidInput{
+  border: 1px solid red;
+  padding:2px;
 
+}
 .table .alignTD{
   text-align:center;
 }
