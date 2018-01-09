@@ -195,6 +195,17 @@ footer {
 
 }
 
+.button-start{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-left: 5%;
+  padding-right:5%;
+  height:5.5rem;
+  background-color:#344853;
+  color:white; 
+  border-radius: 1rem;
+}
+
 @media (min-width: 768px) {
   .container-flex {
     display: flex;
@@ -240,6 +251,7 @@ footer {
   b {
     font-size: 50%;
   }
+  
   .container-flex-scale-def {
     display: flex;
     flex-direction: row;
@@ -282,6 +294,8 @@ footer {
     max-height:10%;
     width: 100%;
   }
+
+  
 }
 @media (min-width: 1200px) {
   .image-for-groups {
@@ -371,7 +385,8 @@ footer {
     padding: 1.5%;
     background-color: #E4E4E4;
     margin-bottom: 0.25%;
-    width: 35%;
+    width: 80%;
+    margin-top: 1rem;
     margin-left:auto;
     margin-right:auto;
   }
