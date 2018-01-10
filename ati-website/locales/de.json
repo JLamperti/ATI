@@ -3,10 +3,18 @@
 	"scale": "Skala",
 	"background": "Hintergrund",
 	"authors": "Autoren",
+
+	"title": "Skala zur Messung der Technikaffinität in der Interaktion",
+	"title1": "Skala zur Messung",
+	"title2": "der Technikaffinität",
+	"title3": "in der Interaktion",
+
 	"definitionAffinityHeader": "Was bedeutet Technikaffinität?",
 	"definitionAffinity": "Die Eigenschaft der Technikaffinität beschreibt, wie gerne und interessiert Personen sich mit Technik und interaktiven Systemen auseinandersetzen. Wir haben einen Fragebogen entwickelt um die Technikaffinität zu bestimmen haben .",
 	"theScale": "Die Skala",
+	"buttonDownload": "Download",
 	"downloadText": "Nutzen Sie unseren Fragebogen für Entwicklungs- und Forschungszwecke. Laden Sie ihn für ihre Studie herunter.",
+	"buttonTestYourself": "Teste dich",
 	"testYourselfText": "Oder nutzen Sie den Fragebogen und finden schnell heraus, wie affin Sie selbst im Umgang mit Technik sind.",
 	"what": "Was",
 	"whatText": "Mit unserem Fragebogen können Sie schnell und unkompliziert ihre Technikaffinität oder die ihrer Probanden messen. Dazu kann der Fragebogen direkt auf dieser Seite ausgefüllt, oder einfach heruntergeladen werden. Das Ausfüllen nimmt fünf Minuten in Anspruch und ist auf diversen Gerät möglich. Außerdem gibt es viele weitere Features, wie den Vergleich einzelner Ergebnisse mit denen aller Teilnehmer.",
@@ -30,11 +38,8 @@
 	"imageL": "./images/german.png",
 	"imageTitle": "./images/Titelbild_Deutsch.jpg",
 	"Scientist": "Scientist",
-	"title": "Skala zur Messung der Technikaffinität in der Interaktion",
-	"title1": "Skala zur Messung",
-	"title2": "der Technikaffinität",
-	"title3": "in der Interaktion",
-	"titleQuestionaire": "Teste deine Technikaffinität",
+
+	"titleQuestionnaire": "Teste deine Technikaffinität",
 	"sideInstructions": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,",
 	"instruction": "Bitte geben Sie den Grad Ihrer Zustimmung zu folgenden Aussagen an.",
 	"questions.question1": "Ich beschäftige mich gern genauer mit technischen Systemen.",
@@ -62,13 +67,11 @@
 	"educationLevel.aLevel": "Abitur/Fachhochschulreife",
 	"educationLevel.BMD": "Bachelor/Master/Diplom",
 	"educationLevel.hMD": "Höher als Master/Diplom",
-	"descQuestionair": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet",
+	"descQuestionnaire": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet",
 
 	"createId.descUníqueId": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet",
 	"createId.descMother": "Gebe die ersten drei Buchstaben des Namens deiner Mutter ein",
 	"createId.descMonth": "Gebe den Monat an, in dem du geboren wurdest",
-	"createId.descBirthplace": "Gebe den ersten Buchstaben deines Geburtsortes an",
+	"createId.descBirthplace": "Gebe den ersten Buchstaben deines Geburtsortes an"
 
-	"buttonDownload": "Download",
-	"buttonTestYourself": "Teste dich"
 }

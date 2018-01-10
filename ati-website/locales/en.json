@@ -3,10 +3,18 @@
   "scale": "Scale",
   "background": "Background",
   "authors": "Authors",
+  
+  "title": "Scale for Measuring the Affinity for Technology-Interaction",
+  "title1": "Scale for measuring",
+  "title2": "the affinity",
+  "title3": "for technology-interaction",
+
   "definitionAffinityHeader": "What does affinity for technology-interaction mean?",
   "definitionAffinity": "Affinity for technology-interaction describes how much people interested are in using technical and interactive systems. To measure the affinity for technology-interaction we have developed a scale - The ATI-scale.",
   "theScale": "The Scale",
+  "buttonDownload": "Download",
   "downloadText": "Use our scale for development and research. Download the scale for your project.",
+  "buttonTestYourself": "Test Yourself",
   "testYourselfText": "Or use the scale to learn something about your own affinity for technology and interactive systems.",
   "what": "What",
   "whatText": "With our scale you can easily and quickly measure your own technical affinity or that of your probands. For this purpose, the scale can be filled out directly on this page or simply downloaded. It takes about 5 minutes to complete the scale and it's possible on various devices. There are many more features as well. For example, you can see a comparison of the results of all participants.",
@@ -30,15 +38,9 @@
   "imageL": "./images/english.png",
   "imageTitle": "./images/Titelbild_Englisch.jpg",
   "Scientist": "Scientist",
-  "title": "Scale for Measuring the Affinity for Technology-Interaction",
-  "title1": "Scale for measuring",
-  "title2": "the affinity",
-  "title3": "for technology-interaction",
-  "buttonDownload": "Download",
-  "buttonTestYourself": "Test Yourself",
 
-  
-  "titleQuestionaire": "Test your affinity for technology-interaction ",
+
+  "titleQuestionnaire": "Test your affinity for technology-interaction ",
     "sideInstructions": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,",
     "instruction": "Please indicate the degree to which you agree/disagree with the following statements.",
         "questions.question1": "I like to occupy myself in greater detail with technical systems",
@@ -63,14 +65,14 @@
     ,
         "age.desc": "Age",
         "age.unit": "Years"
-    ,  
+    ,
         "educationLevel.desc": "highest achieved education level",
         "educationLevel.lesserThanAbitur": "lesser than A level",
         "educationLevel.aLevel": "A level",
         "educationLevel.BMD": "Bachelor/Master/Diploma",
         "educationLevel.hMD": "higher than Master/Diploma",
-    
-        "descQuestionair": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet",
+
+        "descQuestionnaire": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet",
         "createId.descUníqueId": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet",
         "createId.descMother": "Insert the first three Letters of your mothers name",
         "createId.descMonth": "Insert the month of your birthday",

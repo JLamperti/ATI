@@ -5,7 +5,7 @@ var router = express.Router();
 router.use(cookieParser());
 /* GET the questionaire */
 router.get('/', function(req, res) {
-  res.render('questionair');
+  res.render('questionnaire');
 });
 
 module.exports = router;
