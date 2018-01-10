@@ -3,12 +3,10 @@
 	"scale": "Skala",
 	"background": "Hintergrund",
 	"authors": "Autoren",
-
 	"title": "Skala zur Messung der Technikaffinität in der Interaktion",
 	"title1": "Skala zur Messung",
 	"title2": "der Technikaffinität",
 	"title3": "in der Interaktion",
-
 	"definitionAffinityHeader": "Was bedeutet Technikaffinität?",
 	"definitionAffinity": "Die Eigenschaft der Technikaffinität beschreibt, wie gerne und interessiert Personen sich mit Technik und interaktiven Systemen auseinandersetzen. Wir haben einen Fragebogen entwickelt um die Technikaffinität zu bestimmen haben .",
 	"theScale": "Die Skala",
@@ -38,7 +36,6 @@
 	"imageL": "./images/german.png",
 	"imageTitle": "./images/Titelbild_Deutsch.jpg",
 	"Scientist": "Scientist",
-
 	"titleQuestionnaire": "Teste deine Technikaffinität",
 	"sideInstructions": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,",
 	"instruction": "Bitte geben Sie den Grad Ihrer Zustimmung zu folgenden Aussagen an.",
@@ -68,10 +65,28 @@
 	"educationLevel.BMD": "Bachelor/Master/Diplom",
 	"educationLevel.hMD": "Höher als Master/Diplom",
 	"descQuestionnaire": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet",
-
 	"createId.descUníqueId": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet",
 	"createId.descMother": "Gebe die ersten drei Buchstaben des Namens deiner Mutter ein",
 	"createId.descMonth": "Gebe den Monat an, in dem du geboren wurdest",
-	"createId.descBirthplace": "Gebe den ersten Buchstaben deines Geburtsortes an"
-
+	"createId.descBirthplace": "Gebe den ersten Buchstaben deines Geburtsortes an",
+	"about.impressTitle": "Impressum",
+	"about.uniLub": "Universität zu Lübeck",
+	"about.uniStreet": "Ratzeburger Allee 160",
+	"about.uniZip": "23562 Lübeck",
+	"about.representativeTitle": "Vertretungsberechtigte Personen",
+	"about.representative": "Die Universität zu Lübeck ist eine Stiftung des öffentlichen Rechts. Sie wird durch den Präsidenten Prof. Dr. Hendrik Lehnert vertreten.",
+	"about.authorityTitle": "Aufsichtsführende Behörde",
+	"about.authorityText": "Die Hochschulen nehmen ihre Aufgaben im eigenen Namen unter Rechtsaufsicht des Landes wahr (Selbstverwaltungsangelegenheiten). Rechtsaufsicht: ",
+	"about.ministry": "Ministerium für Soziales, Gesundheit, Wissenschaft und Gleichstellung",
+	"about.ministryStreet": "Düsternbrooker Weg 104",
+	"about.ministryZip": "24105 Kiel",
+	"about.ministryCountry": "about.ministryCountry",
+	"about.vatTitle": "Steueridentifikationsnummer",
+	"about.vatNumber": "DE 202095138",
+	"about.contentResponsibleTitle": "Inhaltlich Verantwortlicher",
+	"about.contentResponsible": "Dr. rer nat. Daniel Wessel, Dipl. Psych.",
+	"about.phone": "Tel: +49 451-3101 5122 ",
+	"about.fax": "Fax: +49 451-3101 5149",
+	"about.email": "Email: <a href='mailto:wessel@imis.uni-luebeck.de' rel='external' style='color:blue;'><ins>wessel@imis.uni-luebeck.de</ins></a>",
+	"about.Fax": "about.Fax"
 }
