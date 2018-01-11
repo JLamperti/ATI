@@ -36,13 +36,91 @@
 
         <div class="ct-chart ct-perfect-fourth"></div>
 		<script>
-			var data = {
+		/*	var data = {
 				labels: ['1', '2', '3', '4', '5', '6'],
 				series: [
 					[4, 6, 10, 12, 7, 3]
 				]
 			};
+			console.log(data);
 			new Chartist.Line('.ct-chart', data);
+			
+			*/
+			
+			/*
+                    let url = '/db/get/buckets';
+
+                    fetch(url)
+                        .then(res => res.json())
+                        .then((out) => {
+                            console.log(out);
+							console.log(out[0].amount);
+							var data = {
+								labels: [],
+								series: [[]]
+							};
+							for (i=0;i<5;i++) {
+								data.labels[i] = out[i].bucket;
+								data.series[0][i] = out[i].amount;
+							};
+							new Chartist.Line('.ct-chart', data);
+							console.log(data);
+                        })
+                        .catch(err => { throw err });
+						
+			*/
+			let url = '/db/ageAndAti';
+			
+
+var options = {
+  showLine: false,
+  axisX: {
+	type:Chartist.AutoScaleAxis,
+	onlyInteger: true}
+};
+
+                    fetch(url)
+                        .then(res => res.json())
+                        .then((out) => {
+                            console.log(out);
+							var data = {
+								labels: [],
+								series: [[]]
+							};
+							for (i=0;i<out.length;i++) {
+								data.series[0][i] = {x:out[i].Age, y:out[i].AtiScore};
+							};
+							console.log(data);
+							new Chartist.Line('.ct-chart', data, options);
+                        })
+                        .catch(err => { throw err });
+			
+			url = 'db/complex?sel[1]=AtiScore&sel[2]=Age&sel[3]=Education';
+			fetch(url)
+				.then(res => res.json())
+                        .then((out) => {
+                            console.log(out);
+						})
+						.catch(err => {throw err});
+						
+						
+					/*	let testData = JSON.stringify({SID: 1, Token: 'testOnline', Age: 22, Sex: 1, Ati1: 5, Ati2: 5, Ati3: 6,
+								Ati4: 5, Ati5: 4, Ati6: 4, Ati7: 5, Ati8: 5, Ati9: 4, AtiScore: 43/9});
+					*/
+						let testData = JSON.stringify({UID: 1, Name: 'onlineTest', Description: 'Eine online erstellte Umfrage'});
+						let postUrl = '/db/survey';
+						fetch(postUrl, {
+							headers: {
+								'Accept' : 'application/json',
+								'Content-Type' : 'application/json'
+							},
+							method: 'POST',
+							body: testData
+						})
+						.then((out) => {
+                            console.log(out);
+						})
+						.catch(err => {throw err});
 		</script>
 
 
