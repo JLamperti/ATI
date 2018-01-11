@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET results listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  res.render('result', { title: 'ATI' });
 });
 
 module.exports = router;
