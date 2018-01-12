@@ -1,4 +1,4 @@
-<head>
+
   <%- include ./partials/head %>
     <title>User</title>
 </head>
@@ -7,8 +7,11 @@
   <header>
     <%- include ./partials/header %>
   </header>
-  <div >
-    <table id = "userDataTable">
+  <div>
+
+    <!-- rebuild with grid?-->
+
+    <table id="userDataTable">
       <tr>
         <td>Name:</td>
         <td>DummyName</td>
@@ -28,6 +31,21 @@
 
   </div>
 
+  <div id="surveyOverview">
+    <div class="div-padding-row background-light-grey" id="overviewHeader">
+        <img src="./images/Entwickler_Icon.png" alt="Studien" class="studyIcon inline"></img>
+        <p class="inline" style="padding-left:3px"><%= __('user.yourSurveys') %></p>
+        <p class = "inline" id = "openSurveysAmount">(#open surveys)</p>
+        <form class="searchForm">
+          <input class="search" type="text" name="search" placeholder="<%- __('user.searchText')%>" ></input>
+        </form>
+
+    </div>
+    <div id="resultsArea">
+      <button type="button"> <%= __('user.newSurveyButton')%></button>
+
+    </div>
+  </div>
 
   <footer>
     <%- include ./partials/footer %>
