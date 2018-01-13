@@ -120,7 +120,9 @@ footer {
 .scientist-developer-teacher-text {
   font-size: large;
 }
-
+#answerOptions div{
+  font-size: 80%;
+}
 /*style for the div Scale */
 .div-scale {
   padding: 1.5%;
@@ -199,6 +201,7 @@ footer {
   border-radius: 1rem;
 }
 
+
 @media (min-width: 768px) {
   /* >768px screen-width flexbox with column direction */
   .flex-md-col {
@@ -235,6 +238,10 @@ footer {
     width: 2rem;
     height: 2rem;
   }
+
+  .col-xs-txt{
+    font-size: 50%;
+  }
  
 }
 @media (max-width: 480px) {
@@ -256,6 +263,9 @@ footer {
   .title-txt {
     padding-top: 7.5%;
     padding-left: 15%;
+  }
+    .col-md-txt{
+    font-size: 85%;
   }
   /* scale the image to change the language screen-width > 1200px*/
   .langImg {

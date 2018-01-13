@@ -2,7 +2,9 @@
     <title>ATI</title>
     </head>
 
-    <body onload="uncheckall()">
+    <!-- <body onload="uncheckall()"> -->
+
+    <body>
         <nav class="navbar navbar-default navbar-noMargin" style="padding-right:1%">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -63,6 +65,74 @@
 
 
 
+        <!-- <div class="container">
+            <div class="row">
+                <div class="col-xs-1">#</div>
+                <div class="col-xs-11 col-md-5">
+                    <%= __('instruction') %>
+                </div>
+                <div class="col-xs-12 col-md-6 col-xs-txt col-md-txt">
+                    <!-- id="answerOptions">
+
+                    <div class="col-xs-2 text-justify" style="padding:1px">
+                        <%= __('answers.answer1') %>
+                    </div>
+                    <div class="col-xs-2 text-left" style="padding:1px">
+                        <%= __('answers.answer2') %>                    </div>
+                    <div class="col-xs-2 text-left" style="padding:1px">
+                        <%= __('answers.answer3') %>                    </div>
+                    <div class="col-xs-2 text-left" style="padding:1px">
+                        <%= __('answers.answer4') %>                    </div>
+                    <div class="col-xs-2 text-left" style="padding:1px">
+                        <%= __('answers.answer5') %>                    </div>
+                    <div class="col-xs-2 text-left" style="padding:1px">
+                        <%= __('answers.answer6') %>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="padding-top:1rem;padding-bottom:1rem;">
+                <div class="col-xs-1" height="100">1.</div>
+                <div class="col-xs-11 col-md-5" style="height:10rem">
+                    <p id="q1">
+                        <%= __('questions.question1') %>
+                    </p>
+                </div>
+                <form for="one" class="col-xs-12 col-md-6"   align="center">
+                    <% for(var i=1; i < 7; i++) { %>
+                        <div class="col-xs-2  text-center" style="border: 1px solid orange;height:5rem;padding:3.5%">
+                            <input class=" text-center" type="radio" id="1<%= i %>" name="one" value="<%= i%>" />
+                        </div>
+                        <% } %>
+                </form>
+            </div>
+            <div class="row" style="padding-top:1rem;padding-bottom:1rem;height:5rem;">
+                <div class="col-xs-1">2.</div>
+                <div class="col-xs-11 col-md-5">
+                    <p id="q1">
+                        <%= __('questions.question2') %>
+                    </p>
+                </div>
+                <form for="one" class="col-xs-12 col-md-6 form-check form-check-inline " >
+                    <% for(var i=1; i < 7; i++) { %>
+                        <div class="col-xs-2" style="border: 1px solid orange;height:100%" >
+                            <input type="radio" id="2<%= i %>"  name="two" value="<%= i%>" />
+                        </div>
+                        <% } %>
+                </form>
+            </div>
+
+
+
+
+
+
+        </div>
+ -->
+
+
+       
+
 
 
         <div class="container">
@@ -98,8 +168,8 @@
                     <tbody>
 
                         <tr>
-                            <td >1</td>
-                            <td >
+                            <td>1</td>
+                            <td>
                                 <p id="q1">
                                     <%= __('questions.question1') %>
                                 </p>
@@ -232,7 +302,9 @@
                 <table class="table table-striped">
                     <tr>
                         <td>
-                            <p id="sex"><%= __('sex.desc') %></p>
+                            <p id="sex">
+                                <%= __('sex.desc') %>
+                            </p>
                         </td>
                         <td onclick="checkGender('male')">
                             <input type="radio" align="center" id="male" name="gender" value="male" />
@@ -246,17 +318,19 @@
                     <tr>
                         <td>
                             <p id="descAge">
-                            <%= __('age.desc') %></p>
+                                <%= __('age.desc') %>
+                            </p>
                         </td>
                         <td>
-                            <input type="number" name="userAge"id="age" />
+                            <input type="number" name="userAge" id="age" />
                             <%= __('age.unit') %>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <p id="edu">
-                            <%= __('educationLevel.desc') %></p>
+                                <%= __('educationLevel.desc') %>
+                            </p>
                         </td>
                         <td>
                             <div onclick="checkEducation('lesserThanAbitur')">
