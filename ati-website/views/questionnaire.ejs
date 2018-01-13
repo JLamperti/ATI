@@ -4,7 +4,7 @@
 
     <!-- <body onload="uncheckall()"> -->
 
-    <body>
+    <body onload="setLang()">
         <nav class="navbar navbar-default navbar-noMargin" style="padding-right:1%">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -13,7 +13,7 @@
                 <ul class="nav navbar-nav navbar-right">
 
                     <li class="li-header-right" style="width:100%">
-                        <a href="/toggle">
+                        <a href="">
                             <img src="./images/lang_de_en.png" class="langImg" onclick="changeLang()">
                             <%= __('toggletext') %>
                         </a>
