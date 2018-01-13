@@ -12,14 +12,11 @@ function setLang() {
 }
 //change the language and reload the site
 function changeLang() {
- /* if (document.cookie.toString() == "locale=en") {
+  if (document.cookie.toString() == "locale=en") {
     document.cookie = "locale=de";
   } else if (document.cookie.toString() == "locale=de") {
     document.cookie = "locale=en";
-  }*/
-  fetch('/toggle', {
-	  credentials: "same-origin"
-  }).then().catch();
+  }
   console.log(document.cookie);
   location.reload();
 }
