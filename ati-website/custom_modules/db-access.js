@@ -1,6 +1,8 @@
 "use strict";
 
 var mysql = require('mysql'); //used for the communication with mysql
+var fs = require('fs');
+var keys = JSON.parse(fs.readFileSync("keys.json"));
 
 /**
 * creates a pool for connections, so they do not have to be
@@ -9,8 +11,8 @@ var mysql = require('mysql'); //used for the communication with mysql
 var pool = mysql.createPool({
 	connectionLimit : 100,
 	host: "localhost",
-	user: "ich",
-	password: "meinpw",
+	user: keys.db.username,
+	password: keys.db.password,
 	database : "AtiDB"
 });
 
