@@ -23,7 +23,9 @@ exports.selectAgeAndAti = function(req, res) {
 * selects everything of all probands except for duplicates (token)
 */
 exports.selectAll = function(req, res) {
-	dba.manipulateDB("SELECT * FROM allesOhneDuplikate;", req, res);
+	dba.manipulateDBAfterAut("SELECT probandToken AS comperator FROM allesOhneDuplikate WHERE probandId=11;", "test",
+		"SELECT * FROM allesOhneDuplikate;", req, res);
+	//dba.manipulateDB("SELECT * FROM allesOhneDuplikate;", req, res);
 };
 
 /**
