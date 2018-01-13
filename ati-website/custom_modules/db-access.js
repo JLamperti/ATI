@@ -21,7 +21,7 @@ var pool = mysql.createPool({
 * 
 * @param string a string that contains the sql-statement
 */
-let manipulateDB = function (string, req, res) {
+exports.manipulateDB = function (string, req, res) {
 	pool.getConnection(function (err, con) {			//get a connection from the pool
 		con.query(string, function (err, result) {		//perform the sql-statement
 			if (err) {			//in case of an error (mostlikely an invalid sql-statement) tell the client and log on the server
@@ -36,7 +36,6 @@ let manipulateDB = function (string, req, res) {
 		con.release();			//release the connection so it can be used for another query
 	});
 };
-exports.manipulateDB;		//export the function
 
 /**
 * checks wether or not a password is valid and then either initiates the real db-manipulation
@@ -48,7 +47,7 @@ exports.manipulateDB;		//export the function
 * @param autString string to compare the thing selected with
 * @param manStatement the sql-statement to perform after the successfull authentication
 */
-exports.manipulateDBAfterAut = function (autStatement, autString, manStatement, req, res) {
+exports.manipulateDBAfterAut = function (autStatement, autString, manStatement, req, res, dba) {
 	pool.getConnection(function (err, con) {			//get a connection from the pool
 		con.query(autStatement, function (err, result) {			//perform the sql.statement that returns the authentication relevant information
 			if (err) {			//in case of an error (mostlikely an invalid sql-statement) tell the client and log on the server
@@ -59,7 +58,7 @@ exports.manipulateDBAfterAut = function (autStatement, autString, manStatement, 
 			var string = JSON.stringify(result);		//bring the value from the database
 			var json = JSON.parse(string);				//into the right format
 			if (new String(json[0].comperator).valueOf() == new String(autString).valueOf()) {		//compare the value from the db and the one handed over
-				manipulateDB(manStatement, req, res);		//when matching, perform the manipulation on the db
+				dba.manipulateDB(manStatement, req, res);		//when matching, perform the manipulation on the db
 			} else {
 				res.status(420).send('authentication failed.');		//when failed, tell the client
 			}
@@ -75,7 +74,7 @@ exports.manipulateDBAfterAut = function (autStatement, autString, manStatement, 
 * @param stringOne the sql-statement performed first
 * @param stringTwo the sql-statement performed second
 */
-let manipulateDBTwice = function (stringOne, stringTwo, req, res) {
+exports.manipulateDBTwice = function (stringOne, stringTwo, req, res) {
 	pool.getConnection(function (err, con) {			//get a connection from the pool
 		con.beginTransaction(function(err) {			//begin a transaction to enable rollback
 			if (err) return console.log(err);
@@ -110,7 +109,6 @@ let manipulateDBTwice = function (stringOne, stringTwo, req, res) {
 		con.release();			//release the connection so it can be used for another query
 	});
 };
-exports.manipulateDBTwice;		//export the function
 
 /**
 * checks wether or not a password is valid and then either initiates the real db-manipulation
@@ -123,7 +121,7 @@ exports.manipulateDBTwice;		//export the function
 * @param manStatementOne the first sql-statement to perform after the successfull authentication
 * @param manStatementTwo the second sql-statement to perform after the successfull authentication
 */
-exports.manipulateDBTwiceAfterAut = function (autStatement, autString, manStatementOne, manStatementTwo, req, res) {
+exports.manipulateDBTwiceAfterAut = function (autStatement, autString, manStatementOne, manStatementTwo, req, res, dba) {
 	pool.getConnection(function (err, con) {			//get a connection from the pool
 		con.query(autStatement, function (err, result) {			//perform the sql.statement that returns the authentication relevant information
 			if (err) {			//in case of an error (mostlikely an invalid sql-statement) tell the client and log on the server
@@ -134,7 +132,7 @@ exports.manipulateDBTwiceAfterAut = function (autStatement, autString, manStatem
 			var string = JSON.stringify(result);		//bring the value from the database
 			var json = JSON.parse(string);				//into the right format
 			if (new String(json[0].comperator).valueOf() == new String(autString).valueOf()) {		//compare the value from the db and the one handed over
-				manipulateDBTwice(manStatementOne, manStatementTwo, req, res);		//when matching, perform the manipulations on the db
+				dba.manipulateDBTwice(manStatementOne, manStatementTwo, req, res);		//when matching, perform the manipulations on the db
 			} else {
 				res.status(420).send('authentication failed.');		//when failed, tell the client
 			}
@@ -142,6 +140,38 @@ exports.manipulateDBTwiceAfterAut = function (autStatement, autString, manStatem
 		con.release();					//release the connection for futher uses
 	});
 };
+
+/**
+* checks wether or not a password (or such) is valid and then either renders the page
+* or tells the client that the authentication failed.
+* 
+* @param autStatement sql-statement, that gets the relevant password (or such)
+*	NOTE: the value must be selected "as comperator" (e.g. "SELECT probandToken AS comperator 
+*		FROM allesOhneDuplikate WHERE probandId=11;")
+* @param autString string to compare the thing selected with
+* @param resString string containing the oage to render in case of successfull authentication
+*/
+exports.respondAfterAut = function (autStatement, autString, resString, req, res) {
+	pool.getConnection(function (err, con) {			//get a connection from the pool
+		con.query(autStatement, function (err, result) {			//perform the sql.statement that returns the authentication relevant information
+			if (err) {			//in case of an error (mostlikely an invalid sql-statement) tell the client and log on the server
+				res.status(500).send('Something went wrong with the authentication');
+				//console.log(err);
+				return console.log('ERR: Bad query. (db-acces.js:manipulateDBAfterAut)');	//for more detailed err-log de-comment the line above
+			}
+			var string = JSON.stringify(result);		//bring the value from the database
+			var json = JSON.parse(string);				//into the right format
+			if (new String(json[0].comperator).valueOf() == new String(autString).valueOf()) {		//compare the value from the db and the one handed over
+				res.render(resString, { title: 'ATI' });		//when matching, render the ressource
+			} else {
+				res.status(420).send('authentication failed.');		//when failed, tell the client
+			}
+		});
+		con.release();					//release the connection for futher uses
+	});
+};
+	
+
 
 
 
