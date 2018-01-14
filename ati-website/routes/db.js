@@ -4,9 +4,11 @@ var dba = require('../custom_modules/db-access');
 var gData = require('../custom_modules/getData');
 var pData = require('../custom_modules/postData');
 var uData = require('../custom_modules/updateData');
+var dData = require('../custom_modules/deleteData');
 gData.setDba(dba);
 pData.setDba(dba);
 uData.setDba(dba);
+dData.setDba(dba);
 
 
 /*
@@ -72,6 +74,17 @@ router.post('/user', function(req, res) {
 
 router.put('/survey', function(req, res) {
 	uData.updateSurvey(req, res);
+});
+
+router.put('/user', function(req, res) {
+	uData.updateUser(req, res);
+});
+
+
+//delete-requests
+
+router.delete('/user', function(req, res) {
+	dData.deleteUser(req, res);
 });
 
 module.exports = router;

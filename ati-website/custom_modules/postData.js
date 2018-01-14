@@ -205,7 +205,6 @@ exports.insertSurvey = function(req, res) {
 * must-have parameters are name, email, pw.
 * optional parameter is PID to link a proband to the user
 */
-//TODO pw nicht in klarschrift speichern
 exports.insertUser = function(req, res) {
 	let tmpString;
 	if (req.body.PID) {
