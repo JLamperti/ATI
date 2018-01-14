@@ -86,7 +86,7 @@ exports.selectComplex = function(req, res) {
 			i++;
 		}
 	}
-	if (temp.fromSurv == null) {								//if no survey is states
+	if (temp.fromSurv == null) {								//if no survey is stated
 		tmpString = tmpString + ' FROM allesOhneDuplikate';		//select from all probands without duplicates
 	} else {
 		tmpString = tmpString + ' FROM Proband';				//else select from all probands (with duplicates) and specify later
@@ -114,6 +114,10 @@ exports.selectComplex = function(req, res) {
 	}
 	tmpString = tmpString + ';';				//finalize the statement
 	dba.manipulateDB(tmpString, req, res);		//perform the statement
+};
+
+exports.selectLinks = function(req, res) {
+	dba.manipulateDB('SELECT url, expirationDate, usesLeft FROM link WHERE SID = ' + req.query.SID + 
 };
 
 /**

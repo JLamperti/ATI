@@ -38,6 +38,9 @@ router.get('/complex', function(req, res) {
 	gData.selectComplex(req, res);
 });
 
+router.get('/links', function(req, res) {
+	gData.selectLinks(req, res);
+
 router.get('/survey', function(req, res) {
 	gData.selectSurvey(req, res);
 });
@@ -52,6 +55,10 @@ router.get('/user', function(req, res) {
 
 
 //post-requests
+
+router.post('/link', function(req, res) {
+	pData.insertLink(req, res);
+});
 
 router.post('/proband', function(req, res) {
 	pData.insertProband(req, res);
