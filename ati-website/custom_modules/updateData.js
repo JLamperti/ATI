@@ -12,6 +12,16 @@ exports.setDba = function(newDba) {
 	dba=newDba;
 };
 
+/**
+* updates a survey
+* 
+* parameters have to be in the body
+* mandatory-parameters: SID
+* optional-parameters: description, name, maxProbands, status, begin, end
+* dates need to have the format yyyy-dd-mm
+* 
+* for details on what a specific line does compare to other functions (e.g. in postData.js)
+*/
 exports.updateSurvey = function (req, res) {
 	let tmpString = 'UPDATE survey SET';
 	let kommaNoetig = false;
@@ -57,6 +67,15 @@ exports.updateSurvey = function (req, res) {
 	dba.manipulateDB(tmpString, req, res);
 };
 
+/**
+* updates a user
+* 
+* parameters have to be in the body
+* mandatory-parameters: UID
+* optional-parameters: name, email, pw, PID
+* 
+* for info on a specif line compare to other functions (e.g. in postData.js)
+*/
 exports.updateUser = function (req, res) {
 	let tmpString = 'UPDATE user SET';
 	let kommaNoetig = false;

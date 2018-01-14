@@ -12,6 +12,10 @@ exports.setDba = function(newDba) {
 	dba=newDba;
 };
 
+/**
+* deletes a user
+* mandatory-parameter in body: UID
+*/
 exports.deleteUser = function (req, res) {
 	dba.manipulateDB('DELETE FROM user WHERE UserID = ' + req.body.UID + ';', req, res);
 };
