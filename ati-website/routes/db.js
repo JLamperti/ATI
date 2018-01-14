@@ -40,6 +40,7 @@ router.get('/complex', function(req, res) {
 
 router.get('/links', function(req, res) {
 	gData.selectLinks(req, res);
+});
 
 router.get('/survey', function(req, res) {
 	gData.selectSurvey(req, res);

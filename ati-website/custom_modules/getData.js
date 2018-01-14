@@ -117,7 +117,7 @@ exports.selectComplex = function(req, res) {
 };
 
 exports.selectLinks = function(req, res) {
-	dba.manipulateDB('SELECT url, expirationDate, usesLeft FROM link WHERE SID = ' + req.query.SID + 
+	dba.manipulateDB('SELECT url, expirationDate, usesLeft FROM link WHERE SID = ' + req.query.SID + ';', req, res);
 };
 
 /**
