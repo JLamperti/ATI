@@ -10,16 +10,16 @@ router.use('/dl', function(req, res){
   res.download('public/files/skala.pdf');
 });
 
-//toogle the language
-router.use('/toggle', function (req, res) {
-	if (req.cookies.locale == 'en') {
-		res.cookie('locale', 'de');
-	} else {
-		res.cookie('locale', 'en');
-	}
-	res.redirect('/');
-	//res.render('index', { title: 'ATI' });
-});
+// //toogle the language
+// router.use('/toggle', function (req, res) {
+// 	if (req.cookies.locale == 'en') {
+// 		res.cookie('locale', 'de');
+// 	} else {
+// 		res.cookie('locale', 'en');
+// 	}
+// 	res.redirect('/');
+// 	//res.render('index', { title: 'ATI' });
+// });
 
 router.get('/about', function(req, res, next){
 	res.render('about', { title: 'ATI' });
