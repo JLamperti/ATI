@@ -30,11 +30,18 @@ exports.manipulateDB = function (string, req, res) {
 				return console.log('Err: Bad query. (db-acces.js:manipulateDB)');	//for more detailed err-log de-comment the line above
 			}
 			var string = JSON.stringify(result);
+			
+
+
+console.log(string)
 			let json =  JSON.parse(string);
 			res.send(json);			//send the result of the query to the client (json formatted)
 		});
 		con.release();			//release the connection so it can be used for another query
 	});
+	
+
+
 };
 
 /**
@@ -79,10 +86,5 @@ exports.manipulateDBTwice = function (stringOne, stringTwo, req, res) {
 		con.release();			//release the connection so it can be used for another query
 	});
 };
-
-
-
-
-
 
 
