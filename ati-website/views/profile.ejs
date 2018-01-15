@@ -1,3 +1,4 @@
+<head>
 
   <%- include ./partials/head %>
     <title>User</title>
@@ -31,19 +32,45 @@
 
   </div>
 
-  <div id="surveyOverview">
+  <div id="surveyOverview" class="container">
     <div class="div-padding-row background-light-grey" id="overviewHeader">
-        <img src="./images/Entwickler_Icon.png" alt="Studien" class="studyIcon inline"></img>
-        <p class="inline" style="padding-left:3px"><%= __('user.yourSurveys') %></p>
-        <p class = "inline" id = "openSurveysAmount">(#open surveys)</p>
-        <form class="searchForm">
-          <input class="search" type="text" name="search" placeholder="<%- __('user.searchText')%>" ></input>
-        </form>
+      <img src="./images/Entwickler_Icon.png" alt="Studien" class="studyIcon inline"></img>
+      <span style="padding-left:3px">
+        <%= __('user.yourSurveys') %>
+      </span>
+      <span id="openSurveysAmount">(#open surveys)</span>
+      <form class="searchForm">
+        <input class="search" type="text" name="search" placeholder="<%- __('user.searchText')%> " style="background-image: url('./images/search_icon.png')"></input>
+      </form>
 
     </div>
-    <div id="resultsArea">
-      <button type="button"> <%= __('user.newSurveyButton')%></button>
+    <div id="resultsArea" class="container">
+      <div id="buttonContainer">
+        <button type="button"> <%= __('user.newSurveyButton')%></button>
+      </div>
 
+      <div id="dummySurvey" class="surveyMeta background-light-grey">
+
+        <h3>SurveyName</h3>
+        <div class="inlineBlock">
+          <p> Erstellungsdatum
+          </p>
+          <p>Teilnehmer
+          </p>
+          <p>Status
+          </p>
+
+        </div>
+        <div class="inlineBlock">
+          <p>10/10/10
+          </p>
+          <p>X aus Y ausgefuellt
+          </p>
+          <p>ends 10/10/10
+          </p>
+        </div>
+
+      </div>
     </div>
   </div>
 
