@@ -213,6 +213,7 @@ function submitForm() {
 
   if (resId != false && resAns != false && resDem != false) {
     console.log(result);
+    let s = result.demographicData[0] == 'male' ? true : false;
     let b = {
       Token: result.id,
       Ati1: result.answers[0],
@@ -225,7 +226,7 @@ function submitForm() {
       Ati8: result.answers[7],
       Ati9: result.answers[8],
       AtiScore: result.atiScore,
-      Sex: result.demographicData[0],
+      Sex: s,
       Age: result.demographicData[1],
       Education: result.demographicData[2]
     };
