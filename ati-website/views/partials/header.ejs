@@ -31,9 +31,11 @@
               </li>
             </ul>
             <ul class="nav navbar-nav navbar-right" >
-              <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-              <li class="li-header-right">
-                                    <a href="" onclick="changeLang()"> <img src="./images/lang_de_en.png" class="langImg">
+              <li>
+                <a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+                <a href="/logout"><span class="glyphicon glyphicon-user"></span> Log Out</a></li>
+              <li class="li-header-right"><!-- class="imgLangSmall li-header-right" style="margin-right: -5%"> -->
+                                    <a href="/toggle"> <img src="./images/lang_de_en.png" class="langImg">
 
                         <%= __('toggletext') %>
 

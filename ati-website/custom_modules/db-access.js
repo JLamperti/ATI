@@ -18,7 +18,7 @@ var pool = mysql.createPool({
 
 /**
 * performs one sql-statement on the database and sends the result to the client
-* 
+*
 * @param string a string that contains the sql-statement
 */
 exports.manipulateDB = function (string, req, res) {
@@ -30,7 +30,7 @@ exports.manipulateDB = function (string, req, res) {
 				return console.log('Err: Bad query. (db-acces.js:manipulateDB)');	//for more detailed err-log de-comment the line above
 			}
 			var string = JSON.stringify(result);
-			
+
 
 
 console.log(string)
@@ -39,7 +39,7 @@ console.log(string)
 		});
 		con.release();			//release the connection so it can be used for another query
 	});
-	
+
 
 
 };
@@ -47,7 +47,7 @@ console.log(string)
 /**
 * performs two sql-statements on the database and send an ok to the client.
 * only selects and updates make sense with this function.
-* 
+*
 * @param stringOne the sql-statement performed first
 * @param stringTwo the sql-statement performed second
 */
@@ -88,3 +88,14 @@ exports.manipulateDBTwice = function (stringOne, stringTwo, req, res) {
 };
 
 
+/**
+* performs one sql-statement on the database and sends the result to the client
+*
+* @param string a string that contains the sql-statement
+*/
+exports.performQuery = function (string, responseHandler) {
+	pool.getConnection(function (err, con) {			//get a connection from the pool
+		con.query(string, responseHandler);
+		con.release();			//release the connection so it can be used for another query
+	});
+}

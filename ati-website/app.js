@@ -3,12 +3,14 @@ var express = require('express'),
   favicon = require('serve-favicon'),
   logger = require('morgan'),
   cookieParser = require('cookie-parser'),
+  session = require('express-session'),
   i18n = require('i18n'),
   bodyParser = require('body-parser');
 
 //import the routers
 var index = require('./routes/index'),
   profile = require('./routes/profile'),
+  login = require('./routes/login'),
   form = require('./routes/form'),
   results = require('./routes/results'),
   db = require('./routes/db');
@@ -41,9 +43,30 @@ app.use(express.static(path.join(__dirname, 'public')));
 // i18n init parses req for language headers, cookies, etc.
 app.use(i18n.init);
 
+// initialize express-session to allow us track the logged-in user across sessions.
+app.use(session({
+    key: 'user_sid',
+    secret: '#RandomSecret',
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        expires: 600000
+    }
+}));
+
+// This middleware will check if user's cookie is still saved in browser and user is not set, then automatically log the user out.
+// This usually happens when you stop your express server after login, your cookie still remains saved in the browser.
+app.use((req, res, next) => {
+    if (req.cookies.user_sid && !req.session.user) {
+        res.clearCookie('user_sid');
+    }
+    next();
+});
+
 //set up routing
 app.use('/', index);
 app.use('/profile', profile);
+app.use('/login', login)
 app.use('/results', results);
 app.use('/form', form);
 app.use('/db', db);

@@ -1,5 +1,6 @@
 var express = require('express'),
-	cookieParser = require('cookie-parser');
+	cookieParser = require('cookie-parser'),
+	session = require('express-session');
 var router = express.Router();
 
 
@@ -25,6 +26,12 @@ router.get('/about', function(req, res, next){
 	res.render('about', { title: 'ATI' });
 });
 
+router.get('/logout', function(req, res, next) {
+	if (req.session.user && req.cookies.user_sid) {
+		res.clearCookie('user_sid');
+  }
+	res.redirect('/');
+});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
