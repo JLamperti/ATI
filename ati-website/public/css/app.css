@@ -200,7 +200,9 @@ footer {
   color: white;
   border-radius: 1rem;
 }
-
+.title-img{
+  background-image: url('../images/titleImg.jpg');background-size:cover; background-repeat: no-repeat
+}
 
 @media (min-width: 768px) {
   /* >768px screen-width flexbox with column direction */
@@ -219,9 +221,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-  b {
-    font-size: 50%;
-  }
+  
   /* class for the Image of index.ejs */
   .title-screen {
     width: auto;
@@ -250,6 +250,19 @@ footer {
     width: 0%;
     height: 0%;
   }
+  .title-img-xs{
+    background-image: url("../images/titleImg320_480.jpg");
+    background-size:cover; 
+    background-repeat: no-repeat
+  }
+  /* flexbox direction column sw < 480 */
+  .flex-xs-col {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+
 }
 @media (min-width: 480px) {
   /* padding for the div which contains the images for the Scientist/Developer/Teacher after the title-page */
@@ -257,6 +270,7 @@ footer {
     padding-left: 15.5%;
     padding-right: 15.5%;
   }
+ 
 }
 @media (min-width: 1200px) {
   /* style the text infront of the title-page. screen-width > 1200px */
