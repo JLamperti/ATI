@@ -44,14 +44,19 @@
       </form>
 
     </div>
+
     <div id="resultsArea" class="container">
+
       <div id="buttonContainer">
         <button type="button"> <%= __('user.newSurveyButton')%></button>
       </div>
 
       <div id="dummySurvey" class="surveyMeta background-light-grey">
 
-        <h3>SurveyName</h3>
+        <div id="entryHeader">
+          <h3>SurveyName</h3>
+        </div>
+
         <div class="inlineBlock">
           <p> Erstellungsdatum
           </p>
@@ -59,14 +64,20 @@
           </p>
           <p>Status
           </p>
-
         </div>
+
         <div class="inlineBlock">
           <p>10/10/10
           </p>
           <p>X aus Y ausgefuellt
           </p>
           <p>ends 10/10/10
+          </p>
+        </div>
+
+        <div class="inlineBlock float-right downarrow">
+          <p>
+            <span class="glyphicon glyphicon-menu-down"></span>
           </p>
         </div>
 

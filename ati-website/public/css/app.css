@@ -454,8 +454,22 @@ footer {
   width:65%;
 }
 
-.surveyMeta{}
+.surveyMeta{
+  position: relative;
+  min-height: 10px;
+}
 
 .inlineBlock{
-display: inline-block
+  display: inline-block;
+  position: relative;
+}
+
+.float-right{
+  float:right;
+}
+
+.downarrow{
+  position: absolute;
+  bottom: 10;
+  right: 10;
 }
