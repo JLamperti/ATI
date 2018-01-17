@@ -10,7 +10,8 @@ var express = require('express'),
 var index = require('./routes/index'),
   profile = require('./routes/profile'),
   form = require('./routes/form'),
-  results = require('./routes/results');
+  results = require('./routes/results'),
+  db = require('./routes/db');
 
 var app = express();
 
@@ -45,6 +46,7 @@ app.use('/', index);
 app.use('/profile', profile);
 app.use('/results', results);
 app.use('/form', form);
+app.use('/db', db);
 
 // catch 404 and forward to error handler
 
