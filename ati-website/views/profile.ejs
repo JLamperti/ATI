@@ -33,7 +33,8 @@
   </div>
 
   <div id="surveyOverview" class="container">
-    <div class="div-padding-row background-light-grey" id="overviewHeader">
+
+    <div id="overviewHeader" class="div-padding-row background-light-grey">
       <img src="./images/Entwickler_Icon.png" alt="Studien" class="studyIcon inline"></img>
       <span style="padding-left:3px">
         <%= __('user.yourSurveys') %>
@@ -52,63 +53,72 @@
       </div>
 
       <div id="dummySurvey" class="surveyMeta background-light-grey">
+        <div id="basicData">
+          <div id="entryHeader">
+            <h3>SurveyName</h3>
+          </div>
 
-        <div id="entryHeader">
-          <h3>SurveyName</h3>
+          <div class="inlineBlock">
+            <p> Erstellungsdatum
+            </p>
+            <p>Teilnehmer
+            </p>
+            <p>Status
+            </p>
+          </div>
+
+          <div class="inlineBlock">
+            <p>10/10/10
+            </p>
+            <p>X aus Y ausgefuellt
+            </p>
+            <p>ends 10/10/10
+            </p>
+          </div>
+
+          <div class="inlineBlock float-right downarrow">
+            <p>
+              <span class="glyphicon glyphicon-menu-down"></span>
+            </p>
+          </div>
         </div>
 
-        <div class="inlineBlock">
-          <p> Erstellungsdatum
-          </p>
-          <p>Teilnehmer
-          </p>
-          <p>Status
-          </p>
-        </div>
-
-        <div class="inlineBlock">
-          <p>10/10/10
-          </p>
-          <p>X aus Y ausgefuellt
-          </p>
-          <p>ends 10/10/10
-          </p>
-        </div>
-
-        <div class="inlineBlock float-right downarrow">
-          <p>
-            <span class="glyphicon glyphicon-menu-down"></span>
-          </p>
-        </div>
         <div id="details" class="container">
-          <div id = detailsHeader>
+          <div id="detailsHeader">
             <h4>Ermittelte Daten</h4>
           </div>
 
-          <div id = "detailsData">
-            <div id = "average">
+          <div id="detailsData">
+            <div id="average">
               <p>
-                <span class = "itemDescription"><%- __('user.average') %></span>
-                <span class = "itemValue">4.1</span>
+                <span class="itemDescription"><%= __('user.average') %></span>
+                <span class="itemValue">4.1</span>
               </p>
             </div>
-            <div id = "deviation">
+
+            <div id="deviation">
               <p>
-                <span class = "itemDescription"><%= __('user.deviation')%></span>
-                <span class = "itemValue">1.2</span>
+                <span class="itemDescription"><%= __('user.deviation')%></span>
+                <span class="itemValue">1.2</span>
               </p>
             </div>
-            <div id = "releaseData">
+
+            <div id="releaseData">
               <p>
-                <span class = "itemDescription"><%= __('user.releaseData') %></span>
-                <input id = "releaseDataCheckbox" type = "checkbox"> <span class="glyphicons glyphicons-question-sign" ></span>
+                <span class="itemDescription"><%= __('user.releaseData') %></span>
+                <label>
+                  <input id="releaseDataCheckbox" type="checkbox"> <span class="glyphicons glyphicons-question-sign"></span>
+                  allow
+                </label>
               </p>
             </div>
+
           </div>
 
-          <div id = "graph">
+          <div id="graph">
+            NotAGraph
           </div>
-          <div>
+
         </div>
       </div>
     </div>
