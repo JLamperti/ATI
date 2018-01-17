@@ -88,8 +88,10 @@
 	"about.phone": "Tel: + 49 (0451) 3101 5122",
 	"about.fax": "Fax: +49 (0451)3101 5149 ",
 	"about.email": "Email: <a href='mailto:wessel@imis.uni-luebeck.de' rel='external' style='color:blue;'><ins>wessel@imis.uni-luebeck.de</ins></a>",
-
-	"user.yourSurveys":"Your Surveys",
+	"user.yourSurveys": "Your Surveys",
 	"user.searchText": "search...",
-	"user.newSurveyButton":"Create new survey"
+	"user.newSurveyButton": "Create new survey",
+	"user.average": "user.average",
+	"user.deviation": "user.deviation",
+	"user.releaseData": "user.releaseData"
 }

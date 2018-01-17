@@ -36,8 +36,6 @@ h4 {
   font-size: 110%;
 }
 
-<<<<<<< HEAD
-
 button{
   background-color: #fff;
   border-radius: 5px 5px 5px 5px;
@@ -58,14 +56,12 @@ footer {
      padding-top:.75%;}
 
 
-=======
 /* style the footer*/
 footer {
   color: white;
   height: 15%;
   padding-top: 0.75%;
 }
->>>>>>> origin/master
 
 #userTypes {
   background-color: orange;
@@ -126,13 +122,7 @@ footer {
   padding-bottom: 7.5%;
 }
 
-<<<<<<< HEAD
-
-
-
-=======
 /*padding for the Scientist/Developer/Teacher divs.*/
->>>>>>> origin/master
 .div-padding-row-SDT {
   padding-left: 9.75%;
   padding-right: 9%;
@@ -150,20 +140,8 @@ footer {
 .scientist-developer-teacher-text {
   font-size: large;
 }
-<<<<<<< HEAD
-
-.scale-image {
-  margin-top: 3%;
- /* max-height: 20%;
-  max-width: 40%;*/
-  min-height: 20%;
-  min-height: 40%;
-  height: 20%;
-  width: 40%;
-=======
 #answerOptions div{
   font-size: 80%;
->>>>>>> origin/master
 }
 /*style for the div Scale */
 .div-scale {
@@ -222,38 +200,6 @@ footer {
   max-width: 100%;
 }
 
-<<<<<<< HEAD
-.container-flex-scale-title {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-}
-
-.flex-SDT{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-}
-.flex-SDT-text{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-}
-.submit-form{
-  width:12rem;
-  height:4.5rem;
-  color:white;
-  background-color:#344853;
-  border-radius:3rem;
-  margin-top:2rem;
-  margin-bottom:3rem;
-  box-shadow:none;
-
-
-=======
 /*button to submit the questionnaire */
 .submit-form {
   width: 12rem;
@@ -263,23 +209,15 @@ footer {
   margin-top: 2rem;
   margin-bottom: 3rem;
   box-shadow: none;
->>>>>>> origin/master
 }
 /*button to start the questionnaire or download */
 .button-start {
   margin-top: 2rem;
   margin-bottom: 2rem;
   padding-left: 5%;
-<<<<<<< HEAD
-  padding-right:5%;
-  height:5.5rem;
-  background-color:#344853;
-  color:white;
-=======
   padding-right: 5%;
   height: 5.5rem;
   color: white;
->>>>>>> origin/master
   border-radius: 1rem;
 }
 .title-img{
@@ -294,16 +232,7 @@ footer {
     flex-wrap: nowrap;
     justify-content: flex-start;
   }
-<<<<<<< HEAD
-
-  .scale-image {
-    margin-top: 3%;
-    height: 10%;
-    width: 80%;
-  }
-=======
   /* scale the image to change the language screen-width > 768px*/
->>>>>>> origin/master
   .langImg {
     width: 10%;
     height: 10%;
@@ -333,11 +262,6 @@ footer {
   .col-xs-txt{
     font-size: 50%;
   }
-<<<<<<< HEAD
-
-  .container-flex-scale-def {
-=======
-
 }
 @media (max-width: 480px) {
   /*style the Images for the Container 'Scientist/Developer/Teacher' */
@@ -352,28 +276,10 @@ footer {
   }
   /* flexbox direction column sw < 480 */
   .flex-xs-col {
->>>>>>> origin/master
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: flex-start;
-<<<<<<< HEAD
-    height: 30%;
-    width: 100%;
-  }
-  .scale-image {
-    margin-top: 3%;
-    min-height: 0.001%;
-    height:20%;
-    max-height:20%;
-    width: 80%;
-  }
-  .title-screen{
-    width:auto;
-    height:70%;
-    margin-top:-20px;
-=======
->>>>>>> origin/master
   }
 
 }
@@ -383,12 +289,6 @@ footer {
     padding-left: 15.5%;
     padding-right: 15.5%;
   }
-<<<<<<< HEAD
-
-
-=======
-
->>>>>>> origin/master
 }
 @media (min-width: 1200px) {
   /* style the text infront of the title-page. screen-width > 1200px */
