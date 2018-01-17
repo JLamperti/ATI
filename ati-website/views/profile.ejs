@@ -80,7 +80,36 @@
             <span class="glyphicon glyphicon-menu-down"></span>
           </p>
         </div>
+        <div id="details" class="container">
+          <div id = detailsHeader>
+            <h4>Ermittelte Daten</h4>
+          </div>
 
+          <div id = "detailsData">
+            <div id = "average">
+              <p>
+                <span class = "itemDescription"><%- __('user.average') %></span>
+                <span class = "itemValue">4.1</span>
+              </p>
+            </div>
+            <div id = "deviation">
+              <p>
+                <span class = "itemDescription"><%= __('user.deviation')%></span>
+                <span class = "itemValue">1.2</span>
+              </p>
+            </div>
+            <div id = "releaseData">
+              <p>
+                <span class = "itemDescription"><%= __('user.releaseData') %></span>
+                <input id = "releaseDataCheckbox" type = "checkbox"> <span class="glyphicons glyphicons-question-sign" ></span>
+              </p>
+            </div>
+          </div>
+
+          <div id = "graph">
+          </div>
+          <div>
+        </div>
       </div>
     </div>
   </div>

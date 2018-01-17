@@ -90,5 +90,8 @@
 	"about.email": "Email: <a href='mailto:wessel@imis.uni-luebeck.de' rel='external' style='color:blue;'><ins>wessel@imis.uni-luebeck.de</ins></a>",
 	"user.yourSurveys": "Ihre Studien",
 	"user.searchText": "Durchsuchen...",
-	"user.newSurveyButton":"Neue Studie erstellen"
+	"user.newSurveyButton": "Neue Studie erstellen",
+	"user.average": "user.average",
+	"user.deviation": "user.deviation",
+	"user.releaseData": "user.releaseData"
 }
