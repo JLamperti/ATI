@@ -5,8 +5,20 @@ var router = express.Router();
 
 router.use(cookieParser());
 
-//download the scale
-router.use('/dl', function(req, res){
+//download option 1
+router.use('/dl0', function(req, res){
+  res.download('public/files/skala.pdf');
+});
+//download option 2
+router.use('/dl1', function(req, res){
+  res.download('public/files/skala.pdf');
+});
+//download option 3
+router.use('/dl2', function(req, res){
+  res.download('public/files/skala.pdf');
+});
+//download option 4
+router.use('/dl3', function(req, res){
   res.download('public/files/skala.pdf');
 });
 
