@@ -36,6 +36,26 @@ h4 {
   font-size: 110%;
 }
 
+button{
+  background-color: #fff;
+  border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  padding: 5px 15px;
+}
+button:hover{
+
+}
+
+
+footer {
+  background-color: #344853;
+
+   color:white;
+    height:15%;
+     padding-top:.75%;}
+
+
 /* style the footer*/
 footer {
   color: white;
@@ -221,7 +241,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-  
+
   /* class for the Image of index.ejs */
   .title-screen {
     width: auto;
@@ -242,7 +262,6 @@ footer {
   .col-xs-txt{
     font-size: 50%;
   }
- 
 }
 @media (max-width: 480px) {
   /*style the Images for the Container 'Scientist/Developer/Teacher' */
@@ -252,7 +271,7 @@ footer {
   }
   .title-img-xs{
     background-image: url("../images/titleImg320_480.jpg");
-    background-size:cover; 
+    background-size:cover;
     background-repeat: no-repeat
   }
   /* flexbox direction column sw < 480 */
@@ -270,7 +289,6 @@ footer {
     padding-left: 15.5%;
     padding-right: 15.5%;
   }
- 
 }
 @media (min-width: 1200px) {
   /* style the text infront of the title-page. screen-width > 1200px */
@@ -330,4 +348,61 @@ footer {
     padding-top: 4rem;
     padding-bottom: 4rem;
   }
+
+}
+#userDataTable{
+  margin: auto;
+  width: 50%;
+}
+
+#overviewHeader{
+
+}
+.studyIcon{
+  max-height: 5%;
+  max-width: 5%;
+}
+
+.inline{
+  display:inline;
+}
+.searchForm{
+ display: inline;
+}
+.search{
+  width: 30%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  /*background-image: url('./images/search_icon.png');*/
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+.search:focus{
+  width:65%;
+}
+
+.surveyMeta{
+  position: relative;
+  min-height: 10px;
+}
+
+.inlineBlock{
+  display: inline-block;
+  position: relative;
+}
+
+.float-right{
+  float:right;
+}
+
+.downarrow{
+  position: absolute;
+  bottom: 10;
+  right: 10;
 }

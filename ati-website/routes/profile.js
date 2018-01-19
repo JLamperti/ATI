@@ -3,6 +3,7 @@ var router = express.Router();
 var session = require('express-session');
 var dba = require('../custom_modules/db-access.js');
 
+<<<<<<< HEAD
 /* GET profile page. */
 router.get('/', function(req, res) {
 	if (req.session.user && req.cookies.user_sid) {
@@ -17,10 +18,16 @@ router.get('/', function(req, res) {
 	//	"test", 'result', req, res);
   //res.send('respond with a resource');
 });
+=======
+>>>>>>> master
 
 /*update name*/
 router.put('/changeName', function(req, res, next) {
   //TODO
+});
+/* GET profile page. */
+router.get('/', function(req, res, next) {
+  res.render('profile', {title:'ATI' });
 });
 
 module.exports = router;

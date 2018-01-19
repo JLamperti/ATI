@@ -30,10 +30,13 @@ exports.manipulateDB = function (string, req, res) {
 				return console.log('Err: Bad query. (db-acces.js:manipulateDB)');	//for more detailed err-log de-comment the line above
 			}
 			var string = JSON.stringify(result);
+<<<<<<< HEAD
 
 
 
 console.log(string)
+=======
+>>>>>>> master
 			let json =  JSON.parse(string);
 			res.send(json);			//send the result of the query to the client (json formatted)
 		});

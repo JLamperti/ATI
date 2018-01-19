@@ -15,17 +15,17 @@ exports.setDba = function(newDba) {
 /**
 * Inserts a single proband into the database.
 * Parameters have to be in the body of the request.
-* Mandatory-paramters are Ati1 to Ati9 + AtiScore.
+* Mandatory-paramters are Ati1, Ati2, Ati3i, Ati4, Ati5, Ati6i, Ati7, Ati8i, Ati9, AtiScore.
 * optional-parameters are all other attributes of a proband except for the ID, which are:
-* Age, Sex, Education, Smartphone, Tablet, Computer, OnlineShopping, SozialeNetzwerke, 
+* Age, Sex, Education, EducationComment, Smartphone, Tablet, Computer, OnlineShopping, SozialeNetzwerke, 
 * Videotelefonie, Videoplattformen, Internetforen, Smartwatch.
 * Additionally a SID (a survey-ID) can be used to make the proband part of that survey.
 */
 exports.insertProband = function(req, res) {
 	let temp = req.body;		//for quick access
-	let stringOne = 'INSERT INTO proband (Ati1, Ati2, Ati3, Ati4, Ati5, Ati6, Ati7, Ati8, Ati9, AtiScore',						//prepare two strings for the sql-statement containing
-		stringTwo = ') VALUES (' + temp.Ati1 + ', ' + temp.Ati2 + ', ' + temp.Ati3 + ', ' + temp.Ati4 + ', ' 					//the ati-values
-			+ temp.Ati5 + ', ' + temp.Ati6 + ', ' + temp.Ati7 + ', ' + temp.Ati8 + ', ' + temp.Ati9 + ', ' + temp.AtiScore;
+	let stringOne = 'INSERT INTO proband (Ati1, Ati2, Ati3i, Ati4, Ati5, Ati6i, Ati7, Ati8i, Ati9, AtiScore',						//prepare two strings for the sql-statement containing
+		stringTwo = ') VALUES (' + temp.Ati1 + ', ' + temp.Ati2 + ', ' + temp.Ati3i + ', ' + temp.Ati4 + ', ' 					//the ati-values
+			+ temp.Ati5 + ', ' + temp.Ati6i + ', ' + temp.Ati7 + ', ' + temp.Ati8i + ', ' + temp.Ati9 + ', ' + temp.AtiScore;
 	if (temp.Token) {											//if a token is given, add it to the statement
 		stringOne = stringOne + ', ProbandToken';
 		stringTwo = stringTwo + ', \'' + temp.Token + '\'';
@@ -41,6 +41,10 @@ exports.insertProband = function(req, res) {
 	if (temp.Education) {
 		stringOne = stringOne + ', Education';
 		stringTwo = stringTwo + ', ' + temp.Education;
+	}
+	if (temp.EducationComment) {
+		stringOne = stringOne + ', EducationComment';
+		stringTwo = stringTwo + ', \'' + temp.EducationComment + '\'';
 	}
 	if (temp.Smartphone) {
 		stringOne = stringOne + ', Smartphone';
@@ -90,16 +94,16 @@ exports.insertProband = function(req, res) {
 /**
 * Inserts a single proband into the database and connects it with a user.
 * Parameters have to be in the body of the request.
-* Mandatory-paramters are Ati1 to Ati9 + AtiScore and UID
+* Mandatory-paramters are Ati1, Ati2, Ati3i, Ati4, Ati5, Ati6i, Ati7, Ati8i, Ati9, AtiScore and UID
 * optional-parameters are all other attributes of a proband except for the ID, which are:
-* Age, Sex, Education, Smartphone, Tablet, Computer, OnlineShopping, SozialeNetzwerke, 
+* Age, Sex, Education, EducationComment, Smartphone, Tablet, Computer, OnlineShopping, SozialeNetzwerke, 
 * Videotelefonie, Videoplattformen, Internetforen, Smartwatch.
 */
 exports.insertProbandUser = function(req, res) {
 	let temp = req.body;		//for quick access
-	let stringOne = 'INSERT INTO proband (Ati1, Ati2, Ati3, Ati4, Ati5, Ati6, Ati7, Ati8, Ati9, AtiScore',						//prepare two strings for the sql-statement containing
-		stringTwo = ') VALUES (' + temp.Ati1 + ', ' + temp.Ati2 + ', ' + temp.Ati3 + ', ' + temp.Ati4 + ', ' 					//the ati-values
-			+ temp.Ati5 + ', ' + temp.Ati6 + ', ' + temp.Ati7 + ', ' + temp.Ati8 + ', ' + temp.Ati9 + ', ' + temp.AtiScore;
+	let stringOne = 'INSERT INTO proband (Ati1, Ati2, Ati3i, Ati4, Ati5, Ati6i, Ati7, Ati8i, Ati9, AtiScore',						//prepare two strings for the sql-statement containing
+		stringTwo = ') VALUES (' + temp.Ati1 + ', ' + temp.Ati2 + ', ' + temp.Ati3i + ', ' + temp.Ati4 + ', ' 					//the ati-values
+			+ temp.Ati5 + ', ' + temp.Ati6i + ', ' + temp.Ati7 + ', ' + temp.Ati8i + ', ' + temp.Ati9 + ', ' + temp.AtiScore;
 	if (temp.Token) {											//if a token is given, add it to the statement
 		stringOne = stringOne + ', ProbandToken';
 		stringTwo = stringTwo + ', \'' + temp.Token + '\'';
@@ -115,6 +119,10 @@ exports.insertProbandUser = function(req, res) {
 	if (temp.Education) {
 		stringOne = stringOne + ', Education';
 		stringTwo = stringTwo + ', ' + temp.Education;
+	}
+	if (temp.Education) {
+		stringOne = stringOne + ', EducationComment';
+		stringTwo = stringTwo + ', \'' + temp.EducationComment + '\'';
 	}
 	if (temp.Smartphone) {
 		stringOne = stringOne + ', Smartphone';
@@ -162,13 +170,13 @@ exports.insertProbandUser = function(req, res) {
 * insert a survey and make a user the admin of it.
 * parameters are in the body of the request.
 * mandatory-paramter is UID (user-ID).
-* optional-paramters are Name, Description, MaxProbands, Status, Begin, End
+* optional-paramters are Name, Description, MaxProbands, Status, Begin, End, inviteText
 */
 exports.insertSurvey = function(req, res) {
 	let temp = req.body;		//for quick access
-	let stringOne = 'INSERT INTO survey (SurveyName',		//prepare two strings for the statement
-		stringTwo = ') VALUES (';
-	if (temp.Name) {				//if a nyme is given, use it
+	let stringOne = 'INSERT INTO survey (UID, SurveyName',		//prepare two strings for the statement
+		stringTwo = ') VALUES (' + temp.UID + ', ';
+	if (temp.Name) {				//if a name is given, use it
 		stringTwo += '\'' + temp.Name + '\'';
 	} else {						//else default to 'survey'
 		stringTwo += '\'survey\'';
@@ -193,9 +201,12 @@ exports.insertSurvey = function(req, res) {
 		stringOne += ', SurveyEnd';
 		stringTwo += ', ' + temp.End;
 	}
-	let tmpString = stringOne + stringTwo + ');';		//finalize the first statement (for isnert the survey)
-	dba.manipulateDBTwice(tmpString,					//perform both statements
-		'INSERT INTO adminOf (SID, UID) VALUES (LAST_INSERT_ID(), ' + temp.UID + ');', req, res);
+	if (temp.inviteText) {
+		stringOne += ', inviteText';
+		stringTwo += ', \'' + temp.inviteText + '\'';
+	}
+	let tmpString = stringOne + stringTwo + ');';		//finalize the statement
+	dba.manipulateDB(tmpString, req, res);				//performe sthe statement
 };
 
 /**

@@ -31,7 +31,7 @@ exports.selectAll = function(req, res) {
 * from either a survey or all probands without duplicates
 * 
 * parameters:
-* sel[] the parameters to select (valid options are atiScore, sex, age (planned education))
+* sel[] the parameters to select (valid options are atiScore, sex, age, education)
 * fromSurv the id of the survey to select the probands from
 */
 exports.selectAvg = function (req, res) {
@@ -43,7 +43,7 @@ exports.selectAvg = function (req, res) {
 			tmpString += ', AVG(' + req.query.sel[i] + ')';
 		}
 	} else {			//else selct all parameters
-		tmpString = 'SELECT AVG(atiScore), AVG(age), AVG(sex)';
+		tmpString = 'SELECT AVG(atiScore), AVG(age), AVG(sex), AVG(Education)';
 	}
 	if (req.query.fromSurv == null) {			//if no survey is given, use all probands
 		tmpString += ' FROM AllesOhneDuplikate;';
@@ -63,6 +63,7 @@ exports.selectBuckets = function(req, res) {
 	dba.manipulateDB("SELECT * FROM bucketsOhneDuplikate", req, res);
 };
 
+//TODO Strings unterstuetzen
 /**
 * allows for a selection of custom parameters meeting custom conditions from a specific survey or all probands without (token).
 * without any parameters this default behaves like selectAll.
@@ -70,7 +71,7 @@ exports.selectBuckets = function(req, res) {
 * 
 * parameters:
 * sel[] the parameters to select (valid options are Ati1 to Ati9, AtiScore,
-* 	ProbandToken, Age, Sex, Education, Smartphone, Tablet, Computer, OnlineShopping, 
+* 	ProbandToken, Age, Sex, Education, EducationComment, Smartphone, Tablet, Computer, OnlineShopping, 
 * 	SozialeNetzwerke, Videotelefonie, Videoplattformen, Internetforen, Smartwatch)
 * crit[] the conditions to meet (e.g. Age>20, Token='blabla', ...)
 * fromSurv the id of the survey to select the probands from
@@ -133,8 +134,7 @@ exports.selectSurvey = function(req, res) {
 * UID the user-ID
 */
 exports.selectSurveyByUser = function(req, res) {
-	dba.manipulateDB("SELECT * FROM survey WHERE SurveyID IN \
-	(SELECT SID FROM adminOf WHERE UID=" + req.query.UID + ");", req, res);
+	dba.manipulateDB("SELECT * FROM survey WHERE UID=" + req.query.UID + ";", req, res);
 };
 
 /**
@@ -144,7 +144,7 @@ exports.selectSurveyByUser = function(req, res) {
 * UID the userID
 */
 exports.selectUser = function(req, res) {
-	dba.manipulateDB('SELECT userID, userName, eMail, PID FROM \
+	dba.manipulateDB('SELECT userID, userName, eMail, PID, bestaetigt FROM \
 		user WHERE userID = ' + req.query.UID + ';', req, res);
 };
 

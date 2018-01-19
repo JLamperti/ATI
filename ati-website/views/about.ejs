@@ -1,6 +1,7 @@
 
 <%- include ./partials/head %>
-<title>About/Impressum</title>
+
+    <title>About/Impressum</title>
 </head>
 
 
@@ -8,51 +9,65 @@
   <header>
     <%- include ./partials/header %>
   </header>
+  <div>
+      <h1>
+        <%= __('about.impressTitle') %>
+      </h1>
+      <p>
+        <%= __('about.uniLub') %>
+      </p>
+      <p>
+        <%= __('about.uniStreet') %>
+      </p>
+      <p>
+        <%= __('about.uniZip') %>
+      </p>
+    </div>
+    <div>
+      <h3>
+        <%= __('about.representativeTitle') %>
+      </h3>
+      <p>
+        <%= __('about.representative') %>
+      </p>
+    </div>
+    <div>
+      <h3>
+        <%= __('about.authorityTitle') %>
+      </h3>
+      <p>
+        <%= __('about.authorityText') %>
+      </p>
+      <p>
+        <%= __('about.ministry') %>
+      </p>
+      <p>
+        <%= __('about.ministryZip') %>
+      </p>
+      <p>
+        <%= __('about.ministryStreet') %>
+      </p>
+      <p>
+        <%= __('about.ministryCountry') %>
+      </p>
+    </div>
 
-
-  <h1>Impressum</h1>
-
-  	<p><strong>Impressum</strong></p>
-  <p>Universität zu Lübeck</p>
-  <p>Ratzeburger Allee 160</p>
-  <p>23562 Lübeck</p>
-  <p>&nbsp;</p>
-  <p><strong>Vertretungsberechtigte Personen<br> </strong>Die Universität
-  zu Lübeck ist eine Stiftung des öffentlichen Rechts. Sie wird durch den
-  Präsidenten Prof. Dr. Hendrik Lehnert vertreten.</p>
-  <p><strong>&nbsp;</strong></p>
-  <p><strong>Aufsichtsführende Behörde<br> </strong>Die Hochschulen nehmen ihre Aufgaben im eigenen Namen unter Rechtsaufsicht des Landes wahr (Selbstverwaltungsangelegenheiten). </p>
-  <p>Rechtsaufsicht:</p>
-  <p>Ministerium für Soziales, Gesundheit, Wissenschaft und Gleichstellung<br> Düsternbrooker Weg 104</p>
-  <p>24105 Kiel</p>
-  <p><strong>&nbsp;</strong></p>
-  <p><strong>Steueridentifikationsnummer<br> </strong>DE 202095138</p>
-  <p><strong>&nbsp;</strong></p>
-  <p class="bodytext"><strong>Inhaltlich Verantwortlicher<br> </strong>Dr. rer nat. Daniel Wessel, Dipl. Psych.</p>
-  <p class="bodytext">Tel: +49 451-3101 5122
-<br>Fax: +49 451-3101 5149<br> Email: <a href="mailto:wessel@imis.uni-luebeck.de" rel="external" style="color:blue;"><ins>wessel@imis.uni-luebeck.de</ins></a></p>
-  <p><strong>Imprint</strong></p>
-  <p>University of Luebeck<br> Ratzeburger Allee 160</p>
-  <p>D-23562 Lübeck</p>
-  <p>Germany</p>
-  <p>&nbsp;</p>
-  <p><strong>Legal representative<br> </strong>The University of Luebeck is a public trust and is represented by its President Prof. Dr. Hendrik Lehnert.</p>
-  <p><strong>&nbsp;</strong></p>
-  <p><strong>Regulatory Authority<br> </strong>The University carries out
-  its public tasks on its own behalf under legal supervision of the
-  regulatory state authority, the Ministry of Social Affairs, Health,
-  Science and Equality.</p>
-  <p>&nbsp;</p>
-  <p>Ministry of Social Affairs, Health, Science and Equality</p>
-  <p>Düsternbrooker Weg 104</p>
-  <p>D-24105 Kiel</p>
-  <p>Germany</p>
-  <p><strong>&nbsp;</strong></p>
-  <p><strong>Value </strong><strong>added</strong><strong> </strong><strong>tax</strong><strong> </strong><strong>number</strong><strong> (VAT)<br> </strong>DE 202095138</p>
-  <p><strong>&nbsp;</strong></p>
-  <p class="bodytext"><strong>Responsible of Content/Editor in Charge<br> </strong>Daniel Wessel, Graduate Psychologist, PhD</p>
-  <p class="bodytext">Tel: + 49 (0451) 3101 5122<br> Fax: +49 (0451)3101 5149
-<br> Email: <a href="mailto:wessel@imis.uni-luebeck.de" rel="external" style="color:blue;"><ins>wessel@imis.uni-luebeck.de</ins></a></p><br>  </div>
-
+    <div>
+      <h3>
+        <%= __('about.contentResponsibleTitle') %>
+      </h3>
+      <p>
+        <%= __('about.contentResponsible') %>
+      </p>
+      <p>
+        <%= __('about.phone') %>
+      </p>
+      <p>
+        <%= __('about.fax') %>
+      </p>
+      <p>
+        <%- __('about.email') %>
+      </p>
+    </div>
 
 </body>

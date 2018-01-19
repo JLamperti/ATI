@@ -17,7 +17,7 @@ exports.setDba = function(newDba) {
 * 
 * parameters have to be in the body
 * mandatory-parameters: SID
-* optional-parameters: description, name, maxProbands, status, begin, end
+* optional-parameters: description, name, maxProbands, status, begin, end, inviteText
 * dates need to have the format yyyy-dd-mm
 * 
 * for details on what a specific line does compare to other functions (e.g. in postData.js)
@@ -62,6 +62,12 @@ exports.updateSurvey = function (req, res) {
 			tmpString += ',';
 		}
 		tmpString += ' surveyend = ' + req.body.end;
+	}
+	if (req.body.inviteText) {
+		if (kommaNoetig) {
+			tmpString += ',';
+		}
+		tmpString += ' inviteText = ' + req.body.inviteText;
 	}
 	tmpString += ' WHERE SurveyID = ' + req.body.SID + ';';
 	dba.manipulateDB(tmpString, req, res);
