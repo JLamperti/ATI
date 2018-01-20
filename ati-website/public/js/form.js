@@ -22,7 +22,7 @@ function checkZeroInfront(val) {
   }
 }
 function checkInputNumber(val) {
-  if (checkZeroInfront(val) || val[0] == "1") {
+  if (checkZeroInfront(val) || val[0] == "1" ||val[0] == "2" || val[0] == "3") {
     document.querySelector("#bday").classList.remove("invalid-input");
     return true;
   } else {
