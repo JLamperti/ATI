@@ -43,7 +43,7 @@
             <p>
                 <%= __('createId.descUníqueId') %>
             </p>
-            <form action="/db/proband" method="POST" >
+            <form >
                 <div class="flex-row flex-s-col">
                     <div class="flex-col token" s>
                         <label for="first-letter-birthplace">
@@ -336,15 +336,15 @@
                                     <%= __('sex.desc') %>:</label>
                             </div>
                             <div class="row col-md-8">
-                                <div class=" col-xs-6 col-sm-4 col-md-3" onclick="checkRadio(sex,1)">
+                                <div class=" col-xs-6 col-sm-4 col-md-3" onclick="checkRadio('sex',0)">
                                     <input type="radio" name="sex" value="1" required >
                                     <%= __('sex.male') %>
                                 </div>
-                                <div class="col-xs-6 col-sm-4 col-md-3" onclick="checkRadio(sex,2)">
+                                <div class="col-xs-6 col-sm-4 col-md-3" onclick="checkRadio('sex',1)">
                                     <input type="radio" name="sex" value="2" required >
                                     <%= __('sex.female') %>
                                 </div>
-                                <div class="col-xs-6 col-sm-4 col-md-3" onclick="checkRadio(sex,3)">
+                                <div class="col-xs-6 col-sm-4 col-md-3" onclick="checkRadio('sex',2)">
                                     <input type="radio" name="sex" value="3" required >
                                     <%= __('sex.other') %>
                                 </div>
@@ -378,26 +378,26 @@
                     <div id="education">
                         <div class="row">
                             <div class="col-xs-12">
-                                <label for="edu">
+                                <label for="edu" id="defEdu">
                                     <%= __('educationLevel.desc') %>:
                                 </label>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-11 col-md-6" style="white-space: nowrap;" onclick="checkRadio(edu,1)">
+                            <div class="col-xs-11 col-md-6" style="white-space: nowrap;" onclick="checkRadio('edu',0)">
                                 <!-- css-class? -->
                                 <input type="radio" name="edu" value="1" required >
                                 <%= __('educationLevel.lesserThanAbitur') %>
                             </div>
-                            <div class="col-xs-12 col-md-6" onclick="checkRadio(edu,2)">
+                            <div class="col-xs-12 col-md-6" onclick="checkRadio('edu',1)">
                                 <input type="radio" name="edu" value="2" required  >
                                 <%= __('educationLevel.aLevel') %>
                             </div>
-                            <div class="col-xs-12 col-md-6" onclick="checkRadio(edu,3)">
+                            <div class="col-xs-12 col-md-6" onclick="checkRadio('edu',2)">
                                 <input type="radio" name="edu" value="3" required >
                                 <%= __('educationLevel.BMD') %>
                             </div>
-                            <div class="col-xs-12 col-md-6" onclick="checkRadio(edu,4)">
+                            <div class="col-xs-12 col-md-6" onclick="checkRadio('edu',3)">
                                 <input type="radio" name="edu" value="4" required >
                                 <%= __('educationLevel.hMD') %>
                             </div>
@@ -412,8 +412,9 @@
 
 
 
-        <button class="button submit-form center-block bg-color-theme" onclick="checkAnswers()">Submit</button>
+      
         </form>
+        <button class="button submit-form center-block bg-color-theme" onclick="checkAnswers()">Submit</button>
         </div>
 
 
