@@ -19,7 +19,11 @@ router.use('/dl2', function(req, res){
 });
 //download option 4
 router.use('/dl3', function(req, res){
-  res.download('public/files/skala.pdf');
+  res.download('public/files/limesurvey_en.lsq');
+});
+//download option 4
+router.use('/dl4', function(req, res){
+  res.download('public/files/limesurvey_de.lsq');
 });
 
 // //toogle the language

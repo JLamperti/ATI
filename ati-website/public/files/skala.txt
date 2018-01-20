@@ -1,0 +1,26 @@
+ENGLISH (german version below)
+In the following questionnaire, we will ask you about your interaction with technical systems. The term ‘technical systems’ refers to apps and other software applications, as well as entire digital devices (e.g. mobile phone, computer, TV, car navigation). Please indicate the degree to which you agree/disagree with the following statements.
+[completely disagree, largely disagree, slightly disagree, slightly agree, largely agree, completely agree]
+I like to occupy myself in greater detail with technical systems.
+I like testing the functions of new technical systems.
+I predominantly deal with technical systems because I have to.
+When I have a new technical system in front of me, I try it out intensively.
+I enjoy spending time becoming acquainted with a new technical system.
+It is enough for me that a technical system works; I don’t care how or why.
+I try to understand how a technical system exactly works.
+It is enough for me to know the basic functions of a technical system.
+I try to make full use of the capabilities of a technical system.
+
+GERMAN
+Im Folgenden geht es um Ihre Interaktion mit technischen Systemen. Mit ‚technischen Systemen‘ sind sowohl Apps und andere Software-Anwendungen als auch komplette digitale Geräte (z.B. Handy, Computer, Fernseher, Auto-Navigation) gemeint.
+Bitte geben Sie den Grad Ihrer Zustimmung zu folgenden Aussagen an.
+[stimmt gar nicht, stimmt weitgehend nicht, stimmt eher nicht, stimmt eher, stimmt weitgehend, stimmt völlig]
+Ich beschäftige mich gern genauer mit technischen Systemen.
+Ich probiere gern die Funktionen neuer technischer Systeme aus.
+In erster Linie beschäftige ich mich mit technischen Systemen, weil ich muss.
+Wenn ich ein neues technisches System vor mir habe, probiere ich es intensiv aus.
+Ich verbringe sehr gern Zeit mit dem Kennenlernen eines neuen technischen Systems.
+Es genügt mir, dass ein technisches System funktioniert, mir ist es egal, wie oder warum.
+Ich versuche zu verstehen, wie ein technisches System genau funktioniert.
+Es genügt mir, die Grundfunktionen eines technischen Systems zu kennen.
+Ich versuche, die Möglichkeiten eines technischen Systems vollständig auszunutzen.
