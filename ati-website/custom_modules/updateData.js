@@ -54,14 +54,14 @@ exports.updateSurvey = function (req, res) {
 		if (kommaNoetig) {
 			tmpString += ',';
 		}
-		tmpString += ' surveyBegin = ' + req.body.begin;
+		tmpString += ' surveyBegin = \'' + req.body.begin + '\'';
 		kommaNoetig = true;
 	}
 	if (req.body.end) {
 		if (kommaNoetig) {
 			tmpString += ',';
 		}
-		tmpString += ' surveyend = ' + req.body.end;
+		tmpString += ' surveyend = \'' + req.body.end + '\'';
 	}
 	if (req.body.inviteText) {
 		if (kommaNoetig) {

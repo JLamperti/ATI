@@ -13,6 +13,27 @@ exports.setDba = function(newDba) {
 };
 
 /**
+* Dates need to have the format yyyy-dd-mm.
+*/
+exports.insertLink = function(req, res) {
+	var crypto = require('crypto');
+ 	var value = new Date().getTime() + 'x' + req.body.SID;
+ 	var hash = crypto.createHash('md5').update(value).digest('hex');
+ 	let stringOne = 'INSERT INTO link (url, SID';
+ 	let stringTwo = ') VALUES (\'' + hash + '\', ' + req.body.SID;
+ 	if (req.body.date) {
+ 		stringOne += ', ExpirationDate';
+ 		stringTwo += ', \'' + req.body.date + '\'';
+ 	}
+ 	if (req.body.uses) {
+ 		stringOne += ', UsesLeft';
+ 		stringTwo += ', ' + req.body.uses;
+ 	}
+ 	let tmpString = stringOne + stringTwo + ');';
+ 	dba.manipulateDB(tmpString, req, res);
+ };
+
+/**
 * Inserts a single proband into the database.
 * Parameters have to be in the body of the request.
 * Mandatory-paramters are Ati1, Ati2, Ati3i, Ati4, Ati5, Ati6i, Ati7, Ati8i, Ati9, AtiScore.
@@ -171,6 +192,7 @@ exports.insertProbandUser = function(req, res) {
 * parameters are in the body of the request.
 * mandatory-paramter is UID (user-ID).
 * optional-paramters are Name, Description, MaxProbands, Status, Begin, End, inviteText, takeEducation, takeAge, takeSex
+* Dates need to have the format yyyy-dd-mm
 */
 exports.insertSurvey = function(req, res) {
 	let temp = req.body;		//for quick access
@@ -195,11 +217,11 @@ exports.insertSurvey = function(req, res) {
 	}
 	if (temp.Begin) {
 		stringOne += ', SurveyBegin';
-		stringTwo += ', ' + temp.Begin;
+		stringTwo += ', \'' + temp.Begin + '\'';
 	}
 	if (temp.End) {
 		stringOne += ', SurveyEnd';
-		stringTwo += ', ' + temp.End;
+		stringTwo += ', \'' + temp.End + '\'';
 	}
 	if (temp.inviteText) {
 		stringOne += ', inviteText';
