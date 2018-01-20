@@ -170,7 +170,7 @@ exports.insertProbandUser = function(req, res) {
 * insert a survey and make a user the admin of it.
 * parameters are in the body of the request.
 * mandatory-paramter is UID (user-ID).
-* optional-paramters are Name, Description, MaxProbands, Status, Begin, End, inviteText
+* optional-paramters are Name, Description, MaxProbands, Status, Begin, End, inviteText, takeEducation, takeAge, takeSex
 */
 exports.insertSurvey = function(req, res) {
 	let temp = req.body;		//for quick access
@@ -205,6 +205,18 @@ exports.insertSurvey = function(req, res) {
 		stringOne += ', inviteText';
 		stringTwo += ', \'' + temp.inviteText + '\'';
 	}
+	if (temp.takeAge) {
+		stringOne += ', takeAge';
+		stringTwo += ', ' + temp.takeAge;
+	}
+	if (temp.takeEducation) {
+		stringOne += ', takeEducation';
+		stringTwo += ', ' + temp.takeEducation;
+	}
+	if (temp.takeSex) {
+		stringOne += ', takeSex';
+		stringTwo += ', ' + temp.takeSex;
+	}
 	let tmpString = stringOne + stringTwo + ');';		//finalize the statement
 	dba.manipulateDB(tmpString, req, res);				//performe sthe statement
 };
@@ -214,20 +226,29 @@ exports.insertSurvey = function(req, res) {
 * 
 * parameters are in the body
 * must-have parameters are name, email, pw.
-* optional parameter is PID to link a proband to the user
+* optional parameter are PID to link a proband to the user and scientist, developer and teacher to assign roles.
 */
 exports.insertUser = function(req, res) {
-	let tmpString;
+	let stringOne = 'INSERT INTO user (userName, eMail, pw';
+	let stringTwo = ') VALUES (\''
+		+ req.body.name + '\', \'' + req.body.email + '\', \'' +  req.body.pw + '\'';
 	if (req.body.PID) {
-		tmpString = 'INSERT INTO user (userName, eMail, pw, PID) VALUES (\'' 
-			+ req.body.name + '\', \'' + req.body.email + '\', \'' +  req.body.pw + '\', \'' 
-			+ req.body.PID + '\');';
-	} else {
-		tmpString = 'INSERT INTO user (userName, eMail, pw) VALUES (\'' 
-			+ req.body.name + '\', \'' + req.body.email + '\', \'' +  req.body.pw + '\');';
+		stringOne += ', PID';
+		stringTwo += ', ' + req.body.PID;
 	}
-	console.log(tmpString);
-	dba.manipulateDB(tmpString, req, res);
+	if (req.body.scientist) {
+		stringOne += ', isScientist';
+		stringTwo += ', ' + req.body.scientist;
+	}
+	if (req.body.developer) {
+		stringOne += ', isDeveloper';
+		stringTwo += ', ' + req.body.developer;
+	}
+	if (req.body.teacher) {
+		stringOne += ', isTeacher';
+		stringTwo += ', ' + req.body.teacher;
+	}
+	dba.manipulateDB(stringOne + stringTwo + ');', req, res);
 };
 
 
