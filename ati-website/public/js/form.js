@@ -32,16 +32,17 @@ function checkInputNumber(val) {
 }
 function checkAnswers() {
   var score =
-    (document.querySelector('input[name="q1"]:checked').value +
-      document.querySelector('input[name="q2"]:checked').value +
-      document.querySelector('input[name="q3"]:checked').value +
-      document.querySelector('input[name="q4"]:checked').value +
-      document.querySelector('input[name="q5"]:checked').value +
-      document.querySelector('input[name="q6"]:checked').value +
-      document.querySelector('input[name="q7"]:checked').value +
-      document.querySelector('input[name="q8"]:checked').value +
-      document.querySelector('input[name="q9"]:checked').value) /
+    (parseInt(document.querySelector('input[name="q1"]:checked').value) +
+    parseInt(document.querySelector('input[name="q2"]:checked').value) +
+    parseInt(document.querySelector('input[name="q3"]:checked').value )+
+    parseInt(document.querySelector('input[name="q4"]:checked').value )+
+    parseInt(document.querySelector('input[name="q5"]:checked').value )+
+    parseInt(document.querySelector('input[name="q6"]:checked').value )+
+    parseInt(document.querySelector('input[name="q7"]:checked').value )+
+    parseInt(document.querySelector('input[name="q8"]:checked').value )+
+    parseInt(document.querySelector('input[name="q9"]:checked').value) )/
     9;
+    console.log(score);
   var b = {
     Token:
       document.querySelector('input[name="first-letter-birthplace"]').value +
