@@ -5,10 +5,12 @@ var gData = require('../custom_modules/getData');
 var pData = require('../custom_modules/postData');
 var uData = require('../custom_modules/updateData');
 var dData = require('../custom_modules/deleteData');
+var iData = require('../custom_modules/importData');
 gData.setDba(dba);
 pData.setDba(dba);
 uData.setDba(dba);
 dData.setDba(dba);
+iData.setDba(dba);
 
 
 /*
@@ -38,6 +40,10 @@ router.get('/complex', function(req, res) {
 	gData.selectComplex(req, res);
 });
 
+router.get('/links', function(req, res) {
+	gData.selectLinks(req, res);
+});
+
 router.get('/survey', function(req, res) {
 	gData.selectSurvey(req, res);
 });
@@ -52,6 +58,18 @@ router.get('/user', function(req, res) {
 
 
 //post-requests
+
+router.post('/importCSV', function(req, res) {
+	/*
+	
+	*/
+	
+	iData.importCSV(req, res);
+});
+
+router.post('/link', function(req, res) {
+	pData.insertLink(req, res);
+});
 
 router.post('/proband', function(req, res) {
 	pData.insertProband(req, res);
