@@ -66,10 +66,12 @@
 	"educationLevel.BMD": "Bachelor/Master/Diploma",
 	"educationLevel.hMD": "higher than Master/Diploma",
 	"descQuestionnaire": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet",
-	"createId.descUníqueId": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet",
-	"createId.descMother": "Insert the first three Letters of your mothers name",
-	"createId.descMonth": "Insert the month of your birthday",
-	"createId.descBirthplace": "Insert the first Letter of your birthplace",
+	"createId.descFirstBirthplace": "Insert the first letter of your birthplace",
+	"createId.descLastBirthplace": "insert the last letter of your birthplace",
+	"createId.descBirthday": "Insert the day of your Birthday",
+	"createId.descFirstMother": "Insert the first letter of your mothers name (y if unknown)",
+	"createId.descFirstFather": "Insert the first letter of your fathers name (x if unknown)",
+	"createId.descGeburtsland": "Insert the country code of your country of birth (e.g. uk)",
 	"about.impressTitle": "Impress",
 	"about.uniLub": "University of Lübeck",
 	"about.uniStreet": "Ratzeburger Allee 160",
@@ -94,5 +96,8 @@
 	"user.newSurveyButton": "Create new survey",
 	"user.average": "user.average",
 	"user.deviation": "user.deviation",
-	"user.releaseData": "user.releaseData"
+	"user.releaseData": "user.releaseData",
+	"createId.descUníqueId": "createId.descUníqueId",
+	"sex.other": "sex.other",
+	"navbar.questionnaire": "Questionnaire to determine your ATI-Score"
 }

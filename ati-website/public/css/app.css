@@ -18,7 +18,7 @@ body {
   color: #223241;
   text-align: justify;
   font-family: "Open Sans", sans-serif;
-
+  hyphens: auto;
   font-size: 175%;
 }
 
@@ -148,12 +148,10 @@ footer {
   margin-bottom: 0.25%;
   width: 35%;
 }
-
 /*lightgrey background */
 .background-light-grey {
   background-color: #e4e4e4;
 }
-
 /* change color if hovered over elements in the navbar */
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
@@ -187,7 +185,6 @@ footer {
   margin-bottom: 4rem;
   margin-top: 4rem;
 }
-
 /*size for the authos-images */
 .author-images {
   max-height: 40%;
@@ -204,7 +201,6 @@ footer {
   flex-wrap: nowrap;
   justify-content: flex-start;
 }
-
 /*button to submit the questionnaire */
 .submit-form {
   width: 12rem;
@@ -225,7 +221,6 @@ footer {
   color: white;
   border-radius: 1rem;
 }
-
 .title-img {
   background-image: url("../images/titleImg.jpg");
   background-size: cover;
@@ -235,6 +230,39 @@ footer {
 .rounded-img {
   border-radius: 50%;
 }
+/*width for the token */
+.token {
+  width: 45%;
+}
+/*width of the edu-question */
+.edu-desc {
+  width: 30%;
+}
+
+.bg-color-lightgrey {
+  background-color: lightgrey;
+}
+/*center an input verticaly */
+input[type="radio"] {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+/*center element verical */
+.vertical {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+/*margin for the items of education */
+.edu-margin {
+  margin-top: 3rem;
+}
+.answer-question-vis{
+  visibility: hidden;
+ }
+ /* mark the description of the invalid input */
+ .invalid-input{
+   color:red;
+ }
 
 @media (min-width: 768px) {
   /* >768px screen-width flexbox with column direction */
@@ -249,190 +277,238 @@ footer {
     width: 10%;
     height: 10%;
   }
+  /*move the right element of the navbar to the side */
+  .navbar-right-noMargin-right {
+    margin-right: -7em;
+  }
+  .second-elem-education {
+    width: 35%;
+    padding-left: 0%;
+  }
+  
 }
+  @media (max-width: 768px) {
+    /* class for the Image of index.ejs */
+    .title-screen {
+      width: auto;
+      height: 70%;
+      margin-top: -20px;
+    }
+    /* container of the element to change the language. screen-width <768px */
+    .li-header-right {
+      width: 100%;
+      font-size: medium;
+    }
+    /* scale the image to change the language screen-width < 768px*/
+    .langImg {
+      width: 2rem;
+      height: 2rem;
+    }
+    /* flexbox column screenwidth > 768px */
+    .flex-s-col {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
+    /*width of the edu-question screenwidth > 768px */
+    .edu-desc {
+      width: 100%;
+    }
+    /* flexbox row screenwidth > 768px */
+    .flex-s-row {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
+    /*negative Margin for the Buttons on smallscreens*/
+    .btn-s-negMargin {
+      margin-bottom: -4rem;
+    }
+    .col-xs-txt {
+      font-size: 50%;
+    }
+    /*width for the token on small screens*/
+    .token {
+      width: 100%;
+    }
+    .padding-left-s {
+      padding-left: 2%;
+    }
+    .second-elem-education {
+      width: 100%;
+      margin-left: 0;
+    }
+    /* visibility of the answers */
+    .ans-vis {
+      visibility: hidden;
+      height: 0;
+    }
+    /* visibility of the answers near the radio buttons */
+    .answer-question-vis{
+     visibility: visible
+    }
+  }
+  @media (max-width: 480px) {
+    /*style the Images for the Container 'Scientist/Developer/Teacher' */
+    .SDT-images {
+      width: 0%;
+      height: 0%;
+    }
+    .title-img-xs {
+      background-image: url("../images/titleImg320_480.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    /* flexbox direction column sw < 480 */
+    .flex-xs-col {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
+  }
 
-@media (max-width: 768px) {
-  /* class for the Image of index.ejs */
-  .title-screen {
-    width: auto;
-    height: 70%;
-    margin-top: -20px;
+  @media (min-width: 360px) {
+    .ans-vis {
+      visibility: hidden;
+      height: 0;
+    }
   }
-  /* container of the element to change the language. screen-width <768px */
-  .li-header-right {
-    width: 100%;
-    font-size: medium;
+  @media (min-width: 480px) {
+    /* padding for the div which contains the images for the Scientist/Developer/Teacher after the title-page */
+    .padding-left-right-SDT {
+      padding-left: 15.5%;
+      padding-right: 15.5%;
+    }
   }
-  /* scale the image to change the language screen-width < 768px*/
-  .langImg {
-    width: 2rem;
-    height: 2rem;
+  @media (min-width: 1200px) {
+    /* style the text infront of the title-page. screen-width > 1200px */
+    .title-txt {
+      padding-top: 7.5%;
+      padding-left: 15%;
+    }
+    .col-md-txt {
+      font-size: 85%;
+    }
+    /* scale the image to change the language screen-width > 1200px*/
+    .langImg {
+      width: 12%;
+      height: 12%;
+    }
+    /* >1200px screen-width flexbox with row direction */
+    .flex-lg-row {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
+    /* padding for the left side if screen-width > 1200px */
+    .padding-md {
+      margin-left: 7.5%;
+    }
+    /* container of the element to change the language. screen-width >1200px */
+    .li-header-right {
+      width: 60%;
+    }
+    .author-width-md {
+      width: 40%;
+    }
+      /* visibility of the answers */
+    .ans-vis {
+      visibility: visible;
+      height: 0;
+    }
+     /* visibility of the answers near the radio buttons */
+    .answer-question-vis{
+      visibility: hidden;
+      height:0px;
+     }
   }
-  /* flexbox column screenwidth > 768px */
-  .flex-s-col {
+  @media (max-width: 1200px) {
+    /*style for the div Scale */
+    .div-scale {
+      padding: 1.5%;
+      background-color: #e4e4e4;
+      margin-bottom: 0.25%;
+      width: 80%;
+      margin-top: 1rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    /* style the text infront of the title-page. screen-width < 1200px */
+    .title-txt {
+      padding-top: 2rem;
+      padding-left: 20rem;
+    }
+    /*padding for the Scientist/Developer/Teacher divs. Screen-width < 1200px*/
+    .div-padding-row-SDT {
+      padding-left: 9.75%;
+      padding-right: 9%;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+   
+    
+  }
+
+  #userDataTable {
+    margin: auto;
+    width: 50%;
+  }
+  .flex-lesser-lg-col {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: flex-start;
-  } 
-  /*negative Margin for the Buttons on smallscreens*/
-  .btn-s-negMargin{
-    margin-bottom: -4rem;
   }
-
-  .col-xs-txt {
-    font-size: 50%;
+  #overviewHeader {
   }
-}
-@media (max-width: 480px) {
-  /*style the Images for the Container 'Scientist/Developer/Teacher' */
-  .SDT-images {
-    width: 0%;
-    height: 0%;
+  .studyIcon {
+    max-height: 5%;
+    max-width: 5%;
   }
-  .title-img-xs {
-    background-image: url("../images/titleImg320_480.jpg");
-    background-size: cover;
+  .inline {
+    display: inline;
+  }
+  .searchForm {
+    display: inline;
+  }
+  .search {
+    width: 30%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    /*background-image: url('./images/search_icon.png');*/
+    background-position: 10px 10px;
     background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
   }
-  /* flexbox direction column sw < 480 */
-  .flex-xs-col {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
+  .search:focus {
+    width: 65%;
   }
-}
-@media (min-width: 480px) {
-  /* padding for the div which contains the images for the Scientist/Developer/Teacher after the title-page */
-  .padding-left-right-SDT {
-    padding-left: 15.5%;
-    padding-right: 15.5%;
+  .author-margin-xs {
+    margin-top: 2rem;
   }
-}
-@media (min-width: 1200px) {
-  /* style the text infront of the title-page. screen-width > 1200px */
-  .title-txt {
-    padding-top: 7.5%;
-    padding-left: 15%;
+  .surveyMeta {
+    position: relative;
+    min-height: 10px;
   }
-  .col-md-txt {
-    font-size: 85%;
+  .inlineBlock {
+    display: inline-block;
+    position: relative;
   }
-  /* scale the image to change the language screen-width > 1200px*/
-  .langImg {
-    width: 12%;
-    height: 12%;
+  .float-right {
+    float: right;
   }
-  /* >1200px screen-width flexbox with row direction */
-  .flex-lg-row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
+  .downarrow {
+    position: absolute;
+    bottom: 10;
+    right: 10;
   }
 
-  /* padding for the left side if screen-width > 1200px */
-  .padding-md {
-    margin-left: 7.5%;
-  }
-  /* container of the element to change the language. screen-width >1200px */
-  .li-header-right {
-    width: 60%;
-  }
-  .author-width-md {
-    width: 40%;
-  }
-}
-@media (max-width: 1200px) {
-  /* scale images for screen-width < 1200px*/
-  /* .author-images {
-    max-height: 30%;
-    max-width: 30%;
-  } */
-  /*style for the div Scale */
-  .div-scale {
-    padding: 1.5%;
-    background-color: #e4e4e4;
-    margin-bottom: 0.25%;
-    width: 80%;
-    margin-top: 1rem;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  /* style the text infront of the title-page. screen-width < 1200px */
-  .title-txt {
-    padding-top: 2rem;
-    padding-left: 20rem;
-  }
-  /*padding for the Scientist/Developer/Teacher divs. Screen-width < 1200px*/
-  .div-padding-row-SDT {
-    padding-left: 9.75%;
-    padding-right: 9%;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-}
-#userDataTable {
-  margin: auto;
-  width: 50%;
-}
-.flex-lesser-lg-col {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-}
-
-#overviewHeader {
-}
-.studyIcon {
-  max-height: 5%;
-  max-width: 5%;
-}
-
-.inline {
-  display: inline;
-}
-.searchForm {
-  display: inline;
-}
-.search {
-  width: 30%;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  background-color: white;
-  /*background-image: url('./images/search_icon.png');*/
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  padding: 12px 20px 12px 40px;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
-}
-.search:focus {
-  width: 65%;
-}
-.author-margin-xs {
-  margin-top: 2rem;
-}
-.surveyMeta {
-  position: relative;
-  min-height: 10px;
-}
-
-.inlineBlock {
-  display: inline-block;
-  position: relative;
-}
-
-.float-right {
-  float: right;
-}
-
-.downarrow {
-  position: absolute;
-  bottom: 10;
-  right: 10;
-}
