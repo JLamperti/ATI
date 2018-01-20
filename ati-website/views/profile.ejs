@@ -1,6 +1,7 @@
 
   <%- include ./partials/head %>
     <title>User</title>
+    <script src="./js/user.js"></script>
 </head>
 
 <body>
@@ -75,16 +76,17 @@
             </p>
           </div>
 
-          <div class="inlineBlock float-right downarrow">
+          <div id="toggleDetails" class="inlineBlock float-right downarrow">
             <p>
               <span class="glyphicon glyphicon-menu-down"></span>
             </p>
           </div>
+
         </div>
 
         <div id="details" class="container">
           <div id="detailsHeader">
-            <h4>Ermittelte Daten</h4>
+            <h4><%= __('user.newSurveyButton') %></h4>
           </div>
 
           <div id="detailsData">
