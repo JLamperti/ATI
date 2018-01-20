@@ -36,25 +36,23 @@ h4 {
   font-size: 110%;
 }
 
-button{
+button {
   background-color: #fff;
   border-radius: 5px 5px 5px 5px;
   -webkit-border-radius: 5px 5px 5px 5px;
   -moz-border-radius: 5px 5px 5px 5px;
   padding: 5px 15px;
 }
-button:hover{
-
+button:hover {
 }
-
 
 footer {
   background-color: #344853;
 
-   color:white;
-    height:15%;
-     padding-top:.75%;}
-
+  color: white;
+  height: 15%;
+  padding-top: 0.75%;
+}
 
 /* style the footer*/
 footer {
@@ -73,8 +71,8 @@ footer {
   overflow-y: auto;
 }
 /* add margin-bottom to this div */
-#scale{
-  margin-bottom:4rem;
+#scale {
+  margin-bottom: 4rem;
 }
 /*set color of the element what-why-how */
 #div-what-why-how {
@@ -86,7 +84,7 @@ footer {
 }
 /* mark invalid inputs in form.ejs */
 .invalidInput {
-  color: rgba(255, 0, 0, .9);
+  color: rgba(255, 0, 0, 0.9);
 }
 /* align elements in a table */
 .table .alignTD {
@@ -140,7 +138,7 @@ footer {
 .scientist-developer-teacher-text {
   font-size: large;
 }
-#answerOptions div{
+#answerOptions div {
   font-size: 80%;
 }
 /*style for the div Scale */
@@ -199,6 +197,13 @@ footer {
 .row {
   max-width: 100%;
 }
+/*flex row with wrap*/
+.flex-row-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
 
 /*button to submit the questionnaire */
 .submit-form {
@@ -220,8 +225,15 @@ footer {
   color: white;
   border-radius: 1rem;
 }
-.title-img{
-  background-image: url('../images/titleImg.jpg');background-size:cover; background-repeat: no-repeat
+
+.title-img {
+  background-image: url("../images/titleImg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+/* create rounded Images */
+.rounded-img {
+  border-radius: 50%;
 }
 
 @media (min-width: 768px) {
@@ -237,11 +249,9 @@ footer {
     width: 10%;
     height: 10%;
   }
-
 }
 
 @media (max-width: 768px) {
-
   /* class for the Image of index.ejs */
   .title-screen {
     width: auto;
@@ -258,8 +268,19 @@ footer {
     width: 2rem;
     height: 2rem;
   }
+  /* flexbox column screenwidth > 768px */
+  .flex-s-col {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  } 
+  /*negative Margin for the Buttons on smallscreens*/
+  .btn-s-negMargin{
+    margin-bottom: -4rem;
+  }
 
-  .col-xs-txt{
+  .col-xs-txt {
     font-size: 50%;
   }
 }
@@ -269,10 +290,10 @@ footer {
     width: 0%;
     height: 0%;
   }
-  .title-img-xs{
+  .title-img-xs {
     background-image: url("../images/titleImg320_480.jpg");
-    background-size:cover;
-    background-repeat: no-repeat
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   /* flexbox direction column sw < 480 */
   .flex-xs-col {
@@ -281,7 +302,6 @@ footer {
     flex-wrap: nowrap;
     justify-content: flex-start;
   }
-
 }
 @media (min-width: 480px) {
   /* padding for the div which contains the images for the Scientist/Developer/Teacher after the title-page */
@@ -296,7 +316,7 @@ footer {
     padding-top: 7.5%;
     padding-left: 15%;
   }
-    .col-md-txt{
+  .col-md-txt {
     font-size: 85%;
   }
   /* scale the image to change the language screen-width > 1200px*/
@@ -311,6 +331,7 @@ footer {
     flex-wrap: nowrap;
     justify-content: flex-start;
   }
+
   /* padding for the left side if screen-width > 1200px */
   .padding-md {
     margin-left: 7.5%;
@@ -319,13 +340,16 @@ footer {
   .li-header-right {
     width: 60%;
   }
+  .author-width-md {
+    width: 40%;
+  }
 }
 @media (max-width: 1200px) {
   /* scale images for screen-width < 1200px*/
-  .author-images {
+  /* .author-images {
     max-height: 30%;
     max-width: 30%;
-  }
+  } */
   /*style for the div Scale */
   .div-scale {
     padding: 1.5%;
@@ -348,28 +372,32 @@ footer {
     padding-top: 4rem;
     padding-bottom: 4rem;
   }
-
 }
-#userDataTable{
+#userDataTable {
   margin: auto;
   width: 50%;
 }
-
-#overviewHeader{
-
+.flex-lesser-lg-col {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
 }
-.studyIcon{
+
+#overviewHeader {
+}
+.studyIcon {
   max-height: 5%;
   max-width: 5%;
 }
 
-.inline{
-  display:inline;
+.inline {
+  display: inline;
 }
-.searchForm{
- display: inline;
+.searchForm {
+  display: inline;
 }
-.search{
+.search {
   width: 30%;
   box-sizing: border-box;
   border: 2px solid #ccc;
@@ -383,25 +411,27 @@ footer {
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
 }
-.search:focus{
-  width:65%;
+.search:focus {
+  width: 65%;
 }
-
-.surveyMeta{
+.author-margin-xs {
+  margin-top: 2rem;
+}
+.surveyMeta {
   position: relative;
   min-height: 10px;
 }
 
-.inlineBlock{
+.inlineBlock {
   display: inline-block;
   position: relative;
 }
 
-.float-right{
-  float:right;
+.float-right {
+  float: right;
 }
 
-.downarrow{
+.downarrow {
   position: absolute;
   bottom: 10;
   right: 10;
