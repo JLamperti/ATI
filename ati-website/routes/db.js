@@ -77,6 +77,10 @@ router.post('/proband', function(req, res) {
 	pData.insertProband(req, res);
 });
 
+router.post('/probandLink', function(req, res) {
+	pData.insertProbandLink(req, res);
+});
+
 router.post('/probandUser', function(req, res) {
 	pData.insertProbandUser(req, res);
 });

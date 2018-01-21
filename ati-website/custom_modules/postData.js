@@ -13,6 +13,11 @@ exports.setDba = function(newDba) {
 };
 
 /**
+* generates a new link for the survey
+* parameters have to be in the body
+* madatory-parameters: SID
+* optional-parameters: date, uses
+* 
 * Dates need to have the format yyyy-dd-mm.
 */
 exports.insertLink = function(req, res) {
@@ -110,6 +115,81 @@ exports.insertProband = function(req, res) {
 	} else {													//if no SID is given, just perform the one statement
 		dba.manipulateDB(tmpString, req, res);
 	}
+};
+
+/**
+* Inserts a single proband into the database based on a link.
+* Parameters have to be in the body of the request.
+* Mandatory-paramters are Ati1, Ati2, Ati3i, Ati4, Ati5, Ati6i, Ati7, Ati8i, Ati9, AtiScore, inv.
+* optional-parameters are all other attributes of a proband except for the ID, which are:
+* Age, Sex, Education, EducationComment, Smartphone, Tablet, Computer, OnlineShopping, SozialeNetzwerke, 
+* Videotelefonie, Videoplattformen, Internetforen, Smartwatch.
+*/
+exports.insertProbandLink = function(req, res) {
+	let temp = req.body;		//for quick access
+	let stringOne = 'INSERT INTO proband (Ati1, Ati2, Ati3i, Ati4, Ati5, Ati6i, Ati7, Ati8i, Ati9, AtiScore',						//prepare two strings for the sql-statement containing
+		stringTwo = ') VALUES (' + temp.Ati1 + ', ' + temp.Ati2 + ', ' + temp.Ati3i + ', ' + temp.Ati4 + ', ' 					//the ati-values
+			+ temp.Ati5 + ', ' + temp.Ati6i + ', ' + temp.Ati7 + ', ' + temp.Ati8i + ', ' + temp.Ati9 + ', ' + temp.AtiScore;
+	if (temp.Token) {											//if a token is given, add it to the statement
+		stringOne = stringOne + ', ProbandToken';
+		stringTwo = stringTwo + ', \'' + temp.Token + '\'';
+	}
+	if (temp.Age) {												//repeat for all optional parameters
+		stringOne = stringOne + ', Age';
+		stringTwo = stringTwo + ', ' + temp.Age;
+	}
+	if (temp.Sex) {
+		stringOne = stringOne + ', Sex';
+		stringTwo = stringTwo + ', ' + temp.Sex;
+	}
+	if (temp.Education) {
+		stringOne = stringOne + ', Education';
+		stringTwo = stringTwo + ', ' + temp.Education;
+	}
+	if (temp.EducationComment) {
+		stringOne = stringOne + ', EducationComment';
+		stringTwo = stringTwo + ', \'' + temp.EducationComment + '\'';
+	}
+	if (temp.Smartphone) {
+		stringOne = stringOne + ', Smartphone';
+		stringTwo = stringTwo + ', ' + temp.Smartphone;
+	}
+	if (temp.Tablet) {
+		stringOne = stringOne + ', Tablet';
+		stringTwo = stringTwo + ', ' + temp.Tablet;
+	}
+	if (temp.Computer) {
+		stringOne = stringOne + ', Computer';
+		stringTwo = stringTwo + ', ' + temp.Computer;
+	}
+	if (temp.OnlineShopping) {
+		stringOne = stringOne + ', OnlineShopping';
+		stringTwo = stringTwo + ', ' + temp.OnlineShopping;
+	}
+	if (temp.SozialeNetzwerke) {
+		stringOne = stringOne + ', SozialeNetzwerke';
+		stringTwo = stringTwo + ', ' + temp.SozialeNetzwerke;
+	}
+	if (temp.Videotelefonie) {
+		stringOne = stringOne + ', Videotelefonie';
+		stringTwo = stringTwo + ', ' + temp.Videotelefonie;
+	}
+	if (temp.Videoplattformen) {
+		stringOne = stringOne + ', Videoplattformen';
+		stringTwo = stringTwo + ', ' + temp.Videoplattformen;
+	}
+	if (temp.Internetforen) {
+		stringOne = stringOne + ', Internetforen';
+		stringTwo = stringTwo + ', ' + temp.Internetforen;
+	}
+	if (temp.Smartwatch) {
+		stringOne = stringOne + ', Smartwatch';
+		stringTwo = stringTwo + ', ' + temp.Smartwatch;
+	}
+	let tmpString = stringOne + stringTwo + ');';				//finalize the statement by combining the two strings
+	dba.manipulateDBThreeTimes(tmpString, 
+		'INSERT INTO partof (PID, SID) SELECT LAST_INSERT_ID(), SID FROM LINK WHERE url=\'' + temp.inv + '\';',
+		'UPDATE Link SET usesLeft = usesLeft - 1 WHERE url = \'' + temp.inv + '\';', req, res);
 };
 
 /**

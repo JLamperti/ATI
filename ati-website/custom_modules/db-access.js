@@ -64,7 +64,7 @@ exports.manipulateDB = function (string, req, res) {
 
 /**
 * performs two sql-statements on the database and send an ok to the client.
-* only selects and updates make sense with this function.
+* only post and updates make sense with this function.
 * 
 * @param stringOne the sql-statement performed first
 * @param stringTwo the sql-statement performed second
@@ -97,6 +97,61 @@ exports.manipulateDBTwice = function (stringOne, stringTwo, req, res) {
 							}
 						});
 						res.send('OK');		//if both queries were succesfull, send an ok
+					});
+				}
+			});
+		});
+		con.release();			//release the connection so it can be used for another query
+	});
+};
+
+/**
+* performs three sql-statements on the database and send an ok to the client.
+* only post and updates make sense with this function.
+* 
+* @param stringOne the sql-statement performed first
+* @param stringTwo the sql-statement performed second
+* @param stringThree the sql-statement performed third
+*/
+exports.manipulateDBThreeTimes = function (stringOne, stringTwo, stringThree, req, res) {
+	pool.getConnection(function (err, con) {			//get a connection from the pool
+		con.beginTransaction(function(err) {			//begin a transaction to enable rollback
+			if (err) return console.log(err);
+			con.query(stringOne, function (err, result) {	//perform the first sql-statement
+				if (err) {			//in case of an error (mostlikely an invalid sql-statement) tell the client and log on the server
+					return con.rollback(function() {	//and rollback
+						res.status(406).send('Invalid Parameters for the Database. Check the parameters of your request.');
+						//console.log(err);
+						return console.log('Err: Bad query. (db-acces.js:manipulateDBThreeTimes:One)');	//for more detailed err-log de-comment the line above
+					});
+				} else {		//if the first statement was succesfull,
+					con.query(stringTwo, function (err, result) {		//perform the second sql-statement
+						if (err) {		//in case of an error (mostlikely an invalid sql-statement) tell the client and log on the server
+							return con.rollback(function() {		//and rollback (including the first statement)
+								res.status(406).send('Invalid Parameters for the Database. Check the parameters of your request.');
+								//console.log(err);
+								return console.log('Err: Bad query. (db-acces.js:manipulateDBThreeTimes:Two)');	//for more detailed err-log de-comment the line above
+							});
+						} else {
+							con.query(stringThree, function(err, result) {
+								if (err) {
+									return con.rollback(function() {
+										res.status(420).send('No uses left on that link');
+										//console.log(err);
+										return console.log('Err: Bad query. (db-access.js:manipulateDBThreeTimes:Three');
+									});
+								} else {
+									con.commit(function(err) {					//after successfully doing both queries, commit them
+										if (err) {
+											return con.rollback(function() {	//in case of ann error, rollback
+												console.log(err);
+											});
+										}
+									});
+									res.send('OK');		//if both queries were succesfull, send an ok
+								}
+							});
+						}
 					});
 				}
 			});
