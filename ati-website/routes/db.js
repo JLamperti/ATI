@@ -6,11 +6,13 @@ var pData = require('../custom_modules/postData');
 var uData = require('../custom_modules/updateData');
 var dData = require('../custom_modules/deleteData');
 var iData = require('../custom_modules/importData');
+var eData = require('../custom_modules/exportData');
 gData.setDba(dba);
 pData.setDba(dba);
 uData.setDba(dba);
 dData.setDba(dba);
 iData.setDba(dba);
+eData.setDba(dba);
 
 
 /*
@@ -40,6 +42,10 @@ router.get('/complex', function(req, res) {
 	gData.selectComplex(req, res);
 });
 
+router.get('/exportCSV', function(req, res) {
+	eData.exportCSV(req, res);
+});
+
 router.get('/links', function(req, res) {
 	gData.selectLinks(req, res);
 });
@@ -60,10 +66,6 @@ router.get('/user', function(req, res) {
 //post-requests
 
 router.post('/importCSV', function(req, res) {
-	/*
-	
-	*/
-	
 	iData.importCSV(req, res);
 });
 

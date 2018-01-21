@@ -3,6 +3,8 @@
 var mysql = require('mysql'); //used for the communication with mysql
 var fs = require('fs');
 var keys = JSON.parse(fs.readFileSync("keys.json"));
+var csv_export = require('csv-export');
+
 
 /**
 * creates a pool for connections, so they do not have to be
@@ -15,6 +17,26 @@ var pool = mysql.createPool({
 	password: keys.db.password,
 	database : "AtiDB"
 });
+
+exports.exportDataCSV = function(string, req, res) {
+	pool.getConnection(function (err, con) {			//get a connection from the pool
+		con.query(string, function (err, result) {		//perform the sql-statement
+			if (err) {			//in case of an error (mostlikely an invalid sql-statement) tell the client and log on the server
+				res.status(406).send('Invalid Parameters for the Database. Check the parameters of your request.');
+				//console.log(err);
+				return console.log('Err: Bad query. (db-acces.js:exportDataCSV)');	//for more detailed err-log de-comment the line above
+			}
+			var string = JSON.stringify(result);
+			let json =  JSON.parse(string);
+			csv_export.export(json, function(buffer) {
+				
+				res.setHeader('Content-disposition', 'attachement; filename=surveyData.zip');
+				res.send(buffer);
+			});
+		});
+		con.release();			//release the connection so it can be used for another query
+	});
+};
 
 /**
 * performs one sql-statement on the database and sends the result to the client
