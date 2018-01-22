@@ -92,6 +92,7 @@
 	"user.yourSurveys": "Your Surveys",
 	"user.searchText": "search...",
 	"user.newSurveyButton": "Create a new survey",
+	"user.detailsHeader": "Collected Data",
 	"user.average": "average",
 	"user.deviation": "deviation",
 	"user.releaseData": "release data"

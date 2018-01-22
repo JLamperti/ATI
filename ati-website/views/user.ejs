@@ -2,6 +2,7 @@
   <%- include ./partials/head %>
     <title>User</title>
     <script src="./js/user.js"></script>
+    <link rel="stylesheet" href="./css/user.css" >
 </head>
 
 <body>
@@ -34,31 +35,62 @@
 
   <div id="surveyOverview" class="container">
 
-    <div id="overviewHeader" class="background-light-grey">
-      <img src="./images/Entwickler_Icon.png" alt="Studien" class="studyIcon inline"></img>
+    <div id="overview-header" class="background-light-grey">
+      <img src="./images/Entwickler_Icon.png" alt="Studien" class="study-icon inline"></img>
       <span style="padding-left:3px">
         <%= __('user.yourSurveys') %>
       </span>
       <span id="openSurveysAmount">(#open surveys)</span>
-      <form class="searchForm">
+      <form class="search-form">
         <input class="search" type="text" name="search" placeholder="<%- __('user.searchText')%> " style="background-image: url('./images/search_icon.png')"></input>
       </form>
 
     </div>
 
-    <div id="resultsArea" class="container">
+    <div id="resultsArea">
 
-      <div id="buttonContainer">
-        <button type="button"> <%= __('user.newSurveyButton')%></button>
+      <div id="buttonContainer" style="padding-top: 20px;padding-bottom:10px; display: flex; justify-content: center; ">
+        <button type="button"><%= __('user.newSurveyButton')%></button>
       </div>
 
-      <div id="dummySurvey" class="surveyMeta background-light-grey">
+      <div id="dummySurvey" class="nested-container background-light-grey">
         <div id="basicData">
           <div id="entryHeader">
-            <h3>SurveyName</h3>
+            <h3 style="padding-top:15px;">SurveyName</h3>
           </div>
 
-          <div class="inlineBlock">
+          <div>
+            <p>
+              <span class="text-item-descr">
+                Erstellungsdatum
+              </span>
+              <span>
+                10/10/10
+              </span>
+            </p>
+          </div>
+          <div>
+            <p>
+              <span class="text-item-descr">
+                Teilnehmer
+              </span>
+              <span>
+                X aus Y ausgefuellt
+              </span>
+            </p>
+          </div>
+          <div>
+            <p>
+              <span class="text-item-descr">
+                Status
+              </span>
+              <span>
+                ends 10/10/10
+              </span>
+            </p>
+          </div>
+
+          <div class="inline-block">
             <p> Erstellungsdatum
             </p>
             <p>Teilnehmer
@@ -67,7 +99,7 @@
             </p>
           </div>
 
-          <div class="inlineBlock">
+          <div class="inline-block">
             <p>10/10/10
             </p>
             <p>X aus Y ausgefuellt
@@ -76,7 +108,7 @@
             </p>
           </div>
 
-          <div id="toggleDetails" class="inlineBlock float-right downarrow">
+          <div id="toggleDetails" class="inline-block float-right downarrow">
             <p>
               <span class="glyphicon glyphicon-menu-down"></span>
             </p>
@@ -84,9 +116,12 @@
 
         </div>
 
-        <div id="details" class="container">
+        <div id="details">
+
+          <hr>
+
           <div id="detailsHeader">
-            <h4><%= __('user.newSurveyButton') %></h4>
+            <h4><%= __('user.detailsHeader') %></h4>
           </div>
 
           <div id="detailsData">

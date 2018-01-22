@@ -1,0 +1,72 @@
+p {
+  padding-left: 30px;
+}
+
+#userDataTable {
+  margin: auto;
+  width: 50%;
+}
+
+#overviewHeader {}
+
+.study-icon {
+  max-height: 5%;
+  max-width: 5%;
+}
+
+.inline {
+  display: inline;
+}
+
+.search-form {
+  display: inline;
+}
+
+.search {
+  width: 30%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  /*background-image: url('./images/search_icon.png');*/
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+.search:focus {
+  width: 65%;
+}
+
+#overview-header {
+  padding: 20px 15px 15px 20px;
+}
+
+.inline-block {
+  display: inline-block;
+  position: relative;
+}
+
+.float-right {
+  float: right;
+}
+
+.downarrow {
+  position: absolute;
+  bottom: 10;
+  right: 10;
+}
+
+.nested-container {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+.text-item-descr {
+  min-width: 400px;
+  max-width: 1000px;
+  color: grey;
+}
