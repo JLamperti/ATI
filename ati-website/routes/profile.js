@@ -8,7 +8,8 @@ router.get('/', function(req, res) {
 	if (req.session.user && req.cookies.user_sid) {
       res.render('profile', { title: 'ATI' });
    } else {
-      res.redirect('login');
+		 res.render('needToLogin');
+      // res.redirect('login');
    }
 
 

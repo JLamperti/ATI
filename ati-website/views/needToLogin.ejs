@@ -1,0 +1,70 @@
+<%- include ./partials/head %>
+  <title>you need to log in</title>
+</head>
+
+<body>
+  <header>
+    <%- include ./partials/header %>
+  </header>
+
+
+  <div>
+    <div class="container column">
+      <div class="jumbotron col-sm-4 col-sm-offset-4  pull-center">
+        Für diese Funktion müssen Sie sich zuerst einloggen. </p>
+        <div>
+          <a href="/login" id="link">
+            <button type="button" class="button-start bg-color-theme col-md-4 col-sm-offset-4">
+              Login
+            </button>
+          </a>
+
+        </div>
+        <p id="countdown" class="col-sm-12" >Sie werden in Kürze weitergeleitet.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <footer class="navbar navbar-fixed-bottom">
+    <%- include ./partials/footer %>
+  </footer>
+
+
+  <script language='javascript' type='text/javascript'>
+
+  location.href = "/login";
+  
+  /**window.onload = function() {
+    var text = document.getElementById("countdown");
+    text.innerHTML = 10 ;
+    for(var i=0; i < 10; ) {
+        setTimeout(function() {
+            document.getElementById("countdown").innerHTML = ""+(10 - i);
+            i++;
+        },i*1000);
+    }
+    setTimeout(function() {
+        location.href = "/login";
+    },(11)*1000);
+  } */
+
+  var distance = 16;
+  var x = setInterval(function() {
+  document.getElementById("countdown").innerHTML = "Automatisches Weiterleiten zum Login in " + distance + "s";
+
+  distance--;
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+
+    document.getElementById("countdown").innerHTML = "Redirecting ...";
+    location.href = "/login";
+  }
+
+  }, 1000);
+
+  </script>
+</body>
+
+</html>
