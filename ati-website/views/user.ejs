@@ -61,7 +61,7 @@
 
           <div>
             <p>
-              <span class="text-item-descr">
+              <span class=" grey text-item-descr">
                 Erstellungsdatum
               </span>
               <span>
@@ -71,7 +71,7 @@
           </div>
           <div>
             <p>
-              <span class="text-item-descr">
+              <span class="grey text-item-descr">
                 Teilnehmer
               </span>
               <span>
@@ -79,36 +79,18 @@
               </span>
             </p>
           </div>
-          <div>
+          <div style="display:inline-block">
             <p>
-              <span class="text-item-descr">
+              <span class="grey text-item-descr">
                 Status
               </span>
-              <span>
+              <span class="text-item-descr">
                 ends 10/10/10
               </span>
             </p>
           </div>
 
-          <div class="inline-block">
-            <p> Erstellungsdatum
-            </p>
-            <p>Teilnehmer
-            </p>
-            <p>Status
-            </p>
-          </div>
-
-          <div class="inline-block">
-            <p>10/10/10
-            </p>
-            <p>X aus Y ausgefuellt
-            </p>
-            <p>ends 10/10/10
-            </p>
-          </div>
-
-          <div id="toggleDetails" class="inline-block float-right downarrow">
+          <div id="toggleDetails" class="inline-block float-right uparrow">
             <p>
               <span class="glyphicon glyphicon-menu-down"></span>
             </p>
@@ -116,7 +98,7 @@
 
         </div>
 
-        <div id="details">
+        <div id="details" style="display:none">
 
           <hr>
 
@@ -127,21 +109,21 @@
           <div id="detailsData">
             <div id="average">
               <p>
-                <span class="itemDescription"><%= __('user.average') %></span>
+                <span class="grey text-item-descr"><%= __('user.average') %></span>
                 <span class="itemValue">4.1</span>
               </p>
             </div>
 
             <div id="deviation">
               <p>
-                <span class="itemDescription"><%= __('user.deviation')%></span>
+                <span class="grey text-item-descr"><%= __('user.deviation')%></span>
                 <span class="itemValue">1.2</span>
               </p>
             </div>
 
             <div id="releaseData">
               <p>
-                <span class="itemDescription"><%= __('user.releaseData') %></span>
+                <span class="grey text-item-descr"><%= __('user.releaseData') %></span>
                 <label>
                   <input id="releaseDataCheckbox" type="checkbox"> <span class="glyphicons glyphicons-question-sign"></span>
                   allow
