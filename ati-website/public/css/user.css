@@ -1,10 +1,10 @@
-p {
-  padding-left: 30px;
+#surveyOverview{
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 50px;
 }
-
-#userDataTable {
-  margin: auto;
-  width: 50%;
+#surveyOverview p {
+  padding-left: 30px;
 }
 
 #overviewHeader {}
@@ -30,11 +30,12 @@ p {
   font-size: 16px;
   background-color: white;
   /*background-image: url('./images/search_icon.png');*/
-  background-position: 10px 10px;
+  background-position: 7px 7px;
   background-repeat: no-repeat;
   padding: 12px 20px 12px 40px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
+  background-size: 2.3em 2.3em;
 }
 
 .search:focus {
@@ -42,7 +43,7 @@ p {
 }
 
 #overview-header {
-  padding: 20px 15px 15px 20px;
+  padding: 20px 15px 20px 25px;
 }
 
 .inline-block {
@@ -71,4 +72,11 @@ p {
 }
 .grey{
   color: grey;
+}
+
+#userDetails{
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 50px;
+  padding-top: 3%;
 }
