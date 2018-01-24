@@ -3,8 +3,9 @@ var router = express.Router();
 //var session = require('express-session');
 var rewriter = require('express-rewrite');
 var bcrypt = require('bcrypt');
-var randomstring = require("randomstring");
+// var randomstring = require("randomstring");
 var dba = require('../custom_modules/db-access.js');
+var mailMan = require('../custom_modules/mailman.js');
 var backURL = '/';
 
 
@@ -82,6 +83,8 @@ router.post('/',function(req, res) {
                 if (err || result == undefined) {
                     return console.log('Err: Bad query. (db-acces.js:manipulateDB)');
                 } else {
+
+                  mailMan.sendValidationMail(newEmail, res);
                   res.render('login', { title: 'ATI', messageA: '', messageB: 'Validation email sent.'});
                 }
               });
