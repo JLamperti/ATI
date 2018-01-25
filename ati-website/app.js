@@ -8,7 +8,7 @@ var express = require('express'),
 
 //import the routers
 var index = require('./routes/index'),
-  profile = require('./routes/profile'),
+  user = require('./routes/user'),
   form = require('./routes/form'),
   results = require('./routes/results'),
   db = require('./routes/db');
@@ -43,7 +43,7 @@ app.use(i18n.init);
 
 //set up routing
 app.use('/', index);
-app.use('/profile', profile);
+app.use('/user', user);
 app.use('/results', results);
 app.use('/form', form);
 app.use('/db', db);
