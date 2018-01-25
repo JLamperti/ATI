@@ -28,8 +28,6 @@
                 </ul>
             </div>
         </nav>
-
-
         <div class="container">
             <h1>
                 <%= __('titleQuestionnaire') %>
@@ -43,7 +41,7 @@
             <p>
                 <%= __('createId.descUníqueId') %>
             </p>
-            <form >
+            <form>
                 <div class="flex-row flex-s-col">
                     <div class="flex-col token" s>
                         <label for="first-letter-birthplace">
@@ -89,13 +87,14 @@
                         <input type="text" name="mother" pattern=".{1,1}" required title="1 character">
                     </div>
                 </div>
-
-                <div class="container" style="border-bottom:1px solid black;width:100%;height:10px; margin:3rem 0rem;"> </div>
+                <div class="container separator"> </div>
                 <!-- questions -->
                 <!-- head -->
                 <div class="row">
                     <div class="col-xs-12 col-md-5">
-                        <%= __('instruction') %>
+                        <strong>
+                            <%= __('instruction') %>
+                        </strong>
                     </div>
                     <div class="ans-vis ">
                         <div class="col-md-1"></div>
@@ -119,217 +118,206 @@
                         </div>
                     </div>
                 </div>
-
-
                 <!-- questions -->
-                <!-- question1 -->
                 <div style="height:2rem"></div>
-                <div class="row" >
-                    <div class="col-xs-12 col-md-5">
-                        <label for="q1" id="q1">
-                            <%= __('questions.question1') %>
-                        </label>
-
-                    </div>
-                    <div>
-                        <div class="col-md-1"></div>
-                        <% for(var i = 1; i < 7 ; i++){%>
-                            <div class="col-xs-12 col-md-1" onclick="checkRadio('q1',<%= i -1 %>)" >
-
-                                <span style="white-space: nowrap;height:2rem"">
-                                    <input type="radio" name="q1" value="<%= i %>" required>
-                                    <span class="answer-question-vis">
-                                        <%= __('answers.answer' +i) %>
+                <div id="questions">
+                    <!-- question1 -->
+                    <div class="row">
+                        <div class="col-xs-12 col-md-5">
+                            <label for="q1" id="q1">
+                                <%= __('questions.question1') %>
+                            </label>
+                        </div>
+                        <div>
+                            <div class="col-md-1"></div>
+                            <% for(var i = 1; i < 7 ; i++){%>
+                                <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q1',<%= i -1 %>)">
+                                    <span style="white-space: nowrap;">
+                                        <input type="radio" name="q1" value="<%= i %>" required>
+                                        <span class="answer-question-vis">
+                                            <%= __('answers.answer' +i) %>
+                                        </span>
                                     </span>
-                                </span>
+                                </div>
+                                <% } %>
+                        </div>
+                    </div>
 
-                            </div>
-                            <% } %>
+                    <!-- question2 -->
+                    <div class="row">
+                        <div class="col-xs-12 col-md-5">
+                            <label for="q2" id="q2">
+                                <%= __('questions.question2') %>
+                            </label>
+                        </div>
+                        <div>
+                            <div class="col-md-1"></div>
+                            <% for(var i = 1; i < 7 ; i++){%>
+                                <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q2',<%= i -1 %>)">
+                                    <span style="white-space: nowrap;">
+                                        <input type="radio" name="q2" value="<%= i %>" required>
+                                        <span class="answer-question-vis">
+                                            <%= __('answers.answer' +i) %>
+                                        </span>
+                                    </span>
+                                </div>
+                                <% } %>
+                        </div>
+                    </div>
+                    <!-- question3 -->
+                    <div class="row">
+                        <div class="col-xs-12 col-md-5">
+                            <label for="q3" id="q3">
+                                <%= __('questions.question3') %>
+                            </label>
+                        </div>
+                        <div>
+                            <div class="col-md-1"></div>
+                            <% for(var i = 1; i < 7 ; i++){%>
+                                <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q3',<%= i -1 %>)">
+                                    <span style="white-space: nowrap;">
+                                        <input type="radio" name="q3" value="<%= 7 - i %>" required>
+                                        <span class="answer-question-vis">
+                                            <%= __('answers.answer' +i) %>
+                                        </span>
+                                    </span>
+                                </div>
+                                <% } %>
+                        </div>
+                    </div>
+                    <!-- question4 -->
+                    <div class="row">
+                        <div class="col-xs-12 col-md-5">
+                            <label for="q4" id="q4">
+                                <%= __('questions.question4') %>
+                            </label>
+                        </div>
+                        <div>
+                            <div class="col-md-1"></div>
+                            <% for(var i = 1; i < 7 ; i++){%>
+                                <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q4',<%= i -1 %>)">
+                                    <span style="white-space: nowrap;">
+                                        <input type="radio" name="q4" value="<%= i %>" required>
+                                        <span class="answer-question-vis">
+                                            <%= __('answers.answer' +i) %>
+                                        </span>
+                                    </span>
+                                </div>
+                                <% } %>
+                        </div>
+                    </div>
+                    <!-- question5 -->
+                    <div class="row">
+                        <div class="col-xs-12 col-md-5">
+                            <label for="q5" id="q5">
+                                <%= __('questions.question5') %>
+                            </label>
+                        </div>
+                        <div>
+                            <div class="col-md-1"></div>
+                            <% for(var i = 1; i < 7 ; i++){%>
+                                <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q5',<%= i -1 %>)">
+                                    <span style="white-space: nowrap;height:100%">
+                                        <input type="radio" name="q5" value="<%= i %>" required>
+                                        <span class="answer-question-vis">
+                                            <%= __('answers.answer' +i) %>
+                                        </span>
+                                    </span>
+                                </div>
+                                <% } %>
+                        </div>
+                    </div>
+                    <!-- question6 -->
+                    <div class="row">
+                        <div class="col-xs-12 col-md-5">
+                            <label for="q6" id="q6">
+                                <%= __('questions.question6') %>
+                            </label>
+                        </div>
+                        <div>
+                            <div class="col-md-1"></div>
+                            <% for(var i = 1; i < 7 ; i++){%>
+                                <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q6',<%= i -1 %>)">
+                                    <span style="white-space: nowrap;">
+                                        <input type="radio" name="q6" value=" <%= 7 - i %>" required>
+                                        <span class="answer-question-vis">
+                                            <%= __('answers.answer' +i) %>
+                                        </span>
+                                    </span>
+                                </div>
+                                <% } %>
+                        </div>
+                    </div>
+                    <!-- question7 -->
+                    <div class="row">
+                        <div class="col-xs-12 col-md-5">
+                            <label for="q7" id="q7">
+                                <%= __('questions.question7') %>
+                            </label>
+                        </div>
+                        <div>
+                            <div class="col-md-1"></div>
+                            <% for(var i = 1; i < 7 ; i++){%>
+                                <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q7',<%= i -1 %>)">
+                                    <span style="white-space: nowrap;">
+                                        <input type="radio" name="q7" value="<%=i %>" required>
+                                        <span class="answer-question-vis">
+                                            <%= __('answers.answer' +i) %>
+                                        </span>
+                                    </span>
+                                </div>
+                                <% } %>
+                        </div>
+                    </div>
+                    <!-- question8 -->
+                    <div class="row">
+                        <div class="col-xs-12 col-md-5">
+                            <label for="q8" id="q8">
+                                <%= __('questions.question8') %>
+                            </label>
+                        </div>
+                        <div>
+                            <div class="col-md-1"></div>
+                            <% for(var i = 1; i < 7 ; i++){%>
+                                <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q8',<%= i -1 %>)">
+                                    <span style="white-space: nowrap;">
+                                        <input type="radio" name="q8" value=" <%= 7 - i %>" required>
+                                        <span class="answer-question-vis">
+                                            <%= __('answers.answer' +i) %>
+                                        </span>
+                                    </span>
+                                </div>
+                                <% } %>
+                        </div>
+                    </div>
+                    <!-- question9 -->
+                    <div class="row">
+                        <div class="col-xs-12 col-md-5">
+                            <label for="q9" id="q9">
+                                <%= __('questions.question9') %>
+                            </label>
+                        </div>
+                        <div>
+                            <div class="col-md-1"></div>
+                            <% for(var i = 1; i < 7 ; i++){%>
+                                <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q9',<%= i -1 %>)">
+                                    <span style="white-space: nowrap;">
+                                        <input type="radio" name="q9" value=" <%= i %>" required>
+                                        <span class="answer-question-vis">
+                                            <%= __('answers.answer' +i) %>
+                                        </span>
+                                    </span>
+                                </div>
+                                <% } %>
+                        </div>
                     </div>
                 </div>
-
-                <!-- question2 -->
-                <div class="row">
-                    <div class="col-xs-12 col-md-5">
-                        <label for="q2" id="q2">
-                            <%= __('questions.question2') %>
-                        </label>
-                    </div>
-                    <div>
-                        <div class="col-md-1"></div>
-                        <% for(var i = 1; i < 7 ; i++){%>
-                            <div class="col-xs-12 col-md-1" onclick="checkRadio('q2',<%= i -1 %>)">
-                                <span style="white-space: nowrap;">
-                                    <input type="radio" name="q2" value="<%= i %>" required>
-                                    <span class="answer-question-vis">
-                                        <%= __('answers.answer' +i) %>
-                                    </span>
-                                </span>
-                            </div>
-                            <% } %>
-                    </div>
-                </div>
-
-                <!-- question3 -->
-                <div class="row">
-                    <div class="col-xs-12 col-md-5">
-                        <label for="q3" id="q3">
-                            <%= __('questions.question3') %>
-                        </label>
-                    </div>
-                    <div>
-                        <div class="col-md-1"></div>
-                        <% for(var i = 1; i < 7 ; i++){%>
-                            <div class="col-xs-12 col-md-1" onclick="checkRadio('q3',<%= i -1 %>)">
-                                <span style="white-space: nowrap;">
-                                    <input type="radio" name="q3" value="<%= 7 - i %>" required>
-                                    <span class="answer-question-vis">
-                                        <%= __('answers.answer' +i) %>
-                                    </span>
-                                </span>
-                            </div>
-                            <% } %>
-                    </div>
-                </div>
-
-                <!-- question4 -->
-                <div class="row">
-                    <div class="col-xs-12 col-md-5">
-                        <label for="q4" id="q4">
-                            <%= __('questions.question4') %>
-                        </label>
-                    </div>
-                    <div>
-                        <div class="col-md-1"></div>
-                        <% for(var i = 1; i < 7 ; i++){%>
-                            <div class="col-xs-12 col-md-1" onclick="checkRadio('q4',<%= i -1 %>)">
-                                <span style="white-space: nowrap;">
-                                    <input type="radio" name="q4" value="<%= i %>" required>
-                                    <span class="answer-question-vis">
-                                        <%= __('answers.answer' +i) %>
-                                    </span>
-                                </span>
-                            </div>
-                            <% } %>
-                    </div>
-                </div>
-
-                <!-- question5 -->
-                <div class="row">
-                    <div class="col-xs-12 col-md-5">
-                        <label for="q5" id="q5">
-                            <%= __('questions.question5') %>
-                        </label>
-                    </div>
-                    <div>
-                        <div class="col-md-1"></div>
-                        <% for(var i = 1; i < 7 ; i++){%>
-                            <div class="col-xs-12 col-md-1" onclick="checkRadio('q5',<%= i -1 %>)">
-                                <span style="white-space: nowrap;">
-                                    <input type="radio" name="q5" value="<%= i %>" required>
-                                    <span class="answer-question-vis">
-                                        <%= __('answers.answer' +i) %>
-                                    </span>
-                                </span>
-                            </div>
-                            <% } %>
-                    </div>
-                </div>
-
-                <!-- question6 -->
-                <div class="row">
-                    <div class="col-xs-12 col-md-5">
-                        <label for="q6" id="q6">
-                            <%= __('questions.question6') %>
-                        </label>
-                    </div>
-                    <div>
-                        <div class="col-md-1"></div>
-                        <% for(var i = 1; i < 7 ; i++){%>
-                            <div class="col-xs-12 col-md-1" onclick="checkRadio('q6',<%= i -1 %>)">
-                                <span style="white-space: nowrap;">
-                                    <input type="radio" name="q6" value=" <%= 7 - i %>" required>
-                                    <span class="answer-question-vis">
-                                        <%= __('answers.answer' +i) %>
-                                    </span>
-                                </span>
-                            </div>
-                            <% } %>
-                    </div>
-                </div>
-                <!-- question7 -->
-                <div class="row">
-                    <div class="col-xs-12 col-md-5">
-                        <label for="q7" id="q7">
-                            <%= __('questions.question7') %>
-                        </label>
-                    </div>
-                    <div>
-                        <div class="col-md-1"></div>
-                        <% for(var i = 1; i < 7 ; i++){%>
-                            <div class="col-xs-12 col-md-1" onclick="checkRadio('q7',<%= i -1 %>)">
-                                <span style="white-space: nowrap;">
-                                    <input type="radio" name="q7" value="<%=i %>" required>
-                                    <span class="answer-question-vis">
-                                        <%= __('answers.answer' +i) %>
-                                    </span>
-                                </span>
-                            </div>
-                            <% } %>
-                    </div>
-                </div>
-                <!-- question8 -->
-                <div class="row">
-                    <div class="col-xs-12 col-md-5">
-                        <label for="q8" id="q8">
-                            <%= __('questions.question8') %>
-                        </label>
-                    </div>
-                    <div>
-                        <div class="col-md-1"></div>
-                        <% for(var i = 1; i < 7 ; i++){%>
-                            <div class="col-xs-12 col-md-1" onclick="checkRadio('q8',<%= i -1 %>)">
-                                <span style="white-space: nowrap;">
-                                    <input type="radio" name="q8" value=" <%= 7 - i %>" required>
-                                    <span class="answer-question-vis">
-                                        <%= __('answers.answer' +i) %>
-                                    </span>
-                                </span>
-                            </div>
-                            <% } %>
-                    </div>
-                </div>
-                <!-- question9 -->
-                <div class="row">
-                    <div class="col-xs-12 col-md-5">
-                        <label for="q9" id="q9">
-                            <%= __('questions.question9') %>
-                        </label>
-                    </div>
-                    <div>
-                        <div class="col-md-1"></div>
-                        <% for(var i = 1; i < 7 ; i++){%>
-                            <div class="col-xs-12 col-md-1" onclick="checkRadio('q9',<%= i -1 %>)">
-                                <span style="white-space: nowrap;">
-                                    <input type="radio" name="q9" value=" <%= i %>" required>
-                                    <span class="answer-question-vis">
-                                        <%= __('answers.answer' +i) %>
-                                    </span>
-                                </span>
-                            </div>
-                            <% } %>
-                    </div>
-                </div>
-
-
-
-
-                <div class="container" style="border-bottom:1px solid black;width:100%;height:10px; margin:3rem 0rem;"> </div>
+                <div class="container separator"> </div>
 
                 <!-- demographic data -->
                 <div id="dempographic-data">
                     <!-- sex -->
-                    <div id="sex">
+                    <div id="sex" class="demoData">
                         <div class="row">
                             <div class="col-xs-12 col-md-4">
                                 <label for="sex">
@@ -337,26 +325,22 @@
                             </div>
                             <div class="row col-md-8">
                                 <div class=" col-xs-6 col-sm-4 col-md-3" onclick="checkRadio('sex',0)">
-                                    <input type="radio" name="sex" value="1" required >
+                                    <input type="radio" name="sex" value="1" required>
                                     <%= __('sex.male') %>
                                 </div>
                                 <div class="col-xs-6 col-sm-4 col-md-3" onclick="checkRadio('sex',1)">
-                                    <input type="radio" name="sex" value="2" required >
+                                    <input type="radio" name="sex" value="2" required>
                                     <%= __('sex.female') %>
                                 </div>
                                 <div class="col-xs-6 col-sm-4 col-md-3" onclick="checkRadio('sex',2)">
-                                    <input type="radio" name="sex" value="3" required >
+                                    <input type="radio" name="sex" value="3" required>
                                     <%= __('sex.other') %>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- placeholder -->
-                    <div class="row">
-                        <div class="col-xs-12" style="height:1rem"></div>
-                    </div>
                     <!-- age -->
-                    <div id="age">
+                    <div id="age" class="demoData">
                         <div class="row">
                             <div class="col-xs-4">
                                 <label for="age" class="vertical" style="width:30%;">
@@ -370,12 +354,8 @@
                             </div>
                         </div>
                     </div>
-                    <!-- placeholder -->
-                    <div class="row">
-                        <div class="col-xs-12" style="height:1rem"></div>
-                    </div>
                     <!-- education -->
-                    <div id="education">
+                    <div id="education" class="demoData">
                         <div class="row">
                             <div class="col-xs-12">
                                 <label for="edu" id="defEdu">
@@ -384,35 +364,44 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-11 col-md-6" style="white-space: nowrap;" onclick="checkRadio('edu',0)">
+                            <div class="col-xs-12" style="white-space: nowrap;" onclick="checkRadio('edu',0)">
                                 <!-- css-class? -->
-                                <input type="radio" name="edu" value="1" required >
+                                <input type="radio" name="edu" value="1" required>
+                                <%= __('educationLevel.noCertificate') %>
+                            </div>
+                            <div class="col-xs-12" onclick="checkRadio('edu',2)">
+                                <input type="radio" name="edu" value="2" required>
                                 <%= __('educationLevel.lesserThanAbitur') %>
                             </div>
-                            <div class="col-xs-12 col-md-6" onclick="checkRadio('edu',1)">
-                                <input type="radio" name="edu" value="2" required  >
+                            <div class="col-xs-12" onclick="checkRadio('edu',3)">
+                                <input type="radio" name="edu" value="3" required>
                                 <%= __('educationLevel.aLevel') %>
                             </div>
-                            <div class="col-xs-12 col-md-6" onclick="checkRadio('edu',2)">
-                                <input type="radio" name="edu" value="3" required >
+                            <div class="col-xs-12 " onclick="checkRadio('edu',4)">
+                                <input type="radio" name="edu" value="4" required>
                                 <%= __('educationLevel.BMD') %>
                             </div>
-                            <div class="col-xs-12 col-md-6" onclick="checkRadio('edu',3)">
-                                <input type="radio" name="edu" value="4" required >
+                            <div class="col-xs-12 " onclick="checkRadio('edu',5)">
+                                <input type="radio" name="edu" value="5" required>
                                 <%= __('educationLevel.hMD') %>
+                            </div>
+                            <div class="col-xs-12 " onclick="checkRadio('edu',6)">
+                                <input type="radio" name="edu" value="6" required>
+                                <%= __('educationLevel.vocationalSchool') %>
+                            </div>
+                            <div class="col-xs-12 " onclick="checkRadio('edu',7)">
+                                <input type="radio" name="edu" value="7" required>
+                                <%= __('educationLevel.masterCraftsman') %>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-                <div class="container" style="border-bottom:1px solid black;width:100%;height:10px; margin:3rem 0rem;"></div>
-
+                <div class="container separator"></div>
         </div>
 
 
 
-      
+
         </form>
         <button class="button submit-form center-block bg-color-theme" onclick="checkAnswers()">Submit</button>
         </div>

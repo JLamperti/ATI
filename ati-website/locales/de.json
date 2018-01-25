@@ -61,13 +61,15 @@
 	"age.desc": "Alter",
 	"age.unit": "Jahre",
 	"educationLevel.desc": "Höchste erreichte Bildungsstufe",
-	"educationLevel.lesserThanAbitur": "geringer als Abitur/Fachhochschulreife",
+	"educationLevel.noCertificate": "(noch) kein Schulabschlussgeringer ",
+	"educationLevel.lesserThanAbitur": "Hauptschul- oder Realschulabschluss",
 	"educationLevel.aLevel": "Abitur/Fachhochschulreife",
 	"educationLevel.BMD": "Bachelor/Master/Diplom",
-	"educationLevel.hMD": "Höher als Master/Diplom",
-	"descQuestionnaire": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet",
-	"createId.descUníqueId": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet",
-	"createId.descFirstBirthplace": "Gebe den ersten Buchstaben deines Geburtortesan",
+	"educationLevel.hMD": "Promotion/Habilitation",
+	"educationLevel.vocationalSchool": "Berufsschulabschluss",
+	"educationLevel.masterCraftsman": "Meister",
+	"descQuestionnaire": "Vielen Dank, dass Sie sich entschieden haben, unseren Fragebogen zu nutzenund ihre Technikaffinität in der Interaktion herauszufinden. Diese Umfrage besteht aus drei Teilen. Im ersten Teil gibt es einige Fragen, aus denen Ihre persönliche Kennung (Token) erstellt wird. Diese Kennung dient dazu, dass der Fragebogen nicht mehrmals von der selben Person ausgefüllt werden kann. Der zweite Teil der Umfrage besteht aus neun Fragen, mit denen Ihre Technikaffinität ermittelt wird. Der dritte und letzte Teil setzt sich aus einigen Fragen zu Ihren demografischen Daten zusammen, da es für uns als Forscher und Entwickler des Fragebogens interessant ist, wie bestimmte Ergebnisse mit spezifischen Gruppen der Bevölkerung in Verbindung stehen. Das Ausfüllen dieser Umfrage nimmt in etwa 10 Minuten in Anspruch. Bitte beachten Sie, dass die Ergebnisse der Umfrage zu komplett anonym behandelt werden. Ihre Antworten können und werden nicht mit Ihnen persönlich in Verbindung gebracht.",
+	"createId.descFirstBirthplace": "Gebe den ersten Buchstaben deines Geburtortes an",
 	"createId.descLastBirthplace": "Gebe den letzten Buchstaben deines Geburtortes an",
 	"createId.descBirthday": "Gebe den Tag deines Geburtsdatums an (z.B. 01)",
 	"createId.descFirstMother": "Gebe den ersten Buchstaben des Namens deiner Mutter ein (y falls unbekannt)",
@@ -102,5 +104,6 @@
 	"createId.descMonth": "createId.descMonth",
 	"createId.descBirthplace": "createId.descBirthplace",
 	"sex.other": "sex.other",
-	"navbar.questionnaire": "Fragebogen zur Messung der Technikaffinität"
+	"navbar.questionnaire": "Fragebogen zur Messung der Technikaffinität",
+	"createId.descUníqueId": "createId.descUníqueId"
 }

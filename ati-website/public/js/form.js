@@ -65,7 +65,7 @@ function checkAnswers() {
     Age: document.querySelector('input[name="age"]').value,
     Education: document.querySelector('input[name="edu"]:checked').value
   };
-  $.post("/db/proband", b);
+  //$.post("/db/proband", b);
 }
 
 function checkRadio(i, num) {
