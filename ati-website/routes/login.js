@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
   if (req.session.user && req.cookies.user_sid) {
     res.redirect('logout');
   } else {
-    res.render('login', { title: 'ATI', messageA: ' ',  messageB: ' ' });
+    res.render('login', { title: 'ATI', msg: ' ' });
   }
 });
 
@@ -46,11 +46,11 @@ router.post('/',function(req, res) {
           req.session.user = json[0].EMail;
           res.redirect(backURL);
         } else {
-          res.render('login', { title: 'ATI', messageA: 'your email needs to be validated first.', messageB: ' ' });
+          res.render('login', { title: 'ATI', msg: 'your email needs to be validated first.' });
         }
 
       } else {
-        res.render('login', { title: 'ATI', messageA: 'bad login', messageB: ' ' });
+        res.render('login', { title: 'ATI', msg: 'bad login' });
       }
 
     });
@@ -84,20 +84,21 @@ router.post('/',function(req, res) {
                     return console.log('Err: Bad query. (db-acces.js:manipulateDB)');
                 } else {
 
-                  mailMan.sendValidationMail(newEmail, res);
-                  res.render('login', { title: 'ATI', messageA: '', messageB: 'Validation email sent.'});
+                  mailMan.sendValidationMail(newEmail, req, res);
+                  // res.render('login', { title: 'ATI', messageA: '', messageB: 'Validation email sent.'});
+                  res.render('message', {msg: "Eine Email zum bestätigen Ihrer Mailaddresse wurde verschickt. Bitte schauen Sie in ihr Emailpostfach."});
                 }
               });
             }
           });
         } else {
-          res.render('login', { title: 'ATI', messageA: '', messageB: 'Email already in use.' });
+          res.render('login', { title: 'ATI', msg: 'Email already in use.' });
         }
       });
 
       // res.render('login', { title: 'ATI', messageA: ' ', messageB: 'Sory, das geht noch nicht.. Funktion kommt bald' });
     } else {
-      res.render('login', { title: 'ATI', messageA: ' ', messageB: 'passwords do not match!' });
+      res.render('login', { title: 'ATI', msg: 'passwords do not match!' });
     }
   }
 
@@ -135,9 +136,10 @@ router.get('/*', function(req, res) {
             } else {
               console.log("Token " + token + " used and removed from database.");
               //login cookie setzten.
-              req.session.user = json[0].Email;
+              // req.session.user = json[0].Email;
               console.log(json[0].Email);
-              res.redirect('/profile');
+              // res.redirect('/user');
+              res.render('message', {msg: "Ihr Account wurde erfolgreich aktiviert."});
             }
           });
 
@@ -145,6 +147,7 @@ router.get('/*', function(req, res) {
       } else {
         console.log("invalid link " + token);
         res.redirect('/');
+        // res.render('message', {msg: "Ihr Account wurde erfolgreich aktiviert."});
       }
     }
   });

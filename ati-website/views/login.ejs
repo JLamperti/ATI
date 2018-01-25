@@ -12,7 +12,7 @@
     <%- include ./partials/header %>
   </header>
 
-  <div class="container" style="padding-top:10%">
+  <div class="container" style="padding-top:4%">
     	<div class="row">
 			<div class="col-md-6 col-md-offset-3">
 				<div class="panel panel-login">
@@ -83,6 +83,7 @@
 						</div>
 					</div>
 				</div>
+        <p style="color:red"> <%- msg %> </p>
 			</div>
 		</div>
 	</div>
@@ -91,58 +92,6 @@
     <%- include ./partials/footer %>
   </footer>
 
-   <!-- <center>
-      <h1>Login</h1>
-
-      <div class="container row">
-         <div class="jumbotron col-sm-4 pull-center">
-            <form action="/login" method="post">
-               <div>
-                  <label>EMail:</label>
-                  <input type="email" name="email" required/>
-               </div>
-               <div>
-                  <label>Password:</label>
-                  <input type="password" name="password" required/>
-               </div>
-               <p><%= messageA %></p>
-               <div>
-                  <input class="btn btn-primary" type="submit" value="Log In"/>
-               </div>
-            </form>
-         </div>
-      </div>
-
-      <h1>Or Sign up </h1>
-
-      <div class="container row">
-         <div class="jumbotron col-sm-4 pull-center">
-            <form action="/login" method="post">
-              <div>
-                <label>Name</label>
-                <input type="text" name="newName" required/>
-              </div>
-               <div>
-                  <label>EMail:</label>
-                  <input type="email" name="newEmail" required/>
-               </div>
-               <div>
-                  <label>Password:</label>
-                  <input type="password" id="pw1" name="newPassword" required required oninput="checkPW()"/>
-               </div>
-               <div>
-                  <label>Confirm Password:</label>
-                  <input type="password" id="pw2" name="newPasswordConf" required oninput="checkPW()"/>
-               </div>
-               <p><%= messageB %></p>
-               <div>
-                  <input class="btn btn-primary" type="submit" value="Create"/>
-               </div>
-            </form>
-         </div>
-      </div>
-
-   </center> -->
 
 
    <script language='javascript' type='text/javascript'>

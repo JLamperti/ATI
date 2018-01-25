@@ -1,4 +1,5 @@
 var nodemailer = require("nodemailer");
+var replaceall = require("replaceall");
 var fs = require('fs');
 var keys = JSON.parse(fs.readFileSync("keys.json"));
 var dba = require('./db-access.js');
@@ -24,21 +25,21 @@ exports.sendMail = function(mailto, subject , msgtxt, res) {
         from: "ATI Webseite <" + keys.mail.username +">",
         to : mailto,
         subject : subject,
-        text : msgtxt
+        html : msgtxt
     }
-    console.log(mailOptions);
+    // console.log(mailOptions);
     smtpTransport.sendMail(mailOptions, function(error, response){
       if(error){
         console.log(error);
         res.end("error");
       }else{
-        console.log("Message sent: " + response.message);
+        console.log("Message sent: " + response.toString());
         res.end("sent");
       }
     });
 };
 
-exports.sendValidationMail = function(EMail, res) {
+exports.sendValidationMail = function(EMail, req, res) {
 
   let query = "SELECT EMail, UserName, url FROM user,bestaetigungslinks WHERE EMail = '"+ EMail +"' AND UserID = UID";
   dba.performQuery(query, function (err, result) {
@@ -48,7 +49,13 @@ exports.sendValidationMail = function(EMail, res) {
       let string = JSON.stringify(result);
       let json =  JSON.parse(string);
 
-      let msg = "Wilkommen "+ json[0].UserName + ", bitte verifiziere deine Mailaddresse unter folgendem Link:  http://localhost:3000/login/"+json[0].url ;
+      // let msg = "Wilkommen "+ json[0].UserName + ", bitte verifiziere deine Mailaddresse unter folgendem Link:  http://"+ request.headers.host +"/login/"+json[0].url ;
+
+      var msg = fs.readFileSync('./views/email/mailTemplate_compressed_de.html').toString();
+      // console.log(typeof msg);
+      msg = replaceall("__NAME__", json[0].UserName, msg);
+      msg = replaceall("__LINK__",  "http://"+ req.headers.host +"/login/"+json[0].url, msg);
+      msg = replaceall("__WEBSITE__", "http://"+ req.headers.host, msg);
 
       mail.sendMail(json[0].EMail, "Verifiziere deine EMailadresse", msg);
     }

@@ -99,8 +99,9 @@
 	"user.newSurveyButton": "Create new survey",
 	"user.average": "average",
 	"user.deviation": "deviation",
-	"user.releaseData": "release data",	
+	"user.releaseData": "release data",
 	"sex.other": "other",
-	"navbar.questionnaire": "Questionnaire to determine your ATI-Score"
+	"navbar.questionnaire": "Questionnaire to determine your ATI-Score",
+	"user.detailsHeader": "user.detailsHeader",
+	"createId.descUníqueId": "createId.descUníqueId"
 }
-
