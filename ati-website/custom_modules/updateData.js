@@ -54,20 +54,38 @@ exports.updateSurvey = function (req, res) {
 		if (kommaNoetig) {
 			tmpString += ',';
 		}
-		tmpString += ' surveyBegin = ' + req.body.begin;
+		tmpString += ' surveyBegin = \'' + req.body.begin + '\'';
 		kommaNoetig = true;
 	}
 	if (req.body.end) {
 		if (kommaNoetig) {
 			tmpString += ',';
 		}
-		tmpString += ' surveyend = ' + req.body.end;
+		tmpString += ' surveyend = \'' + req.body.end + '\'';
 	}
 	if (req.body.inviteText) {
 		if (kommaNoetig) {
 			tmpString += ',';
 		}
-		tmpString += ' inviteText = ' + req.body.inviteText;
+		tmpString += ' inviteText = \'' + req.body.inviteText + '\'';
+	}
+	if (req.body.takeSex) {
+		if (kommaNoetig) {
+			tmpString += ',';
+		}
+		tmpString += ' takeSex = ' + req.body.takeSex;
+	}
+	if (req.body.takeAge) {
+		if (kommaNoetig) {
+			tmpString += ',';
+		}
+		tmpString += ' takeAge = ' + req.body.takeAge;
+	}
+	if (req.body.takeEducation) {
+		if (kommaNoetig) {
+			tmpString += ',';
+		}
+		tmpString += ' takeEducation = ' + req.body.takeEducation;
 	}
 	tmpString += ' WHERE SurveyID = ' + req.body.SID + ';';
 	dba.manipulateDB(tmpString, req, res);
@@ -109,8 +127,25 @@ exports.updateUser = function (req, res) {
 		}
 		tmpString += ' PID = ' + req.body.PID;
 	}
+	if (req.body.scientist) {
+		if (kommaNoetig) {
+			tmpString += ',';
+		}
+		tmpString += ' IsScientist = ' + req.body.scientist;
+	}
+	if (req.body.developer) {
+		if (kommaNoetig) {
+			tmpString += ',';
+		}
+		tmpString += ' IsDeveloper = ' + req.body.developer;
+	}
+	if (req.body.teacher) {
+		if (kommaNoetig) {
+			tmpString += ',';
+		}
+		tmpString += ' IsTeacher = ' + req.body.teacher;
+	}
 	tmpString += ' WHERE UserID = ' + req.body.UID + ';';
-	console.log(tmpString);
 	dba.manipulateDB(tmpString, req, res);
 	
 };

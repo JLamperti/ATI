@@ -63,7 +63,6 @@ exports.selectBuckets = function(req, res) {
 	dba.manipulateDB("SELECT * FROM bucketsOhneDuplikate", req, res);
 };
 
-//TODO Strings unterstuetzen
 /**
 * allows for a selection of custom parameters meeting custom conditions from a specific survey or all probands without (token).
 * without any parameters this default behaves like selectAll.
@@ -75,6 +74,8 @@ exports.selectBuckets = function(req, res) {
 * 	SozialeNetzwerke, Videotelefonie, Videoplattformen, Internetforen, Smartwatch)
 * crit[] the conditions to meet (e.g. Age>20, Token='blabla', ...)
 * fromSurv the id of the survey to select the probands from
+*
+* Important to Note: Strings need to be in the format "crit[2]=educationComment=\'bla\'
 */
 exports.selectComplex = function(req, res) {
 	let tmpString = 'SELECT *';			//create an initial string for the sql-statement
@@ -87,7 +88,7 @@ exports.selectComplex = function(req, res) {
 			i++;
 		}
 	}
-	if (temp.fromSurv == null) {								//if no survey is states
+	if (temp.fromSurv == null) {								//if no survey is stated
 		tmpString = tmpString + ' FROM allesOhneDuplikate';		//select from all probands without duplicates
 	} else {
 		tmpString = tmpString + ' FROM Proband';				//else select from all probands (with duplicates) and specify later
@@ -117,6 +118,10 @@ exports.selectComplex = function(req, res) {
 	dba.manipulateDB(tmpString, req, res);		//perform the statement
 };
 
+exports.selectLinks = function(req, res) {
+	dba.manipulateDB('SELECT url, expirationDate, usesLeft FROM link WHERE SID= ' + req.query.SID + ';', req, res);
+};
+
 /**
 * selects a survey
 * 
@@ -144,7 +149,7 @@ exports.selectSurveyByUser = function(req, res) {
 * UID the userID
 */
 exports.selectUser = function(req, res) {
-	dba.manipulateDB('SELECT userID, userName, eMail, PID, bestaetigt FROM \
+	dba.manipulateDB('SELECT userID, userName, eMail, PID, IsScientist, IsDeveloper, IsTeacher, bestaetigt FROM \
 		user WHERE userID = ' + req.query.UID + ';', req, res);
 };
 

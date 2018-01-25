@@ -12,15 +12,19 @@ router.use('/dl0', function(req, res){
 });
 //download option 2
 router.use('/dl1', function(req, res){
-  res.download('public/files/skala.pdf');
+  res.download('public/files/skala.docx');
 });
 //download option 3
 router.use('/dl2', function(req, res){
-  res.download('public/files/skala.pdf');
+  res.download('public/files/skala.txt');
 });
 //download option 4
 router.use('/dl3', function(req, res){
-  res.download('public/files/skala.pdf');
+  res.download('public/files/limesurvey_en.lsq');
+});
+//download option 4
+router.use('/dl4', function(req, res){
+  res.download('public/files/limesurvey_de.lsq');
 });
 
 // //toogle the language

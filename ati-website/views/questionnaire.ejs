@@ -4,361 +4,409 @@
 
     <!-- <body onload="uncheckall()"> -->
 
-    <body onload="setLang(),  uncheckall()">
+    <body onload="setLang()">
         <nav class="navbar navbar-default navbar-noMargin" style="padding-right:1%">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">ATI</a>
+                    <a class="navbar-brand" href="/">ATI</a>
                 </div>
+                <ul class="nav navbar-nav">
+                    <li class="nav-item" style="color:white;">
+                        <a class="nav-link" href="#" style="color:white">
+                            <%= __('navbar.questionnaire') %>
+                        </a>
+                    </li>
+                </ul>
                 <ul class="nav navbar-nav navbar-right">
 
                     <li class="li-header-right" style="width:100%">
                         <a href="" onclick="changeLang()">
-                            <img src="./images/lang_de_en.png" class="langImg" >
+                            <img src="./images/lang_de_en.png" class="langImg">
                             <%= __('toggletext') %>
                         </a>
                     </li>
                 </ul>
             </div>
         </nav>
-
-
         <div class="container">
             <h1>
                 <%= __('titleQuestionnaire') %>
             </h1>
             <p>
-                <%= __('descQuestionnaire') %>
+                <%- __('descQuestionnaire') %>
             </p>
             <div class="container" style="border-bottom:1px solid black;width:100%;height:10px; margin:3rem 0rem;"></div>
         </div>
-
         <div class="container">
             <p>
                 <%= __('createId.descUníqueId') %>
             </p>
-            <div class="row">
-                <div class="col-xs-12 col-md-6">
-                    <div id="descMother">
-                        <%= __('createId.descMother') %>
+            <form>
+                <div class="flex-row flex-s-col">
+                    <div class="flex-col token" s>
+                        <label for="first-letter-birthplace">
+                            <%= __('createId.descFirstBirthplace') %>
+                        </label>
+                        <input type="text" name="first-letter-birthplace" pattern="[a-zA-Z]" required title="1 character">
                     </div>
-                    <input type="text" id="letMother">
-                </div>
-                <div class="col-xs-12 col-md-6">
-                    <div id="descMonth">
-                        <%= __('createId.descMonth') %>
-                    </div>
-                    <input type="number" id="numMonth">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-md-6">
-                    <div id="descPlace">
-                        <%= __('createId.descBirthplace') %>
-                    </div>
-                    <input type="text" id="letPlace">
-                </div>
-            </div>
-            <div class="container" style="border-bottom:1px solid black;width:100%;height:10px; margin:3rem 0rem;"></div>
-        </div>
-
-
-
-
-        <!-- <div class="container">
-            <div class="row">
-                <div class="col-xs-1">#</div>
-                <div class="col-xs-11 col-md-5">
-                    <%= __('instruction') %>
-                </div>
-                <div class="col-xs-12 col-md-6 col-xs-txt col-md-txt">
-                    <!-- id="answerOptions">
-
-                    <div class="col-xs-2 text-justify" style="padding:1px">
-                        <%= __('answers.answer1') %>
-                    </div>
-                    <div class="col-xs-2 text-left" style="padding:1px">
-                        <%= __('answers.answer2') %>                    </div>
-                    <div class="col-xs-2 text-left" style="padding:1px">
-                        <%= __('answers.answer3') %>                    </div>
-                    <div class="col-xs-2 text-left" style="padding:1px">
-                        <%= __('answers.answer4') %>                    </div>
-                    <div class="col-xs-2 text-left" style="padding:1px">
-                        <%= __('answers.answer5') %>                    </div>
-                    <div class="col-xs-2 text-left" style="padding:1px">
-                        <%= __('answers.answer6') %>
+                    <div style="width:10%"></div>
+                    <div class="flex-col token">
+                        <label for="last-letter-birthplace">
+                            <%= __('createId.descLastBirthplace') %>
+                        </label>
+                        <input type="text" name="last-letter-birthplace" pattern="[a-zA-Z]" required title="1 character">
                     </div>
                 </div>
-            </div>
-
-            <div class="row" style="padding-top:1rem;padding-bottom:1rem;">
-                <div class="col-xs-1" height="100">1.</div>
-                <div class="col-xs-11 col-md-5" style="height:10rem">
-                    <p id="q1">
-                        <%= __('questions.question1') %>
-                    </p>
+                <div class="flex-row flex-s-col">
+                    <div class="flex-col token">
+                        <label for="birthday" id="bday">
+                            <%= __('createId.descBirthday') %>
+                        </label>
+                        <input type="number" name="birthday" min="01" max="12" pattern=".{2,2}" required oninput="checkForBirthday(this)">
+                    </div>
+                    <div style="width:10%"></div>
+                    <div class="flex-col token">
+                        <label for="country">
+                            <%= __('createId.descGeburtsland') %>
+                        </label>
+                        <input type="text" name="country" pattern=".{2,2}" required title="2 character">
+                    </div>
                 </div>
-                <form for="one" class="col-xs-12 col-md-6"   align="center">
-                    <% for(var i=1; i < 7; i++) { %>
-                        <div class="col-xs-2  text-center" style="border: 1px solid orange;height:5rem;padding:3.5%">
-                            <input class=" text-center" type="radio" id="1<%= i %>" name="one" value="<%= i%>" />
+                <div class="flex-row flex-s-col">
+                    <div class="flex-col token">
+                        <label for="father">
+                            <%= __('createId.descFirstFather') %>
+                        </label>
+                        <input type="text" name="father" min="01" max="31" pattern="[a-zA-Z]" required title="1 character">
+                    </div>
+                    <div style="width:10%"></div>
+                    <div class="flex-col token">
+                        <label for="mother">
+                            <%= __('createId.descFirstMother') %>
+                        </label>
+                        <input type="text" name="mother" pattern=".{1,1}" required title="1 character">
+                    </div>
+                </div>
+                <div class="container separator"> </div>
+                <!-- questions -->
+                <!-- head -->
+                <div class="row">
+                    <div class="col-xs-12 col-md-5">
+                        <strong>
+                            <%= __('instruction') %>
+                        </strong>
+                    </div>
+                    <div class="ans-vis ">
+                        <div class="col-md-1"></div>
+                        <div class="col-sm-2 col-md-1">
+                            <%= __('answers.answer1') %>
                         </div>
-                        <% } %>
-                </form>
-            </div>
-            <div class="row" style="padding-top:1rem;padding-bottom:1rem;height:5rem;">
-                <div class="col-xs-1">2.</div>
-                <div class="col-xs-11 col-md-5">
-                    <p id="q1">
-                        <%= __('questions.question2') %>
-                    </p>
-                </div>
-                <form for="one" class="col-xs-12 col-md-6 form-check form-check-inline " >
-                    <% for(var i=1; i < 7; i++) { %>
-                        <div class="col-xs-2" style="border: 1px solid orange;height:100%" >
-                            <input type="radio" id="2<%= i %>"  name="two" value="<%= i%>" />
+                        <div class="col-sm-2 col-md-1">
+                            <%= __('answers.answer2') %>
                         </div>
-                        <% } %>
-                </form>
-            </div>
+                        <div class="col-sm-2 col-md-1">
+                            <%= __('answers.answer3') %>
+                        </div>
+                        <div class="col-sm-2 col-md-1">
+                            <%= __('answers.answer4') %>
+                        </div>
+                        <div class="col-sm-2 col-md-1">
+                            <%= __('answers.answer5') %>
+                        </div>
+                        <div class="col-sm-2 col-md-1">
+                            <%= __('answers.answer6') %>
+                        </div>
+                    </div>
+                </div>
+                <!-- questions -->
+                <div style="height:2rem"></div>
+                <div id="questions">
+                    <!-- question1 -->
+                    <div class="row">
+                        <div class="col-xs-12 col-md-5">
+                            <label for="q1" id="q1">
+                                <%= __('questions.question1') %>
+                            </label>
+                        </div>      
+                        <div>
+                            <div class="col-md-1"></div>
+                            <% for(var i = 1; i < 7 ; i++){%>
+                                <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q1',<%= i -1 %>)">
+                                    <span style="white-space: nowrap;">
+                                        <input type="radio" name="q1" value="<%= i %>" required>
+                                        <span class="answer-question-vis">
+                                            <%= __('answers.answer' +i) %>
+                                        </span>
+                                    </span>
+                                </div>
 
-
-
-
-
-
-        </div>
- -->
-
-
-       
-
-
-
-        <div class="container">
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead style="border-bottom:1px solid black">
-                        <tr>
-                            <th>#</th>
-                            <th>
-                                <%= __('instruction') %>
-                            </th>
-                            <th class="alignTD">
-                                <%= __('answers.answer1') %>
-                            </th>
-                            <th class="alignTD">
-                                <%= __('answers.answer2') %>
-                            </th>
-                            <th class="alignTD">
-                                <%= __('answers.answer3') %>
-                            </th>
-                            <th>
-                                <%= __('answers.answer4') %>
-                            </th>
-                            <th class="alignTD">
-                                <%= __('answers.answer5') %>
-                            </th>
-                            <th class="alignTD">
-                                <%= __('answers.answer6') %>
-                            </th>
-                        </tr>
-
-                    </thead>
-                    <tbody>
-
-                        <tr>
-                            <td>1</td>
-                            <td>
-                                <p id="q1">
-                                    <%= __('questions.question1') %>
-                                </p>
-                            </td>
-                            <% for(var i=1; i < 7; i++) { %>
-                                <td class="alignTD" onclick="checkradio(1, <%= i %>)">
-                                    <input type="radio" align="center" id="1Answer<%= i %>" name="one" value="<%= i%>" />
-                                </td>
                                 <% } %>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>
-                                <p id="q2">
-                                    <%= __('questions.question2') %>
-                                </p>
-                            </td>
-                            <% for(var i=1; i < 7; i++) { %>
-                                <td class="alignTD" onclick="checkradio(2, <%= i %>)">
-                                    <input type="radio" align="center" id="2Answer<%= i %>" name="two" value="<%= i%>" />
-                                </td>
-                                <% } %>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>
-                                <p id="q3">
-                                    <%= __('questions.question3') %>
-                                </p>
-                            </td>
+                        </div>
+                    </div>
 
-                            <% for(var i=1; i < 7; i++) { %>
-                                <td class="alignTD" onclick="checkradio(3, <%= i %>)">
-                                    <input type="radio" align="center" id="3Answer<%= i %>" name="three" value="<%= 7-i%>" />
-                                </td>
+                    <!-- question2 -->
+                    <div class="row">
+                        <div class="col-xs-12 col-md-5">
+                            <label for="q2" id="q2">
+                                <%= __('questions.question2') %>
+                            </label>
+                        </div>
+                        <div>
+                            <div class="col-md-1"></div>
+                            <% for(var i = 1; i < 7 ; i++){%>
+                                <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q2',<%= i -1 %>)">
+                                    <span style="white-space: nowrap;">
+                                        <input type="radio" name="q2" value="<%= i %>" required>
+                                        <span class="answer-question-vis">
+                                            <%= __('answers.answer' +i) %>
+                                        </span>
+                                    </span>
+                                </div>
                                 <% } %>
-
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>
-                                <p id="q4">
-                                    <%= __('questions.question4') %>
-                                </p>
-                            </td>
-                            <% for(var i=1; i < 7; i++) { %>
-                                <td class="alignTD" onclick="checkradio(4, <%= i %>)">
-                                    <input type="radio" align="center" id="4Answer<%= i %>" name="four" value="<%= i%>" />
-                                </td>
+                        </div>
+                    </div>
+                    <!-- question3 -->
+                    <div class="row">
+                        <div class="col-xs-12 col-md-5">
+                            <label for="q3" id="q3">
+                                <%= __('questions.question3') %>
+                            </label>
+                        </div>
+                        <div>
+                            <div class="col-md-1"></div>
+                            <% for(var i = 1; i < 7 ; i++){%>
+                                <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q3',<%= i -1 %>)">
+                                    <span style="white-space: nowrap;">
+                                        <input type="radio" name="q3" value="<%= 7 - i %>" required>
+                                        <span class="answer-question-vis">
+                                            <%= __('answers.answer' +i) %>
+                                        </span>
+                                    </span>
+                                </div>
                                 <% } %>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>
-                                <p id="q5">
-                                    <%= __('questions.question5') %>
-                                </p>
-                            </td>
-                            <% for(var i=1; i < 7; i++) { %>
-                                <td class="alignTD" onclick="checkradio(5, <%= i %>)">
-                                    <input type="radio" align="center" id="5Answer<%= i %>" name="five" value="<%= i%>" />
-                                </td>
+                        </div>
+                    </div>
+                    <!-- question4 -->
+                    <div class="row">
+                        <div class="col-xs-12 col-md-5">
+                            <label for="q4" id="q4">
+                                <%= __('questions.question4') %>
+                            </label>
+                        </div>
+                        <div>
+                            <div class="col-md-1"></div>
+                            <% for(var i = 1; i < 7 ; i++){%>
+                                <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q4',<%= i -1 %>)">
+                                    <span style="white-space: nowrap;">
+                                        <input type="radio" name="q4" value="<%= i %>" required>
+                                        <span class="answer-question-vis">
+                                            <%= __('answers.answer' +i) %>
+                                        </span>
+                                    </span>
+                                </div>
                                 <% } %>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>
-                                <p id="q6">
-                                    <%= __('questions.question6') %>
-                                </p>
-                            </td>
-                            <% for(var i=1; i < 7; i++) { %>
-                                <td class="alignTD" onclick="checkradio(6, <%= i %>)">
-                                    <input type="radio" align="center" id="6Answer<%= i %>" name="six" value="<%= 7-i%>" />
-                                </td>
+                        </div>
+                    </div>
+                    <!-- question5 -->
+                    <div class="row">
+                        <div class="col-xs-12 col-md-5">
+                            <label for="q5" id="q5">
+                                <%= __('questions.question5') %>
+                            </label>
+                        </div>
+                        <div>
+                            <div class="col-md-1"></div>
+                            <% for(var i = 1; i < 7 ; i++){%>
+                                <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q5',<%= i -1 %>)">
+                                    <span style="white-space: nowrap;height:100%">
+                                        <input type="radio" name="q5" value="<%= i %>" required>
+                                        <span class="answer-question-vis">
+                                            <%= __('answers.answer' +i) %>
+                                        </span>
+                                    </span>
+                                </div>
                                 <% } %>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>
-                                <p id="q7">
-                                    <%= __('questions.question7') %>
-                                </p>
-                            </td>
-                            <% for(var i=1; i < 7; i++) { %>
-                                <td class="alignTD" onclick="checkradio(7, <%= i %>)">
-                                    <input type="radio" align="center" id="7Answer<%= i %>" name="seven" value="<%= i%>" />
-                                </td>
+                        </div>
+                    </div>
+                    <!-- question6 -->
+                    <div class="row">
+                        <div class="col-xs-12 col-md-5">
+                            <label for="q6" id="q6">
+                                <%= __('questions.question6') %>
+                            </label>
+                        </div>
+                        <div>
+                            <div class="col-md-1"></div>
+                            <% for(var i = 1; i < 7 ; i++){%>
+                                <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q6',<%= i -1 %>)">
+                                    <span style="white-space: nowrap;">
+                                        <input type="radio" name="q6" value=" <%= 7 - i %>" required>
+                                        <span class="answer-question-vis">
+                                            <%= __('answers.answer' +i) %>
+                                        </span>
+                                    </span>
+                                </div>
                                 <% } %>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>
-                                <p id="q8">
-                                    <%= __('questions.question8') %>
-                                </p>
-                            </td>
-                            <% for(var i=1; i < 7; i++) { %>
-                                <td class="alignTD" onclick="checkradio(8, <%= i %>)">
-                                    <input type="radio" align="center" id="8Answer<%= i %>" name="eight" value="<%=7-i%>" />
-                                </td>
+                        </div>
+                    </div>
+                    <!-- question7 -->
+                    <div class="row">
+                        <div class="col-xs-12 col-md-5">
+                            <label for="q7" id="q7">
+                                <%= __('questions.question7') %>
+                            </label>
+                        </div>
+                        <div>
+                            <div class="col-md-1"></div>
+                            <% for(var i = 1; i < 7 ; i++){%>
+                                <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q7',<%= i -1 %>)">
+                                    <span style="white-space: nowrap;">
+                                        <input type="radio" name="q7" value="<%=i %>" required>
+                                        <span class="answer-question-vis">
+                                            <%= __('answers.answer' +i) %>
+                                        </span>
+                                    </span>
+                                </div>
                                 <% } %>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td>
-                                <p id="q9">
-                                    <%= __('questions.question9') %>
-                                </p>
-                            </td>
-                            <% for(var i=1; i < 7; i++) { %>
-
-                                <td class="alignTD" id="9a<%= i %>" onclick="checkradio(9, <%= i %>)">
-
-                                    <input type="radio" align="center" id="9Answer<%= i %>" name="nine" value="<%= i%>" />
-
-                                </td>
+                        </div>
+                    </div>
+                    <!-- question8 -->
+                    <div class="row">
+                        <div class="col-xs-12 col-md-5">
+                            <label for="q8" id="q8">
+                                <%= __('questions.question8') %>
+                            </label>
+                        </div>
+                        <div>
+                            <div class="col-md-1"></div>
+                            <% for(var i = 1; i < 7 ; i++){%>
+                                <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q8',<%= i -1 %>)">
+                                    <span style="white-space: nowrap;">
+                                        <input type="radio" name="q8" value=" <%= 7 - i %>" required>
+                                        <span class="answer-question-vis">
+                                            <%= __('answers.answer' +i) %>
+                                        </span>
+                                    </span>
+                                </div>
                                 <% } %>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="container" style="border-bottom:1px solid black;width:100%;height:10px; margin:3rem 0rem;"></div>
-        </div>
+                        </div>
+                    </div>
+                    <!-- question9 -->
+                    <div class="row">
+                        <div class="col-xs-12 col-md-5">
+                            <label for="q9" id="q9">
+                                <%= __('questions.question9') %>
+                            </label>
+                        </div>
+                        <div>
+                            <div class="col-md-1"></div>
+                            <% for(var i = 1; i < 7 ; i++){%>
+                                <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q9',<%= i -1 %>)">
+                                    <span style="white-space: nowrap;">
+                                        <input type="radio" name="q9" value=" <%= i %>" required>
+                                        <span class="answer-question-vis">
+                                            <%= __('answers.answer' +i) %>
+                                        </span>
+                                    </span>
+                                </div>
+                                <% } %>
+                        </div>
+                    </div>
+                </div>
+                <div class="container separator"> </div>
 
-
-
-        <div class="container">
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <tr>
-                        <td>
-                            <p id="sex">
-                                <%= __('sex.desc') %>
-                            </p>
-                        </td>
-                        <td onclick="checkGender('male')">
-                            <input type="radio" align="center" id="male" name="gender" value="male" />
-                            <%= __('sex.male') %>
-                        </td>
-                        <td onclick="checkGender('female')">
-                            <input type="radio" align="center" id="female" name="gender" value="female" />
-                            <%= __('sex.female') %>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p id="descAge">
-                                <%= __('age.desc') %>
-                            </p>
-                        </td>
-                        <td>
-                            <input type="number" name="userAge" id="age" />
-                            <%= __('age.unit') %>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p id="edu">
-                                <%= __('educationLevel.desc') %>
-                            </p>
-                        </td>
-                        <td>
-                            <div onclick="checkEducation('lesserThanAbitur')">
-                                <input type="radio" align="center" id="lesserThanAbitur" name="education" value="lessALevel" />
+                <!-- demographic data -->
+                <div id="dempographic-data">
+                    <!-- sex -->
+                    <div id="sex" class="demoData">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-4">
+                                <label for="sex">
+                                    <%= __('sex.desc') %>:</label>
+                            </div>
+                            <div class="row col-md-8">
+                                <div class=" col-xs-6 col-sm-4 col-md-3" onclick="checkRadio('sex',0)">
+                                    <input type="radio" name="sex" value="1" required>
+                                    <%= __('sex.male') %>
+                                </div>
+                                <div class="col-xs-6 col-sm-4 col-md-3" onclick="checkRadio('sex',1)">
+                                    <input type="radio" name="sex" value="2" required>
+                                    <%= __('sex.female') %>
+                                </div>
+                                <div class="col-xs-6 col-sm-4 col-md-3" onclick="checkRadio('sex',2)">
+                                    <input type="radio" name="sex" value="3" required>
+                                    <%= __('sex.other') %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- age -->
+                    <div id="age" class="demoData">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <label for="age" class="vertical" style="width:30%;">
+                                    <%= __('age.desc') %>:
+                                </label>
+                            </div>
+                            <div class="col-xs-3 col-sm-1 ">
+                                <input type="number" min="0" max="100" name="age" class="vertical" required> </div>
+                            <div class="col-xs-2">
+                                <%= __('age.unit') %>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- education -->
+                    <div id="education" class="demoData">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <label for="edu" id="defEdu">
+                                    <%= __('educationLevel.desc') %>:
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12" style="white-space: nowrap;" onclick="checkRadio('edu',0)">
+                                <!-- css-class? -->
+                                <input type="radio" name="edu" value="1" required>
+                                <%= __('educationLevel.noCertificate') %>
+                            </div>
+                            <div class="col-xs-12" onclick="checkRadio('edu',2)">
+                                <input type="radio" name="edu" value="2" required>
                                 <%= __('educationLevel.lesserThanAbitur') %>
                             </div>
-                            </br>
-                            <div onclick="checkEducation('BMD')">
-                                <input type="radio" align="center" id="BMD" name="education" value="BachMastDeg" />
-                                <%= __('educationLevel.BMD') %>
-                            </div>
-                        </td>
-                        <td>
-                            <div onclick="checkEducation('aLevel')">
-                                <input type="radio" align="center" id="aLevel" name="education" value="alevel" />
+                            <div class="col-xs-12" onclick="checkRadio('edu',3)">
+                                <input type="radio" name="edu" value="3" required>
                                 <%= __('educationLevel.aLevel') %>
                             </div>
-                            </br>
-                            <div onclick="checkEducation('hMD')">
-                                <input type="radio" align="center" id="hMD" name="education" value="higherALevel" />
+                            <div class="col-xs-12 " onclick="checkRadio('edu',4)">
+                                <input type="radio" name="edu" value="4" required>
+                                <%= __('educationLevel.BMD') %>
+                            </div>
+                            <div class="col-xs-12 " onclick="checkRadio('edu',5)">
+                                <input type="radio" name="edu" value="5" required>
                                 <%= __('educationLevel.hMD') %>
                             </div>
-                        </td>
-                    </tr>
-
-                </table>
-            </div>
+                            <div class="col-xs-12 " onclick="checkRadio('edu',6)">
+                                <input type="radio" name="edu" value="6" required>
+                                <%= __('educationLevel.vocationalSchool') %>
+                            </div>
+                            <div class="col-xs-12 " onclick="checkRadio('edu',7)">
+                                <input type="radio" name="edu" value="7" required>
+                                <%= __('educationLevel.masterCraftsman') %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container separator"></div>
         </div>
-        <button class="button submit-form center-block bg-color-theme" onclick="submitForm()">Submit</button>
+
+
+
+
+        </form>
+        <button class="button submit-form center-block bg-color-theme" onclick="checkAnswers()">Submit</button>
+        </div>
+
+
         <script src="./js/form.js"></script>
     </body>

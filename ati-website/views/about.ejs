@@ -1,5 +1,5 @@
 
-<%- include ./partials/head %>
+  <%- include ./partials/head %>
 
     <title>About/Impressum</title>
 </head>
@@ -9,7 +9,8 @@
   <header>
     <%- include ./partials/header %>
   </header>
-  <div>
+  <div class="container background-light-grey" style="padding-right:15px">
+    <div>
       <h1>
         <%= __('about.impressTitle') %>
       </h1>
@@ -70,4 +71,13 @@
       </p>
     </div>
 
+    <div>
+      <h3>
+        Website by
+      </h3>
+      <p>
+        Niklas Hörcher, Jonas Lamperti, Jeffrey Pluntke, Pascal Stieglitz and Mario Wahlbrink
+      </p>
+    </div>
+  </div>
 </body>

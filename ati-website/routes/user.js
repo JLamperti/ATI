@@ -21,7 +21,7 @@ router.put('/changeName', function(req, res, next) {
 });
 /* GET profile page. */
 router.get('/', function(req, res, next) {
-  res.render('profile', {title:'ATI' });
+  res.render('user', {title:'ATI' });
 });
 
 module.exports = router;
