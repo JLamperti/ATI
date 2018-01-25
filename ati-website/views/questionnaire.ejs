@@ -41,7 +41,7 @@
             <p>
                 <%= __('createId.descUníqueId') %>
             </p>
-            <form>
+            <form action="/results">
                 <div class="flex-row flex-s-col">
                     <div class="flex-col token" s>
                         <label for="first-letter-birthplace">
@@ -62,7 +62,7 @@
                         <label for="birthday" id="bday">
                             <%= __('createId.descBirthday') %>
                         </label>
-                        <input type="number" name="birthday" min="01" max="12" pattern=".{2,2}" required oninput="checkForBirthday(this)">
+                        <input type="number" name="birthday" min="01" max="31" pattern=".{2,2}" required oninput="checkForBirthday(this)">
                     </div>
                     <div style="width:10%"></div>
                     <div class="flex-col token">
@@ -127,7 +127,7 @@
                             <label for="q1" id="q1">
                                 <%= __('questions.question1') %>
                             </label>
-                        </div>      
+                        </div>
                         <div>
                             <div class="col-md-1"></div>
                             <% for(var i = 1; i < 7 ; i++){%>
@@ -398,15 +398,14 @@
                     </div>
                 </div>
                 <div class="container separator"></div>
+                <button class="button submit-form center-block bg-color-theme" onclick="checkAnswers()">Submit</button>
         </div>
-
-
-
-
         </form>
-        <button class="button submit-form center-block bg-color-theme" onclick="checkAnswers()">Submit</button>
+        
         </div>
-
+        <a href="/results">
+            <button>result</button>
+        </a>
 
         <script src="./js/form.js"></script>
     </body>
