@@ -1,4 +1,4 @@
-
+<head>
   <%- include ./partials/head %>
     <title>User</title>
     <script src="./js/user.js"></script>
@@ -10,32 +10,38 @@
     <header>
       <%- include ./partials/header %>
     </header>
-    <div>
+
   </section>
 
   <section class="content">
     <div id="userDetails" class="container">
-      <div class="inline-block">
-        <h2>Dummy Name</h2>
-      </div>
-      <div class="inline-block float-right" style="padding-top:20px;">
-        <button>edit</button>
-      </div>
-      <h3>Redundant Title</h3>
-      <hr>
-      <p>
-        <span class="grey text-item-descr">Email</span>
-        <span>example@examplemail.com</span>
-      </p>
-      <p>
-        <span class="grey text-item-descr">Password</span>
-        <span>********</span>
-      </p>
+      <form action="/changeName" method="post">
+        <div id="nameField" class="inline-block">
+          <h2>Dummy Name</h2>
+        </div>
+        <div class="inline-block float-right" style="padding-top:20px;">
+          <button id="editUserDetails" type="button" data-text-swap="Edit" data-text-original="Submit">Edit</button>
+        </div>
+        <div id="titleField">
+          <h3>Redundant Title</h3>
+        </div>
+        <hr>
+        <p>
+          <div id="emailField">
+            <span class="grey text-item-descr">Email</span>
+            <span>example@examplemail.com</span>
+          </div>
+        </p>
+        <p>
+          <div id="passwordField">
+            <span class="grey text-item-descr">Password</span>
+            <span>********</span>
+          </div>
+        </p>
+      </form>
     </div>
 
 
-
-    </div>
 
     <div id="surveyOverview" class="container">
 
