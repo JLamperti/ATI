@@ -110,7 +110,7 @@
 
     </div>
 
-    <div class="flex-lg-row flex-md-col index-container-margin-bottom" id="scale">
+    <div class="index-container-margin-bottom flex-lg-row flex-md-col " id="scale">
 
       <div style="width:10%"></div>
 
@@ -120,28 +120,23 @@
           <%= __('downloadText') %>
         </div>
 
-        <div>
+        <div class="flex-row-wrap flex-s-col">
           <a href="./dl0">
-            <button type="button" class="button-start bg-color-theme">
+            <button type="button" class="button-start bg-color-theme btn-s-negMargin">
               <%= __('buttonDownload') %>
             </button>
           </a>
-        </div>
 
-        <div id = "other-downloads">
-          <p>
-            <%= __('alsoDownloadAs') %>
-          </p>
 
           <a href="./dl1">
-            <button type="button" class="button-start bg-color-theme">
-              Word (de)
+            <button type="button" class="button-start bg-color-theme btn-s-negMargin">
+              Word (.docx)
             </button>
           </a>
 
           <a href="./dl2">
-            <button type="button" class="button-start bg-color-theme">
-              Text (en/de)
+            <button type="button" class="button-start bg-color-theme btn-s-negMargin">
+              Text (.txt)
             </button>
           </a>
 
@@ -156,8 +151,8 @@
               LimeSurvey (de)
             </button>
           </a>
-
         </div>
+
 
       </div>
 
@@ -175,8 +170,8 @@
           </button>
         </a>
       </div>
-
-      <div style="width:10%"></div>
+    </div>
+    <div style="width:10%"></div>
 
     </div>
 
@@ -289,9 +284,9 @@
 
       <div class="flex-lg-row div-padding-row" style="margin-top:-5%;">
 
-        <div class="div-padding-min" align="center">
+        <div class="div-padding-min author-width-md author-margin-xs" align="center">
 
-          <img src="./images/dummy-user.png" alt="Thomas Franke" class="author-images"></img>
+          <img src="./images/franke_400px.jpg" alt="Thomas Franke" class="author-images rounded-img"></img>
 
           </br>
 
@@ -305,9 +300,9 @@
 
         </div>
 
-        <div class="div-padding-min" align="center">
+        <div class="div-padding-min author-width-md author-margin-xs" align="center">
 
-          <img src="./images/dummy-user.png" alt="Christiane Attig" class="author-images"></img>
+          <img src="./images/attig_400px.jpg" alt="Christiane Attig" class="author-images rounded-img"></img>
 
           </br>
 
@@ -321,9 +316,9 @@
 
         </div>
 
-        <div class="div-padding-min" align="center">
+        <div class="div-padding-min author-width-md author-margin-xs" align="center">
 
-          <img src="./images/dummy-user.png" alt="Daniel Wessel" class="author-images"></img>
+          <img src="./images/wessel_400px.png" alt="Daniel Wessel" class="author-images rounded-img"></img>
 
           </br>
 
@@ -351,7 +346,7 @@
         // Remove links that don't actually link to anything
         .not('[href="#"]')
         .not('[href="#0"]')
-        .click(function(event) {
+        .click(function (event) {
           // On-page links
           if (
             location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
@@ -366,7 +361,7 @@
               event.preventDefault();
               $('html, body').animate({
                 scrollTop: target.offset().top
-              }, 1000, function() {
+              }, 1000, function () {
                 // Callback after animation
                 // Must change focus!
                 var $target = $(target);
