@@ -51,18 +51,40 @@ $(document).ready(function() {
           var newSurveyDisplay = $('#dummySurvey').clone(true, true);
           //fixIds(newSurveyDisplay, x);
           newSurveyDisplay.find('#SurveyName').append(out[x].SurveyName);
-          newSurveyDisplay.find('#creationDate').append(out[x].SurveyBegin);
-          newSurveyDisplay.find('#participantsCurrent').append(out[x].SurveyBegin);
-          newSurveyDisplay.find('#participantsTotal').append(out[x].SurveyBegin);
+          newSurveyDisplay.find('#beginDate').append(out[x].SurveyBegin);
+          newSurveyDisplay.find('#endDate').append(out[x].SurveyEnd);
+          if (out[x].SurveyEnd != null) {
+            newSurveyDisplay.find('#periodEndText').css("display", "inherit");
+          }
+          /*var url = "http://87.146.253.216:3000/db/countProbandInSurvey?SID=" + out[x].SurveyID;
+          fetch(url)
+            .then(res => res.json())
+            .then((out) => {
+              newSurveyDisplay.find('#participantscurrent').append(out[0].length);
+            })
+            .catch(err => {
+              throw err
+            });
+            */
+          newSurveyDisplay.find('#participantscurrent').append(out[x].SurveyBegin);
+          newSurveyDisplay.find('#participantsTotal').append(out[x].MaxProbands);
+          if (out[x].MaxProbands != null) {
+            newSurveyDisplay.find('#participantTextMiddle').css("display", "inherit");
+          }
+          newSurveyDisplay.find('#status').append(out[x].SurveyStatus);
+          newSurveyDisplay.css("display", "inherit");
           newSurveyDisplay.appendTo('#resultsArea');
 
+          // /db/avg?sel[0]=atiScore&fromSurv=X
         }
         console.log(out);
       })
       .catch(err => {
         throw err
       });
+
   });
+
 
   $("#editUserDetails").on('click', function() {
     var el = $(this);
