@@ -100,7 +100,7 @@ footer {
 /* class for the Image of index.ejs */
 .title-screen {
   width: 100%;
-  height: 70%;
+  height: auto;
   margin-top: -20px;
 }
 /*position navbar on the upper edge */
@@ -164,7 +164,7 @@ footer {
 }
 /* padding for the images after the title-page */
 .imagesPadding {
-  margin-top: -2.5%;
+  margin-top: -3.5%;
 }
 /*default flexbox with row direction */
 .flex-row {
@@ -214,15 +214,15 @@ footer {
 /*button to start the questionnaire or download */
 .button-start {
   margin-top: 2rem;
-  margin-bottom: 2rem;
   padding-left: 5%;
   padding-right: 5%;
   height: 5.5rem;
   color: white;
   border-radius: 1rem;
 }
+
 .title-img {
-  background-image: url("../images/titleImg.jpg");
+  /* background-image: url("../images/titleImg.jpg"); */
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -251,6 +251,10 @@ input[type="radio"] {
 .vertical {
   margin-top: auto;
   margin-bottom: auto;
+}
+.horizontal {
+  margin-left: auto;
+  margin-right: auto;
 }
 /*margin for the items of education */
 .edu-margin {
@@ -282,6 +286,25 @@ input[type="radio"] {
   margin: 3rem 0rem;
 }
 
+.ct-label {
+  color: black;
+}
+/*style Bars of the age charts */
+#ageChart .ct-series-a .ct-bar {
+  /* Colour of your bars */
+  stroke: rgb(0, 0, 200);
+  /* The width of your bars */
+  stroke-width: 0.5em;
+}
+/*style Bars of the default charts */
+#defaultChart .ct-series-a .ct-bar {
+  /* Colour of your bars */
+  stroke: rgb(0, 0, 200);
+  /* The width of your bars */
+  stroke-width: 10em;
+  border: 50px solid black;
+}
+
 @media (min-width: 768px) {
   /* >768px screen-width flexbox with column direction */
   .flex-md-col {
@@ -305,12 +328,7 @@ input[type="radio"] {
   }
 }
 @media (max-width: 768px) {
-  /* class for the Image of index.ejs */
-  .title-screen {
-    width: auto;
-    height: 70%;
-    margin-top: -20px;
-  }
+ 
   /* container of the element to change the language. screen-width <768px */
   .li-header-right {
     width: 100%;
@@ -340,9 +358,9 @@ input[type="radio"] {
     justify-content: flex-start;
   }
   /*negative Margin for the Buttons on smallscreens*/
-  .btn-s-negMargin {
+  /* .btn-s-negMargin {
     margin-bottom: -4rem;
-  }
+  } */
   .col-xs-txt {
     font-size: 50%;
   }
@@ -366,6 +384,21 @@ input[type="radio"] {
   .answer-question-vis {
     display: inline;
   }
+  /*style Bars of the charts */
+  #defaultChart .ct-series-a .ct-bar {
+    /* Colour of your bars */
+    stroke: rgb(0, 0, 233);
+    /* The width of your bars */
+    stroke-width: 6em;
+  }
+  /*style Bars of the age charts */
+  #ageChart .ct-series-a .ct-bar {
+    /* Colour of your bars */
+    stroke: rgb(0, 0, 200);
+    /* The width of your bars */
+    stroke-width: 0.25em;
+  }
+ 
 }
 @media (max-width: 480px) {
   /*style the Images for the Container 'Scientist/Developer/Teacher' */
@@ -373,17 +406,31 @@ input[type="radio"] {
     width: 0%;
     height: 0%;
   }
-  .title-img-xs {
+  /* .title-img-xs {
     background-image: url("../images/titleImg320_480.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-  }
+  } */
   /* flexbox direction column sw < 480 */
   .flex-xs-col {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: flex-start;
+  }
+  /*style Bars of the charts */
+  #defaultChart .ct-series-a .ct-bar {
+    /* Colour of your bars */
+    stroke: blue;
+    /* The width of your bars */
+    stroke-width: 2em;
+  }
+  /*style Bars of the age charts */
+  #ageChart .ct-series-a .ct-bar {
+    /* Colour of your bars */
+    stroke: blue;
+    /* The width of your bars */
+    stroke-width: 0.2em;
   }
 }
 
@@ -449,8 +496,8 @@ input[type="radio"] {
   /*center items*/
   .text-md-center {
     text-align: center;
-    margin-top:auto;
-    margin-bottom:auto;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 }
 @media (max-width: 1200px) {
@@ -475,6 +522,13 @@ input[type="radio"] {
     padding-right: 9%;
     padding-top: 4rem;
     padding-bottom: 4rem;
+  }
+  
+  .title-screen {
+    width: auto;
+    height:auto;
+    
+    margin-top: -20px;
   }
 }
 
