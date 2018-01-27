@@ -104,9 +104,10 @@
 	"sex.other": "anderes",
 	"navbar.questionnaire": "Fragebogen zur Messung der Technikaffinität",
 	
-	"questionnaire.result": "questionnaire.result",
+	"questionnaire.result": "Interaktion. Dabei wird eine Skala von 1 bis 6 verwendet, sodass die Zahl 1 den geringsmöglichen ATI-Wert (besonders geringe Technikaffinität) und die Zahl 6 den höchstmöglichen ATI-Wert (besonders hohe Technikaffinität) beschreibt.",
 	"questionnaire.resultDesc1": "Dein Ati-Wert beträgt",
 	"questionnaire.resultDesc2": "von 6",
 	"chart.default": "Population",
-	"chart.age": "Alter"
+	"chart.age": "Alter",
+	"titleImg" : "./images/deutsch.jpg"
 }

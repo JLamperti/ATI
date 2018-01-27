@@ -102,9 +102,10 @@
 	"user.releaseData": "release data",
 	"sex.other": "other",
 	"navbar.questionnaire": "Questionnaire to determine your ATI-Score",
-	"questionnaire.result": "questionnaire.result",
+	"questionnaire.result": "Thank you for your participation! Your ATI value is XX. The term ATI stands for the Affinity for Technology Interaction. So the value describes your personal affinity for the interaction with technical systems. A scale of 1 to 6 is used, so that the number 1 is the lowest value, which means a low affinity for technology interaction and the number 6 the highest value, which then means a high affinity for technology interaction.",
 	"questionnaire.resultDesc1": "Yout score is",
 	"questionnaire.resultDesc2": "of 6",
 	"chart.default": "Population",
-	"chart.age": "Age"
+	"chart.age": "Age",
+	"titleImg" : "./images/englisch.jpg"
 }

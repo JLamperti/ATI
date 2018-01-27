@@ -1,6 +1,12 @@
 var reqAge = true,
   reqSex = true,
   reqEdu = true;
+  var urlParams = new URLSearchParams(window.location.search);
+
+  let invLink = urlParams.get("inv");
+  var abc = $.get('http://87.146.253.216:3000/db/surveyAndLinkByUrl?url='+invLink);
+  console.log(abc);
+
 
 var b = {};
 function checkForBirthday(field) {

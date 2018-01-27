@@ -222,7 +222,7 @@ footer {
   border-radius: 1rem;
 }
 .title-img {
-  background-image: url("../images/titleImg.jpg");
+  /* background-image: url("../images/titleImg.jpg"); */
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -410,11 +410,11 @@ input[type="radio"] {
     width: 0%;
     height: 0%;
   }
-  .title-img-xs {
+  /* .title-img-xs {
     background-image: url("../images/titleImg320_480.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-  }
+  } */
   /* flexbox direction column sw < 480 */
   .flex-xs-col {
     display: flex;
