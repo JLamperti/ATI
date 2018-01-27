@@ -1,12 +1,36 @@
 var reqAge = true,
   reqSex = true,
   reqEdu = true;
-  var urlParams = new URLSearchParams(window.location.search);
+var urlParams = new URLSearchParams(window.location.search);
 
-  let invLink = urlParams.get("inv");
-  var abc = $.get('http://87.146.253.216:3000/db/surveyAndLinkByUrl?url='+invLink);
-  console.log(abc);
+let invLink = urlParams.get("inv");
+var abc = [];
+url = "/db/surveyAndLinkByUrl?url=" + invLink;
+fetch(url)
+  .then(res => res.json())
+  .then(out => {
+    console.log("output" + out);
+    var r = {};
+    reqAge = out[0].takeAge.data[0] === 1 ? true : false;
+    reqSex = out[0].takeSex.data[0] === 1 ? true : false;
+    reqEdu = out[0].takeEducation.data[0] === 1 ? true : false;
+    reqAge === false ? deleteAge() : '';
+    reqSex === false ? deleteSex() : '';
+    reqEdu === false ? deleteEdu() : '';
+  })
+  .catch(err => {
+    throw err;
+  });
 
+  function deleteAge(){
+    document.querySelector('#age').remove();
+  }
+  function deleteSex(){
+    document.querySelector('#sex').remove();
+  }
+  function deleteEdu(){
+    document.querySelector('#education').remove();
+  }
 
 var b = {};
 function checkForBirthday(field) {
@@ -76,8 +100,7 @@ function checkAnswers() {
     Ati7: document.querySelector('input[name="q7"]:checked').value,
     Ati8i: document.querySelector('input[name="q8"]:checked').value,
     Ati9: document.querySelector('input[name="q9"]:checked').value,
-    AtiScore: score,
-    
+    AtiScore: score
   };
   if (reqAge) {
     b.Sex = document.querySelector('input[name="sex"]:checked').value;
@@ -93,13 +116,12 @@ function checkAnswers() {
 
   let invLink = urlParams.get("inv");
   if (urlParams.has("inv")) {
-    // $.post("/db/probandLink", b);
+    $.post("/db/probandLink", b);
     b.inv = invLink;
-   
-    $.post("http://87.146.253.216:3000/db/probandLink", b);
-  } else {   
-    //$.post("/db/proband", b);
-    $.post("http://87.146.253.216:3000/db/proband", b);
+
+  } else {
+    $.post("/db/proband", b);
+ 
   }
 }
 
