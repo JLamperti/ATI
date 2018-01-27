@@ -93,7 +93,14 @@
 	"user.searchText": "search...",
 	"user.newSurveyButton": "Create a new survey",
 	"user.detailsHeader": "Collected Data",
+	"user.releaseData": "release data",
+	"user.period": "Period",
+	"user.periodStart": "From",
+	"user.periodEnd": "to",
+	"user.participants": "Participants",
+	"user.participants.part1": "out&nbsp;of",
+	"user.participants.part2": "participated",
+	"user.status": "Status",
 	"user.average": "average",
-	"user.deviation": "deviation",
-	"user.releaseData": "release data"
+	"user.deviation": "deviation"
 }

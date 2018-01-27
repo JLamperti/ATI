@@ -17,19 +17,19 @@
     <div id="userDetails" class="container">
       <form action="/changeName" method="post">
         <div id="nameField" class="inline-block">
-          <h2>Dummy Name</h2>
+          <h2 id="nameValue">Dummy Name</h2>
         </div>
         <div class="inline-block float-right" style="padding-top:20px;">
           <button id="editUserDetails" type="button" data-text-swap="Edit" data-text-original="Submit">Edit</button>
         </div>
         <div id="titleField">
-          <h3>Redundant Title</h3>
+          <h3 id="titleValue"></h3>
         </div>
         <hr>
         <p>
           <div id="emailField">
             <span class="grey text-item-descr">Email</span>
-            <span>example@examplemail.com</span>
+            <span id="emailValue">example@examplemail.com</span>
           </div>
         </p>
         <p>
@@ -40,6 +40,7 @@
         </p>
       </form>
     </div>
+    <button type="button" id="testButton">test</button>
 
 
 
@@ -50,7 +51,7 @@
         <span style="padding-left:3px">
         <%= __('user.yourSurveys') %>
       </span>
-        <span id="openSurveysAmount">(#open surveys)</span>
+        <span id="openSurveysAmount"></span>
         <form class="search-form">
           <input class="search" type="text" name="search" placeholder="<%- __('user.searchText')%> " style="background-image: url('./images/search_icon.png')"></input>
         </form>
@@ -63,36 +64,40 @@
           <button type="button"><%= __('user.newSurveyButton')%></button>
         </div>
 
-        <div id="dummySurvey" class="nested-container background-light-grey">
-          <div id="basicData">
+        <div id="dummySurvey" class="nested-container background-light-grey" >
+          <div id="baseData">
             <div id="entryHeader">
-              <h3 style="padding-top:15px;">SurveyName</h3>
+              <h3 id="SurveyName" style="padding-top:15px;"></h3>
             </div>
 
-            <div>
+            <div id="periodDisplay">
               <p>
                 <span class=" grey text-item-descr">
-                Erstellungsdatum
-              </span>
-                <span>
-                10/10/10
-              </span>
+                <%= __('user.period') %>
+                </span>
+                <span id="beginDate"></span>
+                <%= __('user.periodStart')%>
+                <span id="periodEndText" style="display:none"><%= __('user.periodEnd')%></span>
+                <span id="endDate" style="display:none"></span>
               </p>
             </div>
             <div>
               <p>
                 <span class="grey text-item-descr">
-                Teilnehmer
+                <%= __('user.participants') %>
               </span>
                 <span>
-                X&nbsp;aus&nbsp;Y ausgefuellt
-              </span>
+                  <span id='participantsCurrent'></span>&nbsp;
+                  <span id="participantTextMiddle"><%- __('user.participants.part1')%></span>
+                  &nbsp;
+                  <span id="participantsTotal"></span> <%= __('user.participants.part2')%>
+                </span>
               </p>
             </div>
             <div style="display:inline-block">
               <p>
                 <span class="grey text-item-descr">
-                Status
+                <%= __('user.status')%>
               </span>
                 <span class="text-item-descr">
                 ends 10/10/10
@@ -151,9 +156,13 @@
         </div>
       </div>
     </div>
-
+    <p id="testPar">testing</p>
   </section>
   <footer>
     <%- include ./partials/footer %>
   </footer>
+
+  <div id="invisibleVariableHolder">
+
+  </div>
 </body>
