@@ -99,8 +99,12 @@
 	"user.newSurveyButton": "Create new survey",
 	"user.average": "average",
 	"user.deviation": "deviation",
-	"user.releaseData": "release data",	
+	"user.releaseData": "release data",
 	"sex.other": "other",
-	"navbar.questionnaire": "Questionnaire to determine your ATI-Score"
+	"navbar.questionnaire": "Questionnaire to determine your ATI-Score",
+	"questionnaire.result": "questionnaire.result",
+	"questionnaire.resultDesc1": "Yout score is",
+	"questionnaire.resultDesc2": "of 6",
+	"chart.default": "Population",
+	"chart.age": "Age"
 }
-

@@ -1,3 +1,8 @@
+var reqAge = true,
+  reqSex = true,
+  reqEdu = true;
+
+var b = {};
 function checkForBirthday(field) {
   let valid =
     document.querySelector('input[name="' + field.name + '"]').value.length == 2
@@ -30,20 +35,25 @@ function checkInputNumber(val) {
     invalidInput();
   }
 }
-function checkAnswers() {
-  var score =
+function calculateScore() {
+  return Math.round(
     (parseInt(document.querySelector('input[name="q1"]:checked').value) +
-    parseInt(document.querySelector('input[name="q2"]:checked').value) +
-    parseInt(document.querySelector('input[name="q3"]:checked').value )+
-    parseInt(document.querySelector('input[name="q4"]:checked').value )+
-    parseInt(document.querySelector('input[name="q5"]:checked').value )+
-    parseInt(document.querySelector('input[name="q6"]:checked').value )+
-    parseInt(document.querySelector('input[name="q7"]:checked').value )+
-    parseInt(document.querySelector('input[name="q8"]:checked').value )+
-    parseInt(document.querySelector('input[name="q9"]:checked').value) )/
-    9;
-    console.log(score);
-  var b = {
+      parseInt(document.querySelector('input[name="q2"]:checked').value) +
+      parseInt(document.querySelector('input[name="q3"]:checked').value) +
+      parseInt(document.querySelector('input[name="q4"]:checked').value) +
+      parseInt(document.querySelector('input[name="q5"]:checked').value) +
+      parseInt(document.querySelector('input[name="q6"]:checked').value) +
+      parseInt(document.querySelector('input[name="q7"]:checked').value) +
+      parseInt(document.querySelector('input[name="q8"]:checked').value) +
+      parseInt(document.querySelector('input[name="q9"]:checked').value)) /
+      9
+  ).toFixed(1);
+}
+function checkAnswers() {
+  var score = calculateScore();
+  document.getElementById("uSc").innerHTML = " " + score + " ";
+
+  b = {
     Token:
       document.querySelector('input[name="first-letter-birthplace"]').value +
       document.querySelector('input[name="last-letter-birthplace"]').value +
@@ -61,14 +71,37 @@ function checkAnswers() {
     Ati8i: document.querySelector('input[name="q8"]:checked').value,
     Ati9: document.querySelector('input[name="q9"]:checked').value,
     AtiScore: score,
-    Sex: document.querySelector('input[name="sex"]:checked').value,
-    Age: document.querySelector('input[name="age"]').value,
-    Education: document.querySelector('input[name="edu"]:checked').value
+    
   };
-  //$.post("/db/proband", b);
+  if (reqAge) {
+    b.Sex = document.querySelector('input[name="sex"]:checked').value;
+  }
+  if (reqSex) {
+    b.Age = document.querySelector('input[name="age"]').value;
+  }
+  if (reqEdu) {
+    b.Education = document.querySelector('input[name="edu"]:checked').value;
+  }
+
+  var urlParams = new URLSearchParams(window.location.search);
+
+  let invLink = urlParams.get("inv");
+  if (urlParams.has("inv")) {
+    // $.post("/db/probandLink", b);
+    b.inv = invLink;
+   
+    $.post("http://87.146.253.216:3000/db/probandLink", b);
+  } else {   
+    //$.post("/db/proband", b);
+    $.post("http://87.146.253.216:3000/db/proband", b);
+  }
 }
 
 function checkRadio(i, num) {
-  console.log(document.querySelectorAll('input[name="' + i + '"]')[num]);
   document.querySelectorAll('input[name="' + i + '"]')[num].checked = true;
+}
+
+function showResult() {
+  document.querySelector("#questionnaireMain").style.display = "none";
+  document.querySelector("#questionnaireResult").style.display = "block";
 }

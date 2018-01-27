@@ -103,5 +103,10 @@
 	"user.releaseData": "Datenfreigabe",
 	"sex.other": "anderes",
 	"navbar.questionnaire": "Fragebogen zur Messung der Technikaffinität",
-	"createId.descUníqueId": "createId.descUníqueId"
+	
+	"questionnaire.result": "questionnaire.result",
+	"questionnaire.resultDesc1": "Dein Ati-Wert beträgt",
+	"questionnaire.resultDesc2": "von 6",
+	"chart.default": "Population",
+	"chart.age": "Alter"
 }
