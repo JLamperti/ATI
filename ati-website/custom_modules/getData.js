@@ -20,6 +20,20 @@ exports.selectAgeAndAti = function(req, res) {
 };
 
 /**
+* selects sex and the ati score of all probands except for duplicates (token)
+*/
+exports.selectSexAndAti = function(req, res) {
+	dba.manipulateDB("SELECT Sex, AtiScore FROM allesOhneDuplikate;", req, res);
+};
+
+/**
+* selects education and the ati score of all probands except for duplicates (token)
+*/
+exports.selectEducationAndAti = function(req, res) {
+	dba.manipulateDB("SELECT Education, AtiScore FROM allesOhneDuplikate;", req, res);
+};
+
+/**
 * selects everything of all probands except for duplicates (token)
 */
 exports.selectAll = function(req, res) {
@@ -118,6 +132,29 @@ exports.selectComplex = function(req, res) {
 	dba.manipulateDB(tmpString, req, res);		//perform the statement
 };
 
+/**
+* counts the proband in a certain survey
+* mandatory parameter in query: SID
+*/
+exports.selectCountProbandInSurvey = function(req, res) {
+	dba.manipulateDB('SELECT count(ProbandID) FROM Proband WHERE probandId IN (\
+		SELECT PID FROM partOf WHERE SID=' + req.query.SID + ');', req, res);
+};
+
+/**
+* returns relevant infos on a survey and a link selected by a link
+* mandatory parameter in query: url
+*/
+exports.selectSurveyAndLinkByUrl = function(req, res) {
+	dba.manipulateDB('SELECT SurveyID, takeAge, takeEducation, takeSex, SurveyBegin, SurveyEnd, SurveyStatus, maxProbands, ExpirationDate, usesLeft\
+		FROM Survey, Link \
+		WHERE url=\'' + req.query.url + '\' AND SID = SurveyID;', req, res);
+};
+
+/**
+* selects links of a survey
+* mandatory parameter in query: SID
+*/
 exports.selectLinks = function(req, res) {
 	dba.manipulateDB('SELECT url, expirationDate, usesLeft FROM link WHERE SID= ' + req.query.SID + ';', req, res);
 };

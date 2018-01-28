@@ -42,6 +42,14 @@ router.get('/complex', function(req, res) {
 	gData.selectComplex(req, res);
 });
 
+router.get('/countProbandInSurvey', function(req, res) {
+	gData.selectCountProbandInSurvey(req, res);
+});
+
+router.get('/sexAndAti', function(req, res) {
+	gData.selectSexAndAti(req, res);
+});
+
 router.get('/exportCSV', function(req, res) {
 	eData.exportCSV(req, res);
 });
@@ -50,8 +58,16 @@ router.get('/links', function(req, res) {
 	gData.selectLinks(req, res);
 });
 
+router.get('/educationAndAti', function(req, res) {
+	gData.selectEducationAndAti(req, res);
+});
+
 router.get('/survey', function(req, res) {
 	gData.selectSurvey(req, res);
+});
+
+router.get('/surveyAndLinkByUrl', function(req, res) {
+	gData.selectSurveyAndLinkByUrl(req, res);
 });
 
 router.get('/surveyByUser', function(req, res) {

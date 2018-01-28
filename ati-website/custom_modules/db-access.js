@@ -171,4 +171,4 @@ exports.performQuery = function (string, responseHandler) {
 		con.query(string, responseHandler);
 		con.release();			//release the connection so it can be used for another query
 	});
-}
+};

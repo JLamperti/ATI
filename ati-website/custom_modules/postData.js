@@ -18,7 +18,7 @@ exports.setDba = function(newDba) {
 * madatory-parameters: SID
 * optional-parameters: date, uses
 * 
-* Dates need to have the format yyyy-dd-mm.
+* Dates need to have the format yyyy-mm-dd.
 */
 exports.insertLink = function(req, res) {
 	var crypto = require('crypto');
@@ -272,7 +272,7 @@ exports.insertProbandUser = function(req, res) {
 * parameters are in the body of the request.
 * mandatory-paramter is UID (user-ID).
 * optional-paramters are Name, Description, MaxProbands, Status, Begin, End, inviteText, takeEducation, takeAge, takeSex
-* Dates need to have the format yyyy-dd-mm
+* Dates need to have the format yyyy-mm-dd
 */
 exports.insertSurvey = function(req, res) {
 	let temp = req.body;		//for quick access

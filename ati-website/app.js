@@ -16,6 +16,7 @@ var index = require('./routes/index'),
   db = require('./routes/db');
 
 var app = express();
+var sched = require('./custom_modules/sched');		//performs daily tasks
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
