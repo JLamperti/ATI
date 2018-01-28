@@ -109,6 +109,6 @@
 	"chart.default": "Population",
 	"chart.age": "Alter",
 	"titleImg": "./images/deutsch.jpg",
-	"chart.sex": "chart.sex",
+	"chart.sex": "Geschlecht",
 	"chart.edu": "chart.edu"
 }

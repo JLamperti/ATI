@@ -108,6 +108,6 @@
 	"chart.default": "Population",
 	"chart.age": "Age",
 	"titleImg": "./images/englisch.jpg",
-	"chart.sex": "chart.sex",
+	"chart.sex": "Sex",
 	"chart.edu": "chart.edu"
 }
