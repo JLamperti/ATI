@@ -2,12 +2,15 @@ html {
   height: 100%;
   min-height: 100%;
 }
+
 /*color for anchors */
+
 a {
   color: white;
 }
 
 /* color for anchors while hovering */
+
 a:hover {
   color: #c5eff7;
 }
@@ -18,16 +21,10 @@ body {
   color: #223241;
   text-align: justify;
   font-family: "Open Sans", sans-serif;
-
   font-size: 175%;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: "Titillium Web", sans-serif;
   font-weight: 500;
 }
@@ -36,27 +33,25 @@ h4 {
   font-size: 110%;
 }
 
-button{
+button {
   background-color: #fff;
   border-radius: 5px 5px 5px 5px;
   -webkit-border-radius: 5px 5px 5px 5px;
   -moz-border-radius: 5px 5px 5px 5px;
   padding: 5px 15px;
 }
-button:hover{
 
-}
-
+button:hover {}
 
 footer {
   background-color: #344853;
-
-   color:white;
-    height:15%;
-     padding-top:.75%;}
-
+  color: white;
+  height: 15%;
+  padding-top: .75%;
+}
 
 /* style the footer*/
+
 footer {
   color: white;
   height: 15%;
@@ -72,49 +67,69 @@ footer {
   flex: 1;
   overflow-y: auto;
 }
+
 /* add margin-bottom to this div */
-#scale{
-  margin-bottom:4rem;
+
+#scale {
+  margin-bottom: 4rem;
 }
+
 /*set color of the element what-why-how */
+
 #div-what-why-how {
   color: white;
 }
+
 /*themecolor of the site */
+
 .bg-color-theme {
   background-color: #344853;
 }
+
 /* mark invalid inputs in form.ejs */
+
 .invalidInput {
   color: rgba(255, 0, 0, .9);
 }
+
 /* align elements in a table */
+
 .table .alignTD {
   text-align: center;
 }
+
 /* align an item to the bottom-left of the container */
+
 .bottom-left {
   position: absolute;
   bottom: 0;
   left: 0;
   margin-left: 1%;
 }
+
 /* class for the Image of index.ejs */
+
 .title-screen {
   width: 100%;
   height: 70%;
   margin-top: -20px;
 }
+
 /*position navbar on the upper edge */
+
 .navbar-noMargin {
   margin-top: 0;
 }
+
 /* padding for the elements in WhatHowWhy and WhoWeAre */
+
 .div-padding-min {
   padding-left: 5%;
   padding-right: 5%;
 }
+
 /*padding for the container of WhatHowWhy and WhoWeAre */
+
 .div-padding-row {
   padding-left: 5%;
   padding-right: 5%;
@@ -123,27 +138,35 @@ footer {
 }
 
 /*padding for the Scientist/Developer/Teacher divs.*/
+
 .div-padding-row-SDT {
   padding-left: 9.75%;
   padding-right: 9%;
   padding-top: 20rem;
   padding-bottom: 20rem;
 }
+
 /*style the Images for the Container 'Scientist/Developer/Teacher' */
+
 .SDT-images {
   padding-top: 1rem;
   width: 12rem;
   height: 12rem;
   margin-right: 2rem;
 }
+
 /* Font-Size for the SDT-Text */
+
 .scientist-developer-teacher-text {
   font-size: large;
 }
-#answerOptions div{
+
+#answerOptions div {
   font-size: 80%;
 }
+
 /*style for the div Scale */
+
 .div-scale {
   padding: 1.5%;
   background-color: #e4e4e4;
@@ -152,55 +175,70 @@ footer {
 }
 
 /*lightgrey background */
+
 .background-light-grey {
   background-color: #e4e4e4;
 }
 
 /* change color if hovered over elements in the navbar */
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
+
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
   color: #c5eff7;
 }
+
 /* scales the images of the Scientist/Developer/Teacher */
+
 .scientist-developer-teacher-images {
   max-width: 70%;
   max-height: 70%;
 }
+
 /* padding for the images after the title-page */
+
 .imagesPadding {
   margin-top: -2.5%;
 }
+
 /*default flexbox with row direction */
+
 .flex-row {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: flex-start;
 }
+
 /*default flexbox with column direction */
+
 .flex-col {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: flex-start;
 }
+
 /* margin for the container which contains the DL and the form button */
+
 .index-container-margin-bottom-bot {
   margin-bottom: 4rem;
   margin-top: 4rem;
 }
 
 /*size for the authos-images */
+
 .author-images {
   max-height: 40%;
   max-width: 40%;
 }
+
 /* width of the rows */
+
 .row {
   max-width: 100%;
 }
 
 /*button to submit the questionnaire */
+
 .submit-form {
   width: 12rem;
   height: 4.5rem;
@@ -210,7 +248,9 @@ footer {
   margin-bottom: 3rem;
   box-shadow: none;
 }
+
 /*button to start the questionnaire or download */
+
 .button-start {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -220,8 +260,11 @@ footer {
   color: white;
   border-radius: 1rem;
 }
-.title-img{
-  background-image: url('../images/titleImg.jpg');background-size:cover; background-repeat: no-repeat
+
+.title-img {
+  background-image: url('../images/titleImg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat
 }
 
 @media (min-width: 768px) {
@@ -237,11 +280,9 @@ footer {
     width: 10%;
     height: 10%;
   }
-
 }
 
 @media (max-width: 768px) {
-
   /* class for the Image of index.ejs */
   .title-screen {
     width: auto;
@@ -258,20 +299,20 @@ footer {
     width: 2rem;
     height: 2rem;
   }
-
-  .col-xs-txt{
+  .col-xs-txt {
     font-size: 50%;
   }
 }
+
 @media (max-width: 480px) {
   /*style the Images for the Container 'Scientist/Developer/Teacher' */
   .SDT-images {
     width: 0%;
     height: 0%;
   }
-  .title-img-xs{
+  .title-img-xs {
     background-image: url("../images/titleImg320_480.jpg");
-    background-size:cover;
+    background-size: cover;
     background-repeat: no-repeat
   }
   /* flexbox direction column sw < 480 */
@@ -281,8 +322,8 @@ footer {
     flex-wrap: nowrap;
     justify-content: flex-start;
   }
-
 }
+
 @media (min-width: 480px) {
   /* padding for the div which contains the images for the Scientist/Developer/Teacher after the title-page */
   .padding-left-right-SDT {
@@ -290,13 +331,14 @@ footer {
     padding-right: 15.5%;
   }
 }
+
 @media (min-width: 1200px) {
   /* style the text infront of the title-page. screen-width > 1200px */
   .title-txt {
     padding-top: 7.5%;
     padding-left: 15%;
   }
-    .col-md-txt{
+  .col-md-txt {
     font-size: 85%;
   }
   /* scale the image to change the language screen-width > 1200px*/
@@ -320,6 +362,7 @@ footer {
     width: 60%;
   }
 }
+
 @media (max-width: 1200px) {
   /* scale images for screen-width < 1200px*/
   .author-images {
@@ -348,5 +391,4 @@ footer {
     padding-top: 4rem;
     padding-bottom: 4rem;
   }
-
 }

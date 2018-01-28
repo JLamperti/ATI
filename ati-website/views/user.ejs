@@ -64,7 +64,7 @@
           <button type="button"><%= __('user.newSurveyButton')%></button>
         </div>
 
-        <div id="dummySurvey" class="nested-container background-light-grey" style="display:none" >
+        <div id="dummySurvey" class="nested-container background-light-grey surveyField" style="display:none" >
           <div id="baseData">
             <div id="entryHeader">
               <h3 id="SurveyName" style="padding-top:15px;"></h3>
@@ -75,10 +75,7 @@
                 <span class=" grey text-item-descr">
                 <%= __('user.period') %>
                 </span>
-                <span id="beginDate"></span>
-                <%= __('user.periodStart')%>
-                <span id="periodEndText" style="display:none"><%= __('user.periodEnd')%></span>
-                <span id="endDate" style="display:none"></span>
+                <span id="beginDate"></span><%= __('user.periodStart')%><span id="periodEndText" style="display:none"><%= __('user.periodEnd')%></span><span id="endDate"></span>
               </p>
             </div>
             <div>
@@ -87,10 +84,7 @@
                 <%= __('user.participants') %>
               </span>
                 <span>
-                  <span id='participantsCurrent'></span>&nbsp;
-                  <span id="participantTextMiddle" style="display:none"><%- __('user.participants.part1')%></span>
-                  &nbsp;
-                  <span id="participantsTotal"></span> <%= __('user.participants.part2')%>
+                  <span id='participantsCurrent'></span><span id="participantTextMiddle" style="display:none"><%- __('user.participants.part1')%></span><span id="participantsTotal"></span><%=__('user.participants.part2')%>
                 </span>
               </p>
             </div>
@@ -107,7 +101,7 @@
 
             <div id="toggleDetails" class="inline-block float-right uparrow">
               <p>
-                <span class="glyphicon glyphicon-menu-down"></span>
+                <span id="toggleDetailsArrow" class="glyphicon glyphicon-menu-down"></span>
               </p>
             </div>
 

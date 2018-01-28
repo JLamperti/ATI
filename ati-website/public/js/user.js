@@ -3,7 +3,7 @@ $(document).ready(function() {
   /**
    * Loads User Info
    */
-  var url = "http://87.146.253.216:3000/db/user/?UID=1";
+  var url = "http://87.146.240.111:3000/db/user/?UID=1";
   fetch(url)
     .then(res => res.json())
     .then((out) => {
@@ -40,7 +40,7 @@ $(document).ready(function() {
    * TODO: move to  first req so everything gets called at once
    */
   $('#testButton').on('click', function() {
-    var url = "http://87.146.253.216:3000/db/surveyByUser?UID=1";
+    var url = "http://87.146.240.111:3000/db/surveyByUser?UID=1";
     fetch(url)
       .then(res => res.json())
       .then((out) => {
@@ -50,23 +50,25 @@ $(document).ready(function() {
           var newID = "survey" + x;
           var newSurveyDisplay = $('#dummySurvey').clone(true, true);
           //fixIds(newSurveyDisplay, x);
+          newSurveyDisplay.attr("id", "survey" + x);
           newSurveyDisplay.find('#SurveyName').append(out[x].SurveyName);
           newSurveyDisplay.find('#beginDate').append(out[x].SurveyBegin);
           newSurveyDisplay.find('#endDate').append(out[x].SurveyEnd);
           if (out[x].SurveyEnd != null) {
-            newSurveyDisplay.find('#periodEndText').css("display", "inherit");
+            newSurveyDisplay.find('#periodEndText').css("display", "inline");
           }
-          /*var url = "http://87.146.253.216:3000/db/countProbandInSurvey?SID=" + out[x].SurveyID;
+          /*TODO THIS IS A HACKED SOLUTION, IT RELIES ON REPONSES COMNING BACK IN THE RIGHT ORDER. REWRITE IMMEDIATELY! */
+          var count = 0;
+          var url = "http://87.146.240.111:3000/db/countProbandInSurvey?SID=" + out[x].SurveyID;
           fetch(url)
             .then(res => res.json())
-            .then((out) => {
-              newSurveyDisplay.find('#participantscurrent').append(out[0].length);
+            .then((res) => {
+              $('#survey' + count).find('#participantsCurrent').append(res.length);
+              count++;
             })
             .catch(err => {
               throw err
             });
-            */
-          newSurveyDisplay.find('#participantscurrent').append(out[x].SurveyBegin);
           newSurveyDisplay.find('#participantsTotal').append(out[x].MaxProbands);
           if (out[x].MaxProbands != null) {
             newSurveyDisplay.find('#participantTextMiddle').css("display", "inherit");
@@ -113,15 +115,19 @@ $(document).ready(function() {
   });
 
 
-  $(".uparrow").click(function() {
+  $(".surveyField").on('click', function() {
     /*TODO: toggle via parents, not IDs */
+
     var up = "up";
-    if (document.getElementById('toggleDetails').innerHTML == '<p><span class="glyphicon glyphicon-menu-up"></span></p>') {
-      document.getElementById('toggleDetails').innerHTML = ('<p><span class="glyphicon glyphicon-menu-down"></span></p>');
+    var arrowItem = $(this).find('#toggleDetailsArrow')
+    if (arrowItem.hasClass("glyphicon-menu-up")) {
+      arrowItem.addClass("glyphicon-menu-down");
+      arrowItem.removeClass("glyphicon-menu-up");
     } else {
-      document.getElementById('toggleDetails').innerHTML = ('<p><span class="glyphicon glyphicon-menu-up"></span></p>');
+      arrowItem.addClass("glyphicon-menu-up");
+      arrowItem.removeClass("glyphicon-menu-down");
     }
-    $("#details").slideToggle();
+    $(this).find("#details").slideToggle();
   });
 
 });
