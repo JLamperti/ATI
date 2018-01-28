@@ -108,5 +108,7 @@
 	"questionnaire.resultDesc2": "von 6",
 	"chart.default": "Population",
 	"chart.age": "Alter",
-	"titleImg": "./images/deutsch.jpg"
+	"titleImg": "./images/deutsch.jpg",
+	"chart.sex": "chart.sex",
+	"chart.edu": "chart.edu"
 }

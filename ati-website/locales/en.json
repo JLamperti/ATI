@@ -107,6 +107,7 @@
 	"questionnaire.resultDesc2": "of 6",
 	"chart.default": "Population",
 	"chart.age": "Age",
-	"titleImg": "./images/englisch.jpg"
-	
+	"titleImg": "./images/englisch.jpg",
+	"chart.sex": "chart.sex",
+	"chart.edu": "chart.edu"
 }

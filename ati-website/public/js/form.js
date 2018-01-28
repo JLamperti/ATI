@@ -5,32 +5,36 @@ var urlParams = new URLSearchParams(window.location.search);
 
 let invLink = urlParams.get("inv");
 var abc = [];
-url = "/db/surveyAndLinkByUrl?url=" + invLink;
-fetch(url)
-  .then(res => res.json())
-  .then(out => {
-    console.log("output" + out);
-    var r = {};
-    reqAge = out[0].takeAge.data[0] === 1 ? true : false;
-    reqSex = out[0].takeSex.data[0] === 1 ? true : false;
-    reqEdu = out[0].takeEducation.data[0] === 1 ? true : false;
-    reqAge === false ? deleteAge() : '';
-    reqSex === false ? deleteSex() : '';
-    reqEdu === false ? deleteEdu() : '';
-  })
-  .catch(err => {
-    throw err;
-  });
 
-  function deleteAge(){
-    document.querySelector('#age').remove();
+if (invLink != null || invLink != undefined) {
+  url = "http://87.146.240.111:3000/db/surveyAndLinkByUrl?url=" + invLink;
+  //url = "/db/surveyAndLinkByUrl?url=" + invLink;
+  fetch(url)
+    .then(res => res.json())
+    .then(out => {
+      console.log("output" + out);
+      var r = {};
+      reqAge = out[0].takeAge.data[0] === 1 ? true : false;
+      reqSex = out[0].takeSex.data[0] === 1 ? true : false;
+      reqEdu = out[0].takeEducation.data[0] === 1 ? true : false;
+      reqAge === false ? deleteAge() : "";
+      reqSex === false ? deleteSex() : "";
+      reqEdu === false ? deleteEdu() : "";
+    })
+    .catch(err => {
+      throw err;
+    });
+
+  function deleteAge() {
+    document.querySelector("#age").remove();
   }
-  function deleteSex(){
-    document.querySelector('#sex').remove();
+  function deleteSex() {
+    document.querySelector("#sex").remove();
   }
-  function deleteEdu(){
-    document.querySelector('#education').remove();
+  function deleteEdu() {
+    document.querySelector("#education").remove();
   }
+}
 
 var b = {};
 function checkForBirthday(field) {
@@ -116,12 +120,12 @@ function checkAnswers() {
 
   let invLink = urlParams.get("inv");
   if (urlParams.has("inv")) {
-    $.post("/db/probandLink", b);
     b.inv = invLink;
-
+    $.post("http://87.146.240.111:3000/db/probandLink", b);
+    //$.post("/db/probandLink", b);
   } else {
-    $.post("/db/proband", b);
- 
+    $.post("http://87.146.240.111:3000/db/proband", b);
+    //$.post("/db/proband", b);
   }
 }
 
