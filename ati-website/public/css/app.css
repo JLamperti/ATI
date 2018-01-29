@@ -290,6 +290,7 @@ input[type="radio"] {
   color: black;
 }
 /*style Bars of the age charts */
+#sexChasrt .ct-series-a .ct-bar,
 #ageChart .ct-series-a .ct-bar {
   /* Colour of your bars */
   stroke: rgb(0, 0, 200);
