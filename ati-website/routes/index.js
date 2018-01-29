@@ -26,6 +26,14 @@ router.use('/dl3', function(req, res){
 router.use('/dl4', function(req, res){
   res.download('public/files/limesurvey_de.lsq');
 });
+//download english import template
+router.use('/dlXLSen', function(req, res){
+  res.download('public/files/import_template_ati.xls');
+});
+//download german import template
+router.use('/dlXLSde', function(req, res){
+  res.download('public/files/import_vorlage_ati.xls');
+});
 
 // //toogle the language
 // router.use('/toggle', function (req, res) {
