@@ -1,0 +1,167 @@
+<!--<%- include ./partials/head %>-->
+
+<head lang="en">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
+
+  <link rel="stylesheet" href="../chartist/dist/chartist.min.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+  <script src="../js/jquery-3.2.1.min.js"></script>
+  <script src="../js/bootstrap/bootstrap.min.js"></script>
+  <script src="./../js/newSurvey.js"></script>
+
+
+
+  <title>ATI - surveyDetails</title>
+  <link rel="stylesheet" href="../css/user.css">
+
+
+
+</head>
+
+<body>
+  <section id="header">
+    <!--<header>
+      <%- include ./partials/header %>
+    </header>-->
+
+  </section>
+
+  <section class="content">
+    <div class="container">
+      <div class="nested-container">
+
+
+        <h2>Your survey</h2>
+        <div class="clearfix">
+
+          <div class="float-left">
+            <span class="grey text-item-descr">Link</span>
+          </div>
+          <div class="float-left">
+            <input id="surveyLink" type="url" name="surveyLink" value="https://ATI.coashdsa/918263" readonly><button type="button" id="copyUrlBtn">Copy</button>
+            <br>
+          </div>
+        </div>
+        <hr>
+
+        <h2>Data to be collected</h2>
+        <label><span class="text-item-descr">Affinity for Technology-Interaction&nbsp;</span><input type="checkbox" name="age" value="" checked disabled></label>
+        <br>
+        <label><span class="text-item-descr">Age </span><input type="checkbox" name="age" value="" disabled></label>
+        <br>
+        <label><span class="text-item-descr">Sex </span><input type="checkbox" name="sex" value=""disabled></label>
+        <br>
+        <label><span class="text-item-descr">Education </span><input type="checkbox" name="education" value="" disabled></label>
+        <hr>
+
+        <div id="collectedData" class="">
+          <div id="periodDisplay">
+            <p>
+              <span class=" grey text-item-descr">
+              <%= __('user.period') %>
+              </span>
+              <span id="beginDate"></span>
+              <%= __('user.periodStart')%><span id="periodEndText" style="display:none"><%= __('user.periodEnd')%></span><span id="endDate"></span>
+            </p>
+          </div>
+          <div>
+            <p>
+              <span class="grey text-item-descr">
+              <%= __('user.participants') %>
+            </span>
+              <span>
+                <span id='participantsCurrent'></span><span id="participantTextMiddle" style="display:none"><%- __('user.participants.part1')%></span><span id="participantsTotal"></span>
+              <%=__('user.participants.part2')%>
+                </span>
+            </p>
+          </div>
+          <div style="display:inline-block">
+            <p>
+              <span class="grey text-item-descr"><%= __('user.status')%></span>
+              <span id="status" class="text-item-descr">
+
+            </span>
+            </p>
+          </div>
+          <div id="average">
+            <p>
+              <span class="grey text-item-descr"><%= __('user.average') %></span>
+              <span class="itemValue">4.1</span>
+            </p>
+          </div>
+
+          <div id="deviation">
+            <p>
+              <span class="grey text-item-descr"><%= __('user.deviation')%></span>
+              <span class="itemValue">1.2</span>
+            </p>
+          </div>
+          <button type="button" name="showHideRawData" id="showHideRawData"><span id="buttonText" class="glyphicon glyphicon-menu-down">View Raw Data</span></button>
+
+          <div id="rawData" class="" style="display:none">
+            <table>
+              <tr>
+                <th>asd</th>
+              </tr>
+              <tr>
+                <th>dfg</th>
+              </tr>
+              <tr>
+                <th>ghj</th>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <hr>
+
+        <h2>Invite Participants</h2>
+        <div class="clearfix flex-row" style="flex-wrap:wrap">
+          <div class="float-left grey text-item-descr" style="flex-basis:150px;">
+            <span class="">Cover Letter</span>
+          </div>
+          <div class="" style="width:100%">
+            <textarea id="coverLetter" rows="5" placeholder="This is the text you will send with the email." style="width:100%; min-width:200px;"></textarea>
+          </div>
+        </div>
+
+        <div class="">
+          <div class="float-left">
+            <span class="grey text-item-descr">Addresses</span>
+          </div>
+          <form class="" action="index.html" method="post">
+            <!-- TODO: set width properly -->
+            <input type="text" name="mailAddress" value="" style="min-width:200px">
+            <!-- TODO: get glyphicons to work  -->
+            <button type="button" name="invite" style="min-width:150px;"><span class="glyphicon glyphicons-user-add">add</span></button>
+          </form>
+        </div>
+        <div class="" style="padding-top:30px;">
+
+          <button type="button" name="abort" class="float-left">abort</button>
+          <button type="submit" name="submit" class="float-right">submit</button>
+        </div>
+
+      </div>
+
+
+
+    </div>
+
+
+  </section>
+  <footer>
+    <%- include ./partials/footer %>
+  </footer>
+
+  <div id="invisibleVariableHolder">
+
+  </div>
+</body>

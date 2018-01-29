@@ -116,9 +116,7 @@ $(document).ready(function() {
 
 
   $(".surveyField").on('click', function() {
-    /*TODO: toggle via parents, not IDs */
 
-    var up = "up";
     var arrowItem = $(this).find('#toggleDetailsArrow')
     if (arrowItem.hasClass("glyphicon-menu-up")) {
       arrowItem.addClass("glyphicon-menu-down");

@@ -19,7 +19,7 @@
 
 
 
-  <title>User</title>
+  <title>ATI - New Survey</title>
   <link rel="stylesheet" href="../css/user.css">
 
 
@@ -62,7 +62,7 @@
           <hr>
 
           <h2>Data to be collected</h2>
-          <label><span class="text-item-descr">Affinity for Technology-Interaction&nbsp;</span><input type="checkbox" name="age" value="" disabled></label>
+          <label><span class="text-item-descr">Affinity for Technology-Interaction&nbsp;</span><input type="checkbox" name="age" value="" checked disabled></label>
           <br>
           <label><span class="text-item-descr">Age </span><input type="checkbox" name="age" value=""></label>
           <br>
@@ -77,30 +77,43 @@
               <span class="">Cover Letter</span>
             </div>
             <div class="" style="width:100%">
-              <textarea id="coverLetter" rows="5" placeholder="This is the text you will send with the email."style="width:100%; min-width:200px;"></textarea>
+              <textarea id="coverLetter" rows="5" placeholder="This is the text you will send with the email." style="width:100%; min-width:200px;"></textarea>
             </div>
           </div>
 
-          <div class="">
-            <div class="float-left">
-              <span class="grey text-item-descr">Addresses</span>
+          <div id="mailingList" class="">
+
+            <div id="inviteField" class="">
+              <div class="float-left">
+                <span class="grey text-item-descr">Addresses</span>
+              </div>
+              <form class="" action="index.html" method="post">
+                <input type="email" multiple name="mailAddress" value="" style="width:100%-300px" id="mailAddress">
+                <!-- TODO: get glyphicons to work  -->
+                <button type="button" name="invite" id="addMail"><span class="glyphicons glyphicons-user-add">add</span></button>
+              </form>
             </div>
-            <form class="" action="index.html" method="post">
-              <input type="text" name="mailAddress" value="" style="width:100%-300px">
-              <!-- TODO: get glyphicons to work  -->
-              <button type="button" name="invite" style="min-width:150px;"><span class="glyphicons glyphicons-user-add">add</span></button>
-            </form>
+            <div id="mailsOverview" class="">
+              <div id="emailList" class="list-group">
+                <button type="button" class="list-group-item list-group-item-action rm-on-click">Cras justo odio</button>
+                <button type="button" class="list-group-item list-group-item-action rm-on-click">Dapibus ac facilisis in</button>
+                <button type="button" class="list-group-item list-group-item-action rm-on-click">Morbi leo risus</button>
+                <button type="button" class="list-group-item list-group-item-action rm-on-click">Porta ac consectetur ac</button>
+                <button type="button" class="list-group-item list-group-item-action rm-on-click">Vestibulum at eros</button>
+              </div>
+
+            </div>
           </div>
-          <div class="" style="padding-top30px;">
+
+          <div id="controls" class="" style="padding-top30px;">
 
             <button type="button" name="abort" class="float-left">abort</button>
             <button type="submit" name="submit" class="float-right">submit</button>
           </div>
         </form>
+
+
       </div>
-
-
-
     </div>
 
 
