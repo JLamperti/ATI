@@ -26,7 +26,15 @@
                             </li>
                         </ul>
                     </div>
-                </nav>
+                </nav><!--
+				<form action="/db/importCSV?SID=1" enctype="multipart/form-data" method="post" id="importCSVFormOld">
+				<input type="file" name="file" accept=".csv">
+				<input type="submit" value="Upload">-->
+				
+				<form action="function() {fetch('/db/all');) return false;" enctype="multipart/form-data" method="post" id="importCSVForm">
+				<input type="file" name="file" accept=".csv">
+				<input type="submit" value="Upload">
+							
 
 <h1><%= atiScore %></h1>
 
