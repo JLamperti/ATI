@@ -110,5 +110,6 @@
 	"chart.age": "Alter",
 	"titleImg": "./images/deutsch.jpg",
 	"chart.sex": "Geschlecht",
-	"chart.edu": "chart.edu"
+	"chart.edu": "chart.edu",
+	"html.lang": "de"
 }

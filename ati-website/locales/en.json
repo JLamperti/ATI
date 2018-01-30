@@ -109,5 +109,6 @@
 	"chart.age": "Age",
 	"titleImg": "./images/englisch.jpg",
 	"chart.sex": "Sex",
-	"chart.edu": "chart.edu"
+	"chart.edu": "chart.edu",
+	"html.lang": "en-US"
 }
