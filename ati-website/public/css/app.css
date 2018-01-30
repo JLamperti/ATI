@@ -48,6 +48,9 @@ button {
 button:hover {
 }
 
+input[type=number] {
+  -moz-appearance:textfield;
+}
 footer {
   background-color: #344853;
 
@@ -61,6 +64,19 @@ footer {
   color: white;
   height: 15%;
   padding-top: 0.75%;
+}
+form .row{
+  margin-left: -15px;
+  margin-right: -15px
+}
+
+input[type="radio"] {
+  vertical-align: middle;
+   margin: 0px;
+}
+/* labels get 10px margin bottom and top*/
+label{
+  margin-top:10px; margin-bottom: 10px
 }
 
 #userTypes {
@@ -203,16 +219,7 @@ footer {
   flex-wrap: nowrap;
   justify-content: flex-start;
 }
-/*button to submit the questionnaire */
-.submit-form {
-  width: 12rem;
-  height: 4.5rem;
-  color: white;
-  border-radius: 3rem;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
-  box-shadow: none;
-}
+
 /*button to start the questionnaire or download */
 .button-start {
   margin-top: 2rem;
@@ -250,10 +257,10 @@ input[type="radio"] {
   margin-bottom: auto;
 }
 /*center element verical */
-.vertical {
-  margin-top: auto;
-  margin-bottom: auto;
+.vertical {  
+  margin-top: auto; margin-bottom:auto;    
 }
+
 .horizontal {
   margin-left: auto;
   margin-right: auto;
@@ -271,7 +278,7 @@ input[type="radio"] {
   color: red;
 }
 /* set the background of every 2n+1 div to lightfgrey in the questionnaire */
-#dempographic-data .demoData:nth-child(odd),
+#dempographic-data .container:nth-child(odd),
 #questions .row:nth-child(odd) {
   background-color: lightgrey;
 }

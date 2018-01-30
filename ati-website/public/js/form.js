@@ -7,7 +7,7 @@ let invLink = urlParams.get("inv");
 var abc = [];
 
 if (invLink != null || invLink != undefined) {
-  url = "/db/surveyAndLinkByUrl?url=" + invLink;
+  url = "http://87.146.244.248:3000/db/surveyAndLinkByUrl?url=" + invLink;
   //url = "/db/surveyAndLinkByUrl?url=" + invLink;
   fetch(url)
     .then(res => res.json())
@@ -66,7 +66,7 @@ function checkInputNumber(val) {
     document.querySelector("#bday").classList.remove("invalid-input");
     return true;
   } else {
-    invalidInput();
+    invalidInput("#bday");
   }
 }
 function calculateScore() {
@@ -84,46 +84,51 @@ function calculateScore() {
   ).toFixed(1);
 }
 function checkAnswers() {
-  var score = calculateScore();
-  document.getElementById("uSc").innerHTML = " " + score + " ";
+  
+  if (isValid()) {
+    var score = calculateScore();
+    document.getElementById("uSc").innerHTML = " " + score + " ";
 
-  b = {
-    Token:
-      document.querySelector('input[name="first-letter-birthplace"]').value +
-      document.querySelector('input[name="last-letter-birthplace"]').value +
-      document.querySelector('input[name="birthday"]').value +
-      document.querySelector('input[name="country"]').value +
-      document.querySelector('input[name="father"]').value +
-      document.querySelector('input[name="mother"]').value,
-    Ati1: document.querySelector('input[name="q1"]:checked').value,
-    Ati2: document.querySelector('input[name="q2"]:checked').value,
-    Ati3i: document.querySelector('input[name="q3"]:checked').value,
-    Ati4: document.querySelector('input[name="q4"]:checked').value,
-    Ati5: document.querySelector('input[name="q5"]:checked').value,
-    Ati6i: document.querySelector('input[name="q6"]:checked').value,
-    Ati7: document.querySelector('input[name="q7"]:checked').value,
-    Ati8i: document.querySelector('input[name="q8"]:checked').value,
-    Ati9: document.querySelector('input[name="q9"]:checked').value,
-    AtiScore: score
-  };
-  if (reqAge) {
-    b.Sex = document.querySelector('input[name="sex"]:checked').value;
-  }
-  if (reqSex) {
-    b.Age = document.querySelector('input[name="age"]').value;
-  }
-  if (reqEdu) {
-    b.Education = document.querySelector('input[name="edu"]:checked').value;
-  }
+    b = {
+      Token:
+        document.querySelector('input[name="first-letter-birthplace"]').value +
+        document.querySelector('input[name="last-letter-birthplace"]').value +
+        document.querySelector('input[name="birthday"]').value +
+        document.querySelector('input[name="country"]').value +
+        document.querySelector('input[name="father"]').value +
+        document.querySelector('input[name="mother"]').value,
+      Ati1: document.querySelector('input[name="q1"]:checked').value,
+      Ati2: document.querySelector('input[name="q2"]:checked').value,
+      Ati3i: document.querySelector('input[name="q3"]:checked').value,
+      Ati4: document.querySelector('input[name="q4"]:checked').value,
+      Ati5: document.querySelector('input[name="q5"]:checked').value,
+      Ati6i: document.querySelector('input[name="q6"]:checked').value,
+      Ati7: document.querySelector('input[name="q7"]:checked').value,
+      Ati8i: document.querySelector('input[name="q8"]:checked').value,
+      Ati9: document.querySelector('input[name="q9"]:checked').value,
+      AtiScore: score
+    };
+    if (reqAge) {
+      b.Sex = document.querySelector('input[name="sex"]:checked').value;
+    }
+    if (reqSex) {
+      b.Age = document.querySelector('input[name="age"]').value;
+    }
+    if (reqEdu) {
+      b.Education = document.querySelector('input[name="edu"]:checked').value;
+    }
 
-  var urlParams = new URLSearchParams(window.location.search);
+    var urlParams = new URLSearchParams(window.location.search);
 
-  let invLink = urlParams.get("inv");
-  if (urlParams.has("inv")) {
-    b.inv = invLink;
-    $.post("/db/probandLink", b);  
-  } else {
-    $.post("/db/proband", b);    
+    let invLink = urlParams.get("inv");
+    if (urlParams.has("inv")) {
+      b.inv = invLink;
+      $.post("http://87.146.244.248:3000/db/probandLink", b);
+      console.log('probandLink');
+    } else {
+      $.post("http://87.146.244.248:3000/db/proband", b);
+      console.log('proband');
+    }
   }
 }
 
@@ -132,6 +137,100 @@ function checkRadio(i, num) {
 }
 
 function showResult() {
-  document.querySelector("#questionnaireMain").style.display = "none";
-  document.querySelector("#questionnaireResult").style.display = "block";
+  if(isValid()){
+    document.querySelector("#questionnaireMain").style.display = "none";
+    document.querySelector("#questionnaireResult").style.display = "block";
+  }
+  
+}
+var isValid = function() {
+  let res = false;
+  let quest1 =
+    document.querySelector('input[name = "q1"]:checked') != null ? true : false;
+  let quest2 =
+    document.querySelector('input[name = "q2"]:checked') != null ? true : false;
+  let quest3 =
+    document.querySelector('input[name = "q3"]:checked') != null ? true : false;
+  let quest4 =
+    document.querySelector('input[name = "q4"]:checked') != null ? true : false;
+  let quest5 =
+    document.querySelector('input[name = "q5"]:checked') != null ? true : false;
+  let quest6 =
+    document.querySelector('input[name = "q6"]:checked') != null ? true : false;
+  let quest7 =
+    document.querySelector('input[name = "q7"]:checked') != null ? true : false;
+  let quest8 =
+    document.querySelector('input[name = "q8"]:checked') != null ? true : false;
+  let quest9 =
+    document.querySelector('input[name = "q9"]:checked') != null ? true : false;
+  let elem = document.getElementsByName("first-letter-birthplace")[0].value;
+    let firstBP =
+    elem.length == 1
+      ? true
+      : false;
+     
+  let lastBP =
+    document.getElementsByName("last-letter-birthplace")[0].value.length == 1
+      ? true
+      : false;
+  let country =
+    document.getElementsByName("country")[0].value.length == 2 ? true : false;
+  let letterMother =
+    document.getElementsByName("father")[0].value.length == 1 ? true : false;
+  let letterFather =
+    document.getElementsByName("mother")[0].value.length == 1 ? true : false;
+  let birthday =
+    document.getElementsByName("birthday")[0].value.length == 2 ? true : false;
+
+  let age;
+  let edu;
+  let sex;
+  if (reqAge) {
+    age =
+      document.getElementsByName('age')[0].value.length == 2    
+        ? true
+        : false;
+  } else {
+    age = true;
+  }
+  if (reqEdu) {
+    edu =
+      document.querySelector('input[name="edu"]:checked') != null
+        ? true
+        : false;
+  } else {
+    edu = true;
+  }
+  if (reqSex) {
+    sex =
+      document.querySelector('input[name="sex"]:checked') != null
+        ? true
+        : false;
+  } else {
+    sex = true;
+  }
+  
+  let res1 =quest1 && quest2 && quest3 && quest4 && quest5
+  let res2 = quest6 && quest7 && quest8 && quest9
+  let res3 = firstBP && lastBP && country && letterMother && letterFather && birthday
+  let res4 = age && edu && sex
+  res = res1&&   res2 && res3 && res4;
+    console.log(res)
+  return res;
+};
+
+function defaultSetup(){
+ console.log( document.querySelectorAll('input[type="radio"]'));
+ let radios =document.querySelectorAll('input[type="radio"]')
+ for(i = 0; i < radios.length; i++){
+   radios[i].checked = false;
+ }
+ let inputText =  document.querySelectorAll('input[type="text"]')
+ for(i = 0; i < inputText.length; i++){
+  inputText[i].value = '';
+}
+let inputNumber =  document.querySelectorAll('input[type="number"]')
+ for(i = 0; i < inputNumber.length; i++){
+  inputNumber[i].value = '';
+}
 }
