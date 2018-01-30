@@ -51,7 +51,7 @@ $(document).ready(function() {
           var newSurveyDisplay = $('#dummySurvey').clone(true, true);
           //fixIds(newSurveyDisplay, x);
           newSurveyDisplay.attr("id", "survey" + x);
-          newSurveyDisplay.find('#SurveyName').append(out[x].SurveyName);
+          newSurveyDisplay.find('#surveyName').append(out[x].SurveyName);
           newSurveyDisplay.find('#beginDate').append(out[x].SurveyBegin);
           newSurveyDisplay.find('#endDate').append(out[x].SurveyEnd);
           if (out[x].SurveyEnd != null) {
@@ -69,6 +69,18 @@ $(document).ready(function() {
             .catch(err => {
               throw err
             });
+
+            var url = 'http://87.146.240.111:3000//db/avg?sel[0]=atiScore&fromSurv=X' + out[x].SurveyID;
+            fetch(url)
+              .then(res => res.json())
+              .then((res) => {
+                console.log(res);
+                $('#survey' + count).find('#participantsCurrent').append(res.length);
+                count++;
+              })
+              .catch(err => {
+                throw err
+              });
           newSurveyDisplay.find('#participantsTotal').append(out[x].MaxProbands);
           if (out[x].MaxProbands != null) {
             newSurveyDisplay.find('#participantTextMiddle').css("display", "inherit");

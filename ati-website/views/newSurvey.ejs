@@ -7,15 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="./css/bootstrap/bootstrap.css">
 
-  <link rel="stylesheet" href="../chartist/dist/chartist.min.css">
-  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="./chartist/dist/chartist.min.css">
+  <link rel="stylesheet" href="./css/app.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
-  <script src="../js/jquery-3.2.1.min.js"></script>
-  <script src="../js/bootstrap/bootstrap.min.js"></script>
-  <script src="./../js/newSurvey.js"></script>
+  <script src"../js/jquery-3.2.1.min.js"></script>
+  <script src="./js/bootstrap/bootstrap.min.js"></script>
+  <script src="./js/newSurvey.js"></script>
 
 
 
@@ -39,7 +39,7 @@
       <div class="nested-container">
         <form class="" action="db/newSurvey" method="post">
 
-          <h2>Your new survey</h2>
+          <h2 id="surveyName"></h2>
           <div class="clearfix">
 
             <div class="float-left">
@@ -80,7 +80,7 @@
               <textarea id="coverLetter" rows="5" placeholder="This is the text you will send with the email." style="width:100%; min-width:200px;"></textarea>
             </div>
           </div>
-
+          <br>
           <div id="mailingList" class="">
 
             <div id="inviteField" class="">
@@ -93,13 +93,14 @@
                 <button type="button" name="invite" id="addMail"><span class="glyphicons glyphicons-user-add">add</span></button>
               </form>
             </div>
+            <br>
             <div id="mailsOverview" class="">
               <div id="emailList" class="list-group">
-                <button type="button" class="list-group-item list-group-item-action rm-on-click">Cras justo odio</button>
-                <button type="button" class="list-group-item list-group-item-action rm-on-click">Dapibus ac facilisis in</button>
-                <button type="button" class="list-group-item list-group-item-action rm-on-click">Morbi leo risus</button>
-                <button type="button" class="list-group-item list-group-item-action rm-on-click">Porta ac consectetur ac</button>
-                <button type="button" class="list-group-item list-group-item-action rm-on-click">Vestibulum at eros</button>
+                <a class="list-group-item list-group-item-action clearfix">Cras justo odio <button type="button" name="button" class="rm-on-click  pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
+                <a class="list-group-item list-group-item-action clearfix">Dapibus ac facilisis in<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
+                <a class="list-group-item list-group-item-action clearfix">Morbi leo risus<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
+                <a class="list-group-item list-group-item-action clearfix">Porta ac consectetur ac<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
+                <a class="list-group-item list-group-item-action clearfix">Vestibulum at eros<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
               </div>
 
             </div>
@@ -107,8 +108,8 @@
 
           <div id="controls" class="" style="padding-top30px;">
 
-            <button type="button" name="abort" class="float-left">abort</button>
-            <button type="submit" name="submit" class="float-right">submit</button>
+            <button type="button" name="abort" class="float-left">Abort</button>
+            <button type="submit" name="submit" class="float-right">Create Survey</button>
           </div>
         </form>
 

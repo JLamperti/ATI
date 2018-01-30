@@ -20,6 +20,7 @@
 
 
   <title>ATI - surveyDetails</title>
+
   <link rel="stylesheet" href="../css/user.css">
 
 
@@ -39,7 +40,7 @@
       <div class="nested-container">
 
 
-        <h2>Your survey</h2>
+        <h2 id="surveyName">Your survey</h2>
         <div class="clearfix">
 
           <div class="float-left">
@@ -131,22 +132,33 @@
             <textarea id="coverLetter" rows="5" placeholder="This is the text you will send with the email." style="width:100%; min-width:200px;"></textarea>
           </div>
         </div>
+        <br>
+        <div id="mailingList" class="">
 
-        <div class="">
-          <div class="float-left">
-            <span class="grey text-item-descr">Addresses</span>
+          <div id="inviteField" class="">
+            <div class="float-left">
+              <span class="grey text-item-descr">Addresses</span>
+            </div>
+            <form class="" action="index.html" method="post">
+              <input type="email" multiple name="mailAddress" value="" style="width:100%-300px" id="mailAddress">
+              <!-- TODO: get glyphicons to work  -->
+              <button type="button" name="invite" id="addMail"><span class="glyphicons glyphicons-user-add">add</span></button>
+            </form>
           </div>
-          <form class="" action="index.html" method="post">
-            <!-- TODO: set width properly -->
-            <input type="text" name="mailAddress" value="" style="min-width:200px">
-            <!-- TODO: get glyphicons to work  -->
-            <button type="button" name="invite" style="min-width:150px;"><span class="glyphicon glyphicons-user-add">add</span></button>
-          </form>
+          <br>
+          <div id="mailsOverview" class="">
+            <div id="emailList" class="list-group">
+              <a class="list-group-item list-group-item-action clearfix">Cras justo odio <button type="button" name="button" class="rm-on-click  pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
+              <a class="list-group-item list-group-item-action clearfix">Dapibus ac facilisis in<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
+              <a class="list-group-item list-group-item-action clearfix">Morbi leo risus<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
+              <a class="list-group-item list-group-item-action clearfix">Porta ac consectetur ac<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
+              <a class="list-group-item list-group-item-action clearfix">Vestibulum at eros<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
+            </div>
+
+          </div>
         </div>
         <div class="" style="padding-top:30px;">
-
-          <button type="button" name="abort" class="float-left">abort</button>
-          <button type="submit" name="submit" class="float-right">submit</button>
+          <button type="button" name="abort" class="float-left">Return to Profile</button>
         </div>
 
       </div>
