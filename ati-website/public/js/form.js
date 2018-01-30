@@ -12,13 +12,18 @@ if (invLink != null || invLink != undefined) {
   fetch(url)
     .then(res => res.json())
     .then(out => {
-      console.log("output" + out);
-      var r = {};
+      var r = {};   
       reqAge = out[0].takeAge.data[0] === 1 ? true : false;
+      console.log('age '+out[0].takeAge.data[0])
       reqSex = out[0].takeSex.data[0] === 1 ? true : false;
+      console.log( 'sex ' +out[0].takeSex.data[0])
       reqEdu = out[0].takeEducation.data[0] === 1 ? true : false;
+      console.log('edu ' +out[0].takeEducation.data[0])
       reqAge === false ? deleteAge() : "";
+      console.log(reqAge);
+      console.log(reqSex);
       reqSex === false ? deleteSex() : "";
+      console.log(reqEdu);
       reqEdu === false ? deleteEdu() : "";
     })
     .catch(err => {
@@ -187,7 +192,7 @@ var isValid = function() {
   let sex;
   if (reqAge) {
     age =
-      document.getElementsByName('age')[0].value.length == 2    
+      document.getElementsByName('age')[0].value.length >= 1  &&  document.getElementsByName('age')[0].value < 150
         ? true
         : false;
   } else {

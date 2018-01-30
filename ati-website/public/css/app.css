@@ -70,10 +70,6 @@ form .row{
   margin-right: -15px
 }
 
-input[type="radio"] {
-  vertical-align: middle;
-   margin: 0px;
-}
 /* labels get 10px margin bottom and top*/
 label{
   margin-top:10px; margin-bottom: 10px
@@ -258,7 +254,7 @@ input[type="radio"] {
 }
 /*center element verical */
 .vertical {  
-  margin-top: auto; margin-bottom:auto;    
+  display: flex; justify-content: center;   
 }
 
 .horizontal {
@@ -299,7 +295,7 @@ input[type="radio"] {
   color: black;
 }
 /*style Bars of the age charts */
-#sexChasrt .ct-series-a .ct-bar,
+
 #ageChart .ct-series-a .ct-bar {
   /* Colour of your bars */
   stroke: rgb(0, 0, 200);
@@ -307,6 +303,7 @@ input[type="radio"] {
   stroke-width: 0.5em;
 }
 /*style Bars of the default charts */
+#sexChasrt .ct-series-a .ct-bar,
 #defaultChart .ct-series-a .ct-bar {
   /* Colour of your bars */
   stroke: rgb(0, 0, 200);
