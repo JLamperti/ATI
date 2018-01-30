@@ -41,7 +41,7 @@ var sched = schedule.scheduleJob('1 0 * * *', function() {
 			return console.log('Err: Bad query. (sched.js:6)');
 		}
 	});
-	dba.performQuery('DELETE FROM pwlinks WHERE ExpirtionDate <= \'' + d + '\';', function (err, result) {
+	dba.performQuery('DELETE FROM pwlinks WHERE ExpirationDate <= \'' + d + '\';', function (err, result) {
 		if (err || result == undefined) {
 			return console.log('Err: Bad query. (sched.js:7)');
 		}
