@@ -30,11 +30,23 @@
   <div>
     <div class="container column" style="padding-top:6%">
       <div class="jumbotron col-sm-4 col-sm-offset-4  pull-center">
-        <p> <%- msg %>  </p>
+        <p>
+          <% switch (msg) {
+            case 'activate' : %>
+              <%- __('message.activate') %>
+          <% break;
+            case 'reset-sent' : %>
+              <%- __('message.reset-sent') %>
+          <% break;
+            case 'valid-sent' : %>
+              <%- __('message.valid-sent') %>
+          <% break;
+          } %>
+        </p>
         <div>
           <a href="/" id="link">
             <button type="button" class="button-start bg-color-theme col-md-8 col-sm-offset-2">
-              Zur Startseite
+              <%- __('message.start') %>
             </button>
           </a>
 

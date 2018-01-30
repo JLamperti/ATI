@@ -51,8 +51,12 @@ exports.sendValidationMail = function(EMail, req, res) {
 
       // let msg = "Wilkommen "+ json[0].UserName + ", bitte verifiziere deine Mailaddresse unter folgendem Link:  http://"+ request.headers.host +"/login/"+json[0].url ;
 
-      var msg = fs.readFileSync('./views/email/mailTemplate_compressed_de.html').toString();
-      // console.log(typeof msg);
+      if (req.cookies['locale'] != undefined ) {
+        var msg = fs.readFileSync('./views/email/mailTemplate_compressed_' + req.cookies['locale'] + '.html').toString();
+      } else {
+        var msg = fs.readFileSync('./views/email/mailTemplate_compressed_de.html').toString();
+      }
+      // console.log(msg);
       msg = replaceall("__NAME__", json[0].UserName, msg);
       msg = replaceall("__LINK__",  "http://"+ req.headers.host +"/login/"+json[0].url, msg);
       msg = replaceall("__WEBSITE__", "http://"+ req.headers.host, msg);
@@ -73,9 +77,12 @@ exports.sendPWResetMail = function(EMail, req, res) {
     } else if(Object.keys(json).length != 0){
 
       // let msg = "Wilkommen "+ json[0].UserName + ", bitte verifiziere deine Mailaddresse unter folgendem Link:  http://"+ request.headers.host +"/login/"+json[0].url ;
-
-      var msg = fs.readFileSync('./views/email/mailPW_compressed_de.html').toString();
-      // console.log(typeof msg);
+      if (req.cookies['locale'] != undefined) {
+        var msg = fs.readFileSync('./views/email/mailPW_compressed_' + req.cookies['locale'] + '.html').toString();
+      } else {
+        var msg = fs.readFileSync('./views/email/mailPW_compressed_de.html').toString();
+      }
+      // console.log( msg);
       msg = replaceall("__NAME__", json[0].UserName, msg);
       msg = replaceall("__LINK__",  "http://"+ req.headers.host +"/login/reset/"+json[0].url, msg);
       msg = replaceall("__WEBSITE__", "http://"+ req.headers.host, msg);

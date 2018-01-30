@@ -14,6 +14,7 @@ var validDays = 3;
 /* GET profile page. */
 router.get('/', function(req, res, next) {
   backURL=req.header('Referer') || '/';
+  console.log(req.cookies['locale']);
   if (req.session.user && req.cookies.user_sid) {
     res.redirect('logout');
   } else {
@@ -34,7 +35,7 @@ router.post('/',function(req, res) {
   if (email != undefined) {
     dba.performQuery("SELECT EMail,PW,bestaetigt FROM user WHERE EMail = '" + email + "'", function (err, result) {
       if (err || result == undefined) {			//in case of an error (mostlikely an invalid sql-statement) tell the client and log on the server
-        return console.log('Err: Bad query. (login.js:35)');	//for more detailed err-log de-comment the line above
+        return console.log('Err: Bad query. (login.js:35)'+ err.toString());	//for more detailed err-log de-comment the line above
       }
       var string = JSON.stringify(result);
       let json =  JSON.parse(string);
@@ -48,11 +49,11 @@ router.post('/',function(req, res) {
           req.session.user = json[0].EMail;
           res.redirect(backURL);
         } else {
-          res.render('login', { title: 'ATI', msg: 'your email needs to be validated first.' });
+          res.render('login', { title: 'ATI', msg: 'validate-email' });
         }
 
       } else {
-        res.render('login', { title: 'ATI', msg: 'bad login' });
+        res.render('login', { title: 'ATI', msg: 'bad-login' });
       }
 
     });
@@ -95,13 +96,13 @@ router.post('/',function(req, res) {
 
                   mailMan.sendValidationMail(newEmail, req, res);
                   // res.render('login', { title: 'ATI', messageA: '', messageB: 'Validation email sent.'});
-                  res.render('message', {msg: "Eine Email zum bestätigen Ihrer Mailaddresse wurde verschickt. Bitte schauen Sie in ihr Emailpostfach."});
+                  res.render('message', {msg: 'valid-sent'});
                 }
               });
             }
           });
         } else {
-          res.render('login', { title: 'ATI', msg: 'Email already in use.' });
+          res.render('login', { title: 'ATI', msg: 'email-blocked' });
         }
       });
 
@@ -139,7 +140,7 @@ router.post('/reset', function(req, res) {
 
         mailMan.sendPWResetMail(email, req, res);
         // res.render('login', { title: 'ATI', messageA: '', messageB: 'Validation email sent.'});
-        res.render('message', {msg: "Eine Email mit einem Resetlink wurde verschickt. Bitte schauen Sie in ihr Emailpostfach."});
+        res.render('message', {msg: 'reset-sent'});
       }
     });
   } else {
@@ -168,7 +169,7 @@ router.get('/reset/:token([A-Za-z0-9]{32})', function(req,res) {
       // if json object is not empty, token is valid.
       if (Object.keys(json).length != 0) {
 
-        res.render('pwreset', { title: 'ATI', validation_token: token, msg: ''});
+        res.render('pwreset', { title: 'ATI', validation_token: token, msg: 'hidden'});
 
 
       } else {
@@ -190,7 +191,7 @@ router.post('/reset/:token([A-Za-z0-9]{32})/rs', function(req, res) {
 
 
   if (newPassword != newPasswordConf) {
-    res.render('pwreset' , { title: 'ATI', validation_token: token, msg: 'passwords do not match!'});
+    res.render('pwreset' , { title: 'ATI', validation_token: token, msg: 'visible'});
     return;
   }
   // check whether or not this token actually exists
@@ -278,9 +279,9 @@ router.get('/:token([A-Za-z0-9]{32})', function(req, res) {
               console.log("Token " + token + " used and removed from database.");
               //login cookie setzten.
               // req.session.user = json[0].Email;
-              console.log(json[0].Email);
+              console.log(json[0].EMail);
               // res.redirect('/user');
-              res.render('message', {msg: "Ihr Account wurde erfolgreich aktiviert."});
+              res.render('message', {msg: 'activate'});
             }
           });
 
