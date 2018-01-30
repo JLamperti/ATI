@@ -454,7 +454,7 @@
 
             function defaultScale() {
                 // var url = '/db/get/buckets';
-                var url = 'http://87.146.244.248:3000/db/buckets';
+                var url = '/db/buckets';
                 var options = {
                     height: '75%',
                     axisY: {
@@ -481,7 +481,7 @@
             }
 
             function ageScale() {
-                var url = 'http://87.146.244.248:3000/db/ageAndAti';
+                var url = '/db/ageAndAti';
                 var options = {
                     showLine: false,
                     axisX: {
@@ -529,7 +529,7 @@
 
 
             function sexScale() {
-                var url = 'http://87.146.244.248:3000/db/complex?sel[0]=atiScore&sel[1]=sex';
+                var url = '/db/complex?sel[0]=atiScore&sel[1]=sex';
                 var m = '<%= __('sex.male') %>';
                 var f = '<%= __('sex.female') %>';
                 var o = '<%= __('sex.other') %>';
