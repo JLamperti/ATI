@@ -44,7 +44,7 @@ exports.sendValidationMail = function(EMail, req, res) {
   let query = "SELECT EMail, UserName, url FROM user,bestaetigungslinks WHERE EMail = '"+ EMail +"' AND UserID = UID";
   dba.performQuery(query, function (err, result) {
     if (err || result == undefined) {
-        return console.log('Err: Bad query. (db-acces.js:manipulateDB)');
+        return console.log('Err: Bad query. (mailman.js:manipulateDB)');
     } else {
       let string = JSON.stringify(result);
       let json =  JSON.parse(string);
@@ -58,6 +58,29 @@ exports.sendValidationMail = function(EMail, req, res) {
       msg = replaceall("__WEBSITE__", "http://"+ req.headers.host, msg);
 
       mail.sendMail(json[0].EMail, "Verifiziere deine EMailadresse", msg);
+    }
+  });
+};
+
+exports.sendPWResetMail = function(EMail, req, res) {
+  let query = "SELECT EMail, UserName, url FROM user,pwlinks WHERE EMail = '"+ EMail +"' AND UserID = UID";
+  dba.performQuery(query, function (err, result) {
+    let string = JSON.stringify(result);
+    var json =  JSON.parse(string);
+    if (err || result == undefined) {
+        return console.log('Err: Bad query. (mailman.js:66)');
+
+    } else if(Object.keys(json).length != 0){
+
+      // let msg = "Wilkommen "+ json[0].UserName + ", bitte verifiziere deine Mailaddresse unter folgendem Link:  http://"+ request.headers.host +"/login/"+json[0].url ;
+
+      var msg = fs.readFileSync('./views/email/mailPW_compressed_de.html').toString();
+      // console.log(typeof msg);
+      msg = replaceall("__NAME__", json[0].UserName, msg);
+      msg = replaceall("__LINK__",  "http://"+ req.headers.host +"/login/reset/"+json[0].url, msg);
+      msg = replaceall("__WEBSITE__", "http://"+ req.headers.host, msg);
+
+      mail.sendMail(json[0].EMail, "Setze dein Passwort zurück.", msg);
     }
   });
 };
