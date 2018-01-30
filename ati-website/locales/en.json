@@ -112,6 +112,36 @@
 	"titleImg": "./images/englisch.jpg",
 	"chart.sex": "Sex",
 	"chart.edu": "chart.edu",
+
 	"html.lang": "en-US",
-	"btn.submit": "Submit"
+	"btn.submit": "Submit",
+
+	"user.detailsHeader": "user.detailsHeader",
+	"login.login": "Login",
+	"login.register": "Register",
+	"login.email": "email adress",
+	"login.pw": "password",
+	"login.conf-pw": "confirm password",
+	"login.name": "name",
+	"login.validate": "Your email adress needs to be validated firs.",
+	"login.badLogin": "Wrong email or password!",
+	"login.BadEmail": "This email has already been used to set up an account.",
+	"login.pwLink": "Forgot Password?",
+	"pwreset.sel-email": "Enter your email",
+	"pwreset.email": "email",
+	"pwreset.sendLink": "Send reset link",
+	"pwreset.no-email": "There is no account using this email adress.",
+	"pwreset.title": "Set new password",
+	"pwreset.newPW": "new password",
+	"pwreset.conf-newPW": "confirm new password",
+	"pwreset.setPW": "Set new password",
+	"pwreset.no-pwmatch": "The passwords do not match!",
+	"login.need-to-login": "For this feature you need to log in or create an account.",
+	"login.to-login": "to login",
+	"login.redirect": "Shortly you will be redirected to the login.",
+	"message.activate": "Your account has sucsessfully been activated!",
+	"message.reset-sent": "A password reset link has been sent to you. PLease check your emails.",
+	"message.valid-sent": "A confirmation mail was sent to your email. Please check your emails.",
+	"message.start": "Startpage"
 }
+

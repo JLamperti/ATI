@@ -113,6 +113,36 @@
 	"titleImg": "./images/deutsch.jpg",
 	"chart.sex": "Geschlecht",
 	"chart.edu": "chart.edu",
+
 	"html.lang": "de",
-	"btn.submit": "Abschicken"
+	"btn.submit": "Abschicken",
+
+	"login.login": "Anmelden",
+	"login.register": "Registrieren",
+	"login.email": "EMail",
+	"login.pw": "Passwort",
+	"login.conf-pw": "Passwort wiederholen",
+	"login.name": "Name",
+	"login.validate": "Ihre EMailadresse muss erst bestätigt werden. </br> Überprüfen Sie Ihr EMail Postfach.",
+	"login.badLogin": "Falsche EMailadresse/Passwort!",
+	"login.BadEmail": "Mit dieser EMailadresse wurde bereits ein Account erstellt.",
+	"login.pwLink": "Passwort vergessen?",
+	"pwreset.sel-email": "Geben Sie Ihre EMailadresse an.",
+	"pwreset.email": "EMail",
+	"pwreset.sendLink": "Passworlink zusenden",
+	"pwreset.no-email": "Es existiert kein Konto mit dieser EMailadresse.",
+	"pwreset.title": "Neues Passwort setzen",
+	"pwreset.newPW": "Neues Passwort",
+	"pwreset.conf-newPW": "Neues Passwort wiederholen",
+	"pwreset.setPW": "Neues Passwort übernehmen",
+	"pwreset.no-pwmatch": "Die Passwörter stimmen nicht überein!",
+	"pwreset.no-pwmatch": "The passwords do not match!",
+	"login.need-to-login": "Für diese Funktion müssen Sie eingeloggt sein.",
+	"login.to-login": "Zum Login",
+	"login.redirect": "Sie werden in Kürze weitergeleitet.",
+	"message.activate": "Ihr Account wurde erfolgreich aktiviert.",
+	"message.reset-sent": "Eine Email mit einem Resetlink wurde verschickt. Bitte schauen Sie in ihr Emailpostfach.",
+	"message.valid-sent": "Eine Email zum bestätigen Ihrer Mailaddresse wurde verschickt. Bitte schauen Sie in ihr Emailpostfach.",
+	"message.start": "Zur Startseite"
 }
+

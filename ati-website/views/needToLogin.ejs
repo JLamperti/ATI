@@ -11,16 +11,16 @@
   <div>
     <div class="container column" style="padding-top:10%">
       <div class="jumbotron col-sm-4 col-sm-offset-4  pull-center">
-        Für diese Funktion müssen Sie sich zuerst einloggen. </p>
+        <%- __('login.need-to-login') %> </p>
         <div>
           <a href="/login" id="link">
             <button type="button" class="button-start bg-color-theme col-md-4 col-sm-offset-4">
-              Login
+              <%- __('login.to-login') %>
             </button>
           </a>
 
         </div>
-        <p id="countdown" class="col-sm-12" >Sie werden in Kürze weitergeleitet.</p>
+        <p id="countdown" class="col-sm-12" ><%- __('login.redirect') %></p>
       </div>
     </div>
   </div>
@@ -34,20 +34,6 @@
   <script language='javascript' type='text/javascript'>
 
   location.href = "/login";
-
-  /**window.onload = function() {
-    var text = document.getElementById("countdown");
-    text.innerHTML = 10 ;
-    for(var i=0; i < 10; ) {
-        setTimeout(function() {
-            document.getElementById("countdown").innerHTML = ""+(10 - i);
-            i++;
-        },i*1000);
-    }
-    setTimeout(function() {
-        location.href = "/login";
-    },(11)*1000);
-  } */
 
   var distance = 16;
   var x = setInterval(function() {

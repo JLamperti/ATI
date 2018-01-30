@@ -26,7 +26,36 @@
                             </li>
                         </ul>
                     </div>
-                </nav>
+                </nav><!--
+				<form action="/db/importCSV?SID=1" enctype="multipart/form-data" method="post" id="importCSVFormOld">
+				<input type="file" name="file" accept=".csv">
+				<input type="submit" value="Upload">-->
+				
+				<form action="#" onSubmit="myFunction();return false" enctype="multipart/form-data" method="post" id="importCSVForm">
+				<input id="theFile" type="file" name="file" accept=".csv">
+				<input type="submit" value="Upload">
+				<p id="succ" ></p>
+				</form>
+				<script>
+					let myFunction = function() {
+						console.log('blub');
+						let data = new FormData();
+						data.append('file', document.getElementById('theFile').files[0]);
+						console.log(data);
+					
+						let postUrl = '/db/importCSV?SID=1';
+						fetch(postUrl, {
+							method: 'POST',
+							body: data
+						})
+						.then((out) => {
+							document.getElementById('theFile').value = '';
+							document.getElementById('succ').innerHTML="erfolgreich";
+						})
+						.catch(err => {throw err});
+					}
+				</script>
+							
 
 <h1><%= atiScore %></h1>
 
