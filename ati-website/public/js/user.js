@@ -3,7 +3,7 @@ $(document).ready(function() {
   /**
    * Loads User Info
    */
-  var url = "http://87.146.240.111:3000/db/user/?UID=1";
+  var url = "http://87.146.242.114:3000/db/user/?UID=1";
   fetch(url)
     .then(res => res.json())
     .then((out) => {
@@ -40,7 +40,7 @@ $(document).ready(function() {
    * TODO: move to  first req so everything gets called at once
    */
   $('#testButton').on('click', function() {
-    var url = "http://87.146.240.111:3000/db/surveyByUser?UID=1";
+    var url = "http://87.146.242.114:3000/db/surveyByUser?UID=1";
     fetch(url)
       .then(res => res.json())
       .then((out) => {
@@ -59,7 +59,7 @@ $(document).ready(function() {
           }
           /*TODO THIS IS A HACKED SOLUTION, IT RELIES ON REPONSES COMNING BACK IN THE RIGHT ORDER. REWRITE IMMEDIATELY! */
           var count = 0;
-          var url = "http://87.146.240.111:3000/db/countProbandInSurvey?SID=" + out[x].SurveyID;
+          var url = "http://87.146.242.114:3000/countProbandInSurvey?SID=" + out[x].SurveyID;
           fetch(url)
             .then(res => res.json())
             .then((res) => {
@@ -70,7 +70,7 @@ $(document).ready(function() {
               throw err
             });
 
-            var url = 'http://87.146.240.111:3000//db/avg?sel[0]=atiScore&fromSurv=X' + out[x].SurveyID;
+            var url = 'http://87.146.242.114:3000/db/avg?sel[0]=atiScore&fromSurv=X' + out[x].SurveyID;
             fetch(url)
               .then(res => res.json())
               .then((res) => {

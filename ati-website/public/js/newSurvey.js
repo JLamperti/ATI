@@ -1,45 +1,110 @@
 $(document).ready(function() {
 
-
   $('#testButton').on('click', function() {
     var SID = 1;
-    var url = "http://87.146.244.248:3000/db/survey?SID=1";
-    fetch(url)
+    displayProbandCount(SID);
+    displayAvgAti(SID);
+    displayAtiStd(SID);
+    var url = "http://87.146.242.114:3000/db/survey?SID=";
+    fetch(url + SID)
       .then(res => res.json())
-      .then((out) => {
-
-        $('#surveyName').append(out.SurveyName);
-        $('#beginDate').append(out.SurveyBegin);
-        $('#endDate').append(out.SurveyEnd);
-        if (out.SurveyEnd != null) {
+      .then((res) => {
+        console.log(res);
+        $('#surveyName').append(res[0].SurveyName);
+        $('#beginDate').append(res[0].SurveyBegin);
+        $('#endDate').append(res[0].SurveyEnd);
+        if (res[0].SurveyEnd != null) {
+          /* make the second part of the text visible again */
           $('#periodEndText').css("display", "inline");
         }
 
-        var url = "http://87.146.240.111:3000/db/countProbandInSurvey?SID=";
-        fetch(url + SID)
-          .then(res => res.json())
-          .then((res) => {
-            $('#participantsCurrent').append(res.length);
-          })
-          .catch(err => {
-            throw err
-          });
-        $('#participantsTotal').append(out.MaxProbands);
-        if (out.MaxProbands != null) {
-          $('#participantTextMiddle').css("display", "inherit");
-        }
-        $('#status').append(out.SurveyStatus);
+        $('#status').append(res[0].SurveyStatus);
         $("display", "inherit");
         $('#resultsArea');
 
-        // /db/avg?sel[0]=atiScore&fromSurv=X
+        $('#participantsTotal').append(res[0].MaxProbands);
+        if (res[0].MaxProbands != null) {
+          $('#participantTextMiddle').css("display", "inherit");
+        }
 
-        console.log(out);
+
       })
       .catch(err => {
         throw err
       });
   });
+
+
+  $('#submit').on('click', function() {
+    /*tmp var */
+    var UID = 1;
+
+    var coverLetter = $('#coverLetter').val();
+    var emails = $('#emailList').text();
+    for (mail in emails) {
+      mail = mail.replace("remove", "");
+    }
+
+    var surveyName = $('#surveyName').val();
+    var begin = $('#begin').val();
+    var end = $('#end').val();
+    var status = 'closed';
+    var takeAge = $('#takeAge').val();
+    var takeSex = $('#takeSex').val();
+    var takeEducation = $('#takeEducation').val();
+    var description = $('#description').val();
+    if ($('#enableMaxProbands').is(':checked')) {
+      var MaxProbands = $('#MaxProbands').val();
+    }
+
+    //<!--mandatory-paramter is UID (user-ID).
+    //* optional-paramters are Name, Description, MaxProbands, Status, Begin, End, inviteText, takeEducation, takeAge, takeSex-->
+    let testData = JSON.stringify({
+      UID: UID,
+      Name: surveyName,
+      Description: description,
+      MaxProbands: MaxProbands,
+      Status: status,
+      Begin: begin,
+      End: end,
+      inviteText: coverLetter,
+      takeEducation: takeEducation,
+      takeAge: takeAge,
+      takeSex: takeSex
+    });
+
+    console.log(testData);
+    let postUrl = 'http://87.146.242.114:3000/db/survey';
+    fetch(postUrl, {
+        headers: {
+          'Accept': 'application/json',
+          'Content-type': 'application/json'
+        },
+        method: 'POST',
+        body: testData
+      })
+      .then((out) => {
+        console.log(out);
+      })
+      .catch(err => {
+        throw err
+      });
+
+
+  });
+
+  let data = new FormData();
+  //data.append("UID", UID);
+
+  data.append("surveyName", surveyName);
+  data.append("begin", begin);
+  data.append("end", end);
+  data.append("takeAge", takeAge);
+  data.append("takeSex", takeSex);
+  data.append("takeEducation", takeEducation);
+  data.append("description", description);
+  data.append("MaxProbands", MaxProbands);
+
 
 
   /**
@@ -76,6 +141,11 @@ $(document).ready(function() {
 
   });
 
+
+  /**
+   * sets default start date to today
+   */
+  $('#begin').val(new Date().toDateInputValue());
 
   /**
    * adds the entered mail to the mailing list if its valid
@@ -127,3 +197,49 @@ function checkUnique(mail) {
 
 
 }
+
+function displayProbandCount(SID) {
+  var url = "http://87.146.242.114:3000/db/countProbandInSurvey?SID=";
+  fetch(url + SID)
+    .then(res => res.json())
+    .then((countProbandInSurvey) => {
+      $('#participantsCurrent').append(countProbandInSurvey[0].count);
+    })
+    .catch(err => {
+      throw err
+    });
+}
+
+function displayAvgAti(SID) {
+  var url = "http://87.146.242.114:3000/db/avg?sel[0]=atiScore&fromSurv=";
+  fetch(url + SID)
+    .then(res => res.json())
+    .then((avgAtiScore) => {
+      $('#avgAtiScore').append(avgAtiScore[0].avgatiScore);
+    })
+    .catch(err => {
+      throw err
+    });
+}
+
+function displayAtiStd(SID) {
+  var url = "http://87.146.242.114:3000/db/std?SID=";
+  fetch(url + SID)
+    .then(res => res.json())
+    .then((std) => {
+      $('#atiStd').append(std[0].stdatiScore);
+    })
+    .catch(err => {
+      throw err
+    });
+}
+http: //87.146.242.114:3000/db/std?SID="
+
+  /**
+   *returns timezone-offset date
+   */
+  Date.prototype.toDateInputValue = (function() {
+    var local = new Date(this);
+    local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+    return local.toJSON().slice(0, 10);
+  });

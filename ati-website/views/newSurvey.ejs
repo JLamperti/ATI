@@ -7,15 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <link rel="stylesheet" href="./css/bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
 
-  <link rel="stylesheet" href="./chartist/dist/chartist.min.css">
-  <link rel="stylesheet" href="./css/app.css">
+  <link rel="stylesheet" href="../chartist/dist/chartist.min.css">
+  <link rel="stylesheet" href="../css/app.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
-  <script src"../js/jquery-3.2.1.min.js"></script>
-  <script src="./js/bootstrap/bootstrap.min.js"></script>
-  <script src="./js/newSurvey.js"></script>
+  <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+  <script src="../js/bootstrap/bootstrap.min.js"></script>
+  <script src="../js/newSurvey.js"></script>
 
 
 
@@ -33,42 +33,81 @@
     </header>-->
 
   </section>
-
+  <!--mandatory-paramter is UID (user-ID).
+  * optional-paramters are Name, Description, MaxProbands, Status, Begin, End, inviteText, takeEducation, takeAge, takeSex-->
   <section class="content">
     <div class="container">
       <div class="nested-container">
-        <form class="" action="db/newSurvey" method="post">
+        <form class="" action="http://87.146.242.114:3000/db/survey" method="post">
 
-          <h2 id="surveyName"></h2>
           <div class="clearfix">
 
             <div class="float-left">
               <p>
                 <span class="grey text-item-descr">Survey Name</span>
-                <input type="text" name="surveyName" value="" autofocus="true">
+                <input id="surveyName" type="text" name="Name" value="" autofocus="true">
               </p>
             </div>
           </div>
+
           <div class="clearfix">
 
             <div class="float-left">
               <span class="grey text-item-descr">Link</span>
             </div>
-            <div class="float-left">
+
+            <div class="float-left inline">
               <input id="surveyLink" type="url" name="surveyLink" value="https://ATI.coashdsa/918263" readonly><button type="button" id="copyUrlBtn">Copy</button>
               <br>
             </div>
+
           </div>
+
+          <div class="clearfix">
+            <p>
+              <span class="text-item-descr grey">Begin </span>
+              <input id="begin" type="date" name="Begin" value="">
+            </p>
+
+            <p>
+              <span class="text-item-descr grey">End (optional)</span>
+              <input id="end" type="date" name="End" value="">
+            </p>
+          </div>
+
+          <div class="">
+            <p>
+              <span class="grey text-item-descr">limit participation</span>
+              <input id="enableMaxProbands" type="checkbox" name="enableMaxProbands" value="">
+            </p>
+          </div>
+
+          <div class="">
+            <p>
+              <span class="grey text-item-descr">Maximum Participants</span>
+              <input id="MaxProbands" type="number" name="MaxProbands" value="" min="0">
+            </p>
+          </div>
+
+          <div class="">
+            <div class="">
+              <span class="text-item-descr grey">Description</span>
+            </div>
+            <div class="">
+              <textarea id="description" rows="5" placeholder="A short description of the study" style="width:100%; min-width:200px;"></textarea>
+            </div>
+          </div>
+
           <hr>
 
           <h2>Data to be collected</h2>
           <label><span class="text-item-descr">Affinity for Technology-Interaction&nbsp;</span><input type="checkbox" name="age" value="" checked disabled></label>
           <br>
-          <label><span class="text-item-descr">Age </span><input type="checkbox" name="age" value=""></label>
+          <label><span class="text-item-descr">Age </span><input id="takeAge" type="checkbox" name="takeAge" value=""></label>
           <br>
-          <label><span class="text-item-descr">Sex </span><input type="checkbox" name="sex" value=""></label>
+          <label><span class="text-item-descr">Sex </span><input id="takeSex" type="checkbox" name="takeSex" value=""></label>
           <br>
-          <label><span class="text-item-descr">Education </span><input type="checkbox" name="education" value=""></label>
+          <label><span class="text-item-descr">Education </span><input id="takeEducation" type="checkbox" name="takeEducation" value=""></label>
           <hr>
 
           <h2>Invite Participants</h2>
@@ -87,11 +126,11 @@
               <div class="float-left">
                 <span class="grey text-item-descr">Addresses</span>
               </div>
-              <form class="" action="index.html" method="post">
-                <input type="email" multiple name="mailAddress" value="" style="width:100%-300px" id="mailAddress">
-                <!-- TODO: get glyphicons to work  -->
-                <button type="button" name="invite" id="addMail"><span class="glyphicons glyphicons-user-add">add</span></button>
-              </form>
+
+              <input id="mailAddress" type="email" multiple name="mailAddress" value="" style="width:100%" placeholder="separate multiple entries with a &quot;,&quot;">
+              <!-- TODO: get glyphicons to work  -->
+              <button type="button" name="invite" id="addMail"><span class="glyphicons glyphicons-user-add">add</span></button>
+
             </div>
             <br>
             <div id="mailsOverview" class="">
@@ -109,7 +148,7 @@
           <div id="controls" class="" style="padding-top30px;">
 
             <button type="button" name="abort" class="float-left">Abort</button>
-            <button type="submit" name="submit" class="float-right">Create Survey</button>
+            <button id="submit" type="button" name="submit" class="float-right">Create Survey</button>
           </div>
         </form>
 
