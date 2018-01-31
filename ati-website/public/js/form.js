@@ -20,10 +20,9 @@ if (invLink != null || invLink != undefined) {
       reqEdu = out[0].takeEducation.data[0] === 1 ? true : false;
       console.log('edu ' +out[0].takeEducation.data[0])
       reqAge === false ? deleteAge() : "";
-      console.log(reqAge);
-      console.log(reqSex);
+     
       reqSex === false ? deleteSex() : "";
-      console.log(reqEdu);
+     
       reqEdu === false ? deleteEdu() : "";
     })
     .catch(err => {
@@ -75,23 +74,25 @@ function checkInputNumber(val) {
   }
 }
 function calculateScore() {
-  return Math.round(
-    (parseInt(document.querySelector('input[name="q1"]:checked').value) +
-      parseInt(document.querySelector('input[name="q2"]:checked').value) +
-      parseInt(document.querySelector('input[name="q3"]:checked').value) +
-      parseInt(document.querySelector('input[name="q4"]:checked').value) +
-      parseInt(document.querySelector('input[name="q5"]:checked').value) +
-      parseInt(document.querySelector('input[name="q6"]:checked').value) +
-      parseInt(document.querySelector('input[name="q7"]:checked').value) +
-      parseInt(document.querySelector('input[name="q8"]:checked').value) +
-      parseInt(document.querySelector('input[name="q9"]:checked').value)) /
-      9
-  ).toFixed(1);
+  let res = parseInt(document.querySelector('input[name="q1"]:checked').value) +
+  parseInt(document.querySelector('input[name="q2"]:checked').value) +
+  parseInt(document.querySelector('input[name="q3"]:checked').value) +
+  parseInt(document.querySelector('input[name="q4"]:checked').value) +
+  parseInt(document.querySelector('input[name="q5"]:checked').value) +
+  parseInt(document.querySelector('input[name="q6"]:checked').value) +
+  parseInt(document.querySelector('input[name="q7"]:checked').value) +
+  parseInt(document.querySelector('input[name="q8"]:checked').value) +
+  parseInt(document.querySelector('input[name="q9"]:checked').value);
+
+  let res2 = res/9;
+  return Math.round(res2*100)/100;
+
 }
 function checkAnswers() {
   
   if (isValid()) {
     var score = calculateScore();
+    console.log(score);
     document.getElementById("uSc").innerHTML = " " + score + " ";
 
     b = {
@@ -185,14 +186,14 @@ var isValid = function() {
   let letterFather =
     document.getElementsByName("mother")[0].value.length == 1 ? true : false;
   let birthday =
-    document.getElementsByName("birthday")[0].value.length == 2 ? true : false;
+    document.getElementsByName("birthday")[0].value.length == 2  &&document.getElementsByName("birthday")[0].value <32 &&document.getElementsByName("birthday")[0].value >0? true : false;
 
   let age;
   let edu;
   let sex;
   if (reqAge) {
     age =
-      document.getElementsByName('age')[0].value.length >= 1  &&  document.getElementsByName('age')[0].value < 150
+      document.getElementsByName('age')[0].value.length >= 1  &&  document.getElementsByName('age')[0].value < 150 && document.getElementsByName('age')[0].value > 0
         ? true
         : false;
   } else {
@@ -238,4 +239,19 @@ let inputNumber =  document.querySelectorAll('input[type="number"]')
  for(i = 0; i < inputNumber.length; i++){
   inputNumber[i].value = '';
 }
+}
+
+window.onscroll = function() {fixedScrollHeader()};
+
+
+
+
+function fixedScrollHeader() {
+  var header = document.getElementById("myHeader");
+  var sticky = header.offsetTop;
+  if (window.pageYOffset >= sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
 }

@@ -10,32 +10,39 @@
     <header>
       <%- include ./partials/header %>
     </header>
-    <div>
+
   </section>
 
   <section class="content">
     <div id="userDetails" class="container">
-      <div class="inline-block">
-        <h2>Dummy Name</h2>
-      </div>
-      <div class="inline-block float-right" style="padding-top:20px;">
-        <button>edit</button>
-      </div>
-      <h3>Redundant Title</h3>
-      <hr>
-      <p>
-        <span class="grey text-item-descr">Email</span>
-        <span>example@examplemail.com</span>
-      </p>
-      <p>
-        <span class="grey text-item-descr">Password</span>
-        <span>********</span>
-      </p>
+      <form action="/changeName" method="post">
+        <div id="nameField" class="inline-block">
+          <h2 id="nameValue">Dummy Name</h2>
+        </div>
+        <div class="inline-block float-right" style="padding-top:20px;">
+          <button id="editUserDetails" type="button" data-text-swap="Edit" data-text-original="Submit">Edit</button>
+        </div>
+        <div id="titleField">
+          <h3 id="titleValue"></h3>
+        </div>
+        <hr>
+        <p>
+          <div id="emailField">
+            <span class="grey text-item-descr">Email</span>
+            <span id="emailValue">example@examplemail.com</span>
+          </div>
+        </p>
+        <p>
+          <div id="passwordField">
+            <span class="grey text-item-descr">Password</span>
+            <span>********</span>
+          </div>
+        </p>
+      </form>
     </div>
+    <button type="button" id="testButton">test</button>
 
 
-
-    </div>
 
     <div id="surveyOverview" class="container">
 
@@ -44,7 +51,7 @@
         <span style="padding-left:3px">
         <%= __('user.yourSurveys') %>
       </span>
-        <span id="openSurveysAmount">(#open surveys)</span>
+        <span id="openSurveysAmount"></span>
         <form class="search-form">
           <input class="search" type="text" name="search" placeholder="<%- __('user.searchText')%> " style="background-image: url('./images/search_icon.png')"></input>
         </form>
@@ -54,49 +61,49 @@
       <div id="resultsArea" class="nested-container">
 
         <div id="buttonContainer" style="padding-top: 20px;padding-bottom:10px; display: flex; justify-content: center; ">
+        <a href="/user/newSurvey"> <!-- TODO: do i need to transmit UID here? -->
           <button type="button"><%= __('user.newSurveyButton')%></button>
+        </a>
         </div>
 
-        <div id="dummySurvey" class="nested-container background-light-grey">
-          <div id="basicData">
+        <div id="dummySurvey" class="nested-container background-light-grey surveyField" style="display:none" >
+          <div id="baseData">
             <div id="entryHeader">
-              <h3 style="padding-top:15px;">SurveyName</h3>
+              <h3 id="surveyName" style="padding-top:15px;"></h3>
             </div>
 
-            <div>
+            <div id="periodDisplay">
               <p>
                 <span class=" grey text-item-descr">
-                Erstellungsdatum
-              </span>
-                <span>
-                10/10/10
-              </span>
+                <%= __('user.period') %>
+                </span>
+                <span id="beginDate"></span><%= __('user.periodStart')%><span id="periodEndText" style="display:none"><%= __('user.periodEnd')%></span><span id="endDate"></span>
               </p>
             </div>
             <div>
               <p>
                 <span class="grey text-item-descr">
-                Teilnehmer
+                <%= __('user.participants') %>
               </span>
                 <span>
-                X&nbsp;aus&nbsp;Y ausgefuellt
-              </span>
+                  <span id='participantsCurrent'></span><span id="participantTextMiddle" style="display:none"><%- __('user.participants.part1')%></span><span id="participantsTotal"></span><%=__('user.participants.part2')%>
+                </span>
               </p>
             </div>
             <div style="display:inline-block">
               <p>
                 <span class="grey text-item-descr">
-                Status
+                <%= __('user.status')%>
               </span>
-                <span class="text-item-descr">
-                ends 10/10/10
+                <span id="status" class="text-item-descr">
+
               </span>
               </p>
             </div>
 
             <div id="toggleDetails" class="inline-block float-right uparrow">
               <p>
-                <span class="glyphicon glyphicon-menu-down"></span>
+                <span id="toggleDetailsArrow" class="glyphicon glyphicon-menu-down"></span>
               </p>
             </div>
 
@@ -145,9 +152,13 @@
         </div>
       </div>
     </div>
-
+    <p id="testPar">testing</p>
   </section>
   <footer>
     <%- include ./partials/footer %>
   </footer>
+
+  <div id="invisibleVariableHolder">
+
+  </div>
 </body>

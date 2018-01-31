@@ -1,8 +1,13 @@
-#surveyOverview{
+textarea {
+  max-width: 100%;
+}
+
+#surveyOverview {
   padding-left: 5%;
   padding-right: 5%;
   padding-bottom: 50px;
 }
+
 #surveyOverview p {
   padding-left: 30px;
 }
@@ -55,6 +60,10 @@
   float: right;
 }
 
+.float-left {
+  float: left;
+}
+
 .downarrow {
   position: absolute;
   bottom: 10;
@@ -70,13 +79,20 @@
   display: inline-block;
   min-width: 155px;
 }
-.grey{
+
+.grey {
   color: grey;
 }
 
-#userDetails{
+#userDetails {
   padding-left: 5%;
   padding-right: 5%;
   padding-bottom: 50px;
   padding-top: 3%;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
 }

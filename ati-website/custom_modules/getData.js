@@ -51,13 +51,13 @@ exports.selectAll = function(req, res) {
 exports.selectAvg = function (req, res) {
 	let tmpString;			//prepare a string for the statement
 	if (req.query.sel != null) {			//if sel parameters are given, select only them
-		tmpString = 'SELECT AVG(' + req.query.sel[0] + ')';
+		tmpString = 'SELECT AVG(' + req.query.sel[0] + ') AS avg' + req.query.sel[0];
 		let i = 1;
 		while (i < req.query.sel.length) {
-			tmpString += ', AVG(' + req.query.sel[i] + ')';
+			tmpString += ', AVG(' + req.query.sel[i] + ') AS avg' + req.query.sel[i];
 		}
 	} else {			//else selct all parameters
-		tmpString = 'SELECT AVG(atiScore), AVG(age), AVG(sex), AVG(Education)';
+		tmpString = 'SELECT AVG(atiScore) AS avgatiScore, AVG(age) AS avgage, AVG(sex) AS avgsex, AVG(Education) AS avgeducation';
 	}
 	if (req.query.fromSurv == null) {			//if no survey is given, use all probands
 		tmpString += ' FROM AllesOhneDuplikate;';
@@ -137,7 +137,7 @@ exports.selectComplex = function(req, res) {
 * mandatory parameter in query: SID
 */
 exports.selectCountProbandInSurvey = function(req, res) {
-	dba.manipulateDB('SELECT count(ProbandID) FROM Proband WHERE probandId IN (\
+	dba.manipulateDB('SELECT count(ProbandID) AS count FROM Proband WHERE probandId IN (\
 		SELECT PID FROM partOf WHERE SID=' + req.query.SID + ');', req, res);
 };
 
@@ -177,6 +177,36 @@ exports.selectSurvey = function(req, res) {
 */
 exports.selectSurveyByUser = function(req, res) {
 	dba.manipulateDB("SELECT * FROM survey WHERE UID=" + req.query.UID + ";", req, res);
+};
+
+/**
+* selects the standard deviation of the handed parameters or all if none is handed
+* from either a survey or all probands without duplicates
+* 
+* parameters:
+* sel[] the parameters to select (valid options are atiScore, age, education)
+* fromSurv the id of the survey to select the probands from
+*/
+exports.selectStd = function (req, res) {
+	let tmpString;			//prepare a string for the statement
+	if (req.query.sel != null) {			//if sel parameters are given, select only them
+		tmpString = 'SELECT STD(' + req.query.sel[0] + ') AS std' + req.query.sel[0];
+		let i = 1;
+		while (i < req.query.sel.length) {
+			tmpString += ', STD(' + req.query.sel[i] + ') AS std' + req.query.sel[i];
+		}
+	} else {			//else select all parameters
+		tmpString = 'SELECT STD(atiScore) AS stdatiScore, STD(age) AS stdage, AVG(Education) AS stdeducation';
+	}
+	if (req.query.fromSurv == null) {			//if no survey is given, use all probands
+		tmpString += ' FROM AllesOhneDuplikate;';
+	} else {									//else use the survey given
+		tmpString += ' FROM Proband WHERE probandId IN (\
+				SELECT PID \
+				FROM partOf \
+				WHERE SID=' + req.query.fromSurv + ');';
+	}
+	dba.manipulateDB(tmpString, req, res);		//perform the statement
 };
 
 /**
