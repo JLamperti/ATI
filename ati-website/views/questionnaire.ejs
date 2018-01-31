@@ -107,7 +107,7 @@
                                     <%= __('instruction') %>
                                 </strong>
                             </div>
-                            <div class="ans-vis ">
+                            <div class="ans-vis">
                                 <div class="col-md-1"></div>
 
                                 <div class="col-sm-2 col-md-1       text-md-center">
@@ -450,7 +450,7 @@
                 <%= __('questionnaire.result2') %>
             </p>
 
-            <div id="chart" style="height:25%">
+            <div id="chart" style="height:25%;position:relative;z-index:-1">
                 <div id="defaultChart" class="ct-chart ct-perfect-fourth"></div>
                 
                 <div id="ageChart" class="ct-chart ct-perfect-fourth" style="display:none"></div>
@@ -462,7 +462,7 @@
                         <%= __('chart.descDef') %>
                     </p>
             </div>
-            <div align="center" style="color: white;">
+            <div align="center" style="color: white;" >
                 <button onclick="defaultScale(),showChart('defaultChart')" touchend="defaultScale(),showChart('defaultChart')" class="button bg-color-theme">
                     <%= __('chart.default') %>
                 </button>
@@ -490,19 +490,16 @@
                 };
                 fetch(url)
                     .then(res => res.json())
-                    .then((out) => {
-                        //console.log(out);
-                        //console.log(out[0].amount);
+                    .then((out) => {                        
                         var data = {
                             labels: ['[1,2)', '[2,3)', '[3,4)', '[4,5)', '[5,6]'],
                             series: [[]]
-
                         };
                         for (i = 0; i < 5; i++) {
                             data.series[0][i] = out[i].amount;
                         };
                         new Chartist.Bar('#defaultChart', data, options);
-                        //console.log(data);
+                        
                     })
                     .catch(err => { throw err });
             }
@@ -524,27 +521,22 @@
 
                 fetch(url)
                     .then(res => res.json())
-                    .then((out) => {
-                        //console.log(out);
-
+                    .then((out) => {                        
                         for (i = 0; i < out.length; i++) {
                             data.series[0][i] = { x: out[i].Age, y: out[i].AtiScore };
-                        };
-                        //console.log(data);
+                        };                       
                         new Chartist.Bar('#ageChart', data, options);
                     })
                     .catch(err => { throw err });
             }
             function showChart(elem) {
-                if (elem === 'ageChart') {
-                    //console.log('fiesta');
+                if (elem === 'ageChart') {                  
                     document.querySelector('#ageChart').style.display = 'block';
                     document.querySelector('#defaultChart').style.display = 'none';
                     document.querySelector('#sexChart').style.display = 'none';
                     showDesc('age');
                     
                 } else if (elem === 'defaultChart') {
-                    //console.log('Nope');
                     document.querySelector('#defaultChart').style.display = 'block';
                     document.querySelector('#ageChart').style.display = 'none';
                     document.querySelector('#sexChart').style.display = 'none';
@@ -593,8 +585,7 @@
 
                 fetch(url)
                     .then(res => res.json())
-                    .then((out) => {
-                        //console.log(out);
+                    .then((out) => {                      
                         var male = 0;
                         var maleCounter = 0;
                         var female = 0;
@@ -616,13 +607,14 @@
                         };
                         data.series[0][0] = { x: 'male', y: male / maleCounter }
                         data.series[0][1] = { x: 'female', y: female / femaleCounter }
-                        data.series[0][2] = { x: 'other', y: other / otherCounter }
-                        console.log(data);
+                        data.series[0][2] = { x: 'other', y: other / otherCounter }                       
                         new Chartist.Bar('#sexChart', data, options);
                     })
                     .catch(err => { throw err });
             }
 
+           
 
-        </script>
+
+     </script>
     </body>
