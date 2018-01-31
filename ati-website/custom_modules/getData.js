@@ -185,7 +185,7 @@ exports.selectSurveyByUser = function(req, res) {
 * 
 * parameters:
 * sel[] the parameters to select (valid options are atiScore, age, education)
-* fromSurv the id of the survey to select the probands from
+* SID the id of the survey to select the probands from
 */
 exports.selectStd = function (req, res) {
 	let tmpString;			//prepare a string for the statement
@@ -198,13 +198,13 @@ exports.selectStd = function (req, res) {
 	} else {			//else select all parameters
 		tmpString = 'SELECT STD(atiScore) AS stdatiScore, STD(age) AS stdage, AVG(Education) AS stdeducation';
 	}
-	if (req.query.fromSurv == null) {			//if no survey is given, use all probands
+	if (req.query.SID == null) {			//if no survey is given, use all probands
 		tmpString += ' FROM AllesOhneDuplikate;';
 	} else {									//else use the survey given
 		tmpString += ' FROM Proband WHERE probandId IN (\
 				SELECT PID \
 				FROM partOf \
-				WHERE SID=' + req.query.fromSurv + ');';
+				WHERE SID=' + req.query.SID + ');';
 	}
 	dba.manipulateDB(tmpString, req, res);		//perform the statement
 };
