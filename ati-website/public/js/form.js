@@ -240,3 +240,18 @@ let inputNumber =  document.querySelectorAll('input[type="number"]')
   inputNumber[i].value = '';
 }
 }
+
+window.onscroll = function() {fixedScrollHeader()};
+
+
+
+
+function fixedScrollHeader() {
+  var header = document.getElementById("myHeader");
+  var sticky = header.offsetTop;
+  if (window.pageYOffset >= sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}

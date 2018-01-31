@@ -3,10 +3,10 @@
   </head>
 
   <body onload="setLang()" lang="<%= __('html.lang') %>">
-    <header>
+    <header id="indexHeader">
       <%- include ./partials/header %>
     </header>
-
+<main>
     <div class="title-screen " align="center">
 
       <img style="width:100%;height:auto" src='<%= __('titleImg') %>'></img>
@@ -101,38 +101,33 @@
         <div class="flex-col">
           <div class="flex-row-wrap flex-s-col">
             <a href="./dl0">
-              <button type="button" class="button-start bg-color-theme btn-s-negMargin button-xs">
+              <button type="button" class="button-start bg-color-theme btn-s-negMargin button-xs button-md">
                 <%= __('buttonDownload') %>
               </button>
             </a>
-
-
             <a href="./dl1">
-              <button type="button" class="button-start bg-color-theme btn-s-negMargin button-xs">
+              <button type="button" class="button-start bg-color-theme btn-s-negMargin button-xs button-md">
                 Word (.docx)
               </button>
-            </a>
-
-            <a href="./dl2">
-              <button type="button" class="button-start bg-color-theme btn-s-negMargin button-xs">
-                Text (.txt)
-              </button>
-            </a>
-          </div>
+            </a>           
+          </div>         
           <div class="flex-row-wrap flex-s-col">
-
             <a href="./dl3">
-              <button type="button" class="button-start  bg-color-theme button-xs">
+              <button type="button" class="button-start  bg-color-theme button-xs button-md">
                 LimeSurvey (en)
               </button>
             </a>
-
             <a href="./dl4">
-              <button type="button" class="button-start  bg-color-theme button-xs">
+              <button type="button" class="button-start  bg-color-theme button-xs button-md">
                 LimeSurvey (de)
               </button>
             </a>
           </div>
+          <a href="./dl2">
+            <button type="button" class="button-start bg-color-theme btn-s-negMargin button-xs button-md">
+              Text (.txt)
+            </button>
+          </a>
         </div>
 
 
@@ -147,7 +142,7 @@
         </div>
 
         <a href="./form">
-          <button type="button" class="button-start bg-color-theme button-xs">
+          <button type="button" class="button-start bg-color-theme button-xs button-md">
             <%= __('buttonTestYourself') %>
           </button>
         </a>
@@ -209,7 +204,7 @@
           </div>
           
             <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tbyKkZZNUzA" allowfullscreen></iframe>
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tbyKkZZNUzA" allowfullscreen width="200px" height="200px" alt="in this video Prof. Franke discusses why ATI is a relevant theme"></iframe>
               </div>
              <a href="https://www.researchgate.net/publication/318745431_Assessing_Affinity_for_Technology_Interaction_-_The_Affinity_for_Technology_Interaction_ATI_Scale_Scale_Description_-_English_and_German_Scale_Version">
                  <button class="button bg-color-theme button-start">Paper</button>
@@ -324,7 +319,7 @@
 
     </div>
 
-
+  </main>
     <footer class="bg-color-theme">
       <%- include ./partials/footer %>
     </footer>
@@ -367,6 +362,23 @@
         $('.navbar-collapse a').click(function(){
     $(".navbar-collapse").collapse('hide');
 });
+
+  /*fixed header */
+  var m = document.querySelector("main"),
+      h = document.querySelector("header"),
+      hHeight;
+  
+  function setTopPadding() {
+    hHeight = h.offsetHeight;
+    m.style.paddingTop = hHeight + "px";
+  }
+
+  window.onload = function() {
+    setTopPadding();   
+  };  
+  window.onresize = function() {
+    setTopPadding();
+  };
     </script>
   </body>
 

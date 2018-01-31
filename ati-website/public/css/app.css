@@ -5,7 +5,6 @@ html {
 /*color for anchors */
 a {
   color: white;
-  
 }
 /* removes the border which appears after a user clicked on an anchor */
 *:focus {
@@ -15,7 +14,6 @@ a {
 a:hover {
   color: #c5eff7;
 }
-
 
 body {
   height: 100%;
@@ -45,7 +43,12 @@ h6 {
 h4 {
   font-size: 110%;
 }
-
+/*fixed header */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 button {
   background-color: #fff;
   border-radius: 5px 5px 5px 5px;
@@ -84,9 +87,8 @@ label {
   margin-bottom: 10px;
 }
 
-
 :-moz-ui-invalid {
-  box-shadow: 0 0 2px red;;
+  box-shadow: 0 0 2px red;
 }
 
 #userTypes {
@@ -130,6 +132,7 @@ label {
   left: 0;
   margin-left: 1%;
 }
+
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
   color: #c5eff7;
@@ -545,6 +548,10 @@ input[type="radio"] {
   }
   .author-width-md {
     width: 40%;
+  }
+  /* equal width for the buttons of the index.ejs */
+  .button-md{
+    width:17rem;
   }
   /* visibility of the answers */
   .ans-vis {
