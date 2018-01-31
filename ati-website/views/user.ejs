@@ -14,13 +14,13 @@
   </section>
 
   <section class="content">
-    <div id="userDetails" class="container">
+    <div id="userDetails" class="container" style="padding-top:130px;">
       <form action="/changeName" method="post">
         <div id="nameField" class="inline-block">
           <h2 id="nameValue">Dummy Name</h2>
         </div>
         <div class="inline-block float-right" style="padding-top:20px;">
-          <button id="editUserDetails" type="button" data-text-swap="Edit" data-text-original="Submit">Edit</button>
+          <button id="editUserDetails" type="button" class="button-start bg-color-theme" data-text-swap="Edit" data-text-original="Submit" style="padding-left:15px; padding-right:15px;">Edit</button>
         </div>
         <div id="titleField">
           <h3 id="titleValue"></h3>
@@ -40,8 +40,6 @@
         </p>
       </form>
     </div>
-    <button type="button" id="testButton">test</button>
-
 
 
     <div id="surveyOverview" class="container">
@@ -62,7 +60,7 @@
 
         <div id="buttonContainer" style="padding-top: 20px;padding-bottom:10px; display: flex; justify-content: center; ">
         <a href="/user/newSurvey"> <!-- TODO: do i need to transmit UID here? -->
-          <button type="button"><%= __('user.newSurveyButton')%></button>
+          <button type="button" class="button-start bg-color-theme "><%= __('user.newSurveyButton')%></button>
         </a>
         </div>
 
@@ -121,14 +119,14 @@
               <div id="average">
                 <p>
                   <span class="grey text-item-descr"><%= __('user.average') %></span>
-                  <span class="itemValue">4.1</span>
+                  <span id="avgAtiScore" class="itemValue"></span>
                 </p>
               </div>
 
               <div id="deviation">
                 <p>
                   <span class="grey text-item-descr"><%= __('user.deviation')%></span>
-                  <span class="itemValue">1.2</span>
+                  <span id="atiStd" class="itemValue"></span>
                 </p>
               </div>
 
@@ -152,7 +150,6 @@
         </div>
       </div>
     </div>
-    <p id="testPar">testing</p>
   </section>
   <footer>
     <%- include ./partials/footer %>

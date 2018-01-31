@@ -1,5 +1,6 @@
 $(document).ready(function() {
-
+  var SID = 1;
+  var IP = "http://87.146.242.114:3000";
   /**
    * Loads User Info
    */
@@ -39,16 +40,15 @@ $(document).ready(function() {
    * Loads Survey Info
    * TODO: move to  first req so everything gets called at once
    */
-  $('#testButton').on('click', function() {
     var url = "http://87.146.242.114:3000/db/surveyByUser?UID=1";
     fetch(url)
       .then(res => res.json())
       .then((out) => {
         $('#openSurveysAmount').html("(" + out.length + ")");
-        var cloneCount = 1;
         for (x in out) {
-          var newID = "survey" + x;
-          var newSurveyDisplay = $('#dummySurvey').clone(true, true);
+          console.log(x);
+          console.log(out[x].SurveyID);
+          let newSurveyDisplay = $('#dummySurvey').clone(true, true);
           //fixIds(newSurveyDisplay, x);
           newSurveyDisplay.attr("id", "survey" + x);
           newSurveyDisplay.find('#surveyName').append(out[x].SurveyName);
@@ -57,30 +57,10 @@ $(document).ready(function() {
           if (out[x].SurveyEnd != null) {
             newSurveyDisplay.find('#periodEndText').css("display", "inline");
           }
-          /*TODO THIS IS A HACKED SOLUTION, IT RELIES ON REPONSES COMNING BACK IN THE RIGHT ORDER. REWRITE IMMEDIATELY! */
-          var count = 0;
-          var url = "http://87.146.242.114:3000/countProbandInSurvey?SID=" + out[x].SurveyID;
-          fetch(url)
-            .then(res => res.json())
-            .then((res) => {
-              $('#survey' + count).find('#participantsCurrent').append(res.length);
-              count++;
-            })
-            .catch(err => {
-              throw err
-            });
+          displayProbandCount(out[x].SurveyID, newSurveyDisplay);
+          displayAtiStd(out[x].SurveyID, newSurveyDisplay);
+          displayAvgAti(out[x].SurveyID, newSurveyDisplay);
 
-            var url = 'http://87.146.242.114:3000/db/avg?sel[0]=atiScore&fromSurv=X' + out[x].SurveyID;
-            fetch(url)
-              .then(res => res.json())
-              .then((res) => {
-                console.log(res);
-                $('#survey' + count).find('#participantsCurrent').append(res.length);
-                count++;
-              })
-              .catch(err => {
-                throw err
-              });
           newSurveyDisplay.find('#participantsTotal').append(out[x].MaxProbands);
           if (out[x].MaxProbands != null) {
             newSurveyDisplay.find('#participantTextMiddle').css("display", "inherit");
@@ -91,13 +71,13 @@ $(document).ready(function() {
 
           // /db/avg?sel[0]=atiScore&fromSurv=X
         }
+        console.log("done with loops");
         console.log(out);
       })
       .catch(err => {
         throw err
       });
 
-  });
 
 
   $("#editUserDetails").on('click', function() {
@@ -139,6 +119,54 @@ $(document).ready(function() {
     }
     $(this).find("#details").slideToggle();
   });
+
+  function displayProbandCount(SID, element) {
+    var url = "/db/countProbandInSurvey";
+    var query = "?SID=" + SID;
+    console.log("gettingProbCnt" + IP + url + query);
+    fetch(IP + url + query)
+      .then(res => res.json())
+      .then((countProbandInSurvey) => {
+        console.log("got prb cnt: " + IP + url + query + ": " + countProbandInSurvey[0].count);
+        element.find('#participantsCurrent').append(countProbandInSurvey[0].count);
+      })
+      .catch(err => {
+        throw err
+      });
+  }
+
+  function displayAvgAti(SID, element) {
+    var url = "/db/avg?sel[0]=atiScore&fromSurv=";
+    var query = "?sel[0]=atiScore&fromSurv=" + SID;
+    console.log("gettingAvgATI" + IP + url + query);
+    fetch(IP + url + query)
+      .then(res => res.json())
+      .then((avgAtiScore) => {
+
+        console.log("got avg ATI: " + IP + url + query + ": " + avgAtiScore[0].avgatiScore);
+        element.find('#avgAtiScore').append(avgAtiScore[0].avgatiScore);
+      })
+      .catch(err => {
+        throw err
+      });
+  }
+
+  function displayAtiStd(SID, element) {
+    var url = "/db/std";
+    var query = "?SID=" + SID;
+    console.log("gettingAtiStd" + IP + url + query);
+    fetch(IP + url + query)
+      .then(res => res.json())
+      .then((std) => {
+        console.log("got ATI STD: " + IP + url + query + ": " + std[0].stdatiScore);
+        element.find('#atiStd').append(std[0].stdatiScore);
+      })
+      .catch(err => {
+        throw err
+      });
+  }
+
+
 
 });
 

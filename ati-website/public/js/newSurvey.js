@@ -1,13 +1,17 @@
 $(document).ready(function() {
   var IP = "http://87.146.242.114:3000";
 
+
+
   var pathname = window.location.pathname;
   if (pathname.indexOf("surveyDetails")){
 
     var SID = 1;
+    $('#exportCSV').attr("href", IP + "/db/exportCSV?SID=" + SID);
     displayProbandCount(SID);
     displayAvgAti(SID);
     displayAtiStd(SID);
+    displaySurveyLink(SID);
     var url = "/db/survey";
     var query = "?SID="+ SID;
     fetch(IP + url + query)
@@ -43,10 +47,7 @@ $(document).ready(function() {
   }
 
 
-    $('#exportCSV').on('click', function() {
 
-
-    });
 
 
   $('#submit').on('click', function() {
@@ -197,6 +198,10 @@ $(document).ready(function() {
 
   }
 
+
+  function displaySurveyLink(SID){
+    // TODO: klajsdkjas
+  }
   function displayProbandCount(SID) {
     var url = "/db/countProbandInSurvey";
     var query = "?SID=" + SID;

@@ -5,7 +5,8 @@ var dba = require('../custom_modules/db-access.js');
 
 /* GET profile page. */
 router.get('/', function(req, res) {
-	if (req.session.user && req.cookies.user_sid) {
+	// TODO: reactivate!
+	if (true/*req.session.user && req.cookies.user_sid*/) {
       res.render('user', { title: 'ATI' });
    } else {
 		 res.render('needToLogin');
