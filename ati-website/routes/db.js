@@ -127,6 +127,10 @@ router.put('/user', function(req, res) {
 
 //delete-requests
 
+router.delete('/survey', function(req, res) {
+	dData.deleteSurvey(req, res);
+});
+
 router.delete('/user', function(req, res) {
 	dData.deleteUser(req, res);
 });
