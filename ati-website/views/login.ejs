@@ -1,7 +1,7 @@
 
 <%- include ./partials/head %>
 
-<link rel="stylesheet" href="./css/login.css" >
+<link rel="stylesheet" href="/css/login.css" >
 
 <title>ATI/Profil</title>
 </head>
@@ -12,7 +12,7 @@
     <%- include ./partials/header %>
   </header>
 
-  <div class="container" style="padding-top:4%">
+  <div class="container" style="padding-top:4%; ">
     	<div class="row">
 			<div class="col-md-6 col-md-offset-3">
 				<div class="panel panel-login">
@@ -74,7 +74,7 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="register-submit" id="register-submit" tabindex="5" class="form-control btn btn-register" value="<%- __('login.register') %>">
+												<input type="submit" name="register-submit" id="register-submit" tabindex="5" class="form-control btn btn-login" value="<%- __('login.register') %>">
 											</div>
 										</div>
 									</div>
@@ -100,9 +100,10 @@
 		</div>
 	</div>
 
-  <footer class="navbar navbar-fixed-bottom">
+  <!--
+  <footer class="bg-color-theme">
     <%- include ./partials/footer %>
-  </footer>
+  </footer> -->
 
 
 

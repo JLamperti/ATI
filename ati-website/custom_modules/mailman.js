@@ -11,7 +11,7 @@ var mail = require('./mailman.js');
 */
 var smtpTransport = nodemailer.createTransport({
     // service: "GMX Freemail",
-    host: "mail.gmx.net",
+    host: keys.mail.server,
     secure: true,
     auth: {
         user: keys.mail.username,
