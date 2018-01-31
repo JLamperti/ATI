@@ -74,6 +74,10 @@ router.get('/surveyByUser', function(req, res) {
 	gData.selectSurveyByUser(req, res);
 });
 
+router.get('/std', function(req, res) {
+	gData.selectStd(req, res);
+});
+
 router.get('/user', function(req, res) {
 	gData.selectUser(req, res);
 });
