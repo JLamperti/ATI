@@ -86,7 +86,6 @@ $(document).ready(function() {
       takeSex: takeSex
     });
 
-    console.log(testData);
     let url = '/db/survey';
     fetch(IP + url, {
         headers: {
@@ -200,6 +199,21 @@ $(document).ready(function() {
 
 
   function displaySurveyLink(SID){
+    var url = "/db/links";
+    var query = "?SID=" + SID;
+    fetch(IP + url + query)
+    .then(res => res.json())
+    .then((links) => {
+      console.log(links);
+      for (link in links){
+        console.log(links[link].url);
+        $('#surveyLink').val("https://technikaffinitaet.de/form?inv=" + links[link].url);
+      }
+
+    })
+    .catch(err => {
+      throw err
+    });
     // TODO: klajsdkjas
   }
   function displayProbandCount(SID) {

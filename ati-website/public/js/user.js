@@ -46,10 +46,12 @@ $(document).ready(function() {
       .then((out) => {
         $('#openSurveysAmount').html("(" + out.length + ")");
         for (x in out) {
-          console.log(x);
-          console.log(out[x].SurveyID);
+
           let newSurveyDisplay = $('#dummySurvey').clone(true, true);
-          //fixIds(newSurveyDisplay, x);
+
+          displayProbandCount(out[x].SurveyID, newSurveyDisplay);
+          displayAtiStd(out[x].SurveyID, newSurveyDisplay);
+          displayAvgAti(out[x].SurveyID, newSurveyDisplay);
           newSurveyDisplay.attr("id", "survey" + x);
           newSurveyDisplay.find('#surveyName').append(out[x].SurveyName);
           newSurveyDisplay.find('#beginDate').append(out[x].SurveyBegin);
@@ -57,9 +59,6 @@ $(document).ready(function() {
           if (out[x].SurveyEnd != null) {
             newSurveyDisplay.find('#periodEndText').css("display", "inline");
           }
-          displayProbandCount(out[x].SurveyID, newSurveyDisplay);
-          displayAtiStd(out[x].SurveyID, newSurveyDisplay);
-          displayAvgAti(out[x].SurveyID, newSurveyDisplay);
 
           newSurveyDisplay.find('#participantsTotal').append(out[x].MaxProbands);
           if (out[x].MaxProbands != null) {
@@ -69,10 +68,7 @@ $(document).ready(function() {
           newSurveyDisplay.css("display", "inherit");
           newSurveyDisplay.appendTo('#resultsArea');
 
-          // /db/avg?sel[0]=atiScore&fromSurv=X
         }
-        console.log("done with loops");
-        console.log(out);
       })
       .catch(err => {
         throw err
