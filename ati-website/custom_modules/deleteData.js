@@ -13,6 +13,14 @@ exports.setDba = function(newDba) {
 };
 
 /**
+* deletes a survey
+* mandatory-parameter in body: SID
+*/
+exports.deleteSurvey = function (req, res) {
+	dba.manipulateDB('DELETE FROM survey WHERE SurveyID = ' + req.body.SID + ';', req, res);
+};
+
+/**
 * deletes a user
 * mandatory-parameter in body: UID
 */
