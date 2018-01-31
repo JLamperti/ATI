@@ -27,12 +27,12 @@ body {
   color: #223241;
   text-align: justify;
   font-family: "Open Sans", sans-serif;
-   -ms-word-break: break-all;
+  -ms-word-break: break-all;
   word-break: break-all;
-  word-break: break-word; 
-  -webkit-hyphens: manual;
-  -moz-hyphens: manual;
-  hyphens: manual;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
   font-size: 175%;
 }
 
@@ -385,14 +385,7 @@ input[type="radio"] {
   height: 10%;
   width: 10%;
 }
-/* .iframe-md{
-  width:100%;
-  height: 500px;
-} */
-/* .iframe-vid{ 
-  width:100%;
-  height:200%;
-} */
+
 @media (min-width: 768px) {
   /* >768px screen-width flexbox with column direction */
   .flex-md-col {
@@ -419,10 +412,6 @@ input[type="radio"] {
     width: 30%;
     height: 30%;
   }
-   .iframe-xs{
-    width:100%;
-    height:200px;
- }
 }
 @media (max-width: 768px) {
   /* container of the element to change the language. screen-width <768px */
@@ -633,7 +622,10 @@ input[type="radio"] {
     height: 60%;
     width: 60%;
   }
- 
+  .iframe-md{
+    width:100%;
+    height: 500px;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -647,10 +639,10 @@ input[type="radio"] {
     margin-left: auto;
     margin-right: auto;
   }
-  /* .iframe-xs{
+  .iframe-xs{
     width:100%;
     height:200px;
- } */
+ }
 
   /* style the text infront of the title-page. screen-width < 1200px */
   .title-txt {
@@ -680,12 +672,6 @@ input[type="radio"] {
 .flex-lesser-lg-col {
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-}
-.flex-lesser-lg-row {
-  display: flex;
-  flex-direction: row;
   flex-wrap: nowrap;
   justify-content: flex-start;
 }
