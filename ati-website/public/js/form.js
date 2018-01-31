@@ -20,10 +20,9 @@ if (invLink != null || invLink != undefined) {
       reqEdu = out[0].takeEducation.data[0] === 1 ? true : false;
       console.log('edu ' +out[0].takeEducation.data[0])
       reqAge === false ? deleteAge() : "";
-      console.log(reqAge);
-      console.log(reqSex);
+     
       reqSex === false ? deleteSex() : "";
-      console.log(reqEdu);
+     
       reqEdu === false ? deleteEdu() : "";
     })
     .catch(err => {
@@ -185,14 +184,14 @@ var isValid = function() {
   let letterFather =
     document.getElementsByName("mother")[0].value.length == 1 ? true : false;
   let birthday =
-    document.getElementsByName("birthday")[0].value.length == 2 ? true : false;
+    document.getElementsByName("birthday")[0].value.length == 2  &&document.getElementsByName("birthday")[0].value <32 &&document.getElementsByName("birthday")[0].value >0? true : false;
 
   let age;
   let edu;
   let sex;
   if (reqAge) {
     age =
-      document.getElementsByName('age')[0].value.length >= 1  &&  document.getElementsByName('age')[0].value < 150
+      document.getElementsByName('age')[0].value.length >= 1  &&  document.getElementsByName('age')[0].value < 150 && document.getElementsByName('age')[0].value > 0
         ? true
         : false;
   } else {

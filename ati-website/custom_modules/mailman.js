@@ -61,7 +61,7 @@ exports.sendValidationMail = function(EMail, req, res) {
       msg = replaceall("__LINK__",  "http://"+ req.headers.host +"/login/"+json[0].url, msg);
       msg = replaceall("__WEBSITE__", "http://"+ req.headers.host, msg);
 
-      mail.sendMail(json[0].EMail, "Verifiziere deine EMailadresse", msg);
+      mail.sendMail(json[0].EMail, "Verifiziere deine EMailadresse", msg, res);
     }
   });
 };
@@ -87,7 +87,7 @@ exports.sendPWResetMail = function(EMail, req, res) {
       msg = replaceall("__LINK__",  "http://"+ req.headers.host +"/login/reset/"+json[0].url, msg);
       msg = replaceall("__WEBSITE__", "http://"+ req.headers.host, msg);
 
-      mail.sendMail(json[0].EMail, "Setze dein Passwort zurück.", msg);
+      mail.sendMail(json[0].EMail, "Setze dein Passwort zurück.", msg, res);
     }
   });
 };

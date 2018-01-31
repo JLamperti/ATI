@@ -12,6 +12,12 @@ a:hover {
   color: #c5eff7;
 }
 
+
+.navbar-inverse .navbar-brand:hover, 
+.navbar-inverse .navbar-brand:focus {  
+  color: #c5eff7;
+}
+
 body {
   height: 100%;
   min-height: 100%;
@@ -110,6 +116,11 @@ label{
   bottom: 0;
   left: 0;
   margin-left: 1%;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #c5eff7;
+  background-color: transparent;
 }
 /* class for the Image of index.ejs */
 .title-screen {
@@ -312,8 +323,8 @@ input[type="radio"] {
   border: 50px solid black;
 }
 .langImgQuestionnaire{
-  height: 50%;
-  width: 50%;
+  height: 10%;
+  width: 10%;
 }
 
 @media (min-width: 768px) {
@@ -349,7 +360,18 @@ input[type="radio"] {
     width: 100%;
     font-size: medium;
   }
-
+  .fixed-header-top{
+    margin-bottom: 21.75%;  
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  padding-right: 0;
+    padding-left: 0;
+    top: 0;
+    border-width: 0 0 1px;
+}
+  }
   /* flexbox column screenwidth > 768px */
   .flex-s-col {
     display: flex;
@@ -408,6 +430,13 @@ input[type="radio"] {
     stroke: rgb(0, 0, 200);
     /* The width of your bars */
     stroke-width: 0.25em;
+  }
+  /* 100% width of buttons */
+  .button-xs{
+    width:100%
+  }
+  .scale-txt-home-sm{
+    width:60%;
   }
 }
 @media (max-width: 480px) {
@@ -537,6 +566,7 @@ input[type="radio"] {
     margin-left: auto;
     margin-right: auto;
   }
+ 
   /* style the text infront of the title-page. screen-width < 1200px */
   .title-txt {
     padding-top: 2rem;
