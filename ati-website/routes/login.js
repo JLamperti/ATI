@@ -87,7 +87,7 @@ router.post('/',function(req, res) {
               // convert date do yyyy-mm-dd
               let dateString = date.getFullYear() + '-' + date.getMonth()+1 + '-' + date.getDate();
               // console.log(dateString);
-              let query = "INSERT INTO bestaetigungslinks (UID, expirationDate) VALUES ( (SELECT UserID FROM user WHERE EMail='" + newEmail + "') , '"+dateString+"' )"+
+              let query = "INSERT INTO bestaetigungslinks (UID, url,  expirationDate) VALUES ( (SELECT UserID FROM user WHERE EMail='" + newEmail + "') , 'aaa' , '"+dateString+"' )"+
                               "ON DUPLICATE KEY UPDATE url=RANDSTRING(32), expirationDate='"+dateString+"'";
               dba.performQuery(query, function (err, result) {
                 if (err || result == undefined) {
@@ -131,11 +131,11 @@ router.post('/reset', function(req, res) {
     // convert date do yyyy-mm-dd
     let dateString = date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate();
     console.log(dateString);
-    let query = "INSERT INTO pwlinks (UID, expirationDate) VALUES ( (SELECT UserID FROM user WHERE EMail='" + email + "') , '"+dateString+"' )"+
+    let query = "INSERT INTO pwlinks (UID, url, expirationDate) VALUES ( (SELECT UserID FROM user WHERE EMail='" + email + "'),  'aaa' , '"+dateString+"' )"+
                     "ON DUPLICATE KEY UPDATE url=RANDSTRING(32), expirationDate='"+dateString+"'";
     dba.performQuery(query, function (err, result) {
       if (err || result == undefined) {
-          return console.log('Err: Bad query. (login.js:GET_reset)' + err.toString());
+          return console.log('Err: Bad query. (login.js:134)' + err.toString());
       } else {
 
         mailMan.sendPWResetMail(email, req, res);
