@@ -120,8 +120,15 @@
               </tr>
             </table>
           </div>
+          <div class="">
+            <a href="IP/db/exportCSV?SID=" + SID>
+              <button id="exprtCSV" type="button" class="button-start bg-color-theme">
+                CSV Export
+              </button>
+            </a>
+          </div>
 
-          <h3>import data</h3>
+          <h3>Import data</h3>
           <form action="#" onSubmit="myFunction();return false" enctype="multipart/form-data" method="post" id="importCSVForm">
             <input id="theFile" type="file" name="file" accept=".csv">
             <input type="submit" value="Upload">

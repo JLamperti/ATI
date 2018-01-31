@@ -43,6 +43,12 @@ $(document).ready(function() {
   }
 
 
+    $('#exportCSV').on('click', function() {
+
+
+    });
+
+
   $('#submit').on('click', function() {
     /*tmp var */
     var UID = 1;
