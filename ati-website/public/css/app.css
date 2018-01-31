@@ -2,7 +2,9 @@ html {
   height: 100%;
   min-height: 100%;
 }
+
 /*color for anchors */
+
 a {
   color: white;
 }
@@ -11,6 +13,7 @@ a {
   outline: none;
 }
 /* color for anchors while hovering */
+
 a:hover {
   color: #c5eff7;
 }
@@ -33,12 +36,7 @@ body {
   font-size: 175%;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: "Titillium Web", sans-serif;
   font-weight: 500;
 }
@@ -74,6 +72,7 @@ footer {
 }
 
 /* style the footer*/
+
 footer {
   color: white;
   height: 15%;
@@ -103,23 +102,32 @@ label {
   flex: 1;
   overflow-y: auto;
 }
+
 /* add margin-bottom to this div */
 #scale {
   margin-bottom: 4rem;
 }
+
 /*set color of the element what-why-how */
+
 #div-what-why-how {
   color: white;
 }
+
 /*themecolor of the site */
+
 .bg-color-theme {
   background-color: #344853;
 }
+
 /* mark invalid inputs in form.ejs */
+
 .invalidInput {
   color: rgba(255, 0, 0, 0.9);
 }
+
 /* align elements in a table */
+
 .table .alignTD {
   text-align: center;
 }
@@ -129,6 +137,7 @@ label {
   color: #c5eff7;
 }
 /* align an item to the bottom-left of the container */
+
 .bottom-left {
   position: absolute;
   bottom: 0;
@@ -142,21 +151,28 @@ label {
   background-color: transparent;
 }
 /* class for the Image of index.ejs */
+
 .title-screen {
   width: 100%;
   height: auto;
   margin-top: -20px;
 }
+
 /*position navbar on the upper edge */
+
 .navbar-noMargin {
   margin-top: 0;
 }
+
 /* padding for the elements in WhatHowWhy and WhoWeAre */
+
 .div-padding-min {
   padding-left: 5%;
   padding-right: 5%;
 }
+
 /*padding for the container of WhatHowWhy and WhoWeAre */
+
 .div-padding-row {
   padding-left: 5%;
   padding-right: 5%;
@@ -165,27 +181,34 @@ label {
 }
 
 /*padding for the Scientist/Developer/Teacher divs.*/
+
 .div-padding-row-SDT {
   padding-left: 9.75%;
   padding-right: 9%;
   padding-top: 20rem;
   padding-bottom: 20rem;
 }
+
 /*style the Images for the Container 'Scientist/Developer/Teacher' */
+
 .SDT-images {
   margin-top: 1rem;
   width: 12rem;
   height: 12rem;
   margin-right: 2rem;
 }
+
 /* Font-Size for the SDT-Text */
+
 .scientist-developer-teacher-text {
   font-size: large;
 }
 #answerOptions div {
   font-size: 80%;
 }
+
 /*style for the div Scale */
+
 .div-scale {
   padding: 1.5%;
   background-color: #e4e4e4;
@@ -193,48 +216,62 @@ label {
   width: 35%;
 }
 /*lightgrey background */
+
 .background-light-grey {
   background-color: #e4e4e4;
 }
 /* change color if hovered over elements in the navbar */
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
+
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
   color: #c5eff7;
 }
+
 /* scales the images of the Scientist/Developer/Teacher */
+
 .scientist-developer-teacher-images {
   max-width: 70%;
   max-height: 70%;
 }
+
 /* padding for the images after the title-page */
+
 .imagesPadding {
   margin-top: -3.5%;
 }
+
 /*default flexbox with row direction */
+
 .flex-row {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: flex-start;
 }
+
 /*default flexbox with column direction */
+
 .flex-col {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: flex-start;
 }
+
 /* margin for the container which contains the DL and the form button */
+
 .index-container-margin-bottom-bot {
   margin-bottom: 4rem;
   margin-top: 4rem;
 }
 /*size for the authos-images */
+
 .author-images {
   max-height: 40%;
   max-width: 40%;
 }
+
 /* width of the rows */
+
 .row {
   max-width: 100%;
 }
@@ -247,6 +284,7 @@ label {
 }
 
 /*button to start the questionnaire or download */
+
 .button-start {
   margin-top: 2rem;
   padding-left: 5%;
@@ -454,6 +492,7 @@ input[type="radio"] {
     width: 60%;
   }
 }
+
 @media (max-width: 480px) {
   /*style the Images for the Container 'Scientist/Developer/Teacher' */
   .SDT-images {
@@ -501,6 +540,7 @@ input[type="radio"] {
   }
  
 }
+
 @media (min-width: 480px) {
   /* padding for the div which contains the images for the Scientist/Developer/Teacher after the title-page */
   .padding-left-right-SDT {
@@ -513,6 +553,7 @@ input[type="radio"] {
     height: 30%;
   }
 }
+
 @media (min-width: 1200px) {
   /* style the text infront of the title-page. screen-width > 1200px */
   .title-txt {
@@ -586,6 +627,7 @@ input[type="radio"] {
     height: 500px;
   }
 }
+
 @media (max-width: 1200px) {
   /*style for the div Scale */
   .div-scale {
