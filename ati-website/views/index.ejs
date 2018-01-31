@@ -2,7 +2,7 @@
   <title>ATI</title>
   </head>
 
-  <body onload="setLang()">
+  <body onload="setLang()" lang="<%= __('html.lang') %>">
     <header>
       <%- include ./partials/header %>
     </header>
@@ -161,7 +161,7 @@
 
       <div class="flex-md-col flex-lg-row div-padding-row bg-color-theme" id="div-what-why-how">
 
-        <div class="div-padding-min">
+        <div class="div-padding-min" >
           <h2>
             <%= __('what') %>
           </h2>
