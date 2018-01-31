@@ -184,7 +184,7 @@ var isValid = function() {
   let letterFather =
     document.getElementsByName("mother")[0].value.length == 1 ? true : false;
   let birthday =
-    document.getElementsByName("birthday")[0].value.length == 2 ? true : false;
+    document.getElementsByName("birthday")[0].value.length == 2  &&document.getElementsByName("birthday")[0].value <32 &&document.getElementsByName("birthday")[0].value >0? true : false;
 
   let age;
   let edu;
