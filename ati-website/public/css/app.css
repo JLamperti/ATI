@@ -18,9 +18,11 @@ body {
   color: #223241;
   text-align: justify;
   font-family: "Open Sans", sans-serif;
-  hyphens: auto;
+  hyphens: auto; 
+  -moz-hyphens: auto;
   font-size: 175%;
 }
+
 
 h1,
 h2,
@@ -46,6 +48,9 @@ button {
 button:hover {
 }
 
+input[type=number] {
+  -moz-appearance:textfield;
+}
 footer {
   background-color: #344853;
 
@@ -59,6 +64,15 @@ footer {
   color: white;
   height: 15%;
   padding-top: 0.75%;
+}
+form .row{
+  margin-left: -15px;
+  margin-right: -15px
+}
+
+/* labels get 10px margin bottom and top*/
+label{
+  margin-top:10px; margin-bottom: 10px
 }
 
 #userTypes {
@@ -201,16 +215,7 @@ footer {
   flex-wrap: nowrap;
   justify-content: flex-start;
 }
-/*button to submit the questionnaire */
-.submit-form {
-  width: 12rem;
-  height: 4.5rem;
-  color: white;
-  border-radius: 3rem;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
-  box-shadow: none;
-}
+
 /*button to start the questionnaire or download */
 .button-start {
   margin-top: 2rem;
@@ -248,10 +253,10 @@ input[type="radio"] {
   margin-bottom: auto;
 }
 /*center element verical */
-.vertical {
-  margin-top: auto;
-  margin-bottom: auto;
+.vertical {  
+  display: flex; justify-content: center;   
 }
+
 .horizontal {
   margin-left: auto;
   margin-right: auto;
@@ -269,7 +274,7 @@ input[type="radio"] {
   color: red;
 }
 /* set the background of every 2n+1 div to lightfgrey in the questionnaire */
-#dempographic-data .demoData:nth-child(odd),
+#dempographic-data .container:nth-child(odd),
 #questions .row:nth-child(odd) {
   background-color: lightgrey;
 }
@@ -290,7 +295,7 @@ input[type="radio"] {
   color: black;
 }
 /*style Bars of the age charts */
-#sexChasrt .ct-series-a .ct-bar,
+
 #ageChart .ct-series-a .ct-bar {
   /* Colour of your bars */
   stroke: rgb(0, 0, 200);
@@ -298,12 +303,17 @@ input[type="radio"] {
   stroke-width: 0.5em;
 }
 /*style Bars of the default charts */
+#sexChasrt .ct-series-a .ct-bar,
 #defaultChart .ct-series-a .ct-bar {
   /* Colour of your bars */
   stroke: rgb(0, 0, 200);
   /* The width of your bars */
   stroke-width: 10em;
   border: 50px solid black;
+}
+.langImgQuestionnaire{
+  height: 50%;
+  width: 50%;
 }
 
 @media (min-width: 768px) {
@@ -314,11 +324,11 @@ input[type="radio"] {
     flex-wrap: nowrap;
     justify-content: flex-start;
   }
-  /* scale the image to change the language screen-width > 768px*/
-  .langImg {
-    width: 10%;
-    height: 10%;
+  .langImgQuestionnaire{
+    height: 30%;
+    width: 30%;
   }
+
   /*move the right element of the navbar to the side */
   .navbar-right-noMargin-right {
     margin-right: -7em;
@@ -327,19 +337,19 @@ input[type="radio"] {
     width: 35%;
     padding-left: 0%;
   }
+    /* scale the image to change the language screen-width > 480px*/
+    .langImg {
+      width: 30%;
+      height: 30%;
+    }
 }
 @media (max-width: 768px) {
- 
   /* container of the element to change the language. screen-width <768px */
   .li-header-right {
     width: 100%;
     font-size: medium;
   }
-  /* scale the image to change the language screen-width < 768px*/
-  .langImg {
-    width: 2rem;
-    height: 2rem;
-  }
+
   /* flexbox column screenwidth > 768px */
   .flex-s-col {
     display: flex;
@@ -399,7 +409,6 @@ input[type="radio"] {
     /* The width of your bars */
     stroke-width: 0.25em;
   }
- 
 }
 @media (max-width: 480px) {
   /*style the Images for the Container 'Scientist/Developer/Teacher' */
@@ -407,11 +416,16 @@ input[type="radio"] {
     width: 0%;
     height: 0%;
   }
-  /* .title-img-xs {
-    background-image: url("../images/titleImg320_480.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-  } */
+  /* scale the image to change the language screen-width > 480px*/
+  .langImg {
+    width: 10%;
+    height: 10%;
+  }
+  .langImgQuestionnaire{
+    height:10%;
+    width: 10%;
+  }
+
   /* flexbox direction column sw < 480 */
   .flex-xs-col {
     display: flex;
@@ -447,6 +461,11 @@ input[type="radio"] {
     padding-left: 15.5%;
     padding-right: 15.5%;
   }
+  /* scale the image to change the language screen-width < 768px*/
+  .langImg {
+    width: 30%;
+    height: 30%;
+  }
 }
 @media (min-width: 1200px) {
   /* style the text infront of the title-page. screen-width > 1200px */
@@ -459,8 +478,8 @@ input[type="radio"] {
   }
   /* scale the image to change the language screen-width > 1200px*/
   .langImg {
-    width: 12%;
-    height: 12%;
+    width:20%;
+    height: 20%;
   }
   /* >1200px screen-width flexbox with row direction */
   .flex-lg-row {
@@ -500,8 +519,14 @@ input[type="radio"] {
     margin-top: auto;
     margin-bottom: auto;
   }
+  .langImgQuestionnaire{
+    height: 60%;
+    width: 60%;
+  }
 }
 @media (max-width: 1200px) {
+
+
   /*style for the div Scale */
   .div-scale {
     padding: 1.5%;
@@ -524,11 +549,11 @@ input[type="radio"] {
     padding-top: 4rem;
     padding-bottom: 4rem;
   }
-  
+ 
   .title-screen {
     width: auto;
-    height:auto;
-    
+    height: auto;
+
     margin-top: -20px;
   }
 }
