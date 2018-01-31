@@ -7,7 +7,7 @@ let invLink = urlParams.get("inv");
 var abc = [];
 
 if (invLink != null || invLink != undefined) {
-  url = "http://87.146.242.114:3000/db/surveyAndLinkByUrl?url=" + invLink;
+  url = "/db/surveyAndLinkByUrl?url=" + invLink;
   //url = "/db/surveyAndLinkByUrl?url=" + invLink;
   fetch(url)
     .then(res => res.json())
@@ -121,10 +121,10 @@ function checkAnswers() {
     let invLink = urlParams.get("inv");
     if (urlParams.has("inv")) {
       b.inv = invLink;
-      $.post("http://87.146.242.114:3000/db/probandLink", b);
+      $.post("/db/probandLink", b);
       //console.log("probandLink");
     } else {
-      $.post("http://87.146.242.114:3000/db/proband", b);
+      $.post("/db/proband", b);
       //console.log("proband");
     }
   }

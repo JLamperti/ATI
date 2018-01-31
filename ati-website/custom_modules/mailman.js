@@ -11,7 +11,7 @@ var mail = require('./mailman.js');
 */
 var smtpTransport = nodemailer.createTransport({
     // service: "GMX Freemail",
-    host: "mail.gmx.net",
+    host: keys.mail.server,
     secure: true,
     auth: {
         user: keys.mail.username,
@@ -90,4 +90,16 @@ exports.sendPWResetMail = function(EMail, req, res) {
       mail.sendMail(json[0].EMail, "Setze dein Passwort zurück.", msg, res);
     }
   });
+};
+
+exports.sendProbandMails = function(EMail_List, letter, url, req, res) {
+      var msg = fs.readFileSync('./views/email/mail_invite_compressed_de.html').toString();
+
+    // console.log( msg);
+    msg = replaceall("__MESSAGE__", letter, msg);
+    msg = replaceall("__LINK__",  "http://"+ req.headers.host +"/login/reset/"+json[0].url, msg);
+    msg = replaceall("__WEBSITE__", "http://"+ req.headers.host, msg);
+
+    mail.sendMail(json[0].EMail, "Setze dein Passwort zurück.", msg, res);
+
 };
