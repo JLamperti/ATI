@@ -28,13 +28,43 @@
 
 <body>
   <section id="header">
-    <!--<header>
-      <%- include ./partials/header %>
-    </header>-->
+    <nav class="navbar navbar-default navbar-noMargin" style="padding-right:1%">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+          <a class="navbar-brand" href="/">ATI</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li>
+              <a >
+                New Survey
+              </a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/user"><span class="glyphicon glyphicon-user"></span> Profil</a>
+            </li>
+            <li>
+              <a href="/login"><span class="glyphicon "></span> Log Out </a>
+            </li>
+            <li class="">
+              <!-- class="imgLangSmall li-header-right" style="margin-right: -5%"> -->
+              <a href="" onclick="changeLang()"> <img src="/images/lang_de_en.png" class="" style="max-width:35px;max-height:35px;"> <%= __('toggletext') %></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
   </section>
-  <!--mandatory-paramter is UID (user-ID).
-  * optional-paramters are Name, Description, MaxProbands, Status, Begin, End, inviteText, takeEducation, takeAge, takeSex-->
+
+
   <section class="content">
     <div class="container">
       <div class="nested-container">

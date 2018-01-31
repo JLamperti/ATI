@@ -1,5 +1,3 @@
-<!--<%- include ./partials/head %>-->
-
 <head lang="en">
 
   <meta charset="utf-8">
@@ -29,9 +27,39 @@
 
 <body>
   <section id="header">
-    <!--<header>
-      <%- include ./partials/header %>
-    </header>-->
+    <nav class="navbar navbar-default navbar-noMargin" style="padding-right:1%">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+          <a class="navbar-brand" href="/">ATI</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li>
+              <a >
+                Survey Details
+              </a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/user"><span class="glyphicon glyphicon-user"></span> Profil</a>
+            </li>
+            <li>
+              <a href="/login"><span class="glyphicon "></span> Log Out </a>
+            </li>
+            <li class="">
+              <!-- class="imgLangSmall li-header-right" style="margin-right: -5%"> -->
+              <a href="" onclick="changeLang()"> <img src="/images/lang_de_en.png" class="" style="max-width:35px;max-height:35px;"> <%= __('toggletext') %></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
   </section>
 
@@ -131,7 +159,7 @@
           <h3>Import data</h3>
           <form action="#" onSubmit="myFunction();return false" enctype="multipart/form-data" method="post" id="importCSVForm">
             <input id="theFile" type="file" name="file" accept=".csv">
-            <input type="submit" value="Upload">
+            <button type="submit" class="button-start bg-color-theme">Upload</button
             <p id="succ"></p>
           </form>
           <script>
