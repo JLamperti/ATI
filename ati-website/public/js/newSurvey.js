@@ -1,15 +1,18 @@
 $(document).ready(function() {
+  var IP = "http://87.146.242.114:3000";
 
-  $('#testButton').on('click', function() {
+  var pathname = window.location.pathname;
+  if (pathname.indexOf("surveyDetails")){
+
     var SID = 1;
     displayProbandCount(SID);
     displayAvgAti(SID);
     displayAtiStd(SID);
-    var url = "http://87.146.242.114:3000/db/survey?SID=";
-    fetch(url + SID)
+    var url = "/db/survey";
+    var query = "?SID="+ SID;
+    fetch(IP + url + query)
       .then(res => res.json())
       .then((res) => {
-        console.log(res);
         $('#surveyName').append(res[0].SurveyName);
         $('#beginDate').append(res[0].SurveyBegin);
         $('#endDate').append(res[0].SurveyEnd);
@@ -17,7 +20,12 @@ $(document).ready(function() {
           /* make the second part of the text visible again */
           $('#periodEndText').css("display", "inline");
         }
-
+        var takeAge = (res[0].TakeAge.data[0] == 1)? true: false;
+        $("#takeAgeCbx").prop("checked", takeAge);
+        var takeSex = (res[0].takeSex.data[0] == 1)? true: false;
+        $("#takeSexCbx").prop("checked", takeSex);
+        var takeEdu = (res[0].TakeEducation.data[0] == 1)? true: false;
+        $("#takeEduCbx").prop("checked", takeEdu);
         $('#status').append(res[0].SurveyStatus);
         $("display", "inherit");
         $('#resultsArea');
@@ -32,7 +40,7 @@ $(document).ready(function() {
       .catch(err => {
         throw err
       });
-  });
+  }
 
 
   $('#submit').on('click', function() {
@@ -57,8 +65,6 @@ $(document).ready(function() {
       var MaxProbands = $('#MaxProbands').val();
     }
 
-    //<!--mandatory-paramter is UID (user-ID).
-    //* optional-paramters are Name, Description, MaxProbands, Status, Begin, End, inviteText, takeEducation, takeAge, takeSex-->
     let testData = JSON.stringify({
       UID: UID,
       Name: surveyName,
@@ -74,8 +80,8 @@ $(document).ready(function() {
     });
 
     console.log(testData);
-    let postUrl = 'http://87.146.242.114:3000/db/survey';
-    fetch(postUrl, {
+    let url = '/db/survey';
+    fetch(IP + url, {
         headers: {
           'Accept': 'application/json',
           'Content-type': 'application/json'
@@ -93,17 +99,6 @@ $(document).ready(function() {
 
   });
 
-  let data = new FormData();
-  //data.append("UID", UID);
-
-  data.append("surveyName", surveyName);
-  data.append("begin", begin);
-  data.append("end", end);
-  data.append("takeAge", takeAge);
-  data.append("takeSex", takeSex);
-  data.append("takeEducation", takeEducation);
-  data.append("description", description);
-  data.append("MaxProbands", MaxProbands);
 
 
 
@@ -147,6 +142,7 @@ $(document).ready(function() {
    */
   $('#begin').val(new Date().toDateInputValue());
 
+
   /**
    * adds the entered mail to the mailing list if its valid
    */
@@ -178,29 +174,27 @@ $(document).ready(function() {
     $(this).parent().remove();
   });
 
-});
+  /**
+  * checks if an email is already contained in the page
+  * @param mail: the email that may be contained in the listed
+  * @return: email is contained in the page: true/false
+  */
+  function checkUnique(mail) {
+    /* check if email is already listed */
+    var emails = $('#emailList').text();
+
+    if (emails.indexOf(mail) != -1) {
+      return false;
+    }
+    return true;
 
 
-/**
- * checks if an email is already contained in the page
- * @param mail: the email that may be contained in the listed
- * @return: email is contained in the list: true/false
- */
-function checkUnique(mail) {
-  /* check if email is already listed */
-  var emails = $('#emailList').text();
-
-  if (emails.indexOf(mail) != -1) {
-    return false;
   }
-  return true;
 
-
-}
-
-function displayProbandCount(SID) {
-  var url = "http://87.146.242.114:3000/db/countProbandInSurvey?SID=";
-  fetch(url + SID)
+  function displayProbandCount(SID) {
+    var url = "/db/countProbandInSurvey";
+    var query = "?SID=" + SID;
+    fetch(IP + url + query)
     .then(res => res.json())
     .then((countProbandInSurvey) => {
       $('#participantsCurrent').append(countProbandInSurvey[0].count);
@@ -208,11 +202,12 @@ function displayProbandCount(SID) {
     .catch(err => {
       throw err
     });
-}
+  }
 
-function displayAvgAti(SID) {
-  var url = "http://87.146.242.114:3000/db/avg?sel[0]=atiScore&fromSurv=";
-  fetch(url + SID)
+  function displayAvgAti(SID) {
+    var url = "/db/avg?sel[0]=atiScore&fromSurv=";
+    var query = "?sel[0]=atiScore&fromSurv=" + SID;
+    fetch(IP + url + query)
     .then(res => res.json())
     .then((avgAtiScore) => {
       $('#avgAtiScore').append(avgAtiScore[0].avgatiScore);
@@ -220,11 +215,12 @@ function displayAvgAti(SID) {
     .catch(err => {
       throw err
     });
-}
+  }
 
-function displayAtiStd(SID) {
-  var url = "http://87.146.242.114:3000/db/std?SID=";
-  fetch(url + SID)
+  function displayAtiStd(SID) {
+    var url = "/db/std";
+    var query = "?SID="+ SID;
+    fetch(IP + url + query)
     .then(res => res.json())
     .then((std) => {
       $('#atiStd').append(std[0].stdatiScore);
@@ -232,8 +228,10 @@ function displayAtiStd(SID) {
     .catch(err => {
       throw err
     });
-}
-http: //87.146.242.114:3000/db/std?SID="
+  }
+
+});
+
 
   /**
    *returns timezone-offset date
