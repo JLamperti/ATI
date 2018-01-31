@@ -74,23 +74,25 @@ function checkInputNumber(val) {
   }
 }
 function calculateScore() {
-  return Math.round(
-    (parseInt(document.querySelector('input[name="q1"]:checked').value) +
-      parseInt(document.querySelector('input[name="q2"]:checked').value) +
-      parseInt(document.querySelector('input[name="q3"]:checked').value) +
-      parseInt(document.querySelector('input[name="q4"]:checked').value) +
-      parseInt(document.querySelector('input[name="q5"]:checked').value) +
-      parseInt(document.querySelector('input[name="q6"]:checked').value) +
-      parseInt(document.querySelector('input[name="q7"]:checked').value) +
-      parseInt(document.querySelector('input[name="q8"]:checked').value) +
-      parseInt(document.querySelector('input[name="q9"]:checked').value)) /
-      9
-  ).toFixed(1);
+  let res = parseInt(document.querySelector('input[name="q1"]:checked').value) +
+  parseInt(document.querySelector('input[name="q2"]:checked').value) +
+  parseInt(document.querySelector('input[name="q3"]:checked').value) +
+  parseInt(document.querySelector('input[name="q4"]:checked').value) +
+  parseInt(document.querySelector('input[name="q5"]:checked').value) +
+  parseInt(document.querySelector('input[name="q6"]:checked').value) +
+  parseInt(document.querySelector('input[name="q7"]:checked').value) +
+  parseInt(document.querySelector('input[name="q8"]:checked').value) +
+  parseInt(document.querySelector('input[name="q9"]:checked').value);
+
+  let res2 = res/9;
+  return Math.round(res2*100)/100;
+
 }
 function checkAnswers() {
   
   if (isValid()) {
     var score = calculateScore();
+    console.log(score);
     document.getElementById("uSc").innerHTML = " " + score + " ";
 
     b = {
