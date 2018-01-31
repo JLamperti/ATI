@@ -9,6 +9,7 @@
   <header>
     <%- include ./partials/header %>
   </header>
+  <main>
   <div class="container background-light-grey" style="padding-right:15px; margin-bottom:15px;">
     <div>
       <h1>
@@ -80,4 +81,22 @@
       </p>
     </div>
   </div>
+</main>
+  <script>
+    /*fixed header */
+    var m = document.querySelector("main"),
+      h = document.querySelector("header"),
+      hHeight;
+  
+  function setTopPadding() {
+    hHeight = h.offsetHeight;
+    m.style.paddingTop = hHeight + "px";
+  }
+
+  window.onload = function() {
+    setTopPadding();   
+  };  
+  window.onresize = function() {
+    setTopPadding();
+  };</script>
 </body>

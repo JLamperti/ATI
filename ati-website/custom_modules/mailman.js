@@ -100,6 +100,6 @@ exports.sendPWResetMail = function(EMail, req, res) {
       msg = replaceall("__WEBSITE__", "http://"+ req.headers.host, msg);
 
       mail.sendMail(json[0].EMail, "Setze dein Passwort zurück.", msg, res);
-    }
+    
   });
 };

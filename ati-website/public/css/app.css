@@ -28,11 +28,14 @@ body {
   text-align: justify;
   font-family: "Open Sans", sans-serif;
   -ms-word-break: break-all;
+  -webkit-word-break: break-all;
+  -ms-word-break: break all;
   word-break: break-all;
   word-break: break-word;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
-  hyphens: auto;
+   -ms-hyphens: auto;
+       hyphens: auto;
   font-size: 175%;
 }
 
@@ -407,11 +410,15 @@ input[type="radio"] {
     width: 35%;
     padding-left: 0%;
   }
-    /* scale the image to change the language screen-width > 480px*/
-    .langImg {
-      width: 10%;
-      height: 10%;
-    }
+  /* scale the image to change the language screen-width > 480px*/
+  .langImg {
+    width: 10%;
+    height: 10%;
+  }
+  .ans-vis {
+    display: block;
+
+  }
 }
 @media (max-width: 768px) {
   /* container of the element to change the language. screen-width <768px */
@@ -469,8 +476,8 @@ input[type="radio"] {
   }
   /* visibility of the answers */
   .ans-vis {
-    visibility: hidden;
-    height: 0;
+    display:none;
+
   }
   /* visibility of the answers near the radio buttons */
   .answer-question-vis {
@@ -534,10 +541,6 @@ input[type="radio"] {
 }
 
 @media (min-width: 360px) {
-  .ans-vis {
-    visibility: hidden;
-    height: 0;
-  }
 
 }
 
@@ -547,6 +550,7 @@ input[type="radio"] {
     padding-left: 15.5%;
     padding-right: 15.5%;
   }
+
   /* scale the image to change the language screen-width < 768px*/
   .langImg {
     width: 10%;
@@ -599,10 +603,10 @@ input[type="radio"] {
     width:17rem;
   }
   /* visibility of the answers */
-  .ans-vis {
+  /* .ans-vis {
     visibility: visible;
     height: 0;
-  }
+  } */
   /* visibility of the answers near the radio buttons */
   .answer-question-vis {
     display: none;

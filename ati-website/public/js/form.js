@@ -12,17 +12,12 @@ if (invLink != null || invLink != undefined) {
   fetch(url)
     .then(res => res.json())
     .then(out => {
-      var r = {};   
+      var r = {};
       reqAge = out[0].takeAge.data[0] === 1 ? true : false;
-      console.log('age '+out[0].takeAge.data[0])
       reqSex = out[0].takeSex.data[0] === 1 ? true : false;
-      console.log( 'sex ' +out[0].takeSex.data[0])
       reqEdu = out[0].takeEducation.data[0] === 1 ? true : false;
-      console.log('edu ' +out[0].takeEducation.data[0])
       reqAge === false ? deleteAge() : "";
-     
       reqSex === false ? deleteSex() : "";
-     
       reqEdu === false ? deleteEdu() : "";
     })
     .catch(err => {
@@ -74,25 +69,24 @@ function checkInputNumber(val) {
   }
 }
 function calculateScore() {
-  let res = parseInt(document.querySelector('input[name="q1"]:checked').value) +
-  parseInt(document.querySelector('input[name="q2"]:checked').value) +
-  parseInt(document.querySelector('input[name="q3"]:checked').value) +
-  parseInt(document.querySelector('input[name="q4"]:checked').value) +
-  parseInt(document.querySelector('input[name="q5"]:checked').value) +
-  parseInt(document.querySelector('input[name="q6"]:checked').value) +
-  parseInt(document.querySelector('input[name="q7"]:checked').value) +
-  parseInt(document.querySelector('input[name="q8"]:checked').value) +
-  parseInt(document.querySelector('input[name="q9"]:checked').value);
+  let res =
+    parseInt(document.querySelector('input[name="q1"]:checked').value) +
+    parseInt(document.querySelector('input[name="q2"]:checked').value) +
+    parseInt(document.querySelector('input[name="q3"]:checked').value) +
+    parseInt(document.querySelector('input[name="q4"]:checked').value) +
+    parseInt(document.querySelector('input[name="q5"]:checked').value) +
+    parseInt(document.querySelector('input[name="q6"]:checked').value) +
+    parseInt(document.querySelector('input[name="q7"]:checked').value) +
+    parseInt(document.querySelector('input[name="q8"]:checked').value) +
+    parseInt(document.querySelector('input[name="q9"]:checked').value);
 
-  let res2 = res/9;
-  return Math.round(res2*100)/100;
-
+  let res2 = res / 9;
+  return Math.round(res2 * 100) / 100;
 }
 function checkAnswers() {
-  
   if (isValid()) {
     var score = calculateScore();
-    console.log(score);
+
     document.getElementById("uSc").innerHTML = " " + score + " ";
 
     b = {
@@ -123,17 +117,15 @@ function checkAnswers() {
     if (reqEdu) {
       b.Education = document.querySelector('input[name="edu"]:checked').value;
     }
-
     var urlParams = new URLSearchParams(window.location.search);
-
     let invLink = urlParams.get("inv");
     if (urlParams.has("inv")) {
       b.inv = invLink;
       $.post("/db/probandLink", b);
-      console.log('probandLink');
+      //console.log("probandLink");
     } else {
       $.post("/db/proband", b);
-      console.log('proband');
+      //console.log("proband");
     }
   }
 }
@@ -143,11 +135,10 @@ function checkRadio(i, num) {
 }
 
 function showResult() {
-  if(isValid()){
+  if (isValid()) {
     document.querySelector("#questionnaireMain").style.display = "none";
     document.querySelector("#questionnaireResult").style.display = "block";
   }
-  
 }
 var isValid = function() {
   let res = false;
@@ -170,11 +161,8 @@ var isValid = function() {
   let quest9 =
     document.querySelector('input[name = "q9"]:checked') != null ? true : false;
   let elem = document.getElementsByName("first-letter-birthplace")[0].value;
-    let firstBP =
-    elem.length == 1
-      ? true
-      : false;
-     
+  let firstBP = elem.length == 1 ? true : false;
+
   let lastBP =
     document.getElementsByName("last-letter-birthplace")[0].value.length == 1
       ? true
@@ -186,14 +174,20 @@ var isValid = function() {
   let letterFather =
     document.getElementsByName("mother")[0].value.length == 1 ? true : false;
   let birthday =
-    document.getElementsByName("birthday")[0].value.length == 2  &&document.getElementsByName("birthday")[0].value <32 &&document.getElementsByName("birthday")[0].value >0? true : false;
+    document.getElementsByName("birthday")[0].value.length == 2 &&
+    document.getElementsByName("birthday")[0].value < 32 &&
+    document.getElementsByName("birthday")[0].value > 0
+      ? true
+      : false;
 
   let age;
   let edu;
   let sex;
   if (reqAge) {
     age =
-      document.getElementsByName('age')[0].value.length >= 1  &&  document.getElementsByName('age')[0].value < 150 && document.getElementsByName('age')[0].value > 0
+      document.getElementsByName("age")[0].value.length >= 1 &&
+      document.getElementsByName("age")[0].value < 150 &&
+      document.getElementsByName("age")[0].value > 0
         ? true
         : false;
   } else {
@@ -215,43 +209,27 @@ var isValid = function() {
   } else {
     sex = true;
   }
-  
-  let res1 =quest1 && quest2 && quest3 && quest4 && quest5
-  let res2 = quest6 && quest7 && quest8 && quest9
-  let res3 = firstBP && lastBP && country && letterMother && letterFather && birthday
-  let res4 = age && edu && sex
-  res = res1&&   res2 && res3 && res4;
-    console.log(res)
+
+  let res1 = quest1 && quest2 && quest3 && quest4 && quest5;
+  let res2 = quest6 && quest7 && quest8 && quest9;
+  let res3 =
+    firstBP && lastBP && country && letterMother && letterFather && birthday;
+  let res4 = age && edu && sex;
+  res = res1 && res2 && res3 && res4;
   return res;
 };
 
-function defaultSetup(){
- console.log( document.querySelectorAll('input[type="radio"]'));
- let radios =document.querySelectorAll('input[type="radio"]')
- for(i = 0; i < radios.length; i++){
-   radios[i].checked = false;
- }
- let inputText =  document.querySelectorAll('input[type="text"]')
- for(i = 0; i < inputText.length; i++){
-  inputText[i].value = '';
-}
-let inputNumber =  document.querySelectorAll('input[type="number"]')
- for(i = 0; i < inputNumber.length; i++){
-  inputNumber[i].value = '';
-}
-}
-
-window.onscroll = function() {fixedScrollHeader()};
-
-
-
-
-function fixedScrollHeader() {
-  var header = document.getElementById("myHeader");
-  var sticky = header.offsetTop;
-  if (window.pageYOffset >= sticky) {
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
+function defaultSetup() {
+  let radios = document.querySelectorAll('input[type="radio"]');
+  for (i = 0; i < radios.length; i++) {
+    radios[i].checked = false;
+  }
+  let inputText = document.querySelectorAll('input[type="text"]');
+  for (i = 0; i < inputText.length; i++) {
+    inputText[i].value = "";
+  }
+  let inputNumber = document.querySelectorAll('input[type="number"]');
+  for (i = 0; i < inputNumber.length; i++) {
+    inputNumber[i].value = "";
   }
 }
