@@ -62,7 +62,7 @@
 
     </div>
 
-    <div class="flex-lg-row" style="margin-left:10%; margin-top:4rem ">
+    <div class="flex-lg-row scale-txt-home-sm" style="margin-left:10%; margin-top:4rem ">
       <h2>
         <%= __('definitionAffinityHeader') %>
       </h2>
@@ -80,7 +80,7 @@
 
       <div style="width:40%"></div>
 
-      <div style="width:20%; margin-left:auto;margin-right:auto;" align="center">
+      <div style="width:20%; margin-left:auto;margin-right:auto; " align="center">
         <h2>
           <%= __('theScale') %>
         </h2>
@@ -101,20 +101,20 @@
         <div class="flex-col">
           <div class="flex-row-wrap flex-s-col">
             <a href="./dl0">
-              <button type="button" class="button-start bg-color-theme btn-s-negMargin">
+              <button type="button" class="button-start bg-color-theme btn-s-negMargin button-xs">
                 <%= __('buttonDownload') %>
               </button>
             </a>
 
 
             <a href="./dl1">
-              <button type="button" class="button-start bg-color-theme btn-s-negMargin">
+              <button type="button" class="button-start bg-color-theme btn-s-negMargin button-xs">
                 Word (.docx)
               </button>
             </a>
 
             <a href="./dl2">
-              <button type="button" class="button-start bg-color-theme btn-s-negMargin">
+              <button type="button" class="button-start bg-color-theme btn-s-negMargin button-xs">
                 Text (.txt)
               </button>
             </a>
@@ -122,13 +122,13 @@
           <div class="flex-row-wrap flex-s-col">
 
             <a href="./dl3">
-              <button type="button" class="button-start  bg-color-theme">
+              <button type="button" class="button-start  bg-color-theme button-xs">
                 LimeSurvey (en)
               </button>
             </a>
 
             <a href="./dl4">
-              <button type="button" class="button-start  bg-color-theme">
+              <button type="button" class="button-start  bg-color-theme button-xs">
                 LimeSurvey (de)
               </button>
             </a>
@@ -147,7 +147,7 @@
         </div>
 
         <a href="./form">
-          <button type="button" class="button-start bg-color-theme">
+          <button type="button" class="button-start bg-color-theme button-xs">
             <%= __('buttonTestYourself') %>
           </button>
         </a>
@@ -364,6 +364,9 @@
             }
           }
         });
+        $('.navbar-collapse a').click(function(){
+    $(".navbar-collapse").collapse('hide');
+});
     </script>
   </body>
 

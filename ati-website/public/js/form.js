@@ -7,7 +7,7 @@ let invLink = urlParams.get("inv");
 var abc = [];
 
 if (invLink != null || invLink != undefined) {
-  url = "/db/surveyAndLinkByUrl?url=" + invLink;
+  url = "http://87.146.242.114:3000/db/surveyAndLinkByUrl?url=" + invLink;
   //url = "/db/surveyAndLinkByUrl?url=" + invLink;
   fetch(url)
     .then(res => res.json())
@@ -20,10 +20,9 @@ if (invLink != null || invLink != undefined) {
       reqEdu = out[0].takeEducation.data[0] === 1 ? true : false;
       console.log('edu ' +out[0].takeEducation.data[0])
       reqAge === false ? deleteAge() : "";
-      console.log(reqAge);
-      console.log(reqSex);
+     
       reqSex === false ? deleteSex() : "";
-      console.log(reqEdu);
+     
       reqEdu === false ? deleteEdu() : "";
     })
     .catch(err => {
@@ -128,10 +127,10 @@ function checkAnswers() {
     let invLink = urlParams.get("inv");
     if (urlParams.has("inv")) {
       b.inv = invLink;
-      $.post("/db/probandLink", b);
+      $.post("http://87.146.242.114:3000/db/probandLink", b);
       console.log('probandLink');
     } else {
-      $.post("/db/proband", b);
+      $.post("http://87.146.242.114:3000/db/proband", b);
       console.log('proband');
     }
   }
@@ -192,7 +191,7 @@ var isValid = function() {
   let sex;
   if (reqAge) {
     age =
-      document.getElementsByName('age')[0].value.length >= 1  &&  document.getElementsByName('age')[0].value < 150
+      document.getElementsByName('age')[0].value.length >= 1  &&  document.getElementsByName('age')[0].value < 150 && document.getElementsByName('age')[0].value > 0
         ? true
         : false;
   } else {

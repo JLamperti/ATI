@@ -12,6 +12,12 @@ a:hover {
   color: #c5eff7;
 }
 
+
+.navbar-inverse .navbar-brand:hover, 
+.navbar-inverse .navbar-brand:focus {  
+  color: #c5eff7;
+}
+
 body {
   height: 100%;
   min-height: 100%;
@@ -110,6 +116,11 @@ label{
   bottom: 0;
   left: 0;
   margin-left: 1%;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #c5eff7;
+  background-color: transparent;
 }
 /* class for the Image of index.ejs */
 .title-screen {
@@ -408,6 +419,13 @@ input[type="radio"] {
     stroke: rgb(0, 0, 200);
     /* The width of your bars */
     stroke-width: 0.25em;
+  }
+  /* 100% width of buttons */
+  .button-xs{
+    width:100%
+  }
+  .scale-txt-home-sm{
+    width:60%;
   }
 }
 @media (max-width: 480px) {

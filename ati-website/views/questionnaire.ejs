@@ -7,10 +7,9 @@
     <body onload="setLang(), defaultSetup()" lang="en">
         <nav class="navbar navbar-default navbar-noMargin" style="padding-right:1%">
             <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="/">ATI</a>
-                </div>
+                
                 <ul class="nav navbar-nav">
+                        <a class="navbar-brand" href="/">ATI</a>
                     <li class="nav-item" style="color:white;">
                         <a class="nav-link" href="#" style="color:white">
                             <%= __('navbar.questionnaire') %>
@@ -140,8 +139,8 @@
                                 <div class="">
                                     <div class="col-md-1"></div>
                                     <% for(var i = 1; i < 7 ; i++){%>
-                                        <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q1',<%= i -1 %>)">
-                                            <span style="white-space: nowrap;" class="vertical">
+                                        <div class="col-xs-12 col-md-1 questionaire-height-md " onclick="checkRadio('q1',<%= i -1 %>)">
+                                            <span style="white-space: nowrap;" >
                                                 <input type="radio" name="q1" value="<%= i %>" required>
                                                 <span class="answer-question-vis">
                                                     <%= __('answers.answer' +i) %>
@@ -337,15 +336,15 @@
                                             <%= __('sex.desc') %>:</label>
                                     </div>
                                     <div class="row col-md-8">
-                                        <div class=" col-xs-6 col-sm-4 col-md-3" onclick="checkRadio('sex',0)">
+                                        <div class=" col-xs-12 col-sm-4 col-md-3" onclick="checkRadio('sex',0)">
                                             <input type="radio" name="sex" value="1" required>
                                             <%= __('sex.male') %>
                                         </div>
-                                        <div class="col-xs-6 col-sm-4 col-md-3" onclick="checkRadio('sex',1)">
+                                        <div class="col-xs-12 col-sm-4 col-md-3" onclick="checkRadio('sex',1)">
                                             <input type="radio" name="sex" value="2" required>
                                             <%= __('sex.female') %>
                                         </div>
-                                        <div class="col-xs-6 col-sm-4 col-md-3" onclick="checkRadio('sex',2)">
+                                        <div class="col-xs-12 col-sm-4 col-md-3" onclick="checkRadio('sex',2)">
                                             <input type="radio" name="sex" value="3" required>
                                             <%= __('sex.other') %>
                                         </div>
@@ -356,16 +355,21 @@
                             <!-- age -->
                             <div class="container" id="age">
                                 <div class="row demoData">
-                                    <div class="col-xs-4">
+                                    <div class="col-xs-12 col-md-4"  style="text-align: left">
                                         <label for="age" style="width:30%;">
                                             <%= __('age.desc') %>:
                                         </label>
                                     </div>
-                                    <div class="col-xs-3 col-sm-1 ">
-                                        <input type="number" min="0" max="150" name="age" class="vertical" required placeholder="0"> </div>
-                                    <div class="col-xs-2">
-                                        <%= __('age.unit') %>
-                                    </div>
+                                    
+                                   
+                                            
+                                    <div class="col-xs-3 col-md-1 ">
+                                        <input type="number" min="0" max="150" name="age" class="vertical" required placeholder="0" style="width:100%"> </div>
+                                    <div class="col-xs-9 col-md-7">
+                                       <p> <%= __('age.unit') %></p>
+                                    
+                                
+                            </div>
                                 </div>
                             </div>
                             <!-- education -->
@@ -377,33 +381,34 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row" style="text-align: left">
                                     <div class="col-xs-12 " style="white-space: nowrap;" onclick="checkRadio('edu',0)">
                                         <!-- css-class? -->
                                         <input type="radio" name="edu" value="1" required>
                                         <%= __('educationLevel.noCertificate') %>
                                     </div>
-                                    <div class="col-xs-12 " onclick="checkRadio('edu',2)">
+                                    <div class="col-xs-12 " onclick="checkRadio('edu',1)">
                                         <input type="radio" name="edu" value="2" required>
                                         <%= __('educationLevel.lesserThanAbitur') %>
                                     </div>
-                                    <div class="col-xs-12 " onclick="checkRadio('edu',3)">
+                                    <div class="col-xs-12 " onclick="checkRadio('edu',2)">
                                         <input type="radio" name="edu" value="3" required>
                                         <%= __('educationLevel.aLevel') %>
                                     </div>
-                                    <div class="col-xs-12 " onclick="checkRadio('edu',4)">
+                                    <div class="col-xs-12 " onclick="checkRadio('edu',3)">
+                                        
                                         <input type="radio" name="edu" value="4" required>
                                         <%= __('educationLevel.BMD') %>
                                     </div>
-                                    <div class="col-xs-12 " onclick="checkRadio('edu',5)">
+                                    <div class="col-xs-12 " onclick="checkRadio('edu',4)">
                                         <input type="radio" name="edu" value="5" required>
                                         <%= __('educationLevel.hMD') %>
                                     </div>
-                                    <div class="col-xs-12 " onclick="checkRadio('edu',6)">
+                                    <div class="col-xs-12 " onclick="checkRadio('edu',5)">
                                         <input type="radio" name="edu" value="6" required>
                                         <%= __('educationLevel.vocationalSchool') %>
                                     </div>
-                                    <div class="col-xs-12 " onclick="checkRadio('edu',7)">
+                                    <div class="col-xs-12 " onclick="checkRadio('edu',6)">
                                         <input type="radio" name="edu" value="7" required>
                                         <%= __('educationLevel.masterCraftsman') %>
                                     </div>
@@ -413,7 +418,7 @@
                     </div>
                     <div class=" separator"></div>
                     <div align="center" style="width:100%">
-                        <button class="button  button-start bg-color-theme" onclick="checkAnswers(),showResult(), defaultScale()">
+                        <button class="button  button-start bg-color-theme" onclick="checkAnswers(),showResult(), defaultScale()" style="margin-bottom:10px">
                             <%= __('btn.submit') %>
                         </button>
                     </div>
@@ -454,7 +459,7 @@
 
             function defaultScale() {
                 // var url = '/db/get/buckets';
-                var url = '/db/buckets';
+                var url = 'http://87.146.242.114:3000/db/buckets';
                 var options = {
                     height: '75%',
                     axisY: {
@@ -481,7 +486,7 @@
             }
 
             function ageScale() {
-                var url = '/db/ageAndAti';
+                var url = 'http://87.146.242.114:3000/db/ageAndAti';
                 var options = {
                     showLine: false,
                     axisX: {
@@ -529,7 +534,7 @@
 
 
             function sexScale() {
-                var url = '/db/complex?sel[0]=atiScore&sel[1]=sex';
+                var url = 'http://87.146.242.114:3000/db/complex?sel[0]=atiScore&sel[1]=sex';
                 var m = '<%= __('sex.male') %>';
                 var f = '<%= __('sex.female') %>';
                 var o = '<%= __('sex.other') %>';
