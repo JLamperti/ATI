@@ -5,18 +5,17 @@ html {
 /*color for anchors */
 a {
   color: white;
+  
 }
-
+/* removes the border which appears after a user clicked on an anchor */
+*:focus {
+  outline: none;
+}
 /* color for anchors while hovering */
 a:hover {
   color: #c5eff7;
 }
 
-
-.navbar-inverse .navbar-brand:hover, 
-.navbar-inverse .navbar-brand:focus {  
-  color: #c5eff7;
-}
 
 body {
   height: 100%;
@@ -24,11 +23,14 @@ body {
   color: #223241;
   text-align: justify;
   font-family: "Open Sans", sans-serif;
-  hyphens: auto; 
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  -webkit-hyphens: auto;
   -moz-hyphens: auto;
+  hyphens: auto;
   font-size: 175%;
 }
-
 
 h1,
 h2,
@@ -54,8 +56,8 @@ button {
 button:hover {
 }
 
-input[type=number] {
-  -moz-appearance:textfield;
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 footer {
   background-color: #344853;
@@ -71,14 +73,20 @@ footer {
   height: 15%;
   padding-top: 0.75%;
 }
-form .row{
+form .row {
   margin-left: -15px;
-  margin-right: -15px
+  margin-right: -15px;
 }
 
 /* labels get 10px margin bottom and top*/
-label{
-  margin-top:10px; margin-bottom: 10px
+label {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+:-moz-ui-invalid {
+  box-shadow: 0 0 2px red;;
 }
 
 #userTypes {
@@ -109,6 +117,11 @@ label{
 /* align elements in a table */
 .table .alignTD {
   text-align: center;
+}
+/* set the textcolor of the header */
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+  color: #c5eff7;
 }
 /* align an item to the bottom-left of the container */
 .bottom-left {
@@ -263,11 +276,12 @@ input[type="radio"] {
   margin-top: auto;
   margin-bottom: auto;
 }
-/*center element verical */
-.vertical {  
-  display: flex; justify-content: center;   
+/*center element vertical */
+.vertical {
+  display: flex;
+  justify-content: center;
 }
-
+/* center elements horizontal */
 .horizontal {
   margin-left: auto;
   margin-right: auto;
@@ -313,8 +327,9 @@ input[type="radio"] {
   /* The width of your bars */
   stroke-width: 0.5em;
 }
+
 /*style Bars of the default charts */
-#sexChasrt .ct-series-a .ct-bar,
+#sexChart .ct-series-a .ct-bar,
 #defaultChart .ct-series-a .ct-bar {
   /* Colour of your bars */
   stroke: rgb(0, 0, 200);
@@ -322,7 +337,7 @@ input[type="radio"] {
   stroke-width: 10em;
   border: 50px solid black;
 }
-.langImgQuestionnaire{
+.langImgQuestionnaire {
   height: 10%;
   width: 10%;
 }
@@ -335,7 +350,7 @@ input[type="radio"] {
     flex-wrap: nowrap;
     justify-content: flex-start;
   }
-  .langImgQuestionnaire{
+  .langImgQuestionnaire {
     height: 30%;
     width: 30%;
   }
@@ -348,11 +363,11 @@ input[type="radio"] {
     width: 35%;
     padding-left: 0%;
   }
-    /* scale the image to change the language screen-width > 480px*/
-    .langImg {
-      width: 30%;
-      height: 30%;
-    }
+  /* scale the image to change the language screen-width > 480px*/
+  .langImg {
+    width: 30%;
+    height: 30%;
+  }
 }
 @media (max-width: 768px) {
   /* container of the element to change the language. screen-width <768px */
@@ -360,18 +375,18 @@ input[type="radio"] {
     width: 100%;
     font-size: medium;
   }
-  .fixed-header-top{
-    margin-bottom: 21.75%;  
-  position: fixed;
-  right: 0;
-  left: 0;
-  z-index: 1030;
-  padding-right: 0;
+  .fixed-header-top {
+    margin-bottom: 21.75%;
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    padding-right: 0;
     padding-left: 0;
     top: 0;
     border-width: 0 0 1px;
-}
   }
+
   /* flexbox column screenwidth > 768px */
   .flex-s-col {
     display: flex;
@@ -417,13 +432,7 @@ input[type="radio"] {
   .answer-question-vis {
     display: inline;
   }
-  /*style Bars of the charts */
-  #defaultChart .ct-series-a .ct-bar {
-    /* Colour of your bars */
-    stroke: rgb(0, 0, 233);
-    /* The width of your bars */
-    stroke-width: 6em;
-  }
+
   /*style Bars of the age charts */
   #ageChart .ct-series-a .ct-bar {
     /* Colour of your bars */
@@ -432,11 +441,11 @@ input[type="radio"] {
     stroke-width: 0.25em;
   }
   /* 100% width of buttons */
-  .button-xs{
-    width:100%
+  .button-xs {
+    width: 100%;
   }
-  .scale-txt-home-sm{
-    width:60%;
+  .scale-txt-home-sm {
+    width: 60%;
   }
 }
 @media (max-width: 480px) {
@@ -450,8 +459,8 @@ input[type="radio"] {
     width: 10%;
     height: 10%;
   }
-  .langImgQuestionnaire{
-    height:10%;
+  .langImgQuestionnaire {
+    height: 10%;
     width: 10%;
   }
 
@@ -463,11 +472,12 @@ input[type="radio"] {
     justify-content: flex-start;
   }
   /*style Bars of the charts */
+  #sexChart .ct-series-a .ct-bar,
   #defaultChart .ct-series-a .ct-bar {
     /* Colour of your bars */
     stroke: blue;
     /* The width of your bars */
-    stroke-width: 2em;
+    stroke-width: 1em;
   }
   /*style Bars of the age charts */
   #ageChart .ct-series-a .ct-bar {
@@ -502,12 +512,20 @@ input[type="radio"] {
     padding-top: 7.5%;
     padding-left: 15%;
   }
+  /*style Bars of the charts */
+  #sexChart .ct-series-a .ct-bar,
+  #defaultChart .ct-series-a .ct-bar {
+    /* Colour of your bars */
+    stroke: rgb(0, 0, 233);
+    /* The width of your bars */
+    stroke-width: 6em;
+  }
   .col-md-txt {
     font-size: 85%;
   }
   /* scale the image to change the language screen-width > 1200px*/
   .langImg {
-    width:20%;
+    width: 20%;
     height: 20%;
   }
   /* >1200px screen-width flexbox with row direction */
@@ -548,14 +566,12 @@ input[type="radio"] {
     margin-top: auto;
     margin-bottom: auto;
   }
-  .langImgQuestionnaire{
+  .langImgQuestionnaire {
     height: 60%;
     width: 60%;
   }
 }
 @media (max-width: 1200px) {
-
-
   /*style for the div Scale */
   .div-scale {
     padding: 1.5%;
@@ -566,7 +582,7 @@ input[type="radio"] {
     margin-left: auto;
     margin-right: auto;
   }
- 
+
   /* style the text infront of the title-page. screen-width < 1200px */
   .title-txt {
     padding-top: 2rem;
@@ -579,7 +595,7 @@ input[type="radio"] {
     padding-top: 4rem;
     padding-bottom: 4rem;
   }
- 
+
   .title-screen {
     width: auto;
     height: auto;

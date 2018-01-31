@@ -5,11 +5,11 @@
     <!-- <body onload="uncheckall()"> -->
 
     <body onload="setLang(), defaultSetup()" lang="<%= __('html.lang') %>">
-        <nav class="navbar navbar-default navbar-noMargin fixed-header-top" style="padding-right:1%">
+        <nav class="navbar navbar-default navbar-noMargin " style="padding-right:1%">
             <div class="container-fluid">
-                
+
                 <ul class="nav navbar-nav">
-                        <a class="navbar-brand" href="/" >ATI</a>
+                    <a class="navbar-brand" href="/">ATI</a>
                     <li class="nav-item" style="color:white;">
                         <a class="nav-link" href="#" style="color:white">
                             <%= __('navbar.questionnaire') %>
@@ -105,23 +105,24 @@
                             </div>
                             <div class="ans-vis ">
                                 <div class="col-md-1"></div>
-                                <div class="col-sm-2 col-md-1">
+
+                                <div class="col-sm-2 col-md-1       text-md-center">
                                     <%= __('answers.answer1') %>
                                 </div>
-                                <div class="col-sm-2 col-md-1">
+
+                                <div class="col-sm-2 col-md-1       text-md-center">
                                     <%= __('answers.answer2') %>
                                 </div>
-                                <div class="col-sm-2 col-md-1">
+                                <div class="col-sm-2 col-md-1       text-md-center">
                                     <%= __('answers.answer3') %>
                                 </div>
-                                <div class="col-sm-2 col-md-1">
+                                <div class="col-sm-2 col-md-1       text-md-center">
                                     <%= __('answers.answer4') %>
                                 </div>
-
-                                <div class="col-sm-2 col-md-1">
+                                <div class="col-sm-2 col-md-1       text-md-center">
                                     <%= __('answers.answer5') %>
                                 </div>
-                                <div class="col-sm-2 col-md-1">
+                                <div class="col-sm-2 col-md-1       text-md-center">
                                     <%= __('answers.answer6') %>
                                 </div>
                             </div>
@@ -139,8 +140,8 @@
                                 <div class="">
                                     <div class="col-md-1"></div>
                                     <% for(var i = 1; i < 7 ; i++){%>
-                                        <div class="col-xs-12 col-md-1 questionaire-height-md " onclick="checkRadio('q1',<%= i -1 %>)" touchend="checkRadio('q1',<%= i -1 %>)">
-                                            <span style="white-space: nowrap;" >
+                                        <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q1',<%= i -1 %>)">
+                                            <span style="white-space: nowrap;">
                                                 <input type="radio" name="q1" value="<%= i %>" required>
                                                 <span class="answer-question-vis">
                                                     <%= __('answers.answer' +i) %>
@@ -245,7 +246,7 @@
                                 <div>
                                     <div class="col-md-1"></div>
                                     <% for(var i = 1; i < 7 ; i++){%>
-                                        <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q6',<%= i -1 %>)" touchend="checkRadio('q6',<%= i -1 %>)"> 
+                                        <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q6',<%= i -1 %>)" touchend="checkRadio('q6',<%= i -1 %>)">
                                             <span style="white-space: nowrap;">
                                                 <input type="radio" name="q6" value=" <%= 7 - i %>" required>
                                                 <span class="answer-question-vis">
@@ -355,21 +356,23 @@
                             <!-- age -->
                             <div class="container" id="age">
                                 <div class="row demoData">
-                                    <div class="col-xs-12 col-md-4"  style="text-align: left">
+                                    <div class="col-xs-12 col-md-4" style="text-align: left">
                                         <label for="age" style="width:30%;">
                                             <%= __('age.desc') %>:
                                         </label>
                                     </div>
-                                    
-                                   
-                                            
+
+
+
                                     <div class="col-xs-3 col-md-1 ">
                                         <input type="number" min="0" max="150" name="age" class="vertical" required placeholder="0" style="width:100%"> </div>
                                     <div class="col-xs-9 col-md-7">
-                                       <p> <%= __('age.unit') %></p>
-                                    
-                                
-                            </div>
+                                        <p>
+                                            <%= __('age.unit') %>
+                                        </p>
+
+
+                                    </div>
                                 </div>
                             </div>
                             <!-- education -->
@@ -382,24 +385,25 @@
                                     </div>
                                 </div>
                                 <div class="row" style="text-align: left">
-                                    <div class="col-xs-12 " style="white-space: nowrap;" onclick="checkRadio('edu',0)" touchend"checkRadio('edu',0)">
+                                    <div class="col-xs-12 " style="white-space: nowrap;" onclick="checkRadio('edu',0)" touchend "checkRadio('edu',0)">
                                         <!-- css-class? -->
                                         <input type="radio" name="edu" value="1" required>
                                         <%= __('educationLevel.noCertificate') %>
                                     </div>
                                     <div class="col-xs-12 " onclick="checkRadio('edu',1)" touchend="checkRadio('edu',1)">
                                         <input type="radio" name="edu" value="2" required>
-                                     <span>  <%= __('educationLevel.lesserThanAbitur') %>
-                                    </span> 
+                                        <span>
+                                            <%= __('educationLevel.lesserThanAbitur') %>
+                                        </span>
                                     </div>
                                     <div class="col-xs-12 " onclick="checkRadio('edu',2)" touchend="checkRadio('edu',2)">
                                         <input type="radio" name="edu" value="3" required>
                                         <%= __('educationLevel.aLevel') %>
                                     </div>
                                     <div class="col-xs-12 " onclick="checkRadio('edu',3)" touchend="checkRadio('edu',3)">
-                                        
+
                                         <input type="radio" name="edu" value="4" required>
-                                     <%= __('educationLevel.BMD') %>
+                                        <%= __('educationLevel.BMD') %>
                                     </div>
                                     <div class="col-xs-12 " onclick="checkRadio('edu',4)" touchend="checkRadio('edu',4)">
                                         <input type="radio" name="edu" value="5" required>
@@ -419,7 +423,8 @@
                     </div>
                     <div class=" separator"></div>
                     <div align="center" style="width:100%">
-                        <button class="button  button-start bg-color-theme" onclick="checkAnswers(),showResult(), defaultScale()"  touchend="checkAnswers(),showResult(), defaultScale()"style="margin-bottom:10px">
+                        <button class="button  button-start bg-color-theme" onclick="checkAnswers(),showResult(), defaultScale()" touchend="checkAnswers(),showResult(), defaultScale()"
+                            style="margin-bottom:10px">
                             <%= __('btn.submit') %>
                         </button>
                     </div>
@@ -428,21 +433,33 @@
 
         </div>
         <div id="questionnaireResult" class="container" style="display:none;margin-bottom:2em" align="center">
+
+            <p>
+                <%= __('questionnaire.result') %>
+            </p>
             <p>
                 <%= __('questionnaire.resultDesc1') %>
                     <span id="uSc"></span>
                     <%= __('questionnaire.resultDesc2') %>
             </p>
             <p>
-                <%= __('questionnaire.result') %>
+                <%= __('questionnaire.result2') %>
             </p>
+
             <div id="chart" style="height:25%">
                 <div id="defaultChart" class="ct-chart ct-perfect-fourth"></div>
+                
                 <div id="ageChart" class="ct-chart ct-perfect-fourth" style="display:none"></div>
-                <div id="sexChart" class="ct-chart ct-perfect-fourth" style="display:none"></div>
+               
+                <div id="sexChart" class="ct-chart ct-perfect-fourth" style="display:none">
+
+                </div>
+                <p id="descDef" style="margin-top:-15%">
+                        <%= __('chart.descDef') %>
+                    </p>
             </div>
             <div align="center" style="color: white;">
-                <button onclick="defaultScale(),showChart('defaultChart')"  touchend="defaultScale(),showChart('defaultChart')" class="button bg-color-theme">
+                <button onclick="defaultScale(),showChart('defaultChart')" touchend="defaultScale(),showChart('defaultChart')" class="button bg-color-theme">
                     <%= __('chart.default') %>
                 </button>
                 <button onclick="ageScale(), showChart('ageChart')" touchend="ageScale(), showChart('ageChart')" class="button bg-color-theme">
@@ -460,7 +477,7 @@
 
             function defaultScale() {
                 // var url = '/db/get/buckets';
-                var url = '/db/buckets';
+                var url = 'http://87.146.242.114:3000/db/buckets';
                 var options = {
                     height: '75%',
                     axisY: {
@@ -487,7 +504,7 @@
             }
 
             function ageScale() {
-                var url = '/db/ageAndAti';
+                var url = 'http://87.146.242.114:3000/db/ageAndAti';
                 var options = {
                     showLine: false,
                     axisX: {
@@ -520,22 +537,39 @@
                     document.querySelector('#ageChart').style.display = 'block';
                     document.querySelector('#defaultChart').style.display = 'none';
                     document.querySelector('#sexChart').style.display = 'none';
+                    showDesc('age');
+                    
                 } else if (elem === 'defaultChart') {
                     //console.log('Nope');
                     document.querySelector('#defaultChart').style.display = 'block';
                     document.querySelector('#ageChart').style.display = 'none';
                     document.querySelector('#sexChart').style.display = 'none';
+                    showDesc('def');
+                 
                 } else if (elem === 'sexChart') {
                     document.querySelector('#defaultChart').style.display = 'none';
                     document.querySelector('#ageChart').style.display = 'none';
                     document.querySelector('#sexChart').style.display = 'block';
+                    showDesc('sex');
+          
                 }
 
             }
 
+            function showDesc(elem) {
+                let a = document.querySelector('#descDef');
+                if (elem === 'def') {
+                    a.innerHTML = '<%= __('chart.descDef') %>';
+                } else if (elem === 'age') {
+                    a.innerHTML = '<%= __('chart.descAge') %>';
+                } else if (elem === 'sex') {
+                    a.innerHTML = '<%= __('chart.descSex') %>';
+                }
+            }
+
 
             function sexScale() {
-                var url = '/db/complex?sel[0]=atiScore&sel[1]=sex';
+                var url = 'http://87.146.242.114:3000/db/complex?sel[0]=atiScore&sel[1]=sex';
                 var m = '<%= __('sex.male') %>';
                 var f = '<%= __('sex.female') %>';
                 var o = '<%= __('sex.other') %>';
