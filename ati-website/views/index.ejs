@@ -7,30 +7,10 @@
       <%- include ./partials/header %>
     </header>
 
-    <div class="title-screen title-img-xs title-img" align="center">
-      <!-- style="background-image: url('./images/titleImg.jpg');background-size:cover; background-repeat: no-repeat" -->
+    <div class="title-screen " align="center">
 
-      <p class="title-txt">
-        <h1>
-          <b>
-            <%= __('title1') %>
-          </b>
-        </h1>
-      </p>
-      <p>
-        <h1>
-          <b>
-            <%= __('title2') %>
-          </b>
-        </h1>
-      </p>
-      <p>
-        <h1>
-          <b>
-            <%= __('title3') %>
-          </b>
-        </h1>
-      </p>
+      <img style="width:100%;height:auto" src='<%= __('titleImg') %>'></img>
+
     </div>
 
 
@@ -110,54 +90,51 @@
 
     </div>
 
-    <div class="flex-lg-row flex-md-col index-container-margin-bottom" id="scale">
+    <div class="index-container-margin-bottom flex-lg-row flex-md-col " id="scale">
 
       <div style="width:10%"></div>
 
       <div class="div-scale" style="padding-top:4rem; padding-bottom:4rem;">
+          <div style="width:80%;">
+              <%= __('downloadText') %>
+            </div>
+        <div class="flex-col">
+          <div class="flex-row-wrap flex-s-col">
+            <a href="./dl0">
+              <button type="button" class="button-start bg-color-theme btn-s-negMargin">
+                <%= __('buttonDownload') %>
+              </button>
+            </a>
 
-        <div style="width:80%;">
-          <%= __('downloadText') %>
+
+            <a href="./dl1">
+              <button type="button" class="button-start bg-color-theme btn-s-negMargin">
+                Word (.docx)
+              </button>
+            </a>
+
+            <a href="./dl2">
+              <button type="button" class="button-start bg-color-theme btn-s-negMargin">
+                Text (.txt)
+              </button>
+            </a>
+          </div>
+          <div class="flex-row-wrap flex-s-col">
+
+            <a href="./dl3">
+              <button type="button" class="button-start  bg-color-theme">
+                LimeSurvey (en)
+              </button>
+            </a>
+
+            <a href="./dl4">
+              <button type="button" class="button-start  bg-color-theme">
+                LimeSurvey (de)
+              </button>
+            </a>
+          </div>
         </div>
 
-        <div>
-          <a href="./dl0">
-            <button type="button" class="button-start bg-color-theme">
-              <%= __('buttonDownload') %>
-            </button>
-          </a>
-        </div>
-
-        <div id = "other-downloads">
-          <p>
-            <%= __('alsoDownloadAs') %>
-          </p>
-
-          <a href="./dl1">
-            <button type="button" class="button-start bg-color-theme">
-              Word (de)
-            </button>
-          </a>
-
-          <a href="./dl2">
-            <button type="button" class="button-start bg-color-theme">
-              Text (en/de)
-            </button>
-          </a>
-
-          <a href="./dl3">
-            <button type="button" class="button-start bg-color-theme">
-              LimeSurvey (en)
-            </button>
-          </a>
-
-          <a href="./dl4">
-            <button type="button" class="button-start bg-color-theme">
-              LimeSurvey (de)
-            </button>
-          </a>
-
-        </div>
 
       </div>
 
@@ -175,8 +152,8 @@
           </button>
         </a>
       </div>
-
-      <div style="width:10%"></div>
+    </div>
+    <div style="width:10%"></div>
 
     </div>
 
@@ -230,7 +207,13 @@
               <%= __('scientistText') %>
             </p>
           </div>
-
+          
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tbyKkZZNUzA" allowfullscreen></iframe>
+              </div>
+             <a href="https://www.researchgate.net/publication/318745431_Assessing_Affinity_for_Technology_Interaction_-_The_Affinity_for_Technology_Interaction_ATI_Scale_Scale_Description_-_English_and_German_Scale_Version">
+                 <button class="button bg-color-theme button-start">Paper</button>
+              </a>
         </div>
 
       </div>
@@ -289,9 +272,9 @@
 
       <div class="flex-lg-row div-padding-row" style="margin-top:-5%;">
 
-        <div class="div-padding-min" align="center">
+        <div class="div-padding-min author-width-md author-margin-xs" align="center">
 
-          <img src="./images/dummy-user.png" alt="Thomas Franke" class="author-images"></img>
+          <img src="./images/franke_400px.jpg" alt="Thomas Franke" class="author-images rounded-img"></img>
 
           </br>
 
@@ -305,9 +288,9 @@
 
         </div>
 
-        <div class="div-padding-min" align="center">
+        <div class="div-padding-min author-width-md author-margin-xs" align="center">
 
-          <img src="./images/dummy-user.png" alt="Christiane Attig" class="author-images"></img>
+          <img src="./images/attig_400px.jpg" alt="Christiane Attig" class="author-images rounded-img"></img>
 
           </br>
 
@@ -321,9 +304,9 @@
 
         </div>
 
-        <div class="div-padding-min" align="center">
+        <div class="div-padding-min author-width-md author-margin-xs" align="center">
 
-          <img src="./images/dummy-user.png" alt="Daniel Wessel" class="author-images"></img>
+          <img src="./images/wessel_400px.png" alt="Daniel Wessel" class="author-images rounded-img"></img>
 
           </br>
 
@@ -351,7 +334,7 @@
         // Remove links that don't actually link to anything
         .not('[href="#"]')
         .not('[href="#0"]')
-        .click(function(event) {
+        .click(function (event) {
           // On-page links
           if (
             location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
@@ -366,7 +349,7 @@
               event.preventDefault();
               $('html, body').animate({
                 scrollTop: target.offset().top
-              }, 1000, function() {
+              }, 1000, function () {
                 // Callback after animation
                 // Must change focus!
                 var $target = $(target);

@@ -18,7 +18,7 @@ exports.setDba = function(newDba) {
 * parameters have to be in the body
 * mandatory-parameters: SID
 * optional-parameters: description, name, maxProbands, status, begin, end, inviteText
-* dates need to have the format yyyy-dd-mm
+* dates need to have the format yyyy-mm-dd
 * 
 * for details on what a specific line does compare to other functions (e.g. in postData.js)
 */
@@ -98,7 +98,7 @@ exports.updateSurvey = function (req, res) {
 * mandatory-parameters: UID
 * optional-parameters: name, email, pw, PID
 * 
-* for info on a specif line compare to other functions (e.g. in postData.js)
+* for info on a specific line compare to other functions (e.g. in postData.js)
 */
 exports.updateUser = function (req, res) {
 	let tmpString = 'UPDATE user SET';

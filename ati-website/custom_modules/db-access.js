@@ -29,7 +29,7 @@ exports.exportDataCSV = function(string, req, res) {
 			var string = JSON.stringify(result);
 			let json =  JSON.parse(string);
 			csv_export.export(json, function(buffer) {
-				
+
 				res.setHeader('Content-disposition', 'attachement; filename=surveyData.zip');
 				res.send(buffer);
 			});
@@ -40,7 +40,7 @@ exports.exportDataCSV = function(string, req, res) {
 
 /**
 * performs one sql-statement on the database and sends the result to the client
-* 
+*
 * @param string a string that contains the sql-statement
 */
 exports.manipulateDB = function (string, req, res) {
@@ -57,7 +57,7 @@ exports.manipulateDB = function (string, req, res) {
 		});
 		con.release();			//release the connection so it can be used for another query
 	});
-	
+
 
 
 };
@@ -65,7 +65,7 @@ exports.manipulateDB = function (string, req, res) {
 /**
 * performs two sql-statements on the database and send an ok to the client.
 * only post and updates make sense with this function.
-* 
+*
 * @param stringOne the sql-statement performed first
 * @param stringTwo the sql-statement performed second
 */
@@ -108,7 +108,7 @@ exports.manipulateDBTwice = function (stringOne, stringTwo, req, res) {
 /**
 * performs three sql-statements on the database and send an ok to the client.
 * only post and updates make sense with this function.
-* 
+*
 * @param stringOne the sql-statement performed first
 * @param stringTwo the sql-statement performed second
 * @param stringThree the sql-statement performed third
@@ -161,3 +161,14 @@ exports.manipulateDBThreeTimes = function (stringOne, stringTwo, stringThree, re
 };
 
 
+/**
+* performs one sql-statement on the database and sends the result to the client
+*
+* @param string a string that contains the sql-statement
+*/
+exports.performQuery = function (string, responseHandler) {
+	pool.getConnection(function (err, con) {			//get a connection from the pool
+		con.query(string, responseHandler);
+		con.release();			//release the connection so it can be used for another query
+	});
+};
