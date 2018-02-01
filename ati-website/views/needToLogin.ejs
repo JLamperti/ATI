@@ -1,0 +1,56 @@
+<%- include ./partials/head %>
+  <title>you need to log in</title>
+</head>
+
+<body>
+  <header>
+    <%- include ./partials/header %>
+  </header>
+
+
+  <div>
+    <div class="container column" style="padding-top:10%">
+      <div class="jumbotron col-sm-4 col-sm-offset-4  pull-center">
+        <%- __('login.need-to-login') %> </p>
+        <div>
+          <a href="/login" id="link">
+            <button type="button" class="button-start bg-color-theme col-md-6 col-sm-offset-3">
+              <%- __('login.to-login') %>
+            </button>
+          </a>
+
+        </div>
+        <p id="countdown" class="col-sm-12" style="margin-top: 5%"><%- __('login.redirect') %></p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- <footer class="navbar">
+    <%- include ./partials/footer %>
+  </footer> -->
+
+
+  <script language='javascript' type='text/javascript'>
+
+  location.href = "/login";
+
+  var distance = 16;
+  var x = setInterval(function() {
+  document.getElementById("countdown").innerHTML = "Automatisches Weiterleiten zum Login in " + distance + "s";
+
+  distance--;
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+
+    document.getElementById("countdown").innerHTML = "Redirecting ...";
+    location.href = "/login";
+  }
+
+  }, 1000);
+
+  </script>
+</body>
+
+</html>

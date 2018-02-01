@@ -2,35 +2,15 @@
   <title>ATI</title>
   </head>
 
-  <body onload="setLang()">
-    <header>
+  <body onload="setLang()" lang="<%= __('html.lang') %>">
+    <header id="indexHeader">
       <%- include ./partials/header %>
     </header>
+<main>
+    <div class="title-screen " align="center">
 
-    <div class="title-screen title-img-xs title-img" align="center">
-      <!-- style="background-image: url('./images/titleImg.jpg');background-size:cover; background-repeat: no-repeat" -->
+      <img style="width:100%;height:auto" src='<%= __('titleImg') %>'></img>
 
-      <p class="title-txt">
-        <h1>
-          <b>
-            <%= __('title1') %>
-          </b>
-        </h1>
-      </p>
-      <p>
-        <h1>
-          <b>
-            <%= __('title2') %>
-          </b>
-        </h1>
-      </p>
-      <p>
-        <h1>
-          <b>
-            <%= __('title3') %>
-          </b>
-        </h1>
-      </p>
     </div>
 
 
@@ -82,7 +62,7 @@
 
     </div>
 
-    <div class="flex-lg-row" style="margin-left:10%; margin-top:4rem ">
+    <div class="flex-lg-row scale-txt-home-sm" style="margin-left:10%; margin-top:4rem ">
       <h2>
         <%= __('definitionAffinityHeader') %>
       </h2>
@@ -100,7 +80,7 @@
 
       <div style="width:40%"></div>
 
-      <div style="width:20%; margin-left:auto;margin-right:auto;" align="center">
+      <div style="width:20%; margin-left:auto;margin-right:auto; " align="center">
         <h2>
           <%= __('theScale') %>
         </h2>
@@ -110,54 +90,46 @@
 
     </div>
 
-    <div class="flex-lg-row flex-md-col index-container-margin-bottom" id="scale">
+    <div class="index-container-margin-bottom flex-lg-row flex-md-col " id="scale">
 
       <div style="width:10%"></div>
 
       <div class="div-scale" style="padding-top:4rem; padding-bottom:4rem;">
-
-        <div style="width:80%;">
-          <%= __('downloadText') %>
-        </div>
-
-        <div>
-          <a href="./dl0">
-            <button type="button" class="button-start bg-color-theme">
-              <%= __('buttonDownload') %>
-            </button>
-          </a>
-        </div>
-
-        <div id = "other-downloads">
-          <p>
-            <%= __('alsoDownloadAs') %>
-          </p>
-
-          <a href="./dl1">
-            <button type="button" class="button-start bg-color-theme">
-              Word (de)
-            </button>
-          </a>
-
+          <div style="width:80%;">
+              <%= __('downloadText') %>
+            </div>
+        <div class="flex-col">
+          <div class="flex-row-wrap flex-s-col">
+            <a href="./dl0">
+              <button type="button" class="button-start bg-color-theme btn-s-negMargin button-xs button-md">
+                <%= __('buttonDownload') %>
+              </button>
+            </a>
+            <a href="./dl1">
+              <button type="button" class="button-start bg-color-theme btn-s-negMargin button-xs button-md">
+                Word (.docx)
+              </button>
+            </a>
+          </div>
+          <div class="flex-row-wrap flex-s-col">
+            <a href="./dl3">
+              <button type="button" class="button-start  bg-color-theme button-xs button-md">
+                LimeSurvey (en)
+              </button>
+            </a>
+            <a href="./dl4">
+              <button type="button" class="button-start  bg-color-theme button-xs button-md">
+                LimeSurvey (de)
+              </button>
+            </a>
+          </div>
           <a href="./dl2">
-            <button type="button" class="button-start bg-color-theme">
-              Text (en/de)
+            <button type="button" class="button-start bg-color-theme btn-s-negMargin button-xs button-md">
+              Text (.txt)
             </button>
           </a>
-
-          <a href="./dl3">
-            <button type="button" class="button-start bg-color-theme">
-              LimeSurvey (en)
-            </button>
-          </a>
-
-          <a href="./dl4">
-            <button type="button" class="button-start bg-color-theme">
-              LimeSurvey (de)
-            </button>
-          </a>
-
         </div>
+
 
       </div>
 
@@ -170,13 +142,13 @@
         </div>
 
         <a href="./form">
-          <button type="button" class="button-start bg-color-theme">
+          <button type="button" class="button-start bg-color-theme button-xs button-md">
             <%= __('buttonTestYourself') %>
           </button>
         </a>
       </div>
-
-      <div style="width:10%"></div>
+    </div>
+    <div style="width:10%"></div>
 
     </div>
 
@@ -184,7 +156,7 @@
 
       <div class="flex-md-col flex-lg-row div-padding-row bg-color-theme" id="div-what-why-how">
 
-        <div class="div-padding-min">
+        <div class="div-padding-min" >
           <h2>
             <%= __('what') %>
           </h2>
@@ -231,6 +203,12 @@
             </p>
           </div>
 
+            <div class="iframe-md iframe-xs">
+                <iframe class="" src="https://www.youtube.com/embed/tbyKkZZNUzA" allowfullscreen  alt="in this video Prof. Franke discusses why ATI is relevant"></iframe>
+              </div>
+             <a href="https://www.researchgate.net/publication/318745431_Assessing_Affinity_for_Technology_Interaction_-_The_Affinity_for_Technology_Interaction_ATI_Scale_Scale_Description_-_English_and_German_Scale_Version">
+                 <button class="button bg-color-theme button-start">Paper</button>
+              </a>
         </div>
 
       </div>
@@ -289,9 +267,9 @@
 
       <div class="flex-lg-row div-padding-row" style="margin-top:-5%;">
 
-        <div class="div-padding-min" align="center">
+        <div class="div-padding-min author-width-md author-margin-xs" align="center">
 
-          <img src="./images/dummy-user.png" alt="Thomas Franke" class="author-images"></img>
+          <img src="./images/franke_400px.jpg" alt="Thomas Franke" class="author-images rounded-img"></img>
 
           </br>
 
@@ -305,9 +283,9 @@
 
         </div>
 
-        <div class="div-padding-min" align="center">
+        <div class="div-padding-min author-width-md author-margin-xs" align="center">
 
-          <img src="./images/dummy-user.png" alt="Christiane Attig" class="author-images"></img>
+          <img src="./images/attig_400px.jpg" alt="Christiane Attig" class="author-images rounded-img"></img>
 
           </br>
 
@@ -321,9 +299,9 @@
 
         </div>
 
-        <div class="div-padding-min" align="center">
+        <div class="div-padding-min author-width-md author-margin-xs" align="center">
 
-          <img src="./images/dummy-user.png" alt="Daniel Wessel" class="author-images"></img>
+          <img src="./images/wessel_400px.png" alt="Daniel Wessel" class="author-images rounded-img"></img>
 
           </br>
 
@@ -341,7 +319,7 @@
 
     </div>
 
-
+  </main>
     <footer class="bg-color-theme">
       <%- include ./partials/footer %>
     </footer>
@@ -351,7 +329,7 @@
         // Remove links that don't actually link to anything
         .not('[href="#"]')
         .not('[href="#0"]')
-        .click(function(event) {
+        .click(function (event) {
           // On-page links
           if (
             location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
@@ -366,7 +344,7 @@
               event.preventDefault();
               $('html, body').animate({
                 scrollTop: target.offset().top
-              }, 1000, function() {
+              }, 1000, function () {
                 // Callback after animation
                 // Must change focus!
                 var $target = $(target);
@@ -381,6 +359,26 @@
             }
           }
         });
+        $('.navbar-collapse a').click(function(){
+    $(".navbar-collapse").collapse('hide');
+});
+
+  /*fixed header */
+  var m = document.querySelector("main"),
+      h = document.querySelector("header"),
+      hHeight;
+
+  function setTopPadding() {
+    hHeight = h.offsetHeight;
+    m.style.paddingTop = hHeight + "px";
+  }
+
+  window.onload = function() {
+    setTopPadding();
+  };
+  window.onresize = function() {
+    setTopPadding();
+  };
     </script>
   </body>
 

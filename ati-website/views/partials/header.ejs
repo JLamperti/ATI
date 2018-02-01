@@ -7,7 +7,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">ATI</a>
+            <a class="navbar-brand" href="/">ATI</a>
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
@@ -30,17 +30,18 @@
                   <a href="./#authors"><%= __('whoWeAre') %></a>
               </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right" >
-              <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-              <li class="li-header-right">
-                                    <a href="" onclick="changeLang()"> <img src="./images/lang_de_en.png" class="langImg">
-
-                        <%= __('toggletext') %>
-
+            <ul class="nav navbar-nav navbar-right" style="height:100%" >
+               <li>
+                <a href="/user"><span class="glyphicon glyphicon-user"></span> Profil</a>
+              </li>
+              <li>
+                <a href="/login"><span class="glyphicon "></span> Log Out </a>
+              </li>
+              <li class=""><!-- class="imgLangSmall li-header-right" style="margin-right: -5%"> -->
+                                    <a href="" onclick="changeLang()"> <img src="/images/lang_de_en.png" class="langImg">
+                                    <%= __('toggletext') %>
 
                   </a>
-
-
               </li>
             </ul>
           </div>

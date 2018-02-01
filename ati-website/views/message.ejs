@@ -1,0 +1,46 @@
+<%- include ./partials/head %>
+  <title>ATI Webseite</title>
+</head>
+
+<body>
+  <header>
+    <%- include ./partials/header %>
+  </header>
+
+
+  <div>
+    <div class="container column" style="padding-top:6%">
+      <div class="jumbotron col-sm-8 col-sm-offset-2  pull-center">
+        <p>
+          <% switch (msg) {
+            case 'activate' : %>
+              <%- __('message.activate') %>
+          <% break;
+            case 'reset-sent' : %>
+              <%- __('message.reset-sent') %>
+          <% break;
+            case 'valid-sent' : %>
+              <%- __('message.valid-sent') %>
+          <% break;
+          } %>
+        </p>
+        <div>
+          <a href="/" id="link">
+            <button type="button" class="button-start bg-color-theme col-md-8 col-sm-offset-2">
+              <%- __('message.start') %>
+            </button>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- <footer class="navbar">
+    <%- include ./partials/footer %>
+  </footer> -->
+
+</body>
+
+</html>

@@ -1,13 +1,49 @@
-<!DOCTYPE html>
-<html>
 
-<head lang="en">
-       <%- include ./views/partials/head %>
+       <%- include ./partials/head %>
+       <title> Ein Fehler ist aufgetreten. </title>
 </head>
 
 <body>
+
+  <nav class="navbar navbar-default navbar-noMargin" style="padding-right:1%">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/">ATI</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <!--<ul class="nav navbar-nav">
+                 <li>
+                    <a href="./#scale"><%= __('scale') %></a>
+                </li>
+                <li>
+                    <a href="./#information"><%= __('background') %></a>
+                </li>
+                <li>
+                    <a href="./#scientist"><%= __('scientist') %></a>
+                </li>
+                <li>
+                    <a href="./#developer"><%= __('developer') %></a>
+                </li>
+                <li>
+                    <a href="./#teacher"><%= __('teacher') %></a>
+                </li>
+                <li>
+                    <a href="./#authors"><%= __('whoWeAre') %></a>
+                </li>
+              </ul>
+            </div> -->
+          </div>
+        </nav>
+
+  <div align="center">
     <h1> <%= message %></h1>
     <h2> <%= error.status %></h2>
+  </div>
 </body>
 
 </html>

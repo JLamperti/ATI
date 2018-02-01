@@ -1,5 +1,3 @@
-<!--<%- include ./partials/head %>-->
-
 <head lang="en">
 
   <meta charset="utf-8">
@@ -20,6 +18,7 @@
 
 
   <title>ATI - surveyDetails</title>
+
   <link rel="stylesheet" href="../css/user.css">
 
 
@@ -28,9 +27,39 @@
 
 <body>
   <section id="header">
-    <!--<header>
-      <%- include ./partials/header %>
-    </header>-->
+    <nav class="navbar navbar-default navbar-noMargin" style="padding-right:1%">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+          <a class="navbar-brand" href="/">ATI</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li>
+              <a >
+                Survey Details
+              </a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/user"><span class="glyphicon glyphicon-user"></span> Profil</a>
+            </li>
+            <li>
+              <a href="/login"><span class="glyphicon "></span> Log Out </a>
+            </li>
+            <li class="">
+              <!-- class="imgLangSmall li-header-right" style="margin-right: -5%"> -->
+              <a href="" onclick="changeLang()"> <img src="/images/lang_de_en.png" class="" style="max-width:35px;max-height:35px;"> <%= __('toggletext') %></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
   </section>
 
@@ -39,7 +68,7 @@
       <div class="nested-container">
 
 
-        <h2>Your survey</h2>
+        <h2 id="surveyName"></h2>
         <div class="clearfix">
 
           <div class="float-left">
@@ -52,17 +81,19 @@
         </div>
         <hr>
 
+
         <h2>Data to be collected</h2>
         <label><span class="text-item-descr">Affinity for Technology-Interaction&nbsp;</span><input type="checkbox" name="age" value="" checked disabled></label>
         <br>
-        <label><span class="text-item-descr">Age </span><input type="checkbox" name="age" value="" disabled></label>
+        <label><span class="text-item-descr">Age </span><input id="takeAgeCbx" type="checkbox" name="age" value="" disabled></label>
         <br>
-        <label><span class="text-item-descr">Sex </span><input type="checkbox" name="sex" value=""disabled></label>
+        <label><span class="text-item-descr">Sex </span><input id="takeSexCbx" type="checkbox" name="sex" value=""disabled></label>
         <br>
-        <label><span class="text-item-descr">Education </span><input type="checkbox" name="education" value="" disabled></label>
+        <label><span class="text-item-descr">Education </span><input id="takeEduCbx" type="checkbox" name="education" value="" disabled></label>
         <hr>
 
         <div id="collectedData" class="">
+          <h2>Collected Data</h2>
           <div id="periodDisplay">
             <p>
               <span class=" grey text-item-descr">
@@ -86,22 +117,20 @@
           <div style="display:inline-block">
             <p>
               <span class="grey text-item-descr"><%= __('user.status')%></span>
-              <span id="status" class="text-item-descr">
-
-            </span>
+              <span id="status" class="text-item-descr"></span>
             </p>
           </div>
           <div id="average">
             <p>
               <span class="grey text-item-descr"><%= __('user.average') %></span>
-              <span class="itemValue">4.1</span>
+              <span class="itemValue" id="avgAtiScore"></span>
             </p>
           </div>
 
           <div id="deviation">
             <p>
               <span class="grey text-item-descr"><%= __('user.deviation')%></span>
-              <span class="itemValue">1.2</span>
+              <span class="itemValue" id="atiStd"></span>
             </p>
           </div>
           <button type="button" name="showHideRawData" id="showHideRawData"><span id="buttonText" class="glyphicon glyphicon-menu-down">View Raw Data</span></button>
@@ -119,6 +148,41 @@
               </tr>
             </table>
           </div>
+          <div class="">
+            <a id="exportCSV">
+              <button type="button" class="button-start bg-color-theme">
+                CSV Export
+              </button>
+            </a>
+          </div>
+
+          <h3>Import data</h3>
+          <form action="#" onSubmit="myFunction();return false" enctype="multipart/form-data" method="post" id="importCSVForm">
+            <input id="theFile" type="file" name="file" accept=".csv">
+            <button type="submit" class="button-start bg-color-theme">Upload</button
+            <p id="succ"></p>
+          </form>
+          <script>
+            let myFunction = function() {
+              console.log('blub');
+              let data = new FormData();
+              data.append('file', document.getElementById('theFile').files[0]);
+              console.log(data);
+
+              let postUrl = '/db/importCSV?SID=1';
+              fetch(postUrl, {
+                  method: 'POST',
+                  body: data
+                })
+                .then((out) => {
+                  document.getElementById('theFile').value = '';
+                  document.getElementById('succ').innerHTML = "erfolgreich";
+                })
+                .catch(err => {
+                  throw err
+                });
+            }
+          </script>
         </div>
         <hr>
 
@@ -131,22 +195,33 @@
             <textarea id="coverLetter" rows="5" placeholder="This is the text you will send with the email." style="width:100%; min-width:200px;"></textarea>
           </div>
         </div>
+        <br>
+        <div id="mailingList" class="">
 
-        <div class="">
-          <div class="float-left">
-            <span class="grey text-item-descr">Addresses</span>
+          <div id="inviteField" class="">
+            <div class="float-left">
+              <span class="grey text-item-descr">Addresses</span>
+            </div>
+            <form class="" action="index.html" method="post">
+              <input type="email" multiple name="mailAddress" value="" style="width:100%-300px" id="mailAddress">
+              <!-- TODO: get glyphicons to work  -->
+              <button type="button" name="invite" id="addMail"><span class="glyphicons glyphicons-user-add">add</span></button>
+            </form>
           </div>
-          <form class="" action="index.html" method="post">
-            <!-- TODO: set width properly -->
-            <input type="text" name="mailAddress" value="" style="min-width:200px">
-            <!-- TODO: get glyphicons to work  -->
-            <button type="button" name="invite" style="min-width:150px;"><span class="glyphicon glyphicons-user-add">add</span></button>
-          </form>
+          <br>
+          <div id="mailsOverview" class="">
+            <div id="emailList" class="list-group">
+              <a class="list-group-item list-group-item-action clearfix">Cras justo odio <button type="button" name="button" class="rm-on-click  pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
+              <a class="list-group-item list-group-item-action clearfix">Dapibus ac facilisis in<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
+              <a class="list-group-item list-group-item-action clearfix">Morbi leo risus<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
+              <a class="list-group-item list-group-item-action clearfix">Porta ac consectetur ac<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
+              <a class="list-group-item list-group-item-action clearfix">Vestibulum at eros<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
+            </div>
+
+          </div>
         </div>
         <div class="" style="padding-top:30px;">
-
-          <button type="button" name="abort" class="float-left">abort</button>
-          <button type="submit" name="submit" class="float-right">submit</button>
+          <button type="button" name="abort" class="float-left">Return to Profile</button>
         </div>
 
       </div>

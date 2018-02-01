@@ -42,6 +42,14 @@ router.get('/complex', function(req, res) {
 	gData.selectComplex(req, res);
 });
 
+router.get('/countProbandInSurvey', function(req, res) {
+	gData.selectCountProbandInSurvey(req, res);
+});
+
+router.get('/sexAndAti', function(req, res) {
+	gData.selectSexAndAti(req, res);
+});
+
 router.get('/exportCSV', function(req, res) {
 	eData.exportCSV(req, res);
 });
@@ -50,12 +58,24 @@ router.get('/links', function(req, res) {
 	gData.selectLinks(req, res);
 });
 
+router.get('/educationAndAti', function(req, res) {
+	gData.selectEducationAndAti(req, res);
+});
+
 router.get('/survey', function(req, res) {
 	gData.selectSurvey(req, res);
 });
 
+router.get('/surveyAndLinkByUrl', function(req, res) {
+	gData.selectSurveyAndLinkByUrl(req, res);
+});
+
 router.get('/surveyByUser', function(req, res) {
 	gData.selectSurveyByUser(req, res);
+});
+
+router.get('/std', function(req, res) {
+	gData.selectStd(req, res);
 });
 
 router.get('/user', function(req, res) {
@@ -106,6 +126,10 @@ router.put('/user', function(req, res) {
 
 
 //delete-requests
+
+router.delete('/survey', function(req, res) {
+	dData.deleteSurvey(req, res);
+});
 
 router.delete('/user', function(req, res) {
 	dData.deleteUser(req, res);

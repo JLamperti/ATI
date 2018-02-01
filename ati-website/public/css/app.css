@@ -8,19 +8,34 @@ html {
 a {
   color: white;
 }
-
+/* removes the border which appears after a user clicked on an anchor */
+*:focus {
+  outline: none;
+}
 /* color for anchors while hovering */
 
 a:hover {
   color: #c5eff7;
 }
-
+iframe{
+  width: 100%;
+  height:100%
+}
 body {
   height: 100%;
   min-height: 100%;
   color: #223241;
   text-align: justify;
   font-family: "Open Sans", sans-serif;
+  -ms-word-break: break-all;
+  -webkit-word-break: break-all;
+  -ms-word-break: break all;
+  word-break: break-all;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+   -ms-hyphens: auto;
+       hyphens: auto;
   font-size: 175%;
 }
 
@@ -32,7 +47,12 @@ h1, h2, h3, h4, h5, h6 {
 h4 {
   font-size: 110%;
 }
-
+/*fixed header */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 button {
   background-color: #fff;
   border-radius: 5px 5px 5px 5px;
@@ -40,14 +60,18 @@ button {
   -moz-border-radius: 5px 5px 5px 5px;
   padding: 5px 15px;
 }
+button:hover {
+}
 
-button:hover {}
-
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 footer {
   background-color: #344853;
+
   color: white;
   height: 15%;
-  padding-top: .75%;
+  padding-top: 0.75%;
 }
 
 /* style the footer*/
@@ -56,6 +80,20 @@ footer {
   color: white;
   height: 15%;
   padding-top: 0.75%;
+}
+form .row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+/* labels get 10px margin bottom and top*/
+label {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+:-moz-ui-invalid {
+  box-shadow: 0 0 2px red;
 }
 
 #userTypes {
@@ -69,7 +107,6 @@ footer {
 }
 
 /* add margin-bottom to this div */
-
 #scale {
   margin-bottom: 4rem;
 }
@@ -89,7 +126,7 @@ footer {
 /* mark invalid inputs in form.ejs */
 
 .invalidInput {
-  color: rgba(255, 0, 0, .9);
+  color: rgba(255, 0, 0, 0.9);
 }
 
 /* align elements in a table */
@@ -97,7 +134,11 @@ footer {
 .table .alignTD {
   text-align: center;
 }
-
+/* set the textcolor of the header */
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+  color: #c5eff7;
+}
 /* align an item to the bottom-left of the container */
 
 .bottom-left {
@@ -107,11 +148,16 @@ footer {
   margin-left: 1%;
 }
 
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #c5eff7;
+  background-color: transparent;
+}
 /* class for the Image of index.ejs */
 
 .title-screen {
   width: 100%;
-  height: 70%;
+  height: auto;
   margin-top: -20px;
 }
 
@@ -149,7 +195,7 @@ footer {
 /*style the Images for the Container 'Scientist/Developer/Teacher' */
 
 .SDT-images {
-  padding-top: 1rem;
+  margin-top: 1rem;
   width: 12rem;
   height: 12rem;
   margin-right: 2rem;
@@ -160,7 +206,6 @@ footer {
 .scientist-developer-teacher-text {
   font-size: large;
 }
-
 #answerOptions div {
   font-size: 80%;
 }
@@ -173,13 +218,11 @@ footer {
   margin-bottom: 0.25%;
   width: 35%;
 }
-
 /*lightgrey background */
 
 .background-light-grey {
   background-color: #e4e4e4;
 }
-
 /* change color if hovered over elements in the navbar */
 
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
@@ -196,7 +239,7 @@ footer {
 /* padding for the images after the title-page */
 
 .imagesPadding {
-  margin-top: -2.5%;
+  margin-top: -3.5%;
 }
 
 /*default flexbox with row direction */
@@ -223,7 +266,6 @@ footer {
   margin-bottom: 4rem;
   margin-top: 4rem;
 }
-
 /*size for the authos-images */
 
 .author-images {
@@ -236,24 +278,18 @@ footer {
 .row {
   max-width: 100%;
 }
-
-/*button to submit the questionnaire */
-
-.submit-form {
-  width: 12rem;
-  height: 4.5rem;
-  color: white;
-  border-radius: 3rem;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
-  box-shadow: none;
+/*flex row with wrap*/
+.flex-row-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
 }
 
 /*button to start the questionnaire or download */
 
 .button-start {
   margin-top: 2rem;
-  margin-bottom: 2rem;
   padding-left: 5%;
   padding-right: 5%;
   height: 5.5rem;
@@ -262,9 +298,95 @@ footer {
 }
 
 .title-img {
-  background-image: url('../images/titleImg.jpg');
+  /* background-image: url("../images/titleImg.jpg"); */
   background-size: cover;
-  background-repeat: no-repeat
+  background-repeat: no-repeat;
+}
+/* create rounded Images */
+.rounded-img {
+  border-radius: 50%;
+}
+/*width for the token */
+.token {
+  width: 45%;
+}
+/*width of the edu-question */
+.edu-desc {
+  width: 30%;
+}
+
+.bg-color-lightgrey {
+  background-color: lightgrey;
+}
+/*center an input verticaly */
+input[type="radio"] {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+/*center element vertical */
+.vertical {
+  display: flex;
+  justify-content: center;
+}
+/* center elements horizontal */
+.horizontal {
+  margin-left: auto;
+  margin-right: auto;
+}
+/*margin for the items of education */
+.edu-margin {
+  margin-top: 3rem;
+}
+/* answers for the questionnaire are invisible*/
+.answer-question-vis {
+  display: none;
+}
+/* mark the description of the invalid input */
+.invalid-input {
+  color: red;
+}
+/* set the background of every 2n+1 div to lightfgrey in the questionnaire */
+#dempographic-data .container:nth-child(odd),
+#questions .row:nth-child(odd) {
+  background-color: lightgrey;
+}
+/* margins for the demographic data sex and age */
+#sex,
+#age {
+  margin-bottom: 1em;
+}
+/* separator for elements */
+.separator {
+  border-bottom: 1px solid black;
+  width: 100%;
+  height: 10px;
+  margin: 3rem 0rem;
+}
+
+.ct-label {
+  color: black;
+}
+/*style Bars of the age charts */
+
+#ageChart .ct-series-a .ct-bar {
+  /* Colour of your bars */
+  stroke: rgb(0, 0, 200);
+  /* The width of your bars */
+  stroke-width: 0.5em;
+}
+
+/*style Bars of the default charts */
+#sexChart .ct-series-a .ct-bar,
+#defaultChart .ct-series-a .ct-bar {
+  /* Colour of your bars */
+  stroke: rgb(0, 0, 200);
+  /* The width of your bars */
+  stroke-width: 10em;
+  border: 50px solid black;
+}
+.langImgQuestionnaire {
+  height: 10%;
+  width: 10%;
 }
 
 @media (min-width: 768px) {
@@ -275,32 +397,106 @@ footer {
     flex-wrap: nowrap;
     justify-content: flex-start;
   }
-  /* scale the image to change the language screen-width > 768px*/
+  .langImgQuestionnaire {
+    height: 30%;
+    width: 30%;
+  }
+
+  /*move the right element of the navbar to the side */
+  .navbar-right-noMargin-right {
+    margin-right: -7em;
+  }
+  .second-elem-education {
+    width: 35%;
+    padding-left: 0%;
+  }
+  /* scale the image to change the language screen-width > 480px*/
   .langImg {
     width: 10%;
     height: 10%;
   }
-}
+  .ans-vis {
+    display: block;
 
-@media (max-width: 768px) {
-  /* class for the Image of index.ejs */
-  .title-screen {
-    width: auto;
-    height: 70%;
-    margin-top: -20px;
   }
+}
+@media (max-width: 768px) {
   /* container of the element to change the language. screen-width <768px */
   .li-header-right {
     width: 100%;
     font-size: medium;
   }
-  /* scale the image to change the language screen-width < 768px*/
-  .langImg {
-    width: 2rem;
-    height: 2rem;
+  .fixed-header-top {
+    margin-bottom: 21.75%;
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    padding-right: 0;
+    padding-left: 0;
+    top: 0;
+    border-width: 0 0 1px;
   }
+
+  /* flexbox column screenwidth > 768px */
+  .flex-s-col {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  /*width of the edu-question screenwidth > 768px */
+  .edu-desc {
+    width: 100%;
+  }
+  /* flexbox row screenwidth > 768px */
+  .flex-s-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  /*negative Margin for the Buttons on smallscreens*/
+  /* .btn-s-negMargin {
+    margin-bottom: -4rem;
+  } */
   .col-xs-txt {
     font-size: 50%;
+  }
+  /*width for the token on small screens*/
+  .token {
+    width: 100%;
+  }
+  .padding-left-s {
+    padding-left: 2%;
+  }
+  .second-elem-education {
+    width: 100%;
+    margin-left: 0;
+  }
+  /* visibility of the answers */
+  .ans-vis {
+    display:none;
+
+  }
+  /* visibility of the answers near the radio buttons */
+  .answer-question-vis {
+    display: inline;
+  }
+
+  /*style Bars of the age charts */
+  #ageChart .ct-series-a .ct-bar {
+    /* Colour of your bars */
+    stroke: rgb(0, 0, 200);
+    /* The width of your bars */
+    stroke-width: 0.25em;
+  }
+  /* 100% width of buttons */
+  .button-xs {
+    width: 100%;
+  }
+  .scale-txt-home-sm {
+    width: 60%;
   }
 }
 
@@ -310,11 +506,16 @@ footer {
     width: 0%;
     height: 0%;
   }
-  .title-img-xs {
-    background-image: url("../images/titleImg320_480.jpg");
-    background-size: cover;
-    background-repeat: no-repeat
+  /* scale the image to change the language screen-width > 480px*/
+  .langImg {
+    width: 10%;
+    height: 10%;
   }
+  .langImgQuestionnaire {
+    height: 10%;
+    width: 10%;
+  }
+
   /* flexbox direction column sw < 480 */
   .flex-xs-col {
     display: flex;
@@ -322,6 +523,25 @@ footer {
     flex-wrap: nowrap;
     justify-content: flex-start;
   }
+  /*style Bars of the charts */
+  #sexChart .ct-series-a .ct-bar,
+  #defaultChart .ct-series-a .ct-bar {
+    /* Colour of your bars */
+    stroke: blue;
+    /* The width of your bars */
+    stroke-width: 1em;
+  }
+  /*style Bars of the age charts */
+  #ageChart .ct-series-a .ct-bar {
+    /* Colour of your bars */
+    stroke: blue;
+    /* The width of your bars */
+    stroke-width: 0.2em;
+  }
+}
+
+@media (min-width: 360px) {
+
 }
 
 @media (min-width: 480px) {
@@ -329,6 +549,12 @@ footer {
   .padding-left-right-SDT {
     padding-left: 15.5%;
     padding-right: 15.5%;
+  }
+
+  /* scale the image to change the language screen-width < 768px*/
+  .langImg {
+    width: 10%;
+    height: 10%;
   }
 }
 
@@ -338,13 +564,21 @@ footer {
     padding-top: 7.5%;
     padding-left: 15%;
   }
+  /*style Bars of the charts */
+  #sexChart .ct-series-a .ct-bar,
+  #defaultChart .ct-series-a .ct-bar {
+    /* Colour of your bars */
+    stroke: rgb(0, 0, 233);
+    /* The width of your bars */
+    stroke-width: 6em;
+  }
   .col-md-txt {
     font-size: 85%;
   }
   /* scale the image to change the language screen-width > 1200px*/
   .langImg {
-    width: 12%;
-    height: 12%;
+    width:10%;
+    height: 10%;
   }
   /* >1200px screen-width flexbox with row direction */
   .flex-lg-row {
@@ -361,14 +595,44 @@ footer {
   .li-header-right {
     width: 60%;
   }
+  .author-width-md {
+    width: 40%;
+  }
+  /* equal width for the buttons of the index.ejs */
+  .button-md{
+    width:17rem;
+  }
+  /* visibility of the answers */
+  /* .ans-vis {
+    visibility: visible;
+    height: 0;
+  } */
+  /* visibility of the answers near the radio buttons */
+  .answer-question-vis {
+    display: none;
+    height: 0px;
+  }
+  /* set height for the answers in the questionnaire for width > 1200px */
+  .questionaire-height-md {
+    height: 3em;
+  }
+  /*center items*/
+  .text-md-center {
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  .langImgQuestionnaire {
+    height: 60%;
+    width: 60%;
+  }
+  .iframe-md{
+    width:100%;
+    height: 500px;
+  }
 }
 
 @media (max-width: 1200px) {
-  /* scale images for screen-width < 1200px*/
-  .author-images {
-    max-height: 30%;
-    max-width: 30%;
-  }
   /*style for the div Scale */
   .div-scale {
     padding: 1.5%;
@@ -379,6 +643,11 @@ footer {
     margin-left: auto;
     margin-right: auto;
   }
+  .iframe-xs{
+    width:100%;
+    height:200px;
+ }
+
   /* style the text infront of the title-page. screen-width < 1200px */
   .title-txt {
     padding-top: 2rem;
@@ -391,4 +660,70 @@ footer {
     padding-top: 4rem;
     padding-bottom: 4rem;
   }
+
+  .title-screen {
+    width: auto;
+    height: auto;
+
+    margin-top: -20px;
+  }
+}
+
+#userDataTable {
+  margin: auto;
+  width: 50%;
+}
+.flex-lesser-lg-col {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+#overviewHeader {
+}
+.studyIcon {
+  max-height: 5%;
+  max-width: 5%;
+}
+.inline {
+  display: inline;
+}
+.searchForm {
+  display: inline;
+}
+.search {
+  width: 30%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  /*background-image: url('./images/search_icon.png');*/
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+.search:focus {
+  width: 65%;
+}
+.author-margin-xs {
+  margin-top: 2rem;
+}
+.surveyMeta {
+  position: relative;
+  min-height: 10px;
+}
+.inlineBlock {
+  display: inline-block;
+  position: relative;
+}
+.float-right {
+  float: right;
+}
+.downarrow {
+  position: absolute;
+  bottom: 10;
+  right: 10;
 }
