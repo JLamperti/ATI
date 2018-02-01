@@ -148,7 +148,7 @@
                                     <div class="col-md-1"></div>
                                     <% for(var i = 1; i < 7 ; i++){%>
                                         <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q1',<%= i -1 %>)">
-                                            <span style="white-space: nowrap;">
+                                            <span style="white-space: nowrap;" class="vertical-btn ">
                                                 <input type="radio" name="q1" value="<%= i %>" required>
                                                 <span class="answer-question-vis">
                                                     <%= __('answers.answer' +i) %>
@@ -170,7 +170,7 @@
                                     <div class="col-md-1"></div>
                                     <% for(var i = 1; i < 7 ; i++){%>
                                         <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q2',<%= i -1 %>)" touchend="checkRadio('q2',<%= i -1 %>)">
-                                            <span style="white-space: nowrap;">
+                                            <span style="white-space: nowrap;" class="vertical-btn">
                                                 <input type="radio" name="q2" value="<%= i %>" required>
                                                 <span class="answer-question-vis">
                                                     <%= __('answers.answer' +i) %>
@@ -191,7 +191,7 @@
                                     <div class="col-md-1"></div>
                                     <% for(var i = 1; i < 7 ; i++){%>
                                         <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q3',<%= i -1 %>)" touchend="checkRadio('q3',<%= i -1 %>)">
-                                            <span style="white-space: nowrap;">
+                                            <span style="white-space: nowrap;" class="vertical-btn">
                                                 <input type="radio" name="q3" value="<%= 7 - i %>" required>
                                                 <span class="answer-question-vis">
                                                     <%= __('answers.answer' +i) %>
@@ -212,7 +212,7 @@
                                     <div class="col-md-1"></div>
                                     <% for(var i = 1; i < 7 ; i++){%>
                                         <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q4',<%= i -1 %>)" touchend="checkRadio('q4',<%= i -1 %>)">
-                                            <span style="white-space: nowrap;">
+                                            <span style="white-space: nowrap;" class="vertical-btn">
                                                 <input type="radio" name="q4" value="<%= i %>" required>
                                                 <span class="answer-question-vis">
                                                     <%= __('answers.answer' +i) %>
@@ -233,7 +233,7 @@
                                     <div class="col-md-1"></div>
                                     <% for(var i = 1; i < 7 ; i++){%>
                                         <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q5',<%= i -1 %>)" touchend="checkRadio('q5',<%= i -1 %>)">
-                                            <span style="white-space: nowrap;height:100%">
+                                            <span style="white-space: nowrap;height:100%" class="vertical-btn">
                                                 <input type="radio" name="q5" value="<%= i %>" required>
                                                 <span class="answer-question-vis">
                                                     <%= __('answers.answer' +i) %>
@@ -254,7 +254,7 @@
                                     <div class="col-md-1"></div>
                                     <% for(var i = 1; i < 7 ; i++){%>
                                         <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q6',<%= i -1 %>)" touchend="checkRadio('q6',<%= i -1 %>)">
-                                            <span style="white-space: nowrap;">
+                                            <span style="white-space: nowrap;" class="vertical-btn">
                                                 <input type="radio" name="q6" value=" <%= 7 - i %>" required>
                                                 <span class="answer-question-vis">
                                                     <%= __('answers.answer' +i) %>
@@ -275,7 +275,7 @@
                                     <div class="col-md-1"></div>
                                     <% for(var i = 1; i < 7 ; i++){%>
                                         <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q7',<%= i -1 %>)" touchend="checkRadio('q7',<%= i -1 %>)">
-                                            <span style="white-space: nowrap;">
+                                            <span style="white-space: nowrap;" class="vertical-btn">
                                                 <input type="radio" name="q7" value="<%=i %>" required>
                                                 <span class="answer-question-vis">
                                                     <%= __('answers.answer' +i) %>
@@ -296,7 +296,7 @@
                                     <div class="col-md-1"></div>
                                     <% for(var i = 1; i < 7 ; i++){%>
                                         <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q8',<%= i -1 %>)" touchend="checkRadio('q8',<%= i -1 %>)">
-                                            <span style="white-space: nowrap;">
+                                            <span style="white-space: nowrap;" class="vertical-btn">
                                                 <input type="radio" name="q8" value=" <%= 7 - i %>" required>
                                                 <span class="answer-question-vis">
                                                     <%= __('answers.answer' +i) %>
@@ -317,7 +317,7 @@
                                     <div class="col-md-1"></div>
                                     <% for(var i = 1; i < 7 ; i++){%>
                                         <div class="col-xs-12 col-md-1 questionaire-height-md text-md-center" onclick="checkRadio('q9',<%= i -1 %>)" touchend="checkRadio('q9',<%= i -1 %>)">
-                                            <span style="white-space: nowrap;">
+                                            <span style="white-space: nowrap;" class="vertical-btn">
                                                 <input type="radio" name="q9" value=" <%= i %>" required>
                                                 <span class="answer-question-vis">
                                                     <%= __('answers.answer' +i) %>
@@ -348,7 +348,7 @@
                                             <input type="radio" name="sex" value="1" required>
                                             <%= __('sex.male') %>
                                         </div>
-                                        <div class="col-xs-12 col-sm-4 col-md-3" onclick="checkRadio('sex',1)" touchend="checkRadio('sex',1)">
+                                        <div class="col-xs-12 col-sm-4 col-md-3" onclick="checkRadio('sex',1)" touchend="checkRadio('sex',1)" >
                                             <input type="radio" name="sex" value="2" required>
                                             <%= __('sex.female') %>
                                         </div>
