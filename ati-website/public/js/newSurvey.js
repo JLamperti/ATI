@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var IP = "http://87.146.242.114:3000";
+  var IP = "http";
 
 
 

@@ -1,10 +1,10 @@
 $(document).ready(function() {
   var SID = 1;
-  var IP = "http://87.146.242.114:3000";
+  var IP = "";
   /**
    * Loads User Info
    */
-  var url = "http://87.146.242.114:3000/db/user/?UID=1";
+  var url = IP + "/db/user/?UID=1";
   fetch(url)
     .then(res => res.json())
     .then((out) => {
@@ -40,7 +40,7 @@ $(document).ready(function() {
    * Loads Survey Info
    * TODO: move to  first req so everything gets called at once
    */
-    var url = "http://87.146.242.114:3000/db/surveyByUser?UID=1";
+    var url = IP + "/db/surveyByUser?UID=1";
     fetch(url)
       .then(res => res.json())
       .then((out) => {
