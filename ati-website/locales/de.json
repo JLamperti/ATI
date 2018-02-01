@@ -93,14 +93,14 @@
 	"user.searchText": "Durchsuchen...",
 	"user.newSurveyButton": "Neue Studie erstellen",
 	"user.detailsHeader": "Ermittelte Daten",
-	"user.period" : "Zeitraum",
-	"user.periodStart": "Ab ",
-	"user.periodEnd": "bis ",
-	"user.participants" : "Teilnehmer",
-	"user.participants.part1" : " aus ",
-	"user.participants.part2" : " haben teilgenommen",
-	"user.status": "Status",
 	"user.average": "Durchschnitt",
 	"user.deviation": "Standardabweichung",
-	"user.releaseData": "Datenfreigabe"
+	"user.releaseData": "Datenfreigabe",
+	"user.period": "Zeitraum",
+	"user.periodStart": "Von",
+	"user.periodEnd": "bis",
+	"user.participants": "Teilnehmer",
+	"user.participants.part1": "&nbsp;aus&nbsp;",
+	"user.participants.part2": "haben teilgenommen",
+	"user.status": "Status"
 }
