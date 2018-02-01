@@ -5,32 +5,35 @@
     <!-- <body onload="uncheckall()"> -->
 
     <body onload="setLang(), defaultSetup()" lang="<%= __('html.lang') %>">
-            <nav class="navbar navbar-default navbar-noMargin " style="padding-right:1%" >
-                    <div class="container-fluid">
-                      <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                          <span class="icon-bar"></span>
-                          <span class="icon-bar"></span>
-                          <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="/" touched="/">ATI - <%= __('navbar.questionnaire') %></a>
-                      </div>
-                      <div class="collapse navbar-collapse" id="myNavbar">
-                        <ul class="nav navbar-nav">                         
-                          
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right" style="height:100%" >
-                          
-                          <li class="li-header-right"><!-- class="imgLangSmall li-header-right" style="margin-right: -5%"> -->
-                                               <a href="" onclick="changeLang()" touchend="changeLang()">
-                                        <img src="./images/lang_de_en.png" class="langImgQuestionnaire">
-            
-                                    </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </nav>
+        <nav class="navbar navbar-default navbar-noMargin " style="padding-right:1%">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/" touched="/">ATI -
+                        <%= __('navbar.questionnaire') %>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right" style="height:100%">
+
+                        <li class="li-header-right">
+                            <!-- class="imgLangSmall li-header-right" style="margin-right: -5%"> -->
+                            <a href="" onclick="changeLang()" touchend="changeLang()">
+                                <img src="./images/lang_de_en.png" class="langImgQuestionnaire">
+
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
         <div id="questionnaireMain">
             <div class="container">
                 <h1>
@@ -101,7 +104,7 @@
                         <!-- questions -->
                         <!-- head -->
 
-                        <div class="row">
+                        <div class="row" style="font-size: 90%">
                             <div class="col-xs-12 col-md-5">
                                 <strong>
                                     <%= __('instruction') %>
@@ -452,17 +455,17 @@
 
             <div id="chart" style="height:25%;position:relative;z-index:-1">
                 <div id="defaultChart" class="ct-chart ct-perfect-fourth"></div>
-                
+
                 <div id="ageChart" class="ct-chart ct-perfect-fourth" style="display:none"></div>
-               
+
                 <div id="sexChart" class="ct-chart ct-perfect-fourth" style="display:none">
 
                 </div>
                 <p id="descDef" style="margin-top:-15%">
-                        <%= __('chart.descDef') %>
-                    </p>
+                    <%= __('chart.descDef') %>
+                </p>
             </div>
-            <div align="center" style="color: white;" >
+            <div align="center" style="color: white;">
                 <button onclick="defaultScale(),showChart('defaultChart')" touchend="defaultScale(),showChart('defaultChart')" class="button bg-color-theme">
                     <%= __('chart.default') %>
                 </button>
@@ -490,7 +493,7 @@
                 };
                 fetch(url)
                     .then(res => res.json())
-                    .then((out) => {                        
+                    .then((out) => {
                         var data = {
                             labels: ['[1,2)', '[2,3)', '[3,4)', '[4,5)', '[5,6]'],
                             series: [[]]
@@ -499,7 +502,7 @@
                             data.series[0][i] = out[i].amount;
                         };
                         new Chartist.Bar('#defaultChart', data, options);
-                        
+
                     })
                     .catch(err => { throw err });
             }
@@ -521,33 +524,33 @@
 
                 fetch(url)
                     .then(res => res.json())
-                    .then((out) => {                        
+                    .then((out) => {
                         for (i = 0; i < out.length; i++) {
                             data.series[0][i] = { x: out[i].Age, y: out[i].AtiScore };
-                        };                       
+                        };
                         new Chartist.Bar('#ageChart', data, options);
                     })
                     .catch(err => { throw err });
             }
             function showChart(elem) {
-                if (elem === 'ageChart') {                  
+                if (elem === 'ageChart') {
                     document.querySelector('#ageChart').style.display = 'block';
                     document.querySelector('#defaultChart').style.display = 'none';
                     document.querySelector('#sexChart').style.display = 'none';
                     showDesc('age');
-                    
+
                 } else if (elem === 'defaultChart') {
                     document.querySelector('#defaultChart').style.display = 'block';
                     document.querySelector('#ageChart').style.display = 'none';
                     document.querySelector('#sexChart').style.display = 'none';
                     showDesc('def');
-                 
+
                 } else if (elem === 'sexChart') {
                     document.querySelector('#defaultChart').style.display = 'none';
                     document.querySelector('#ageChart').style.display = 'none';
                     document.querySelector('#sexChart').style.display = 'block';
                     showDesc('sex');
-          
+
                 }
 
             }
@@ -585,7 +588,7 @@
 
                 fetch(url)
                     .then(res => res.json())
-                    .then((out) => {                      
+                    .then((out) => {
                         var male = 0;
                         var maleCounter = 0;
                         var female = 0;
@@ -607,14 +610,14 @@
                         };
                         data.series[0][0] = { x: 'male', y: male / maleCounter }
                         data.series[0][1] = { x: 'female', y: female / femaleCounter }
-                        data.series[0][2] = { x: 'other', y: other / otherCounter }                       
+                        data.series[0][2] = { x: 'other', y: other / otherCounter }
                         new Chartist.Bar('#sexChart', data, options);
                     })
                     .catch(err => { throw err });
             }
 
-           
 
 
-     </script>
+
+        </script>
     </body>

@@ -27,11 +27,11 @@ body {
   color: #223241;
   text-align: justify;
   font-family: "Open Sans", sans-serif;
-  -ms-word-break: break-all;
+  /* -ms-word-break: break-all;
   -webkit-word-break: break-all;
   -ms-word-break: break all;
   word-break: break-all;
-  word-break: break-word;
+  word-break: break-word; */
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
    -ms-hyphens: auto;
@@ -666,6 +666,23 @@ input[type="radio"] {
     height: auto;
 
     margin-top: -20px;
+  }
+  body {
+    height: 100%;
+    min-height: 100%;
+    color: #223241;
+    text-align: justify;
+    font-family: "Open Sans", sans-serif;
+    -ms-word-break: break-all;
+    -webkit-word-break: break-all;
+    -ms-word-break: break all;
+    word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+     -ms-hyphens: auto;
+         hyphens: auto;
+    font-size: 175%;
   }
 }
 
