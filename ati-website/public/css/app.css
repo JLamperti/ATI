@@ -91,6 +91,9 @@ input[type="radio"] {
   background-image: url("/images/Kursleiter_Icon.png");
 }
 
+.flex-paper{
+  padding-bottom:4rem;
+}
 /* format bg-images to fit the size of the container" */
 .bg-img-form {
   background-size: cover;
@@ -142,6 +145,8 @@ label {
   margin-top:2%;
   border-radius:5px;
   display:none;
+  width: 100%;
+  height:auto;
 }
 #userTypes {
   background-color: orange;
@@ -612,7 +617,9 @@ input[type="radio"] {
   }
   /* style textcontainer for the papers */
   .paper-param-md{
-    width:75.4%;padding-left:2%
+    width:75.4%;
+    padding-left:2%;
+  
   }
   /*style Bars of the charts */
   #sexChart .ct-series-a .ct-bar,
