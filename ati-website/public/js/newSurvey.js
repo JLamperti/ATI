@@ -1,19 +1,20 @@
 $(document).ready(function() {
   var IP = "http://87.146.242.114:3000";
+  var UID = 1;
+  var SID = 1;
 
 
 
   var pathname = window.location.pathname;
-  if (pathname.indexOf("surveyDetails")){
+  if (pathname.indexOf("surveyDetails")) {
 
-    var SID = 1;
     $('#exportCSV').attr("href", IP + "/db/exportCSV?SID=" + SID);
     displayProbandCount(SID);
     displayAvgAti(SID);
     displayAtiStd(SID);
     displaySurveyLink(SID);
     var url = "/db/survey";
-    var query = "?SID="+ SID;
+    var query = "?SID=" + SID;
     fetch(IP + url + query)
       .then(res => res.json())
       .then((res) => {
@@ -24,11 +25,11 @@ $(document).ready(function() {
           /* make the second part of the text visible again */
           $('#periodEndText').css("display", "inline");
         }
-        var takeAge = (res[0].TakeAge.data[0] == 1)? true: false;
+        var takeAge = (res[0].TakeAge.data[0] == 1) ? true : false;
         $("#takeAgeCbx").prop("checked", takeAge);
-        var takeSex = (res[0].takeSex.data[0] == 1)? true: false;
+        var takeSex = (res[0].takeSex.data[0] == 1) ? true : false;
         $("#takeSexCbx").prop("checked", takeSex);
-        var takeEdu = (res[0].TakeEducation.data[0] == 1)? true: false;
+        var takeEdu = (res[0].TakeEducation.data[0] == 1) ? true : false;
         $("#takeEduCbx").prop("checked", takeEdu);
         $('#status').append(res[0].SurveyStatus);
         $("display", "inherit");
@@ -50,9 +51,10 @@ $(document).ready(function() {
 
 
 
+  /**
+   * Submits form data to server
+   */
   $('#submit').on('click', function() {
-    /*tmp var */
-    var UID = 1;
 
     var coverLetter = $('#coverLetter').val();
     var emails = $('#emailList').text();
@@ -144,7 +146,7 @@ $(document).ready(function() {
 
 
   /**
-   * sets default start date to today
+   * sets default start date of a survey to today
    */
   $('#begin').val(new Date().toDateInputValue());
 
@@ -181,12 +183,11 @@ $(document).ready(function() {
   });
 
   /**
-  * checks if an email is already contained in the page
-  * @param mail: the email that may be contained in the listed
-  * @return: email is contained in the page: true/false
-  */
+   * checks if an email is already contained in the page
+   * @param mail: the email that may be contained in the listed
+   * @return: email is contained in the page: true/false
+   */
   function checkUnique(mail) {
-    /* check if email is already listed */
     var emails = $('#emailList').text();
 
     if (emails.indexOf(mail) != -1) {
@@ -197,72 +198,84 @@ $(document).ready(function() {
 
   }
 
-
-  function displaySurveyLink(SID){
+  /**
+   * gets and displays one of the survey links
+   * TODO: list all available survey links
+   */
+  function displaySurveyLink(SID) {
     var url = "/db/links";
     var query = "?SID=" + SID;
     fetch(IP + url + query)
-    .then(res => res.json())
-    .then((links) => {
-      console.log(links);
-      for (link in links){
-        console.log(links[link].url);
-        $('#surveyLink').val("https://technikaffinitaet.de/form?inv=" + links[link].url);
-      }
+      .then(res => res.json())
+      .then((links) => {
+        console.log(links);
+        for (link in links) {
+          console.log(links[link].url);
+          $('#surveyLink').val("https://technikaffinitaet.de/form?inv=" + links[link].url);
+        }
 
-    })
-    .catch(err => {
-      throw err
-    });
+      })
+      .catch(err => {
+        throw err
+      });
     // TODO: klajsdkjas
   }
+
+  /**
+   * gets the number of probands and adds it to the display
+   */
   function displayProbandCount(SID) {
     var url = "/db/countProbandInSurvey";
     var query = "?SID=" + SID;
     fetch(IP + url + query)
-    .then(res => res.json())
-    .then((countProbandInSurvey) => {
-      $('#participantsCurrent').append(countProbandInSurvey[0].count);
-    })
-    .catch(err => {
-      throw err
-    });
+      .then(res => res.json())
+      .then((countProbandInSurvey) => {
+        $('#participantsCurrent').append(countProbandInSurvey[0].count);
+      })
+      .catch(err => {
+        throw err
+      });
   }
-
+  /**
+   * gets and the average ATI-score for the survey and adds it to the display
+   */
   function displayAvgAti(SID) {
     var url = "/db/avg?sel[0]=atiScore&fromSurv=";
     var query = "?sel[0]=atiScore&fromSurv=" + SID;
     fetch(IP + url + query)
-    .then(res => res.json())
-    .then((avgAtiScore) => {
-      $('#avgAtiScore').append(avgAtiScore[0].avgatiScore);
-    })
-    .catch(err => {
-      throw err
-    });
+      .then(res => res.json())
+      .then((avgAtiScore) => {
+        $('#avgAtiScore').append(avgAtiScore[0].avgatiScore);
+      })
+      .catch(err => {
+        throw err
+      });
   }
 
+  /**
+   * gets the standard deviations of ATI, Age (and one other value, not sure which one atm) and adds the ATI-std to the display
+   */
   function displayAtiStd(SID) {
     var url = "/db/std";
-    var query = "?SID="+ SID;
+    var query = "?SID=" + SID;
     fetch(IP + url + query)
-    .then(res => res.json())
-    .then((std) => {
-      $('#atiStd').append(std[0].stdatiScore);
-    })
-    .catch(err => {
-      throw err
-    });
+      .then(res => res.json())
+      .then((std) => {
+        $('#atiStd').append(std[0].stdatiScore);
+      })
+      .catch(err => {
+        throw err
+      });
   }
 
 });
 
 
-  /**
-   *returns timezone-offset date
-   */
-  Date.prototype.toDateInputValue = (function() {
-    var local = new Date(this);
-    local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
-    return local.toJSON().slice(0, 10);
-  });
+/**
+ *returns timezone-offset date
+ */
+Date.prototype.toDateInputValue = (function() {
+  var local = new Date(this);
+  local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+  return local.toJSON().slice(0, 10);
+});
