@@ -71,6 +71,25 @@ input[type="radio"]{
 #instructions{
   text-align: justify;
 }
+#img-scientist{
+  /* width:100%;
+  height:auto;  */
+
+  background-image: url('/images/Forscher_Icon.png');
+}
+#img-developer{ background-image: url('/images/Entwickler_Icon.png');}
+#img-teacher{ background-image: url('/images/Kursleiter_Icon.png');}
+
+/* format bg-images to fit the size of the container" */
+.bg-img-form{
+  background-size: cover;
+  background-position: center center;
+}
+/* width/height of the container */
+.bg-img-container{
+  width:10em;
+  height: 10em;
+}
 .vcenter {
   display: inline-block;
   vertical-align: middle;
@@ -415,6 +434,11 @@ input[type="radio"] {
     width: 100%;
     font-size: medium;
   }
+  /* width/height of the container */
+.bg-img-container{
+  width:7.5em;
+  height: 7.5em;
+}
   /* fixed header for devices with a screenwidth < 768px */
   .fixed-header-top {
     margin-bottom: 21.75%;
@@ -505,6 +529,11 @@ input[type="radio"] {
     height: 10%;
     width: 10%;
   }
+  /* width/height of the container */
+.bg-img-container{
+  width:5em;
+  height: 5em;
+}
 
   /* flexbox direction column sw < 480 */
   .flex-xs-col {
