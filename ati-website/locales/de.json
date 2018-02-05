@@ -154,5 +154,6 @@
 	"chart.descAge": "Die x-Achse bildet das Alter ab und die y-Achse bildet den durchschnittlichen ATI-Wert ab",
 	"questionnaire.dontSend": "Ich bin nicht damit einverstanden, dass meine Daten weiterverwendet werden",
 	"index.publication": "wissenschaftliche Publikationen",
-	"index.Poster": "Plakat"
+	"index.Poster": "Plakat",
+	"index.publicationIntro": "Hier finden Sie die wissenschaftlichen Publikationen zur ATI-Skala"
 }
