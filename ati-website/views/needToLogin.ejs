@@ -7,7 +7,7 @@
     <%- include ./partials/header %>
   </header>
 
-
+  <main>
   <div>
     <div class="container column" style="padding-top:10%">
       <div class="jumbotron col-sm-4 col-sm-offset-4  pull-center">
@@ -24,7 +24,7 @@
       </div>
     </div>
   </div>
-
+</main>
 
   <!-- <footer class="navbar">
     <%- include ./partials/footer %>
@@ -49,6 +49,23 @@
   }
 
   }, 1000);
+
+  /*fixed header */
+  var m = document.querySelector("main"),
+      h = document.querySelector("header"),
+      hHeight;
+
+  function setTopPadding() {
+    hHeight = h.offsetHeight;
+    m.style.paddingTop = hHeight + "px";
+  }
+
+  window.onload = function() {
+    setTopPadding();
+  };
+  window.onresize = function() {
+    setTopPadding();
+  };
 
   </script>
 </body>
