@@ -4,7 +4,6 @@ html {
 }
 
 /*color for anchors */
-
 a {
   color: white;
 }
@@ -13,33 +12,39 @@ a {
   outline: none;
 }
 /* color for anchors while hovering */
-
 a:hover {
   color: #c5eff7;
 }
-iframe{
+/*style iframes */
+iframe {
   width: 100%;
-  height:100%
+  height: 100%;
 }
+/*style body with hyphens (no wordbreak) */
 body {
   height: 100%;
   min-height: 100%;
   color: #223241;
   text-align: justify;
   font-family: "Open Sans", sans-serif;
-  -ms-word-break: break-all;
+  /* -ms-word-break: break-all;
   -webkit-word-break: break-all;
   -ms-word-break: break all;
   word-break: break-all;
-  word-break: break-word;
+  word-break: break-word; */
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
-   -ms-hyphens: auto;
-       hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
   font-size: 175%;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Titillium Web", sans-serif;
   font-weight: 500;
 }
@@ -53,6 +58,7 @@ header {
   top: 0;
   width: 100%;
 }
+/*style default buttons*/
 button {
   background-color: #fff;
   border-radius: 5px 5px 5px 5px;
@@ -60,27 +66,37 @@ button {
   -moz-border-radius: 5px 5px 5px 5px;
   padding: 5px 15px;
 }
-button:hover {
-}
 
+/*inputs from the type number will look like textfields on Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
 }
+input[type="radio"]{
+  vertical-align: middle;
+}
+.vertical-btn{
+  vertical-align: middle;
+}
+.vcenter {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+/*style the footer */
 footer {
   background-color: #344853;
-
   color: white;
   height: 15%;
   padding-top: 0.75%;
 }
 
 /* style the footer*/
-
 footer {
   color: white;
   height: 15%;
   padding-top: 0.75%;
 }
+/*set the margin left/right for rows in a form */
 form .row {
   margin-left: -15px;
   margin-right: -15px;
@@ -92,6 +108,7 @@ label {
   margin-bottom: 10px;
 }
 
+/* style the invalid inputs for Firefox */
 :-moz-ui-invalid {
   box-shadow: 0 0 2px red;
 }
@@ -112,25 +129,21 @@ label {
 }
 
 /*set color of the element what-why-how */
-
 #div-what-why-how {
   color: white;
 }
 
 /*themecolor of the site */
-
 .bg-color-theme {
   background-color: #344853;
 }
 
 /* mark invalid inputs in form.ejs */
-
 .invalidInput {
   color: rgba(255, 0, 0, 0.9);
 }
 
 /* align elements in a table */
-
 .table .alignTD {
   text-align: center;
 }
@@ -140,21 +153,19 @@ label {
   color: #c5eff7;
 }
 /* align an item to the bottom-left of the container */
-
 .bottom-left {
   position: absolute;
   bottom: 0;
   left: 0;
   margin-left: 1%;
 }
-
+/* set the color for hovering over the navbaritems*/
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
   color: #c5eff7;
   background-color: transparent;
 }
 /* class for the Image of index.ejs */
-
 .title-screen {
   width: 100%;
   height: auto;
@@ -162,20 +173,17 @@ label {
 }
 
 /*position navbar on the upper edge */
-
 .navbar-noMargin {
   margin-top: 0;
 }
 
 /* padding for the elements in WhatHowWhy and WhoWeAre */
-
 .div-padding-min {
   padding-left: 5%;
   padding-right: 5%;
 }
 
 /*padding for the container of WhatHowWhy and WhoWeAre */
-
 .div-padding-row {
   padding-left: 5%;
   padding-right: 5%;
@@ -184,7 +192,6 @@ label {
 }
 
 /*padding for the Scientist/Developer/Teacher divs.*/
-
 .div-padding-row-SDT {
   padding-left: 9.75%;
   padding-right: 9%;
@@ -193,7 +200,6 @@ label {
 }
 
 /*style the Images for the Container 'Scientist/Developer/Teacher' */
-
 .SDT-images {
   margin-top: 1rem;
   width: 12rem;
@@ -202,7 +208,6 @@ label {
 }
 
 /* Font-Size for the SDT-Text */
-
 .scientist-developer-teacher-text {
   font-size: large;
 }
@@ -211,7 +216,6 @@ label {
 }
 
 /*style for the div Scale */
-
 .div-scale {
   padding: 1.5%;
   background-color: #e4e4e4;
@@ -219,31 +223,27 @@ label {
   width: 35%;
 }
 /*lightgrey background */
-
 .background-light-grey {
   background-color: #e4e4e4;
 }
 /* change color if hovered over elements in the navbar */
-
-.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
   color: #c5eff7;
 }
 
 /* scales the images of the Scientist/Developer/Teacher */
-
 .scientist-developer-teacher-images {
   max-width: 70%;
   max-height: 70%;
 }
 
 /* padding for the images after the title-page */
-
 .imagesPadding {
   margin-top: -3.5%;
 }
 
 /*default flexbox with row direction */
-
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -252,7 +252,6 @@ label {
 }
 
 /*default flexbox with column direction */
-
 .flex-col {
   display: flex;
   flex-direction: column;
@@ -261,20 +260,17 @@ label {
 }
 
 /* margin for the container which contains the DL and the form button */
-
 .index-container-margin-bottom-bot {
   margin-bottom: 4rem;
   margin-top: 4rem;
 }
 /*size for the authos-images */
-
 .author-images {
   max-height: 40%;
   max-width: 40%;
 }
 
 /* width of the rows */
-
 .row {
   max-width: 100%;
 }
@@ -287,7 +283,6 @@ label {
 }
 
 /*button to start the questionnaire or download */
-
 .button-start {
   margin-top: 2rem;
   padding-left: 5%;
@@ -296,9 +291,8 @@ label {
   color: white;
   border-radius: 1rem;
 }
-
+/*style the title image */
 .title-img {
-  /* background-image: url("../images/titleImg.jpg"); */
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -314,7 +308,7 @@ label {
 .edu-desc {
   width: 30%;
 }
-
+/*background color lightgrey */
 .bg-color-lightgrey {
   background-color: lightgrey;
 }
@@ -362,7 +356,7 @@ input[type="radio"] {
   height: 10px;
   margin: 3rem 0rem;
 }
-
+/* style labels on the charts */
 .ct-label {
   color: black;
 }
@@ -384,6 +378,7 @@ input[type="radio"] {
   stroke-width: 10em;
   border: 50px solid black;
 }
+/*style the language icon on the form */
 .langImgQuestionnaire {
   height: 10%;
   width: 10%;
@@ -415,9 +410,9 @@ input[type="radio"] {
     width: 10%;
     height: 10%;
   }
+  /* hide answers on the form */
   .ans-vis {
     display: block;
-
   }
 }
 @media (max-width: 768px) {
@@ -426,6 +421,7 @@ input[type="radio"] {
     width: 100%;
     font-size: medium;
   }
+  /* fixed header for devices with a screenwidth < 768px */
   .fixed-header-top {
     margin-bottom: 21.75%;
     position: fixed;
@@ -476,8 +472,7 @@ input[type="radio"] {
   }
   /* visibility of the answers */
   .ans-vis {
-    display:none;
-
+    display: none;
   }
   /* visibility of the answers near the radio buttons */
   .answer-question-vis {
@@ -511,6 +506,7 @@ input[type="radio"] {
     width: 10%;
     height: 10%;
   }
+  /*style the language icon on the form */
   .langImgQuestionnaire {
     height: 10%;
     width: 10%;
@@ -541,7 +537,6 @@ input[type="radio"] {
 }
 
 @media (min-width: 360px) {
-
 }
 
 @media (min-width: 480px) {
@@ -572,12 +567,13 @@ input[type="radio"] {
     /* The width of your bars */
     stroke-width: 6em;
   }
+  /* set the fontsize for col-md */
   .col-md-txt {
     font-size: 85%;
   }
   /* scale the image to change the language screen-width > 1200px*/
   .langImg {
-    width:10%;
+    width: 10%;
     height: 10%;
   }
   /* >1200px screen-width flexbox with row direction */
@@ -599,14 +595,10 @@ input[type="radio"] {
     width: 40%;
   }
   /* equal width for the buttons of the index.ejs */
-  .button-md{
-    width:17rem;
+  .button-md {
+    width: 17rem;
   }
-  /* visibility of the answers */
-  /* .ans-vis {
-    visibility: visible;
-    height: 0;
-  } */
+
   /* visibility of the answers near the radio buttons */
   .answer-question-vis {
     display: none;
@@ -622,12 +614,14 @@ input[type="radio"] {
     margin-top: auto;
     margin-bottom: auto;
   }
+  /*style the language icon on the form */
   .langImgQuestionnaire {
     height: 60%;
     width: 60%;
   }
-  .iframe-md{
-    width:100%;
+  /* style iframe */
+  .iframe-md {
+    width: 100%;
     height: 500px;
   }
 }
@@ -643,10 +637,11 @@ input[type="radio"] {
     margin-left: auto;
     margin-right: auto;
   }
-  .iframe-xs{
-    width:100%;
-    height:200px;
- }
+  /* style iframe */
+  .iframe-xs {
+    width: 100%;
+    height: 200px;
+  }
 
   /* style the text infront of the title-page. screen-width < 1200px */
   .title-txt {
@@ -660,12 +655,30 @@ input[type="radio"] {
     padding-top: 4rem;
     padding-bottom: 4rem;
   }
-
+  /*style the titleimage */
   .title-screen {
     width: auto;
     height: auto;
 
     margin-top: -20px;
+  }
+  /*add break-word for small screens */
+  body {
+    height: 100%;
+    min-height: 100%;
+    color: #223241;
+    text-align: justify;
+    font-family: "Open Sans", sans-serif;
+    -ms-word-break: break-all;
+    -webkit-word-break: break-all;
+    -ms-word-break: break all;
+    word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    font-size: 175%;
   }
 }
 
