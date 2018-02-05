@@ -16,14 +16,14 @@ exports.setDba = function(newDba) {
 * selects age and the ati score of all probands except for duplicates (token)
 */
 exports.selectAgeAndAti = function(req, res) {
-	dba.manipulateDB("SELECT Age, AtiScore FROM allesOhneDuplikate;", req, res);
+	dba.manipulateDB("SELECT AVG(atiScore) as score, age from allesOhneDuplikate GROUP BY age;", req, res);
 };
 
 /**
 * selects sex and the ati score of all probands except for duplicates (token)
 */
 exports.selectSexAndAti = function(req, res) {
-	dba.manipulateDB("SELECT Sex, AtiScore FROM allesOhneDuplikate;", req, res);
+	dba.manipulateDB("SELECT sex, AVG(AtiScore) as score FROM allesOhneDuplikate GROUP BY sex;", req, res);
 };
 
 /**

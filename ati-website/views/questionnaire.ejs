@@ -527,7 +527,7 @@
                     .then(res => res.json())
                     .then((out) => {
                         for (i = 0; i < out.length; i++) {
-                            data.series[0][i] = { x: out[i].Age, y: out[i].AtiScore };
+                            data.series[0][i] = { x: out[i].age, y: out[i].score };
                         };
                         new Chartist.Bar('#ageChart', data, options);
                     })
@@ -569,7 +569,7 @@
 
 
             function sexScale() {
-                var url = '/db/complex?sel[0]=atiScore&sel[1]=sex';
+                var url = '/db/sexAndAti';
                 var m = '<%= __('sex.male') %>';
                 var f = '<%= __('sex.female') %>';
                 var o = '<%= __('sex.other') %>';
@@ -599,13 +599,13 @@
                         for (i = 0; i < out.length; i++) {
                             if (out[i].sex === 3) {
 
-                                other += out[i].atiScore;
+                                other += out[i].score;
                                 otherCounter += 1;
                             } else if (out[i].sex === 1) {
-                                male += out[i].atiScore;
+                                male += out[i].score;
                                 maleCounter += 1;
                             } else if (out[i].sex === 2) {
-                                female += out[i].atiScore;
+                                female += out[i].score;
                                 femaleCounter += 1;
                             }
                         };
