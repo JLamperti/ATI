@@ -110,7 +110,7 @@
                                     <%= __('instruction') %>
                                 </strong>
                             </div>
-                            <div class="ans-vis">
+                            <div class="ans-vis" id="instructions">
                                 <div class="col-md-1"></div>
 
                                 <div class="col-sm-2 col-md-1       text-md-center">
@@ -430,6 +430,7 @@
                     </div>
                     <div class=" separator"></div>
                     <div align="center" style="width:100%">
+                       <p><input type="checkbox" id="dontSendData" name="dontSendData"><%= __('questionnaire.dontSend') %></p> 
                         <button class="button  button-start bg-color-theme" onclick="checkAnswers(),showResult(), defaultScale()" touchend="checkAnswers(),showResult(), defaultScale()"
                             style="margin-bottom:10px">
                             <%= __('btn.submit') %>
@@ -446,7 +447,7 @@
             </p>
             <p>
                 <%= __('questionnaire.resultDesc1') %>
-                    <span id="uSc"></span>
+                   <strong><span id="uSc"></span></strong>
                     <%= __('questionnaire.resultDesc2') %>
             </p>
             <p>

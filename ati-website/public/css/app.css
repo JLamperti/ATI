@@ -25,17 +25,8 @@ body {
   height: 100%;
   min-height: 100%;
   color: #223241;
-  text-align: justify;
-  font-family: "Open Sans", sans-serif;
-  /* -ms-word-break: break-all;
-  -webkit-word-break: break-all;
-  -ms-word-break: break all;
-  word-break: break-all;
-  word-break: break-word; */
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  hyphens: auto;
+  text-align: left;
+  font-family: "Open Sans", sans-serif; 
   font-size: 175%;
 }
 
@@ -77,6 +68,9 @@ input[type="radio"]{
 .vertical-btn{
   vertical-align: middle;
 }
+#instructions{
+  text-align: justify;
+}
 .vcenter {
   display: inline-block;
   vertical-align: middle;
@@ -110,7 +104,7 @@ label {
 
 /* style the invalid inputs for Firefox */
 :-moz-ui-invalid {
-  box-shadow: 0 0 2px red;
+  box-shadow: none;
 }
 
 #userTypes {
@@ -662,24 +656,7 @@ input[type="radio"] {
 
     margin-top: -20px;
   }
-  /*add break-word for small screens */
-  body {
-    height: 100%;
-    min-height: 100%;
-    color: #223241;
-    text-align: justify;
-    font-family: "Open Sans", sans-serif;
-    -ms-word-break: break-all;
-    -webkit-word-break: break-all;
-    -ms-word-break: break all;
-    word-break: break-all;
-    word-break: break-word;
-    -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    hyphens: auto;
-    font-size: 175%;
-  }
+ 
 }
 
 #userDataTable {

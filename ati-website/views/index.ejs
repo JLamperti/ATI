@@ -80,8 +80,8 @@
 
       <div style="width:40%"></div>
 
-      <div style="width:20%; margin-left:auto;margin-right:auto; " align="center">
-        <h2>
+      <div style="width:20%; margin-left:auto;margin-right:auto; " align="center" >
+        <h2 >
           <%= __('theScale') %>
         </h2>
       </div>
@@ -90,7 +90,7 @@
 
     </div>
 
-    <div class="index-container-margin-bottom flex-lg-row flex-md-col " id="scale">
+    <div class="index-container-margin-bottom flex-lg-row flex-md-col " >
 
       <div style="width:10%"></div>
 
@@ -342,8 +342,8 @@
             if (target.length) {
               // Only prevent default if animation is actually gonna happen
               event.preventDefault();
-              $('html, body').animate({
-                scrollTop: target.offset().top
+              $('html, body').animate({               
+                scrollTop: target.offset().top - 70+'px'
               }, 1000, function () {
                 // Callback after animation
                 // Must change focus!

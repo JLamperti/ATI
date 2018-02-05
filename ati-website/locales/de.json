@@ -141,7 +141,6 @@
 	"pwreset.newPW": "Neues Passwort",
 	"pwreset.conf-newPW": "Neues Passwort wiederholen",
 	"pwreset.setPW": "Neues Passwort übernehmen",
-	"pwreset.no-pwmatch": "Die Passwörter stimmen nicht überein!",
 	"pwreset.no-pwmatch": "The passwords do not match!",
 	"login.need-to-login": "Für diese Funktion müssen Sie eingeloggt sein.",
 	"login.to-login": "Zum Login",
@@ -152,5 +151,6 @@
 	"message.start": "Zur Startseite",
 	"chart.descDef": "Die x-Achse bildet die ATI-Werte ab und die y-Achse bildet die Anzahl der Nutzer ab",
 	"chart.descSex": "Die x-Achse bildet das Geschlecht ab und die y-Achse bildet den durchschnittlichen ATI-Wert ab",
-	"chart.descAge":"Die x-Achse bildet das Alter ab und die y-Achse bildet den durchschnittlichen ATI-Wert ab"
+	"chart.descAge": "Die x-Achse bildet das Alter ab und die y-Achse bildet den durchschnittlichen ATI-Wert ab",
+	"questionnaire.dontSend": "Ich bin nicht damit einverstanden, dass meine Daten weiterverwendet werden"
 }
