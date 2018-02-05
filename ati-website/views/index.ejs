@@ -2,7 +2,7 @@
   <title>ATI</title>
   </head>
 
-  <body onload="setLang()" lang="<%= __('html.lang') %>">
+  <body onload="setLang()" lang="<%= __('html.lang') %>" style="z-index: -1">
     <header id="indexHeader">
       <%- include ./partials/header %>
     </header>
@@ -206,7 +206,7 @@
             </div>
             <button class="button bg-color-theme button-start" onclick="displayScale()"><%= __('index.publication') %></button>
           </div>
-              <div class="jumbotron" id="papers" style="z-index: -1;display:none">
+              <div class="jumbotron" id="papers" style="display:none">
                 <p><%= __('index.publicationIntro') %></p>
                 <div class="row">
                   <div class="col-md-2" >  
