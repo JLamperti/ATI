@@ -19,3 +19,12 @@ function changeLang() {
   console.log(document.cookie);
   location.reload();
 }
+
+function displayScale(){
+  let elem = document.getElementById('papers');
+  if(elem.style.display === 'none'){
+    elem.style.display = 'block';
+  }else{
+    elem.style.display = 'none';
+  }
+}
