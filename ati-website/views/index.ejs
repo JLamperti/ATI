@@ -200,13 +200,33 @@
               <%= __('scientistText') %>
             </p>
           </div>
-
+          <div>
             <div class="iframe-md iframe-xs">
                 <iframe class="" src="https://www.youtube.com/embed/tbyKkZZNUzA" allowfullscreen  alt="in this video Prof. Franke discusses why ATI is relevant"></iframe>
-              </div>
-             <a href="https://www.researchgate.net/publication/318745431_Assessing_Affinity_for_Technology_Interaction_-_The_Affinity_for_Technology_Interaction_ATI_Scale_Scale_Description_-_English_and_German_Scale_Version">
-                 <button class="button bg-color-theme button-start">Paper</button>
-              </a>
+            </div>
+            <button class="button bg-color-theme button-start" onclick="displayScale()"><%= __('index.publication') %></button>
+          </div>
+              <div class="jumbotron" id="papers" style="display:none">
+                <p>Hier finden Sie die wissenschaftlichen Publikationen zur ATI-Skala</p>
+                <div class="row">
+                  <div class="col-md-2" >  
+                    <a href="https://www.researchgate.net/publication/318745431_Assessing_Affinity_for_Technology_Interaction_-_The_Affinity_for_Technology_Interaction_ATI_Scale_Scale_Description_-_English_and_German_Scale_Version">
+                    <button type="button" class="button bg-color-theme btn-index-lg">Paper</button>
+                    </a>
+                  </div>
+                  <div class="col-md-10"> Franke, Thomas & Attig, Christiane & Wessel, Daniel. (2017). Assessing Affinity for Technology Interaction – The Affinity for Technology Interaction (ATI) Scale. Scale Description – English and German Scale Version.
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2" >  
+                      <a href="/dlPoster">
+                      <button type="button" class="button bg-color-theme btn-index-lg"><%= __('index.Poster') %></button>
+                      </a>
+                    </div>
+                    <div class="col-md-10"> Franke, Thomas & Attig, Christiane & Wessel, Daniel. (2017). Assessing Personality Differences in Human-technology Interaction: An Overview of Key Self-report Scales to Predict Successful Interaction & a New Scale to Assess Affinity for Technology
+                    </div>
+                  </div>
+              </div>              
         </div>
 
       </div>

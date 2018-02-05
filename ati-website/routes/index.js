@@ -34,6 +34,9 @@ router.use('/dlXLSen', function(req, res){
 router.use('/dlXLSde', function(req, res){
   res.download('public/files/import_vorlage_ati.xls');
 });
+router.use('/dlPoster', function(req, res){
+  res.download('public/files/Attig_Wessel_Franke_2017_Assessing Personality Differences in HCI-1.pdf');
+});
 
 // //toogle the language
 // router.use('/toggle', function (req, res) {

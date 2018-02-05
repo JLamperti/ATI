@@ -1,6 +1,6 @@
 //create a cookie
 console.log(document.cookie);
-function setLang() {
+
     if(!document.cookie){
   //get the language of the Browser
   let userLang = navigator.language || navigator.userLanguage.toString();
@@ -8,7 +8,7 @@ function setLang() {
   let val = userLang == "en-US" ? "en" : "de";
   //create cookie
   document.cookie = "locale=" + val + "; path=/";}
-}
+
 //change the language and reload the site
 function changeLang() {
   if (document.cookie.toString() == "locale=en") {
@@ -18,4 +18,13 @@ function changeLang() {
   }
   console.log(document.cookie);
   location.reload();
+}
+
+function displayScale(){
+  let elem = document.getElementById('papers');
+  if(elem.style.display === 'none'){
+    elem.style.display = 'block';
+  }else{
+    elem.style.display = 'none';
+  }
 }
