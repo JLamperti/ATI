@@ -12,6 +12,8 @@
     <%- include ./partials/header %>
   </header>
 
+
+  <main>
   <div class="container" style="padding-top:4%; ">
     	<div class="row">
 			<div class="col-md-6 col-md-offset-3">
@@ -43,7 +45,7 @@
 									</div> -->
 									<div class="form-group">
 										<div class="row">
-											<div class="col-sm-6 col-sm-offset-3">
+											<div class="col-sm-6 col-sm-offset-4">
 												<input type="submit" name="login-submit" id="login-submit" tabindex="3" class="form-control btn btn-login" value="<%- __('login.login') %>">
 											</div>
 										</div>
@@ -73,7 +75,7 @@
 									</div>
 									<div class="form-group">
 										<div class="row">
-											<div class="col-sm-6 col-sm-offset-3">
+											<div class="col-sm-6 col-sm-offset-4">
 												<input type="submit" name="register-submit" id="register-submit" tabindex="5" class="form-control btn btn-login" value="<%- __('login.register') %>">
 											</div>
 										</div>
@@ -100,6 +102,7 @@
 		</div>
 	</div>
 
+</main>
   <!--
   <footer class="bg-color-theme">
     <%- include ./partials/footer %>
@@ -128,6 +131,22 @@
 
 });
 
+/*fixed header */
+var m = document.querySelector("main"),
+    h = document.querySelector("header"),
+    hHeight;
+
+function setTopPadding() {
+  hHeight = h.offsetHeight;
+  m.style.paddingTop = hHeight + "px";
+}
+
+window.onload = function() {
+  setTopPadding();
+};
+window.onresize = function() {
+  setTopPadding();
+};
 
    // A small script to notify tne user if passwords don't match up.
    function checkPW() {
