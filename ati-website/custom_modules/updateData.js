@@ -5,7 +5,7 @@ var dba;		//the db-acces object that actually performs sql-statements
 /**
 * sets the dba
 * called by db.js after creating a dba
-* 
+*
 * @param newDba the dba of the db.js
 */
 exports.setDba = function(newDba) {
@@ -14,12 +14,12 @@ exports.setDba = function(newDba) {
 
 /**
 * updates a survey
-* 
+*
 * parameters have to be in the body
 * mandatory-parameters: SID
 * optional-parameters: description, name, maxProbands, status, begin, end, inviteText
 * dates need to have the format yyyy-mm-dd
-* 
+*
 * for details on what a specific line does compare to other functions (e.g. in postData.js)
 */
 exports.updateSurvey = function (req, res) {
@@ -93,11 +93,11 @@ exports.updateSurvey = function (req, res) {
 
 /**
 * updates a user
-* 
+*
 * parameters have to be in the body
 * mandatory-parameters: UID
-* optional-parameters: name, email, pw, PID
-* 
+* optional-parameters: name, email, pw, PID, scientist, developer, teacher
+*
 * for info on a specific line compare to other functions (e.g. in postData.js)
 */
 exports.updateUser = function (req, res) {
@@ -147,12 +147,5 @@ exports.updateUser = function (req, res) {
 	}
 	tmpString += ' WHERE UserID = ' + req.body.UID + ';';
 	dba.manipulateDB(tmpString, req, res);
-	
+
 };
-
-
-
-
-
-
-

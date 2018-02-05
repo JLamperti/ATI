@@ -74,7 +74,7 @@ $(document).ready(function() {
       var MaxProbands = $('#MaxProbands').val();
     }
 
-    let testData = JSON.stringify({
+    let newSurveyData = JSON.stringify({
       UID: UID,
       Name: surveyName,
       Description: description,
@@ -95,7 +95,7 @@ $(document).ready(function() {
           'Content-type': 'application/json'
         },
         method: 'POST',
-        body: testData
+        body: newSurveyData
       })
       .then((out) => {
         console.log(out);
