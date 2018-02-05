@@ -29,7 +29,6 @@ body {
   font-family: "Open Sans", sans-serif;
   font-size: 175%;
 }
-
 h1,
 h2,
 h3,
@@ -136,7 +135,13 @@ label {
 :-moz-ui-invalid {
   box-shadow: none;
 }
-
+#papers{
+  padding:2%;
+  background-color:lightgrey;
+  margin-top:2%;
+  border-radius:5px;
+  display:none;
+}
 #userTypes {
   background-color: orange;
   width: 100%;
@@ -458,16 +463,17 @@ input[type="radio"] {
   }
   /* fixed header for devices with a screenwidth < 768px */
   .fixed-header-top {
-    margin-bottom: 21.75%;
-    position: fixed;
-    right: 0;
+    /* margin-bottom: 21.75%;
+    position: fixed; */
+    /* right: 0;
     left: 0;
-    z-index: 1030;
+    z-index: 1030; */
     padding-right: 0;
     padding-left: 0;
     top: 0;
     border-width: 0 0 1px;
   }
+ 
 
   /* flexbox column screenwidth > 768px */
   .flex-s-col {
@@ -598,6 +604,14 @@ input[type="radio"] {
   .title-txt {
     padding-top: 7.5%;
     padding-left: 15%;
+  }
+  /*style buttons of the papers section */
+  .btn-papers-md{
+    width:16.6%;
+  }
+  /* style textcontainer for the papers */
+  .paper-param-md{
+    width:75.4%;padding-left:2%
   }
   /*style Bars of the charts */
   #sexChart .ct-series-a .ct-bar,
