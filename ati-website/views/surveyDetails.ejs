@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
   <script src="/js/jquery-3.2.1.min.js"></script>
   <script src="/js/bootstrap/bootstrap.min.js"></script>
-  <script src="/js/newSurvey.js"></script>
+  <script src="/js/surveyDetails.js"></script>
 
 
 
@@ -40,7 +40,7 @@
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
             <li>
-              <a >
+              <a>
                 Survey Details
               </a>
             </li>
@@ -68,14 +68,50 @@
       <div class="nested-container">
 
         <h2 id="surveyName"></h2>
-        <div class="clearfix">
+        <div id="linkContainer" class="clearfix">
+          <div id="linkDisplay" class="clearfix">
 
-          <div class="float-left">
-            <span class="grey text-item-descr">Link</span>
+            <div class="float-left">
+              <span class="grey text-item-descr">Link</span>
+            </div>
+            <div class="float-left">
+              <input id="surveyLink" type="url" name="surveyLink" value="" readonly><button type="button" id="copyUrlBtn">Copy</button><button type="button" id="deleteUrlBtn">Delete</button>
+              <br>
+            </div>
+            <div class="float-left">
+              <p>
+                <!-- TODO: translation -->
+                <span id="expiration">Expires: <span id="expirationDate"></span></span>
+                <span id="limitedUses">Uses Left: <span id="usesLeft"></span></span>
+              </p>
+              <br>
+            </div>
           </div>
-          <div class="float-left">
-            <input id="surveyLink" type="url" name="surveyLink" value="https://ATI.coashdsa/918263" readonly><button type="button" id="copyUrlBtn">Copy</button>
-            <br>
+        </div>
+        <div class="clearfix">
+          <div id="createNewLink" class="">
+
+            <div id="newLinkInputs" class="">
+              <div class="spacer float-left">
+                <span class="grey text-item-descr">&nbsp;</span>
+              </div>
+              <div id="newLinkSettings" class="inline-block clearfix">
+                <div class="">
+                  <label>Expiration Date: <input id="inputExpirationDate" type="date" name="expirationDate" value=""></label>
+                  <label>max. participants: <input id="inputMaxParticipants" type="number" name="expirationDate" value=""></label>
+                </div>
+                <div class="clearfix">
+                  <button id="btnCancelLink" type="button" name="cancel">Cancel</button>
+                  <button id="btnCreateLink"type="button" name="create">Create</button>
+                </div>
+              </div>
+            </div>
+            <div class="spacer float-left">
+              <span class="grey text-item-descr">&nbsp;</span>
+            </div>
+            <div class="float-left clearfix">
+              <button id="btnNewLink" type="button" name="newLink"><strong>+</strong> create Link</button>
+            </div>
           </div>
         </div>
         <hr>
@@ -163,10 +199,8 @@
           </form>
           <script>
             let myFunction = function() {
-              console.log('blub');
               let data = new FormData();
               data.append('file', document.getElementById('theFile').files[0]);
-              console.log(data);
 
               let postUrl = '/db/importCSV?SID=1';
               fetch(postUrl, {
@@ -205,25 +239,25 @@
               <input type="email" multiple name="mailAddress" value="" style="width:100%-300px" id="mailAddress">
               <!-- TODO: get glyphicons to work  -->
               <button type="button" name="invite" id="addMail"><span class="glyphicons glyphicons-user-add">add</span></button>
-            </form>
-          </div>
-          <br>
-          <div id="mailsOverview" class="">
-            <div id="emailList" class="list-group">
-              <a class="list-group-item list-group-item-action clearfix">Cras justo odio <button type="button" name="button" class="rm-on-click  pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
-              <a class="list-group-item list-group-item-action clearfix">Dapibus ac facilisis in<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
-              <a class="list-group-item list-group-item-action clearfix">Morbi leo risus<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
-              <a class="list-group-item list-group-item-action clearfix">Porta ac consectetur ac<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
-              <a class="list-group-item list-group-item-action clearfix">Vestibulum at eros<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
-            </div>
-
-          </div>
+          </form>
         </div>
-        <div class="" style="padding-top:30px;">
-          <button type="button" name="abort" class="float-left">Return to Profile</button>
-        </div>
+        <br>
+        <div id="mailsOverview" class="">
+          <div id="emailList" class="list-group">
+            <a class="list-group-item list-group-item-action clearfix">Cras justo odio <button type="button" name="button" class="rm-on-click  pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
+            <a class="list-group-item list-group-item-action clearfix">Dapibus ac facilisis in<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
+            <a class="list-group-item list-group-item-action clearfix">Morbi leo risus<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
+            <a class="list-group-item list-group-item-action clearfix">Porta ac consectetur ac<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
+            <a class="list-group-item list-group-item-action clearfix">Vestibulum at eros<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
+          </div>
 
+        </div>
       </div>
+      <div class="" style="padding-top:30px;">
+        <button type="button" name="abort" class="float-left">Return to Profile</button>
+      </div>
+
+    </div>
 
 
 

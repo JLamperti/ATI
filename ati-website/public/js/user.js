@@ -1,8 +1,7 @@
 $(document).ready(function() {
   var SID = 1;
-<<<<<<< HEAD
   var UID = 1;
-  var IP = "http://87.146.254.108:3000";
+  var IP = "http://87.146.245.165:3000";
 
   /**
    * Loads User Info
@@ -11,14 +10,6 @@ $(document).ready(function() {
   var url = "/db/user/";
   var query = "?UID=" + UID;
   fetch(IP + url + query)
-=======
-  var IP = "";
-  /**
-   * Loads User Info
-   */
-  var url = IP + "/db/user/?UID=1";
-  fetch(url)
->>>>>>> 6619890265ee98147f38d96c1a679e718b14191d
     .then(res => res.json())
     .then((out) => {
       user = out;

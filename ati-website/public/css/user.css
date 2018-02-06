@@ -96,3 +96,20 @@ textarea {
   clear: both;
   display: table;
 }
+
+
+#expiration{
+  display: none;
+}
+#limitedUses{
+  display: none;
+}
+#linkDisplay{
+  display: none;
+}
+#newLinkSettings{
+  padding-bottom: 30px;
+}
+#newLinkInputs{
+  display: none;
+}
