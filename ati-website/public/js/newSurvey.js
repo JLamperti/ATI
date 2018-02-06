@@ -104,6 +104,14 @@ $(document).ready(function() {
         throw err
       });
 
+    /**
+     *redirect to newSurvey
+     */
+     //window.location.hostname
+     //window.location.pathname;
+     // TODO: assign new SID
+     SID = 1;
+     window.location.href - window.location.hostname + "/user/surveyDetails";
 
   });
 
