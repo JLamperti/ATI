@@ -9,7 +9,7 @@
 <main>
     <div class="title-screen " align="center">
 
-      <img style="width:100%;height:auto" src='<%= __('titleImg') %>'></img>
+      <img class="img-title-screen" src='<%= __('titleImg') %>'></img>
 
     </div>
 
@@ -30,7 +30,7 @@
         </p>
       </div>
 
-      <div style="margin-left:auto;margin-right:auto">
+      <div class="horizontal">
         <a href="#developer">
           <div id="img-developer" src="./images/Entwickler_Icon.png"  class="bg-img-container bg-img-form" href="#developer" alt="developer"></div>
         </a>
@@ -60,13 +60,13 @@
 
     </div>
 
-    <div class="flex-lg-row scale-txt-home-sm" style="margin-left:10%; margin-top:4rem;width:auto;">
+    <div class="flex-lg-row scale-txt-home-sm container-header-ati" >
       <h2>
         <%= __('definitionAffinityHeader') %>
       </h2>
     </div>
 
-    <div class=" flex-lg-row" style="margin-left:10%;margin-right:10%;margin-bottom: 4rem;">
+    <div class=" flex-lg-row container-def-ati" >
       <p>
         <%= __('definitionAffinity') %>
       </p>
@@ -76,24 +76,24 @@
 
     <div id="scale" class="container-flex-scale-title index-container-margin-top-bot flex-lg-row">
 
-      <div style="width:40%"></div>
+      <div class="dummie-container-md"></div>
 
-      <div style="width:20%; margin-left:auto;margin-right:auto; " align="center" >
+      <div class="dummie-container-sm horizontal" align="center" >
         <h2 >
           <%= __('theScale') %>
         </h2>
       </div>
 
-      <div style="width:40%"></div>
+      <div class="dummie-container-md"></div>
 
     </div>
 
-    <div class="index-container-margin-bottom flex-lg-row flex-md-col " >
+    <div class="index-container-margin-bottom flex-lg-row flex-md-col index-margin-bottom" >
 
-      <div style="width:10%"></div>
+      <div class="dummie-container"></div>
 
-      <div class="div-scale" style="padding-top:4rem; padding-bottom:4rem;">
-          <div style="width:80%;">
+      <div class="div-scale scale-padding">
+          <div class="dummie-container-lg">
               <%= __('downloadText') %>
             </div>
         <div class="flex-col">
@@ -131,11 +131,11 @@
 
       </div>
 
-      <div style="width:10%"></div>
+      <div class="dummie-container"></div>
 
-      <div class="div-scale" style="padding-top:4rem; padding-bottom:4rem;">
+      <div class="div-scale scale-padding" >
 
-        <div style="width:80%">
+        <div class="dummie-container-lg">
           <%= __('testYourselfText') %>
         </div>
 
@@ -146,7 +146,7 @@
         </a>
       </div>
     </div>
-    <div style="width:10%"></div>
+    <div class="dummie-container"></div>
 
     </div>
 
@@ -207,7 +207,7 @@
             <button class="button bg-color-theme button-start" onclick="displayScale()"><%= __('index.publication') %></button>
           </div>
               <div class=""  id="papers" style="display:none">
-                <p style="padding-bottom: 2rem"><%= __('index.publicationIntro') %></p>
+                <p class="index-padding-bottom"><%= __('index.publicationIntro') %></p>
                 <div class="flex-row flex-s-col flex-paper">
                   <div class="btn-papers-md">  
                     <a href="https://www.researchgate.net/publication/318745431_Assessing_Affinity_for_Technology_Interaction_-_The_Affinity_for_Technology_Interaction_ATI_Scale_Scale_Description_-_English_and_German_Scale_Version">
@@ -283,7 +283,7 @@
         </h3>
       </div>
 
-      <div class="flex-lg-row div-padding-row" style="margin-top:-5%;">
+      <div class="flex-lg-row div-padding-row neg-marg-top">
 
         <div class="div-padding-min author-width-md author-margin-xs" align="center">
 
@@ -291,11 +291,11 @@
 
           </br>
 
-          <h4 style="margin-top:1%">
+          <h4>
             <%- __('frankeName') %>
           </h4>
 
-          <p style="text-align:justify">
+          <p >
             <%= __('frankeText') %>
           </p>
 
@@ -307,11 +307,11 @@
 
           </br>
 
-          <h4 style="margin-top:1%">
+          <h4>
             <%- __('attigName') %>
           </h4>
 
-          <p style="text-align:justify">
+          <p >
             <%= __('attigText') %>
           </p>
 
@@ -323,11 +323,11 @@
 
           </br>
 
-          <h4 style="margin-top:1%">
+          <h4>
             <%- __('wesselName') %>
           </h4>
 
-          <p style="text-align:justify">
+          <p>
             <%= __('wesselText') %>
           </p>
 
