@@ -78,7 +78,7 @@ $(document).ready(function() {
       $('#emailField').html('<span class="grey text-item-descr">Email</span><input id="newEmail" type="email" name="email" value="' + user[0].eMail + '"></input>');
       $('#passwordField').html('<span class="grey text-item-descr">Password</span><input type="password" name="newPassword" placeholder= "leave empty to keep old password"></br></input> <span class="grey text-item-descr"> Confirm Password</span><input type="password" name="confirmPassword"></input>');
     } else {
-      if ($('#emailField #newEmail')).checkValidity()) {
+      if ($('#emailField #newEmail').checkValidity()) {
         //switch back to standard view AND submit data
         var checkedPassword = checkPassword();
         if (checkedPassword == "ok" || checkedPassword == "no password entered") {

@@ -31,7 +31,7 @@ router.get('/newSurvey', function(req, res, next) {
 });
 
 
-router.get('/surveyDetails:id([0-9]{1-20})', function(req, res, next) {
+router.get('/surveyDetails/:id([0-9]{1-20})', function(req, res, next) {
   if (req.session.user && req.cookies.user_sid) {
     res.render('surveyDetails', {
       title: 'ATI',
