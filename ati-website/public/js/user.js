@@ -79,7 +79,7 @@ $(document).ready(function() {
       $('#emailField').html('<span class="grey text-item-descr">Email</span><input id="newEmail" type="email" name="email" value="' + user[0].eMail + '"></input>');
       $('#passwordField').html('<span class="grey text-item-descr">Password</span><input type="password" name="newPassword" placeholder= "leave empty to keep old password"></br></input> <span class="grey text-item-descr"> Confirm Password</span><input type="password" name="confirmPassword"></input>');
     } else {
-      if ($('#emailField #newEmail').checkValidity()) {
+      if (document.getElementById('newEmail').checkValidity()) {
         //switch back to standard view AND submit data
         var checkedPassword = checkPassword();
         if (checkedPassword == "ok" || checkedPassword == "no password entered") {
@@ -88,70 +88,71 @@ $(document).ready(function() {
           el.text(el.data("text-swap"));
 
 
-        var newName = $('#nameField input').val();
-        $("#nameField").html("<h2>" + (newName != null ? newName : user[0].userName) + "</h2>");
-        user[0].userName = newName;
+          var newName = $('#nameField input').val();
+          $("#nameField").html("<h2>" + (newName != null ? newName : user[0].userName) + "</h2>");
+          user[0].userName = newName;
 
 
-        var isSciCbx = $('#titleField #isScientist');
-        user[0].IsScientist.data[0] = (isSciCbx[0].checked ? 1 : 0);
-        var isDevCbx = $('#titleField #isDeveloper');
-        user[0].IsDeveloper.data[0] = (isDevCbx[0].checked ? 1 : 0);
-        var isTeaCbx = $('#titleField #isTeacher');
-        user[0].IsTeacher.data[0] = (isTeaCbx[0].checked ? 1 : 0);
+          var isSciCbx = $('#titleField #isScientist');
+          user[0].IsScientist.data[0] = (isSciCbx[0].checked ? 1 : 0);
+          var isDevCbx = $('#titleField #isDeveloper');
+          user[0].IsDeveloper.data[0] = (isDevCbx[0].checked ? 1 : 0);
+          var isTeaCbx = $('#titleField #isTeacher');
+          user[0].IsTeacher.data[0] = (isTeaCbx[0].checked ? 1 : 0);
 
-        $('#titleField').html('<h3 id="titleValue"></h3>');
-        setTitles(user);
-
-
+          $('#titleField').html('<h3 id="titleValue"></h3>');
+          setTitles(user);
 
 
-        var newEmail = $('#emailField input').val();
-        $('#emailField').html('<span class="grey text-item-descr">Email</span><span>' + (newEmail != null ? newEmail : user[0].eMail) + '</span>');
-        user[0].eMail = newEmail;
-        var newPassword;
-        if (checkedPassword == "ok") {
-          newPassword = $('#passwordField input').val();
-        }
-        console.log("newpw = " + newPassword);
-        $('#passwordField').html('<span class="grey text-item-descr">Password</span><span>********</span>')
 
 
-        // mandatory-parameters: UID
-        //* optional-parameters: name, email, pw, PID, scientist, developer, teacher
-        //'db/user'
+          var newEmail = $('#emailField input').val();
+          $('#emailField').html('<span class="grey text-item-descr">Email</span><span>' + (newEmail != null ? newEmail : user[0].eMail) + '</span>');
+          user[0].eMail = newEmail;
+          var newPassword;
+          if (checkedPassword == "ok") {
+            newPassword = $('#passwordField input').val();
+          }
+          console.log("newpw = " + newPassword);
+          $('#passwordField').html('<span class="grey text-item-descr">Password</span><span>********</span>')
 
-        let updatedUserData = JSON.stringify({
-          UID: UID,
-          name: (newName != null ? newName : undefined),
-          email: (newEmail != null ? newEmail : undefined),
-          pw: (newPassword != null ? newPassword : undefined),
-          scientist: (isSciCbx[0].checked ? "1" : "0"),
-          developer: (isDevCbx[0].checked ? "1" : "0"),
-          teacher: (isTeaCbx[0].checked ? "1" : "0")
-        });
-        console.log(updatedUserData);
-        let url = '/db/user';
-        fetch(IP + url, {
-            headers: {
-              'Accept': 'application/json',
-              'Content-type': 'application/json'
-            },
-            method: 'PUT',
-            credentials: 'include',
-            body: updatedUserData
-          })
-          .then((out) => {
-            console.log(out);
-          })
-          .catch(err => {
-            throw err
-          });
-
-      }
 
 	  }
-    }
+          // mandatory-parameters: UID
+          //* optional-parameters: name, email, pw, PID, scientist, developer, teacher
+          //'db/user'
+
+          let updatedUserData = JSON.stringify({
+            UID: UID,
+            name: (newName != null ? newName : undefined),
+            email: (newEmail != null ? newEmail : undefined),
+            pw: (newPassword != null ? newPassword : undefined),
+            scientist: (isSciCbx[0].checked ? "1" : "0"),
+            developer: (isDevCbx[0].checked ? "1" : "0"),
+            teacher: (isTeaCbx[0].checked ? "1" : "0")
+          });
+          console.log(updatedUserData);
+          let url = '/db/user';
+          fetch(IP + url, {
+              headers: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+              },
+              method: 'PUT',
+              credentials: 'include',
+              body: updatedUserData
+            })
+            .then((out) => {
+              console.log(out);
+            })
+            .catch(err => {
+              throw err
+            });
+
+        }
+
+      }
+    
 
 
 

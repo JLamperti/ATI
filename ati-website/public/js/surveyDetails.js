@@ -9,7 +9,9 @@ $(document).ready(function() {
   displaySurveyLinks(SID);
   var url = "/db/survey";
   var query = "?SID=" + SID;
-  fetch(IP + url + query, {credentials: 'include'})
+  fetch(IP + url + query, {
+      credentials: 'include'
+    })
     .then(res => res.json())
     .then((res) => {
       $('#surveyName').append(res[0].SurveyName);
@@ -42,17 +44,18 @@ $(document).ready(function() {
   /**
    * copies displayed URL into clipboard on click
    */
-  var copyUrlBtn = document.querySelector('#copyUrlBtn');
-  copyUrlBtn.addEventListener('click', function(event) {
-    /* Get the text field */
-    var copyText = document.getElementById("surveyLink");
+  function addCopyOnClick(copyUrlBtn) {
+    copyUrlBtn.addEventListener('click', function(event) {
+      /* Get the text field */
+      var copyText = document.getElementById("surveyLink");
 
-    /* Select the text field */
-    copyText.select();
+      /* Select the text field */
+      copyText.select();
 
-    /* Copy the text inside the text field */
-    document.execCommand("Copy");
-  });
+      /* Copy the text inside the text field */
+      document.execCommand("Copy");
+    });
+  }
 
 
 
@@ -85,8 +88,8 @@ $(document).ready(function() {
     // TODO: send mails
   });
 
-  $('#btnReturn').on('click', function(){
-    $(location).attr('href',"/user");
+  $('#btnReturn').on('click', function() {
+    $(location).attr('href', "/user");
   });
 
 
@@ -178,14 +181,16 @@ $(document).ready(function() {
             'Content-type': 'application/json'
           },
           method: 'POST',
-		  credentials: 'include',
+          credentials: 'include',
           body: newLinkData
         })
         .then((out) => {
           console.log(out);
           var url = "/db/links";
           var query = "?SID=" + SID;
-          fetch(IP + url + query , {credentials: 'include'})
+          fetch(IP + url + query, {
+              credentials: 'include'
+            })
             .then(res => res.json())
             .then((links) => {
               //adds the new survey link to the list be getting all and taking only the last. not DRY, beware
@@ -202,7 +207,9 @@ $(document).ready(function() {
                 console.log("usesLeft: " + link.usesLeft);
                 newLinkDisplay.find('#usesLeft').append(link.usesLeft);
               }
+              addCopyOnClick(newLinkDisplay.find('#copyUrlBtn'));
               newLinkDisplay.css("display", "inherit");
+
               $('#linkContainer').append(newLinkDisplay);
 
             });
@@ -219,7 +226,9 @@ $(document).ready(function() {
   function displaySurveyLinks(SID) {
     var url = "/db/links";
     var query = "?SID=" + SID;
-    fetch(IP + url + query, {credentials: 'include'})
+    fetch(IP + url + query, {
+        credentials: 'include'
+      })
       .then(res => res.json())
       .then((links) => {
         console.log(links);
@@ -239,6 +248,8 @@ $(document).ready(function() {
             console.log("usesLeft: " + links[link].usesLeft);
             newLinkDisplay.find('#usesLeft').append(links[link].usesLeft);
           }
+
+          addCopyOnClick(newLinkDisplay.find('#copyUrlBtn'));
           newLinkDisplay.css("display", "inherit");
           $('#linkContainer').append(newLinkDisplay);
 
@@ -257,7 +268,9 @@ $(document).ready(function() {
   function displayProbandCount(SID) {
     var url = "/db/countProbandInSurvey";
     var query = "?SID=" + SID;
-    fetch(IP + url + query, {credentials: 'include'})
+    fetch(IP + url + query, {
+        credentials: 'include'
+      })
       .then(res => res.json())
       .then((countProbandInSurvey) => {
         $('#participantsCurrent').append(countProbandInSurvey[0].count);
@@ -272,7 +285,9 @@ $(document).ready(function() {
   function displayAvgAti(SID) {
     var url = "/db/avg?sel[0]=atiScore&fromSurv=";
     var query = "?sel[0]=atiScore&fromSurv=" + SID;
-    fetch(IP + url + query, {credentials: 'include'})
+    fetch(IP + url + query, {
+        credentials: 'include'
+      })
       .then(res => res.json())
       .then((avgAtiScore) => {
         $('#avgAtiScore').append(avgAtiScore[0].avgatiScore);
@@ -288,7 +303,9 @@ $(document).ready(function() {
   function displayAtiStd(SID) {
     var url = "/db/std";
     var query = "?SID=" + SID;
-    fetch(IP + url + query, {credentials: 'include'})
+    fetch(IP + url + query, {
+        credentials: 'include'
+      })
       .then(res => res.json())
       .then((std) => {
         $('#atiStd').append(std[0].stdatiScore);
