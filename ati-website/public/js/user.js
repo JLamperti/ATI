@@ -1,22 +1,22 @@
 $(document).ready(function() {
   var SID = 1;
   var UID = 1;
-  var IP = "http://87.146.245.165:3000";
+  var IP = "";
 
   /**
    * Loads User Info
    */
   var user;
   var url = "/db/user/";
-  var query = "?UID=" + UID;
-  fetch(IP + url + query)
+  console.log("getting user");
+  fetch(IP + url)
     .then(res => res.json())
     .then((out) => {
       user = out;
       $('#nameValue').html(out[0].userName);
       $('#emailValue').html(out[0].eMail);
       setTitles(out);
-
+      console.log("got user");
     })
     .catch(err => {
       throw err
@@ -26,8 +26,8 @@ $(document).ready(function() {
    * Loads Survey Info
    */
   var url = "/db/surveyByUser";
-  var query = "?UID=" + UID;
-  fetch(IP + url + query)
+  console.log("getting surveys by user");
+  fetch(IP + url)
     .then(res => res.json())
     .then((out) => {
       $('#openSurveysAmount').html("(" + out.length + ")");
@@ -55,6 +55,7 @@ $(document).ready(function() {
         newSurveyDisplay.appendTo('#resultsArea');
 
       }
+      console.log("got surveys");
     })
     .catch(err => {
       throw err

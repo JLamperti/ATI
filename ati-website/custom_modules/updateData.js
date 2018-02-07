@@ -152,11 +152,3 @@ exports.updateUser = function (req, res) {
 		res.status(401).send('You need to be logged in to do this:');
 	}
 };
-
-
-
-
-
-
-
-};
