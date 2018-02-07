@@ -62,9 +62,9 @@ $(document).ready(function() {
      */
     //window.location.hostname
     //window.location.pathname;
-    // TODO: assign new SID
+    // TODO: redirect to new SID
     SID = 1;
-    window.location.href = "/user/surveyDetails";
+    window.location.href = "/user";
 
   });
 
