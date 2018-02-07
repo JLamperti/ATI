@@ -88,6 +88,9 @@ input[type="radio"] {
 #descDef {
   margin-top: -15%;
 }
+#dontSendData{
+  margin-right:2rem;
+}
 .btn-index-lg {
   width: 100%;
   border-radius: 1rem;
