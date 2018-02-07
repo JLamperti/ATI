@@ -44,10 +44,10 @@ $(document).ready(function() {
   /**
    * copies displayed URL into clipboard on click
    */
-  function addCopyOnClick(copyUrlBtn) {
-    copyUrlBtn.addEventListener('click', function(event) {
+  function addCopyOnClick(linkDisplay) {
+    linkDisplay.find('#copyUrlBtn').addEventListener('click', function(event) {
       /* Get the text field */
-      var copyText = document.getElementById("surveyLink");
+      var copyText = linkDisplay.find('#surveyLink');
 
       /* Select the text field */
       copyText.select();
@@ -207,7 +207,7 @@ $(document).ready(function() {
                 console.log("usesLeft: " + link.usesLeft);
                 newLinkDisplay.find('#usesLeft').append(link.usesLeft);
               }
-              addCopyOnClick(newLinkDisplay.find('#copyUrlBtn'));
+              addCopyOnClick(newLinkDisplay);
               newLinkDisplay.css("display", "inherit");
 
               $('#linkContainer').append(newLinkDisplay);
@@ -231,25 +231,25 @@ $(document).ready(function() {
       })
       .then(res => res.json())
       .then((links) => {
-        console.log(links);
-        for (link in links) {
+          console.log(links);
+          for (link in links) {
 
-          console.log(link + ": " + links[link].url);
-          var newLinkDisplay = $('#linkDisplay').clone(true, true);
-          newLinkDisplay.find('#surveyLink').val("http://technikaffinitaet.de/form?inv=" + links[link].url);
+            console.log(link + ": " + links[link].url);
+            var newLinkDisplay = $('#linkDisplay').clone(true, true);
+            newLinkDisplay.find('#surveyLink').val("http://technikaffinitaet.de/form?inv=" + links[link].url);
 
-          if (links[link].expirationDate != null) {
-            newLinkDisplay.find('#expiration').css("display", "inherit");
-            console.log("expirationDate: " + links[link].expirationDate);
-            newLinkDisplay.find('#expirationDate').append(links[link].expirationDate);
-          }
-          if (links[link].usesLeft != null) {
-            newLinkDisplay.find('#limitedUses').css("display", "inherit");
-            console.log("usesLeft: " + links[link].usesLeft);
-            newLinkDisplay.find('#usesLeft').append(links[link].usesLeft);
-          }
+            if (links[link].expirationDate != null) {
+              newLinkDisplay.find('#expiration').css("display", "inherit");
+              console.log("expirationDate: " + links[link].expirationDate);
+              newLinkDisplay.find('#expirationDate').append(links[link].expirationDate);
+            }
+            if (links[link].usesLeft != null) {
+              newLinkDisplay.find('#limitedUses').css("display", "inherit");
+              console.log("usesLeft: " + links[link].usesLeft);
+              newLinkDisplay.find('#usesLeft').append(links[link].usesLeft);
+            }
 
-          addCopyOnClick(newLinkDisplay.find('#copyUrlBtn'));
+            addCopyOnClick(newLinkDisplay));
           newLinkDisplay.css("display", "inherit");
           $('#linkContainer').append(newLinkDisplay);
 
@@ -257,67 +257,67 @@ $(document).ready(function() {
         }
 
       })
-      .catch(err => {
-        throw err
-      });
-  }
+  .catch(err => {
+    throw err
+  });
+}
 
-  /**
-   * gets the number of probands and adds it to the display
-   */
-  function displayProbandCount(SID) {
-    var url = "/db/countProbandInSurvey";
-    var query = "?SID=" + SID;
-    fetch(IP + url + query, {
-        credentials: 'include'
-      })
-      .then(res => res.json())
-      .then((countProbandInSurvey) => {
-        $('#participantsCurrent').append(countProbandInSurvey[0].count);
-      })
-      .catch(err => {
-        throw err
-      });
-  }
-  /**
-   * gets and the average ATI-score for the survey and adds it to the display
-   */
-  function displayAvgAti(SID) {
-    var url = "/db/avg?sel[0]=atiScore&fromSurv=";
-    var query = "?sel[0]=atiScore&fromSurv=" + SID;
-    fetch(IP + url + query, {
-        credentials: 'include'
-      })
-      .then(res => res.json())
-      .then((avgAtiScore) => {
-        $('#avgAtiScore').append(avgAtiScore[0].avgatiScore);
-      })
-      .catch(err => {
-        throw err
-      });
-  }
+/**
+ * gets the number of probands and adds it to the display
+ */
+function displayProbandCount(SID) {
+  var url = "/db/countProbandInSurvey";
+  var query = "?SID=" + SID;
+  fetch(IP + url + query, {
+      credentials: 'include'
+    })
+    .then(res => res.json())
+    .then((countProbandInSurvey) => {
+      $('#participantsCurrent').append(countProbandInSurvey[0].count);
+    })
+    .catch(err => {
+      throw err
+    });
+}
+/**
+ * gets and the average ATI-score for the survey and adds it to the display
+ */
+function displayAvgAti(SID) {
+  var url = "/db/avg?sel[0]=atiScore&fromSurv=";
+  var query = "?sel[0]=atiScore&fromSurv=" + SID;
+  fetch(IP + url + query, {
+      credentials: 'include'
+    })
+    .then(res => res.json())
+    .then((avgAtiScore) => {
+      $('#avgAtiScore').append(avgAtiScore[0].avgatiScore);
+    })
+    .catch(err => {
+      throw err
+    });
+}
 
-  /**
-   * gets the standard deviations of ATI, Age (and one other value, not sure which one atm) and adds the ATI-std to the display
-   */
-  function displayAtiStd(SID) {
-    var url = "/db/std";
-    var query = "?SID=" + SID;
-    fetch(IP + url + query, {
-        credentials: 'include'
-      })
-      .then(res => res.json())
-      .then((std) => {
-        $('#atiStd').append(std[0].stdatiScore);
-      })
-      .catch(err => {
-        throw err
-      });
-  }
+/**
+ * gets the standard deviations of ATI, Age (and one other value, not sure which one atm) and adds the ATI-std to the display
+ */
+function displayAtiStd(SID) {
+  var url = "/db/std";
+  var query = "?SID=" + SID;
+  fetch(IP + url + query, {
+      credentials: 'include'
+    })
+    .then(res => res.json())
+    .then((std) => {
+      $('#atiStd').append(std[0].stdatiScore);
+    })
+    .catch(err => {
+      throw err
+    });
+}
 
-  function checkNewLinkInputs() {
-    // TODO: implement
-    return true;
-  }
+function checkNewLinkInputs() {
+  // TODO: implement
+  return true;
+}
 
 });
