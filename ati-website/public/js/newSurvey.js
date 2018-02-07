@@ -45,6 +45,7 @@ $(document).ready(function() {
           'Content-type': 'application/json'
         },
         method: 'POST',
+		credentials: 'include',
         body: newSurveyData
       })
       .then((out) => {

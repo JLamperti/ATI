@@ -10,7 +10,7 @@ $(document).ready(function() {
   displaySurveyLinks(SID);
   var url = "/db/survey";
   var query = "?SID=" + SID;
-  fetch(IP + url + query)
+  fetch(IP + url + query, {credentials: 'include'})
     .then(res => res.json())
     .then((res) => {
       $('#surveyName').append(res[0].SurveyName);
@@ -179,13 +179,14 @@ $(document).ready(function() {
             'Content-type': 'application/json'
           },
           method: 'POST',
+		  credentials: 'include',
           body: newLinkData
         })
         .then((out) => {
           console.log(out);
           var url = "/db/links";
           var query = "?SID=" + SID;
-          fetch(IP + url + query)
+          fetch(IP + url + query , {credentials: 'include'})
             .then(res => res.json())
             .then((links) => {
               //adds the new survey link to the list be getting all and taking only the last. not DRY, beware
@@ -219,7 +220,7 @@ $(document).ready(function() {
   function displaySurveyLinks(SID) {
     var url = "/db/links";
     var query = "?SID=" + SID;
-    fetch(IP + url + query)
+    fetch(IP + url + query, {credentials: 'include'})
       .then(res => res.json())
       .then((links) => {
         console.log(links);
@@ -257,7 +258,7 @@ $(document).ready(function() {
   function displayProbandCount(SID) {
     var url = "/db/countProbandInSurvey";
     var query = "?SID=" + SID;
-    fetch(IP + url + query)
+    fetch(IP + url + query, {credentials: 'include'})
       .then(res => res.json())
       .then((countProbandInSurvey) => {
         $('#participantsCurrent').append(countProbandInSurvey[0].count);
@@ -272,7 +273,7 @@ $(document).ready(function() {
   function displayAvgAti(SID) {
     var url = "/db/avg?sel[0]=atiScore&fromSurv=";
     var query = "?sel[0]=atiScore&fromSurv=" + SID;
-    fetch(IP + url + query)
+    fetch(IP + url + query, {credentials: 'include'})
       .then(res => res.json())
       .then((avgAtiScore) => {
         $('#avgAtiScore').append(avgAtiScore[0].avgatiScore);
@@ -288,7 +289,7 @@ $(document).ready(function() {
   function displayAtiStd(SID) {
     var url = "/db/std";
     var query = "?SID=" + SID;
-    fetch(IP + url + query)
+    fetch(IP + url + query, {credentials: 'include'})
       .then(res => res.json())
       .then((std) => {
         $('#atiStd').append(std[0].stdatiScore);
