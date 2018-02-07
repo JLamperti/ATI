@@ -33,7 +33,7 @@ router.post('/',function(req, res) {
       newPasswordConf = req.body.newPasswordConf;
 
   if (email != undefined) {
-    dba.performQuery("SELECT EMail,PW,bestaetigt FROM user WHERE EMail = '" + email + "'", function (err, result) {
+    dba.performQuery("SELECT UserID,EMail,PW,bestaetigt FROM user WHERE EMail = '" + email + "'", function (err, result) {
       if (err || result == undefined) {			//in case of an error (mostlikely an invalid sql-statement) tell the client and log on the server
         return console.log('Err: Bad query. (login.js:35)'+ err.toString());	//for more detailed err-log de-comment the line above
       }
@@ -46,7 +46,7 @@ router.post('/',function(req, res) {
       // check if user exists in database and password is correct
       if (Object.keys(json).length != 0 && bcrypt.compareSync(password,json[0].PW)) {
         if (json[0].bestaetigt != 0) { //if user email is not validated yet
-          req.session.user = json[0].EMail;
+          req.session.user = json[0].UserID;
           res.redirect(backURL);
         } else {
           res.render('login', { title: 'ATI', msg: 'validate-email' });
@@ -215,7 +215,7 @@ router.post('/reset/:token([A-Za-z0-9]{32})/rs', function(req, res) {
             return console.log('Err: Bad query. (login.js:209)' + err.toString());
           } else {
             // login cookie setzten.
-            req.session.user = json[0].EMail;
+            req.session.user = json[0].UserID;
 
             // delete Token after usage
             let query = "DELETE FROM pwlinks WHERE url = '"+ token +"'";
