@@ -500,6 +500,9 @@ input[type="radio"] {
     height: 30%;
     width: 30%;
   }
+  #age-Input{
+    width:75px;
+  }
 
   /*move the right element of the navbar to the side */
   .navbar-right-noMargin-right {
@@ -529,6 +532,9 @@ input[type="radio"] {
   .bg-img-container {
     width: 7.5em;
     height: 7.5em;
+  }
+  #age-Input{
+    width:50px;
   }
   /* fixed header for devices with a screenwidth < 768px */
   .fixed-header-top {
