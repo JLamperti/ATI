@@ -15,6 +15,7 @@ $(document).ready(function() {
     var surveyName = $('#surveyName').val();
     var begin = $('#begin').val();
     var end = $('#end').val();
+    // TODO: not working properly?
     var status = ($('#enableMaxProbands').is(':checked'))? 'open':'closed';
     var takeAge = $('#takeAge').val();
     var takeSex = $('#takeSex').val();

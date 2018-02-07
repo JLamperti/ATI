@@ -1,7 +1,6 @@
 $(document).ready(function() {
   var IP = "";
-  var UID = 1;
-  var SID = 1;
+  var SID = $('#surveyId').html();
 
   $('#exportCSV').attr("href", IP + "/db/exportCSV?SID=" + SID);
   displayProbandCount(SID);

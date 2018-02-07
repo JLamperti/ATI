@@ -17,10 +17,7 @@ router.get('/', function(req, res) {
 
 });
 
-/*update name*/
-router.put('/changeName', function(req, res, next) {
-  //TODO
-});
+
 
 router.get('/newSurvey', function(req, res, next) {
   if (req.session.user && req.cookies.user_sid) {
@@ -33,10 +30,12 @@ router.get('/newSurvey', function(req, res, next) {
   }
 });
 
-router.get('/surveyDetails', function(req, res, next) {
+
+router.get('/surveyDetails:id([0-9]{1-20})', function(req, res, next) {
   if (req.session.user && req.cookies.user_sid) {
     res.render('surveyDetails', {
-      title: 'ATI'
+      title: 'ATI',
+      surveyId: id
     });
   } else {
     res.render('needToLogin');
