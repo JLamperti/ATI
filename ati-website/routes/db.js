@@ -26,10 +26,11 @@ router.get('/ageAndAti', function(req, res) {
 	gData.selectAgeAndAti(req, res);
 });
 
+/*
 router.get('/all', function(req, res) {
 	//fliegt raus
 	gData.selectAll(req, res);
-});
+});*/
 
 router.get('/avg', function(req, res) {
 	gData.selectAvg(req, res);
@@ -39,10 +40,11 @@ router.get('/buckets', function(req, res) {
 	gData.selectBuckets(req, res);
 });
 
+/*
 router.get('/complex', function(req, res) {
 	//fliegt raus
 	gData.selectComplex(req, res);
-});
+});*/
 
 router.get('/countProbandInSurvey', function(req, res) {
 	gData.selectCountProbandInSurvey(req, res);
@@ -183,10 +185,11 @@ router.post('/probandLink', function(req, res) {
 	pData.insertProbandLink(req, res);
 });
 
+/*
 router.post('/probandUser', function(req, res) {
 	//fliegt raus
 	pData.insertProbandUser(req, res);
-});
+});*/
 
 router.post('/survey', function(req, res) {
 	pData.insertSurvey(req, res);
