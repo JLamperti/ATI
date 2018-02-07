@@ -55,7 +55,7 @@ $(document).ready(function() {
           newSurveyDisplay.find('#participantTextMiddle').css("display", "inherit");
         }
         newSurveyDisplay.find('#status').append(out[x].SurveyStatus);
-        newSurveyDisplay.find('#linkSurveyDetails').attr(href, "/surveyDetails" + out[x].SurveyID);
+        newSurveyDisplay.find('#linkSurveyDetails').attr("href", "/user/surveyDetails/" + out[x].SurveyID);
         newSurveyDisplay.css("display", "inherit");
         newSurveyDisplay.appendTo('#resultsArea');
 
@@ -150,7 +150,7 @@ $(document).ready(function() {
 
       }
 
-
+	  }
     }
 
 

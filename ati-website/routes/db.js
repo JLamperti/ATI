@@ -56,17 +56,27 @@ router.get('/sexAndAti', function(req, res) {
 
 router.get('/exportCSV', function(req, res) {
 	if (req.session.user && req.cookies.user_sid) {
-		dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID=' + req.query.SID + ';', function(err, result) {
-			if (err || result == undefined) {
-				res.status(500).send('Something went wrong');
-				return console.log('db.js:exportCSV ' + err.toString());
+		dba.performQuery('SELECT IF (' + req.query.SID + ' in (SELECT surveyID FROM survey), true, false) AS b;', function(err, result) {
+			if (err) {
+				res.status(404).send('Survey not found.');
+				return console.log('Survey not found');
 			}
-			let string = JSON.stringify(result);
-			let json =  JSON.parse(string);
-			if (json[0].b) {
-				eData.exportCSV(req, res);
+			if (JSON.parse(JSON.stringify(result))[0].b==1) {
+				dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID=' + req.query.SID + ';', function(err, result) {
+					if (err || result == undefined) {
+						res.status(500).send('Something went wrong');
+						return console.log('db.js:exportCSV ' + err.toString());
+					}
+					let string = JSON.stringify(result);
+					let json =  JSON.parse(string);
+					if (json[0].b) {
+						eData.exportCSV(req, res);
+					} else {
+						res.status(403).send('Not permitted for you.');
+					}
+				});
 			} else {
-				res.status(403).send('Not permitted for you.');
+				res.status(404).send('Survey not found');
 			}
 		});
 	} else {
@@ -76,17 +86,31 @@ router.get('/exportCSV', function(req, res) {
 
 router.get('/links', function(req, res) {
 	if (req.session.user && req.cookies.user_sid) {
-		dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID=' + req.query.SID + ';', function(err, result) {
-			if (err || result == undefined) {
-				res.status(500).send('Something went wrong');
-				return console.log('db.js:get links ' + err.toString());
+		dba.performQuery('SELECT IF (' + req.query.SID + ' in (SELECT surveyID FROM survey), true, false) AS b;', function(err, result) {
+			if (err) {
+				res.status(404).send('Survey not found.');
+				return console.log('Survey not found');
 			}
-			let string = JSON.stringify(result);
-			let json =  JSON.parse(string);
-			if (json[0].b) {
-				gData.selectLinks(req, res);
+			if (JSON.parse(JSON.stringify(result))[0].b==1) {
+				if (req.session.user && req.cookies.user_sid) {
+					dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID=' + req.query.SID + ';', function(err, result) {
+						if (err || result == undefined) {
+							res.status(500).send('Something went wrong');
+							return console.log('db.js:get links ' + err.toString());
+						}
+						let string = JSON.stringify(result);
+						let json =  JSON.parse(string);
+						if (json[0].b) {
+							gData.selectLinks(req, res);
+						} else {
+							res.status(403).send('Not permitted for you.');
+						}
+					});
+				} else {
+					res.status(401).send('You need to be logged in to do this.');
+				}
 			} else {
-				res.status(403).send('Not permitted for you.');
+				res.status(404).send('Survey not found.');
 			}
 		});
 	} else {
@@ -100,17 +124,31 @@ router.get('/educationAndAti', function(req, res) {
 
 router.get('/survey', function(req, res) {
 	if (req.session.user && req.cookies.user_sid) {
-		dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID=' + req.query.SID + ';', function(err, result) {
-			if (err || result == undefined) {
-				res.status(500).send('Something went wrong');
-				return console.log('db.js:get survey ' + err.toString());
+		dba.performQuery('SELECT IF (' + req.query.SID + ' in (SELECT surveyID FROM survey), true, false) AS b;', function(err, result) {
+			if (err) {
+				res.status(404).send('Survey not found.');
+				return console.log('Survey not found');
 			}
-			let string = JSON.stringify(result);
-			let json =  JSON.parse(string);
-			if (json[0].b) {
-				gData.selectSurvey(req, res);
+			if (JSON.parse(JSON.stringify(result))[0].b==1) {
+				if (req.session.user && req.cookies.user_sid) {
+					dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID=' + req.query.SID + ';', function(err, result) {
+						if (err || result == undefined) {
+							res.status(500).send('Something went wrong');
+							return console.log('db.js:get survey ' + err.toString());
+						}
+						let string = JSON.stringify(result);
+						let json =  JSON.parse(string);
+						if (json[0].b) {
+							gData.selectSurvey(req, res);
+						} else {
+							res.status(403).send('Not permitted for you.');
+						}
+					});
+				} else {
+					res.status(401).send('You need to be logged in to do this.');
+				}
 			} else {
-				res.status(403).send('Not permitted for you.');
+				res.status(404).send('Survey not found.');
 			}
 		});
 	} else {
@@ -139,17 +177,31 @@ router.get('/user', function(req, res) {
 
 router.post('/importCSV', function(req, res) {
 	if (req.session.user && req.cookies.user_sid) {
-		dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID=' + req.body.SID + ';', function(err, result) {
-			if (err || result == undefined) {
-				res.status(500).send('Something went wrong');
-				return console.log('db.js:importCSV ' + err.toString());
+		dba.performQuery('SELECT IF (' + req.query.SID + ' in (SELECT surveyID FROM survey), true, false) AS b;', function(err, result) {
+			if (err) {
+				res.status(404).send('Survey not found.');
+				return console.log('Survey not found');
 			}
-			let string = JSON.stringify(result);
-			let json =  JSON.parse(string);
-			if (json[0].b) {
-				iData.importCSV(req, res);
+			if (JSON.parse(JSON.stringify(result))[0].b==1) {
+				if (req.session.user && req.cookies.user_sid) {
+					dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID=' + req.body.SID + ';', function(err, result) {
+						if (err || result == undefined) {
+							res.status(500).send('Something went wrong');
+							return console.log('db.js:importCSV ' + err.toString());
+						}
+						let string = JSON.stringify(result);
+						let json =  JSON.parse(string);
+						if (json[0].b) {
+							iData.importCSV(req, res);
+						} else {
+							res.status(403).send('Not permitted for you.');
+						}
+					});
+				} else {
+					res.status(401).send('You need to be logged in to do this.');
+				}
 			} else {
-				res.status(403).send('Not permitted for you.');
+				res.status(404).send('Survey not found.');
 			}
 		});
 	} else {
@@ -159,17 +211,31 @@ router.post('/importCSV', function(req, res) {
 
 router.post('/link', function(req, res) {
 	if (req.session.user && req.cookies.user_sid) {
-		dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID=' + req.body.SID + ';', function(err, result) {
-			if (err || result == undefined) {
-				res.status(500).send('Something went wrong');
-				return console.log('db.js:post link ' + err.toString());
+		dba.performQuery('SELECT IF (' + req.query.SID + ' in (SELECT surveyID FROM survey), true, false) AS b;', function(err, result) {
+			if (err) {
+				res.status(404).send('Survey not found.');
+				return console.log('Survey not found');
 			}
-			let string = JSON.stringify(result);
-			let json =  JSON.parse(string);
-			if (json[0].b) {
-				pData.insertLink(req, res);
+			if (JSON.parse(JSON.stringify(result))[0].b==1) {
+				if (req.session.user && req.cookies.user_sid) {
+					dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID=' + req.body.SID + ';', function(err, result) {
+						if (err || result == undefined) {
+							res.status(500).send('Something went wrong');
+							return console.log('db.js:post link ' + err.toString());
+						}
+						let string = JSON.stringify(result);
+						let json =  JSON.parse(string);
+						if (json[0].b) {
+							pData.insertLink(req, res);
+						} else {
+							res.status(403).send('Not permitted for you.');
+						}
+					});
+				} else {
+					res.status(401).send('You need to be logged in to do this.');
+				}
 			} else {
-				res.status(403).send('Not permitted for you.');
+				res.status(404).send('Survey not found.');
 			}
 		});
 	} else {
@@ -204,17 +270,31 @@ router.post('/user', function(req, res) {
 
 router.put('/survey', function(req, res) {
 	if (req.session.user && req.cookies.user_sid) {
-		dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID=' + req.body.SID + ';', function(err, result) {
-			if (err || result == undefined) {
-				res.status(500).send('Something went wrong');
-				return console.log('db.js:update survey ' + err.toString());
+		dba.performQuery('SELECT IF (' + req.query.SID + ' in (SELECT surveyID FROM survey), true, false) AS b;', function(err, result) {
+			if (err) {
+				res.status(404).send('Survey not found.');
+				return console.log('Survey not found');
 			}
-			let string = JSON.stringify(result);
-			let json =  JSON.parse(string);
-			if (json[0].b) {
-				uData.updateSurvey(req, res);
+			if (JSON.parse(JSON.stringify(result))[0].b==1) {
+				if (req.session.user && req.cookies.user_sid) {
+					dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID=' + req.body.SID + ';', function(err, result) {
+						if (err || result == undefined) {
+							res.status(500).send('Something went wrong');
+							return console.log('db.js:update survey ' + err.toString());
+						}
+						let string = JSON.stringify(result);
+						let json =  JSON.parse(string);
+						if (json[0].b) {
+							uData.updateSurvey(req, res);
+						} else {
+							res.status(403).send('Not permitted for you.');
+						}
+					});
+				} else {
+					res.status(401).send('You need to be logged in to do this.');
+				}
 			} else {
-				res.status(403).send('Not permitted for you.');
+				res.status(404).send('Survey not found.');
 			}
 		});
 	} else {
@@ -231,17 +311,31 @@ router.put('/user', function(req, res) {
 
 router.delete('/survey', function(req, res) {
 	if (req.session.user && req.cookies.user_sid) {
-		dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID=' + req.body.SID + ';', function(err, result) {
-			if (err || result == undefined) {
-				res.status(500).send('Something went wrong');
-				return console.log('db.js:delete survey ' + err.toString());
+		dba.performQuery('SELECT IF (' + req.query.SID + ' in (SELECT surveyID FROM survey), true, false) AS b;', function(err, result) {
+			if (err) {
+				res.status(404).send('Survey not found.');
+				return console.log('Survey not found');
 			}
-			let string = JSON.stringify(result);
-			let json =  JSON.parse(string);
-			if (json[0].b) {
-				dData.deleteSurvey(req, res);
+			if (JSON.parse(JSON.stringify(result))[0].b==1) {
+				if (req.session.user && req.cookies.user_sid) {
+					dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID=' + req.body.SID + ';', function(err, result) {
+						if (err || result == undefined) {
+							res.status(500).send('Something went wrong');
+							return console.log('db.js:delete survey ' + err.toString());
+						}
+						let string = JSON.stringify(result);
+						let json =  JSON.parse(string);
+						if (json[0].b) {
+							dData.deleteSurvey(req, res);
+						} else {
+							res.status(403).send('Not permitted for you.');
+						}
+					});
+				} else {
+					res.status(401).send('You need to be logged in to do this.');
+				}
 			} else {
-				res.status(403).send('Not permitted for you.');
+				res.status(404).send('Survey not found.');
 			}
 		});
 	} else {
@@ -255,20 +349,34 @@ router.delete('/user', function(req, res) {
 
 router.delete('/link', function(req, res) {
 	if (req.session.user && req.cookies.user_sid) {
-		dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID IN \
-			(SELECT SID FROM Link WHERE url=\'' + req.body.url + '\');', function(err, result) {
-			if (err || result == undefined) {
-				res.status(500).send('Something went wrong');
-				return console.log('db.js:delete link ' + err.toString());
+		dba.performQuery('SELECT IF (' + req.query.SID + ' in (SELECT surveyID FROM survey), true, false) AS b;', function(err, result) {
+			if (err) {
+				res.status(404).send('Survey not found.');
+				return console.log('Survey not found');
 			}
-			let string = JSON.stringify(result);
-			let json =  JSON.parse(string);
-			if (json[0].b) {
-				dData.deleteLink(req, res);
+			if (JSON.parse(JSON.stringify(result))[0].b==1) {
+				if (req.session.user && req.cookies.user_sid) {
+					dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID IN \
+						(SELECT SID FROM Link WHERE url=\'' + req.body.url + '\');', function(err, result) {
+						if (err || result == undefined) {
+							res.status(500).send('Something went wrong');
+							return console.log('db.js:delete link ' + err.toString());
+						}
+						let string = JSON.stringify(result);
+						let json =  JSON.parse(string);
+						if (json[0].b) {
+							dData.deleteLink(req, res);
+						} else {
+							res.status(403).send('Not permitted for you.');
+						}
+					});
+				} else {
+					res.status(401).send('You need to be logged in to do this.');
+				}
 			} else {
-				res.status(403).send('Not permitted for you.');
+				res.status(404).send('Survey not found.');
 			}
-		});
+		})
 	} else {
 		res.status(401).send('You need to be logged in to do this.');
 	}
