@@ -2,26 +2,25 @@
   <title>ATI</title>
   </head>
 
-  <body onload="setLang()" lang="<%= __('html.lang') %>">
+  <body onload="setLang()" lang="<%= __('html.lang') %>" >
     <header id="indexHeader">
       <%- include ./partials/header %>
     </header>
 <main>
     <div class="title-screen " align="center">
 
-      <img style="width:100%;height:auto" src='<%= __('titleImg') %>'></img>
+      <img class="img-title-screen" src='<%= __('titleImg') %>'></img>
 
     </div>
 
 
 
-    <div class="imagesPadding flex-row padding-left-right-SDT" align="center">
-
+   <div class="imagesPadding flex-row padding-left-right-SDT" align="center">
+     
       <div>
-        <a href="#scientist">
-          <img src="./images/Forscher_Icon.png" alt="Forscher" class="scientist-developer-teacher-images"></img>
+        <a href="#scientist" >
+         <div class="bg-img-container bg-img-form"  id="img-scientist" alt="scientist" alt="scientist"></div>
         </a>
-
         <p class="scientist-developer-teacher-text">
           <h3>
             <b>
@@ -31,11 +30,10 @@
         </p>
       </div>
 
-      <div style="margin-left:auto;margin-right:auto">
+      <div class="horizontal">
         <a href="#developer">
-          <img src="./images/Entwickler_Icon.png" s alt="Entwickler" class="scientist-developer-teacher-images" href="#developer"></img>
+          <div id="img-developer" src="./images/Entwickler_Icon.png"  class="bg-img-container bg-img-form" href="#developer" alt="developer"></div>
         </a>
-
         <p class="scientist-developer-teacher-text">
           <h3>
             <b>
@@ -47,7 +45,7 @@
 
       <div>
         <a href="#teacher">
-          <img src="./images/Kursleiter_Icon.png" alt="Kursleiter" class="scientist-developer-teacher-images"></img>
+          <div id="img-teacher" alt="Kursleiter" class="bg-img-container bg-img-form" alt="teacher"></div>
         </a>
 
         <p>
@@ -62,13 +60,13 @@
 
     </div>
 
-    <div class="flex-lg-row scale-txt-home-sm" style="margin-left:10%; margin-top:4rem ">
+    <div class="flex-lg-row scale-txt-home-sm container-header-ati" >
       <h2>
         <%= __('definitionAffinityHeader') %>
       </h2>
     </div>
 
-    <div class=" flex-lg-row" style="margin-left:10%;margin-right:10%;margin-bottom: 4rem;">
+    <div class=" flex-lg-row container-def-ati" >
       <p>
         <%= __('definitionAffinity') %>
       </p>
@@ -78,24 +76,24 @@
 
     <div id="scale" class="container-flex-scale-title index-container-margin-top-bot flex-lg-row">
 
-      <div style="width:40%"></div>
+      <div class="dummie-container-md"></div>
 
-      <div style="width:20%; margin-left:auto;margin-right:auto; " align="center">
-        <h2>
+      <div class="dummie-container-sm horizontal" align="center" >
+        <h2 >
           <%= __('theScale') %>
         </h2>
       </div>
 
-      <div style="width:40%"></div>
+      <div class="dummie-container-md"></div>
 
     </div>
 
-    <div class="index-container-margin-bottom flex-lg-row flex-md-col " id="scale">
+    <div class="index-container-margin-bottom flex-lg-row flex-md-col index-margin-bottom" >
 
-      <div style="width:10%"></div>
+      <div class="dummie-container"></div>
 
-      <div class="div-scale" style="padding-top:4rem; padding-bottom:4rem;">
-          <div style="width:80%;">
+      <div class="div-scale scale-padding">
+          <div class="dummie-container-lg">
               <%= __('downloadText') %>
             </div>
         <div class="flex-col">
@@ -133,11 +131,11 @@
 
       </div>
 
-      <div style="width:10%"></div>
+      <div class="dummie-container"></div>
 
-      <div class="div-scale" style="padding-top:4rem; padding-bottom:4rem;">
+      <div class="div-scale scale-padding" >
 
-        <div style="width:80%">
+        <div class="dummie-container-lg">
           <%= __('testYourselfText') %>
         </div>
 
@@ -148,7 +146,7 @@
         </a>
       </div>
     </div>
-    <div style="width:10%"></div>
+    <div class="dummie-container"></div>
 
     </div>
 
@@ -202,13 +200,33 @@
               <%= __('scientistText') %>
             </p>
           </div>
-
+          <div>
             <div class="iframe-md iframe-xs">
                 <iframe class="" src="https://www.youtube.com/embed/tbyKkZZNUzA" allowfullscreen  alt="in this video Prof. Franke discusses why ATI is relevant"></iframe>
-              </div>
-             <a href="https://www.researchgate.net/publication/318745431_Assessing_Affinity_for_Technology_Interaction_-_The_Affinity_for_Technology_Interaction_ATI_Scale_Scale_Description_-_English_and_German_Scale_Version">
-                 <button class="button bg-color-theme button-start">Paper</button>
-              </a>
+            </div>
+            <button class="button bg-color-theme button-start" onclick="displayScale()"><%= __('index.publication') %></button>
+          </div>
+              <div class=""  id="papers" style="display:none">
+                <p class="index-padding-bottom"><%= __('index.publicationIntro') %></p>
+                <div class="flex-row flex-s-col flex-paper">
+                  <div class="btn-papers-md">  
+                    <a href="https://www.researchgate.net/publication/318745431_Assessing_Affinity_for_Technology_Interaction_-_The_Affinity_for_Technology_Interaction_ATI_Scale_Scale_Description_-_English_and_German_Scale_Version">
+                    <button type="button" class="button bg-color-theme btn-index-lg">Paper</button>
+                    </a>
+                  </div>
+                  <div class="paper-param-md" > Franke, Thomas & Attig, Christiane & Wessel, Daniel. (2017). Assessing Affinity for Technology Interaction – The Affinity for Technology Interaction (ATI) Scale. Scale Description – English and German Scale Version.
+                  </div>
+                </div>
+                <div class="flex-row flex-s-col flex-paper">
+                    <div class="btn-papers-md" >  
+                      <a href="/dlPoster">
+                      <button type="button" class="button bg-color-theme btn-index-lg"><%= __('index.Poster') %></button>
+                      </a>
+                    </div>
+                    <div class="paper-param-md"> Franke, Thomas & Attig, Christiane & Wessel, Daniel. (2017). Assessing Personality Differences in Human-technology Interaction: An Overview of Key Self-report Scales to Predict Successful Interaction & a New Scale to Assess Affinity for Technology
+                    </div>
+                  </div>
+              </div>              
         </div>
 
       </div>
@@ -265,7 +283,7 @@
         </h3>
       </div>
 
-      <div class="flex-lg-row div-padding-row" style="margin-top:-5%;">
+      <div class="flex-lg-row div-padding-row neg-marg-top">
 
         <div class="div-padding-min author-width-md author-margin-xs" align="center">
 
@@ -273,11 +291,11 @@
 
           </br>
 
-          <h4 style="margin-top:1%">
+          <h4>
             <%- __('frankeName') %>
           </h4>
 
-          <p style="text-align:justify">
+          <p >
             <%= __('frankeText') %>
           </p>
 
@@ -289,11 +307,11 @@
 
           </br>
 
-          <h4 style="margin-top:1%">
+          <h4>
             <%- __('attigName') %>
           </h4>
 
-          <p style="text-align:justify">
+          <p >
             <%= __('attigText') %>
           </p>
 
@@ -305,11 +323,11 @@
 
           </br>
 
-          <h4 style="margin-top:1%">
+          <h4>
             <%- __('wesselName') %>
           </h4>
 
-          <p style="text-align:justify">
+          <p>
             <%= __('wesselText') %>
           </p>
 
@@ -342,8 +360,8 @@
             if (target.length) {
               // Only prevent default if animation is actually gonna happen
               event.preventDefault();
-              $('html, body').animate({
-                scrollTop: target.offset().top
+              $('html, body').animate({               
+                scrollTop: target.offset().top - 70+'px'
               }, 1000, function () {
                 // Callback after animation
                 // Must change focus!

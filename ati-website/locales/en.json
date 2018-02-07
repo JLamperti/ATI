@@ -98,7 +98,6 @@
 	"about.email": "Email: <a href='mailto:wessel@imis.uni-luebeck.de' rel='external' style='color:blue;'><ins>wessel@imis.uni-luebeck.de</ins></a>",
 	"user.yourSurveys": "Your Surveys",
 	"user.searchText": "search...",
-	"user.newSurveyButton": "Create new survey",
 	"user.newSurveyButton": "Create a new survey",
 	"user.detailsHeader": "Collected Data",
 	"user.releaseData": "release data",
@@ -111,7 +110,6 @@
 	"user.status": "Status",
 	"user.average": "average",
 	"user.deviation": "deviation",
-	"user.releaseData": "release data",
 	"sex.other": "Intersex",
 	"navbar.questionnaire": "Questionnaire",
 	"questionnaire.result": "Thank you for your participation!",
@@ -153,5 +151,9 @@
 	"message.start": "Startpage",
 	"chart.descDef": "The x-axis depict the ATI-score and the y-axis depict the amount of users ",
 	"chart.descSex": "The x-axis depict the sex and the y-axis depict the average ATI-score",
-	"chart.descAge":"The x-axis depict the age and the y-axis depict the average ATI-score"
+	"chart.descAge": "The x-axis depict the age and the y-axis depict the average ATI-score",
+	"questionnaire.dontSend": "I don't agree that my data is used further",
+	"index.publication": "scientific publications",
+	"index.Poster": "Poster",
+	"index.publicationIntro": "Here you will find the scientific publications on the ATI scale"
 }

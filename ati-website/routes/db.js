@@ -26,9 +26,11 @@ router.get('/ageAndAti', function(req, res) {
 	gData.selectAgeAndAti(req, res);
 });
 
+/*
 router.get('/all', function(req, res) {
+	//fliegt raus
 	gData.selectAll(req, res);
-});
+});*/
 
 router.get('/avg', function(req, res) {
 	gData.selectAvg(req, res);
@@ -38,9 +40,11 @@ router.get('/buckets', function(req, res) {
 	gData.selectBuckets(req, res);
 });
 
+/*
 router.get('/complex', function(req, res) {
+	//fliegt raus
 	gData.selectComplex(req, res);
-});
+});*/
 
 router.get('/countProbandInSurvey', function(req, res) {
 	gData.selectCountProbandInSurvey(req, res);
@@ -51,11 +55,43 @@ router.get('/sexAndAti', function(req, res) {
 });
 
 router.get('/exportCSV', function(req, res) {
-	eData.exportCSV(req, res);
+	if (req.session.user && req.cookies.user_sid) {
+		dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID=' + req.query.SID + ';', function(err, result) {
+			if (err || result == undefined) {
+				res.status(500).send('Something went wrong');
+				return console.log('db.js:exportCSV ' + err.toString());
+			}
+			let string = JSON.stringify(result);
+			let json =  JSON.parse(string);
+			if (json[0].b) {
+				eData.exportCSV(req, res);
+			} else {
+				res.status(403).send('Not permitted for you.');
+			}
+		});
+	} else {
+		res.status(401).send('You need to be logged in to do this.');
+	}
 });
 
 router.get('/links', function(req, res) {
-	gData.selectLinks(req, res);
+	if (req.session.user && req.cookies.user_sid) {
+		dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID=' + req.query.SID + ';', function(err, result) {
+			if (err || result == undefined) {
+				res.status(500).send('Something went wrong');
+				return console.log('db.js:exportCSV ' + err.toString());
+			}
+			let string = JSON.stringify(result);
+			let json =  JSON.parse(string);
+			if (json[0].b) {
+				gData.selectLinks(req, res);
+			} else {
+				res.status(403).send('Not permitted for you.');
+			}
+		});
+	} else {
+		res.status(401).send('You need to be logged in to do this.');
+	}
 });
 
 router.get('/educationAndAti', function(req, res) {
@@ -63,7 +99,23 @@ router.get('/educationAndAti', function(req, res) {
 });
 
 router.get('/survey', function(req, res) {
-	gData.selectSurvey(req, res);
+	if (req.session.user && req.cookies.user_sid) {
+		dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID=' + req.query.SID + ';', function(err, result) {
+			if (err || result == undefined) {
+				res.status(500).send('Something went wrong');
+				return console.log('db.js:exportCSV ' + err.toString());
+			}
+			let string = JSON.stringify(result);
+			let json =  JSON.parse(string);
+			if (json[0].b) {
+				gData.selectSurvey(req, res);
+			} else {
+				res.status(403).send('Not permitted for you.');
+			}
+		});
+	} else {
+		res.status(401).send('You need to be logged in to do this.');
+	}
 });
 
 router.get('/surveyAndLinkByUrl', function(req, res) {
@@ -86,11 +138,43 @@ router.get('/user', function(req, res) {
 //post-requests
 
 router.post('/importCSV', function(req, res) {
-	iData.importCSV(req, res);
+	if (req.session.user && req.cookies.user_sid) {
+		dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID=' + req.body.SID + ';', function(err, result) {
+			if (err || result == undefined) {
+				res.status(500).send('Something went wrong');
+				return console.log('db.js:exportCSV ' + err.toString());
+			}
+			let string = JSON.stringify(result);
+			let json =  JSON.parse(string);
+			if (json[0].b) {
+				iData.importCSV(req, res);
+			} else {
+				res.status(403).send('Not permitted for you.');
+			}
+		});
+	} else {
+		res.status(401).send('You need to be logged in to do this.');
+	}
 });
 
 router.post('/link', function(req, res) {
-	pData.insertLink(req, res);
+	if (req.session.user && req.cookies.user_sid) {
+		dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID=' + req.body.SID + ';', function(err, result) {
+			if (err || result == undefined) {
+				res.status(500).send('Something went wrong');
+				return console.log('db.js:exportCSV ' + err.toString());
+			}
+			let string = JSON.stringify(result);
+			let json =  JSON.parse(string);
+			if (json[0].b) {
+				pData.insertLink(req, res);
+			} else {
+				res.status(403).send('Not permitted for you.');
+			}
+		});
+	} else {
+		res.status(401).send('You need to be logged in to do this.');
+	}
 });
 
 router.post('/proband', function(req, res) {
@@ -101,9 +185,11 @@ router.post('/probandLink', function(req, res) {
 	pData.insertProbandLink(req, res);
 });
 
+/*
 router.post('/probandUser', function(req, res) {
+	//fliegt raus
 	pData.insertProbandUser(req, res);
-});
+});*/
 
 router.post('/survey', function(req, res) {
 	pData.insertSurvey(req, res);
@@ -117,7 +203,23 @@ router.post('/user', function(req, res) {
 //update-requests
 
 router.put('/survey', function(req, res) {
-	uData.updateSurvey(req, res);
+	if (req.session.user && req.cookies.user_sid) {
+		dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID=' + req.body.SID + ';', function(err, result) {
+			if (err || result == undefined) {
+				res.status(500).send('Something went wrong');
+				return console.log('db.js:exportCSV ' + err.toString());
+			}
+			let string = JSON.stringify(result);
+			let json =  JSON.parse(string);
+			if (json[0].b) {
+				uData.updateSurvey(req, res);
+			} else {
+				res.status(403).send('Not permitted for you.');
+			}
+		});
+	} else {
+		res.status(401).send('You need to be logged in to do this.');
+	}
 });
 
 router.put('/user', function(req, res) {
@@ -128,11 +230,48 @@ router.put('/user', function(req, res) {
 //delete-requests
 
 router.delete('/survey', function(req, res) {
-	dData.deleteSurvey(req, res);
+	if (req.session.user && req.cookies.user_sid) {
+		dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID=' + req.body.SID + ';', function(err, result) {
+			if (err || result == undefined) {
+				res.status(500).send('Something went wrong');
+				return console.log('db.js:exportCSV ' + err.toString());
+			}
+			let string = JSON.stringify(result);
+			let json =  JSON.parse(string);
+			if (json[0].b) {
+				dData.deleteSurvey(req, res);
+			} else {
+				res.status(403).send('Not permitted for you.');
+			}
+		});
+	} else {
+		res.status(401).send('You need to be logged in to do this.');
+	}
 });
 
 router.delete('/user', function(req, res) {
 	dData.deleteUser(req, res);
+});
+
+router.delete('/link', function(req, res) {
+	if (req.session.user && req.cookies.user_sid) {
+		dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID IN \
+			(SELECT SID FROM Link WHERE url=\'' + req.body.url + '\');', function(err, result) {
+			if (err || result == undefined) {
+				res.status(500).send('Something went wrong');
+				return console.log('db.js:exportCSV ' + err.toString());
+			}
+			let string = JSON.stringify(result);
+			let json =  JSON.parse(string);
+			if (json[0].b) {
+				dData.deleteLink(req, res);
+			} else {
+				res.status(403).send('Not permitted for you.');
+			}
+		});
+	} else {
+		res.status(401).send('You need to be logged in to do this.');
+	}
 });
 
 module.exports = router;

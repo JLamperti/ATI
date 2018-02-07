@@ -16,14 +16,14 @@ exports.setDba = function(newDba) {
 * selects age and the ati score of all probands except for duplicates (token)
 */
 exports.selectAgeAndAti = function(req, res) {
-	dba.manipulateDB("SELECT Age, AtiScore FROM allesOhneDuplikate;", req, res);
+	dba.manipulateDB("SELECT AVG(atiScore) as score, age from allesOhneDuplikate GROUP BY age;", req, res);
 };
 
 /**
 * selects sex and the ati score of all probands except for duplicates (token)
 */
 exports.selectSexAndAti = function(req, res) {
-	dba.manipulateDB("SELECT Sex, AtiScore FROM allesOhneDuplikate;", req, res);
+	dba.manipulateDB("SELECT sex, AVG(AtiScore) as score FROM allesOhneDuplikate GROUP BY sex;", req, res);
 };
 
 /**
@@ -170,13 +170,14 @@ exports.selectSurvey = function(req, res) {
 };
 
 /**
-* select all surveys a specific user administrates
-* 
-* parameter (must-have, in url):
-* UID the user-ID
+* select all surveys the logged in user administrates
 */
 exports.selectSurveyByUser = function(req, res) {
-	dba.manipulateDB("SELECT * FROM survey WHERE UID=" + req.query.UID + ";", req, res);
+	if (req.session.user && req.cookies.user_sid) {
+		dba.manipulateDB("SELECT * FROM survey WHERE UID=" + req.session.user + ";", req, res);
+	} else {
+		res.status(401).send('You need to be logged in to do this');
+	}
 };
 
 /**
@@ -216,8 +217,12 @@ exports.selectStd = function (req, res) {
 * UID the userID
 */
 exports.selectUser = function(req, res) {
-	dba.manipulateDB('SELECT userID, userName, eMail, PID, IsScientist, IsDeveloper, IsTeacher, bestaetigt FROM \
-		user WHERE userID = ' + req.query.UID + ';', req, res);
+	if (req.session.user && req.cookies.user_sid) {
+		dba.manipulateDB('SELECT userID, userName, eMail, PID, IsScientist, IsDeveloper, IsTeacher, bestaetigt FROM \
+			user WHERE userID = ' + req.session.user + ';', req, res);
+	} else {
+		res.status(401).send('You need to be logged in to do this');
+	}
 };
 
 

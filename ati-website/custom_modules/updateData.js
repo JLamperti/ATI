@@ -101,51 +101,62 @@ exports.updateSurvey = function (req, res) {
 * for info on a specific line compare to other functions (e.g. in postData.js)
 */
 exports.updateUser = function (req, res) {
-	let tmpString = 'UPDATE user SET';
-	let kommaNoetig = false;
-	if (req.body.name) {
-		tmpString += ' userName = \'' + req.body.name + '\'';
-		kommaNoetig = true;
-	}
-	if (req.body.email) {
-		if (kommaNoetig) {
-			tmpString += ',';
+	if (req.session.user && req.cookies.user_sid) {
+		let tmpString = 'UPDATE user SET';
+		let kommaNoetig = false;
+		if (req.body.name) {
+			tmpString += ' userName = \'' + req.body.name + '\'';
+			kommaNoetig = true;
 		}
-		tmpString += ' eMail = \'' + req.body.email + '\'';
-		kommaNoetig = true;
-	}
-	if (req.body.pw) {
-		if (kommaNoetig) {
-			tmpString += ',';
+		if (req.body.email) {
+			if (kommaNoetig) {
+				tmpString += ',';
+			}
+			tmpString += ' eMail = \'' + req.body.email + '\'';
+			kommaNoetig = true;
 		}
-		tmpString += ' pw = \'' + req.body.pw + '\'';
-		kommaNoetig = true;
-	}
-	if (req.body.PID) {
-		if (kommaNoetig) {
-			tmpString += ',';
+		if (req.body.pw) {
+			if (kommaNoetig) {
+				tmpString += ',';
+			}
+			tmpString += ' pw = \'' + req.body.pw + '\'';
+			kommaNoetig = true;
 		}
-		tmpString += ' PID = ' + req.body.PID;
-	}
-	if (req.body.scientist) {
-		if (kommaNoetig) {
-			tmpString += ',';
+		if (req.body.PID) {
+			if (kommaNoetig) {
+				tmpString += ',';
+			}
+			tmpString += ' PID = ' + req.body.PID;
 		}
-		tmpString += ' IsScientist = ' + req.body.scientist;
-	}
-	if (req.body.developer) {
-		if (kommaNoetig) {
-			tmpString += ',';
+		if (req.body.scientist) {
+			if (kommaNoetig) {
+				tmpString += ',';
+			}
+			tmpString += ' IsScientist = ' + req.body.scientist;
 		}
-		tmpString += ' IsDeveloper = ' + req.body.developer;
-	}
-	if (req.body.teacher) {
-		if (kommaNoetig) {
-			tmpString += ',';
+		if (req.body.developer) {
+			if (kommaNoetig) {
+				tmpString += ',';
+			}
+			tmpString += ' IsDeveloper = ' + req.body.developer;
 		}
-		tmpString += ' IsTeacher = ' + req.body.teacher;
+		if (req.body.teacher) {
+			if (kommaNoetig) {
+				tmpString += ',';
+			}
+			tmpString += ' IsTeacher = ' + req.body.teacher;
+		}
+		tmpString += ' WHERE UserID = ' + req.session.user + ';';
+		dba.manipulateDB(tmpString, req, res);
+	} else {
+		res.status(401).send('You need to be logged in to do this:');
 	}
-	tmpString += ' WHERE UserID = ' + req.body.UID + ';';
-	dba.manipulateDB(tmpString, req, res);
+};
+
+
+
+
+
+
 
 };

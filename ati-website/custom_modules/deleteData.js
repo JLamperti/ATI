@@ -25,7 +25,19 @@ exports.deleteSurvey = function (req, res) {
 * mandatory-parameter in body: UID
 */
 exports.deleteUser = function (req, res) {
-	dba.manipulateDB('DELETE FROM user WHERE UserID = ' + req.body.UID + ';', req, res);
+	if (req.session.user && req.cookies.user_sid) {
+		dba.manipulateDB('DELETE FROM user WHERE UserID = ' + req.session.user + ';', req, res);
+	} else {
+		res.status(401).send('You need to be logged in to do this.');
+	}
+};
+
+/**
+* deletes a link
+* mandatory-parameter in body: url
+*/
+exports.deleteLink = function (req, res) {
+	dba.manipulateDB('DELETE FROM link WHERE url = ' + req.body.url + ';', req, res);
 };
 
 

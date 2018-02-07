@@ -270,57 +270,60 @@ exports.insertProbandUser = function(req, res) {
 /**
 * insert a survey and make a user the admin of it.
 * parameters are in the body of the request.
-* mandatory-paramter is UID (user-ID).
 * optional-paramters are Name, Description, MaxProbands, Status, Begin, End, inviteText, takeEducation, takeAge, takeSex
 * Dates need to have the format yyyy-mm-dd
 */
 exports.insertSurvey = function(req, res) {
-	let temp = req.body;		//for quick access
-	let stringOne = 'INSERT INTO survey (UID, SurveyName',		//prepare two strings for the statement
-		stringTwo = ') VALUES (' + temp.UID + ', ';
-	if (temp.Name) {				//if a name is given, use it
-		stringTwo += '\'' + temp.Name + '\'';
-	} else {						//else default to 'survey'
-		stringTwo += '\'survey\'';
+	if (req.session.user && req.cookies.user_sid) {
+		let temp = req.body;		//for quick access
+		let stringOne = 'INSERT INTO survey (UID, SurveyName',		//prepare two strings for the statement
+			stringTwo = ') VALUES (' + req.session.user + ', ';
+		if (temp.Name) {				//if a name is given, use it
+			stringTwo += '\'' + temp.Name + '\'';
+		} else {						//else default to 'survey'
+			stringTwo += '\'survey\'';
+		}
+		if (temp.Description) {			//if a description is given, use it
+			stringOne += ', Description';
+			stringTwo += ', \'' + temp.Description + '\'';
+		}
+		if (temp.MaxProbands) {			//repeat for all optional parameters
+			stringOne += ', MaxProbands';
+			stringTwo += ', ' + temp.MaxProbands;
+		}
+		if (temp.Status) {
+			stringOne += ', SurveyStatus';
+			stringTwo += ', \'' + temp.Status + '\'';
+		}
+		if (temp.Begin) {
+			stringOne += ', SurveyBegin';
+			stringTwo += ', \'' + temp.Begin + '\'';
+		}
+		if (temp.End) {
+			stringOne += ', SurveyEnd';
+			stringTwo += ', \'' + temp.End + '\'';
+		}
+		if (temp.inviteText) {
+			stringOne += ', inviteText';
+			stringTwo += ', \'' + temp.inviteText + '\'';
+		}
+		if (temp.takeAge) {
+			stringOne += ', takeAge';
+			stringTwo += ', ' + temp.takeAge;
+		}
+		if (temp.takeEducation) {
+			stringOne += ', takeEducation';
+			stringTwo += ', ' + temp.takeEducation;
+		}
+		if (temp.takeSex) {
+			stringOne += ', takeSex';
+			stringTwo += ', ' + temp.takeSex;
+		}
+		let tmpString = stringOne + stringTwo + ');';		//finalize the statement
+		dba.manipulateDB(tmpString, req, res);				//performe sthe statement
+	} else {
+		res.status(401).send('You need to be logged in to do this');
 	}
-	if (temp.Description) {			//if a description is given, use it
-		stringOne += ', Description';
-		stringTwo += ', \'' + temp.Description + '\'';
-	}
-	if (temp.MaxProbands) {			//repeat for all optional parameters
-		stringOne += ', MaxProbands';
-		stringTwo += ', ' + temp.MaxProbands;
-	}
-	if (temp.Status) {
-		stringOne += ', SurveyStatus';
-		stringTwo += ', \'' + temp.Status + '\'';
-	}
-	if (temp.Begin) {
-		stringOne += ', SurveyBegin';
-		stringTwo += ', \'' + temp.Begin + '\'';
-	}
-	if (temp.End) {
-		stringOne += ', SurveyEnd';
-		stringTwo += ', \'' + temp.End + '\'';
-	}
-	if (temp.inviteText) {
-		stringOne += ', inviteText';
-		stringTwo += ', \'' + temp.inviteText + '\'';
-	}
-	if (temp.takeAge) {
-		stringOne += ', takeAge';
-		stringTwo += ', ' + temp.takeAge;
-	}
-	if (temp.takeEducation) {
-		stringOne += ', takeEducation';
-		stringTwo += ', ' + temp.takeEducation;
-	}
-	if (temp.takeSex) {
-		stringOne += ', takeSex';
-		stringTwo += ', ' + temp.takeSex;
-	}
-	let tmpString = stringOne + stringTwo + ');';		//finalize the statement
-	dba.manipulateDB(tmpString, req, res);				//performe sthe statement
 };
 
 /**

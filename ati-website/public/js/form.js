@@ -1,6 +1,7 @@
 var reqAge = true,
   reqSex = true,
-  reqEdu = true;
+  reqEdu = true,
+  dumpData =false;
 var urlParams = new URLSearchParams(window.location.search);
 
 let invLink = urlParams.get("inv");
@@ -13,6 +14,8 @@ if (invLink != null || invLink != undefined) {
     .then(res => res.json())
     .then(out => {
       var r = {};
+      deleteDumbData();
+      dumpData = true;
       reqAge = out[0].takeAge.data[0] === 1 ? true : false;
       reqSex = out[0].takeSex.data[0] === 1 ? true : false;
       reqEdu = out[0].takeEducation.data[0] === 1 ? true : false;
@@ -32,6 +35,9 @@ if (invLink != null || invLink != undefined) {
   }
   function deleteEdu() {
     document.querySelector("#education").remove();
+  }
+  function deleteDumbData(){
+    document.getElementById('dontSendData').remove();
   }
 }
 
@@ -124,7 +130,8 @@ function checkAnswers() {
       $.post("/db/probandLink", b);
       //console.log("probandLink");
     } else {
-      $.post("/db/proband", b);
+      if(!dumpData){
+      $.post("/db/proband", b);}
       //console.log("proband");
     }
   }
