@@ -32,7 +32,7 @@ $(document).ready(function() {
       Status: status,
       Begin: begin,
       End: end,
-      inviteText: coverLetter,
+      inviteText: description,
       takeEducation: takeEducation,
       takeAge: takeAge,
       takeSex: takeSex

@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var IP = "http://87.146.240.116:3000";
+  var IP = "";
   var UID = 1;
   var SID = 1;
 
