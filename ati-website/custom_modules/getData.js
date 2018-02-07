@@ -175,6 +175,8 @@ exports.selectSurvey = function(req, res) {
 exports.selectSurveyByUser = function(req, res) {
 	if (req.session.user && req.cookies.user_sid) {
 		dba.manipulateDB("SELECT * FROM survey WHERE UID=" + req.session.user + ";", req, res);
+	} else {
+		res.status(401).send('You need to be logged in to do this');
 	}
 };
 
@@ -215,8 +217,12 @@ exports.selectStd = function (req, res) {
 * UID the userID
 */
 exports.selectUser = function(req, res) {
-	dba.manipulateDB('SELECT userID, userName, eMail, PID, IsScientist, IsDeveloper, IsTeacher, bestaetigt FROM \
-		user WHERE userID = ' + req.query.UID + ';', req, res);
+	if (req.session.user && req.cookies.user_sid) {
+		dba.manipulateDB('SELECT userID, userName, eMail, PID, IsScientist, IsDeveloper, IsTeacher, bestaetigt FROM \
+			user WHERE userID = ' + req.session.user + ';', req, res);
+	} else {
+		res.status(401).send('You need to be logged in to do this');
+	}
 };
 
 
