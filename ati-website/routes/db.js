@@ -207,7 +207,7 @@ router.get('/user', function(req, res) {
 
 router.post('/importCSV', function(req, res) {
 	if (req.session.user && req.cookies.user_sid) {
-		dba.performQuery('SELECT IF (' + req.query.SID + ' in (SELECT surveyID FROM survey), true, false) AS b;', function(err, result) {
+		dba.performQuery('SELECT IF (' + req.body.SID + ' in (SELECT surveyID FROM survey), true, false) AS b;', function(err, result) {
 			if (err) {
 				res.status(404).send('Survey not found.');
 				return console.log('Survey not found');
@@ -241,7 +241,7 @@ router.post('/importCSV', function(req, res) {
 
 router.post('/link', function(req, res) {
 	if (req.session.user && req.cookies.user_sid) {
-		dba.performQuery('SELECT IF (' + req.query.SID + ' in (SELECT surveyID FROM survey), true, false) AS b;', function(err, result) {
+		dba.performQuery('SELECT IF (' + req.body.SID + ' in (SELECT surveyID FROM survey), true, false) AS b;', function(err, result) {
 			if (err) {
 				res.status(404).send('Survey not found.');
 				return console.log('Survey not found');
@@ -300,7 +300,7 @@ router.post('/user', function(req, res) {
 
 router.put('/survey', function(req, res) {
 	if (req.session.user && req.cookies.user_sid) {
-		dba.performQuery('SELECT IF (' + req.query.SID + ' in (SELECT surveyID FROM survey), true, false) AS b;', function(err, result) {
+		dba.performQuery('SELECT IF (' + req.body.SID + ' in (SELECT surveyID FROM survey), true, false) AS b;', function(err, result) {
 			if (err) {
 				res.status(404).send('Survey not found.');
 				return console.log('Survey not found');
@@ -341,7 +341,7 @@ router.put('/user', function(req, res) {
 
 router.delete('/survey', function(req, res) {
 	if (req.session.user && req.cookies.user_sid) {
-		dba.performQuery('SELECT IF (' + req.query.SID + ' in (SELECT surveyID FROM survey), true, false) AS b;', function(err, result) {
+		dba.performQuery('SELECT IF (' + req.body.SID + ' in (SELECT surveyID FROM survey), true, false) AS b;', function(err, result) {
 			if (err) {
 				res.status(404).send('Survey not found.');
 				return console.log('Survey not found');
@@ -379,7 +379,7 @@ router.delete('/user', function(req, res) {
 
 router.delete('/link', function(req, res) {
 	if (req.session.user && req.cookies.user_sid) {
-		dba.performQuery('SELECT IF (' + req.query.SID + ' in (SELECT surveyID FROM survey), true, false) AS b;', function(err, result) {
+		dba.performQuery('SELECT IF (' + req.body.SID + ' in (SELECT surveyID FROM survey), true, false) AS b;', function(err, result) {
 			if (err) {
 				res.status(404).send('Survey not found.');
 				return console.log('Survey not found');
