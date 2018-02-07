@@ -15,6 +15,7 @@ $(document).ready(function() {
     var surveyName = $('#surveyName').val();
     var begin = $('#begin').val();
     var end = $('#end').val();
+    // TODO: not working properly?
     var status = ($('#enableMaxProbands').is(':checked'))? 'open':'closed';
     var takeAge = $('#takeAge').val();
     var takeSex = $('#takeSex').val();
@@ -63,7 +64,7 @@ $(document).ready(function() {
     //window.location.pathname;
     // TODO: assign new SID
     SID = 1;
-    window.location.href = window.location.hostname + "/user/surveyDetails";
+    window.location.href ="/user/surveyDetails";
 
   });
 
