@@ -32,6 +32,36 @@ router.get('/all', function(req, res) {
 	gData.selectAll(req, res);
 });*/
 
+router.get('/allFromSurvey', function(req, res) {
+	if (req.session.user && req.cookies.user_sid) {
+		dba.performQuery('SELECT IF (' + req.query.SID + ' in (SELECT surveyID FROM survey), true, false) AS b;', function(err, result) {
+			if (err) {
+				res.status(404).send('Survey not found.');
+				return console.log('Survey not found');
+			}
+			if (JSON.parse(JSON.stringify(result))[0].b==1) {
+				dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID=' + req.query.SID + ';', function(err, result) {
+					if (err || result == undefined) {
+						res.status(500).send('Something went wrong');
+						return console.log('db.js:exportCSV ' + err.toString());
+					}
+					let string = JSON.stringify(result);
+					let json =  JSON.parse(string);
+					if (json[0].b) {
+						gData.selectAllFromSurvey(req, res);
+					} else {
+						res.status(403).send('Not permitted for you.');
+					}
+				});
+			} else {
+				res.status(404).send('Survey not found');
+			}
+		});
+	} else {
+		res.status(401).send('You need to be logged in to do this.');
+	}
+});
+
 router.get('/avg', function(req, res) {
 	gData.selectAvg(req, res);
 });
