@@ -7,9 +7,9 @@ $(document).ready(function() {
    * Loads User Info
    */
   var user;
-  var url = "/db/user/";
+  var url = "/db/user";
   console.log("getting user");
-  fetch(IP + url)
+  fetch(IP + url, {credentials: 'include' })
     .then(res => res.json())
     .then((out) => {
       user = out;
@@ -27,7 +27,7 @@ $(document).ready(function() {
    */
   var url = "/db/surveyByUser";
   console.log("getting surveys by user");
-  fetch(IP + url)
+  fetch(IP + url, {credentials: 'include' })
     .then(res => res.json())
     .then((out) => {
       $('#openSurveysAmount').html("(" + out.length + ")");
@@ -132,6 +132,7 @@ $(document).ready(function() {
               'Content-type': 'application/json'
             },
             method: 'PUT',
+			credentials: 'include',
             body: updatedUserData
           })
           .then((out) => {
@@ -170,7 +171,7 @@ $(document).ready(function() {
     var url = "/db/countProbandInSurvey";
     var query = "?SID=" + SID;
     //console.log("gettingProbCnt" + IP + url + query);
-    fetch(IP + url + query)
+    fetch(IP + url + query, {credentials: 'include' })
       .then(res => res.json())
       .then((countProbandInSurvey) => {
         //console.log("got prb cnt: " + IP + url + query + ": " + countProbandInSurvey[0].count);
@@ -185,7 +186,7 @@ $(document).ready(function() {
     var url = "/db/avg?sel[0]=atiScore&fromSurv=";
     var query = "?sel[0]=atiScore&fromSurv=" + SID;
     //console.log("gettingAvgATI" + IP + url + query);
-    fetch(IP + url + query)
+    fetch(IP + url + query, {credentials: 'include' })
       .then(res => res.json())
       .then((avgAtiScore) => {
 
@@ -201,7 +202,7 @@ $(document).ready(function() {
     var url = "/db/std";
     var query = "?SID=" + SID;
     // console.log("gettingAtiStd" + IP + url + query);
-    fetch(IP + url + query)
+    fetch(IP + url + query, {credentials: 'include' })
       .then(res => res.json())
       .then((std) => {
         //console.log("got ATI STD: " + IP + url + query + ": " + std[0].stdatiScore);
