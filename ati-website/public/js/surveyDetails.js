@@ -78,13 +78,16 @@ $(document).ready(function() {
 
   $('#inviteParticipants').on('click', function() {
 
-
-
     var coverLetter = $('#coverLetter').val();
     var emails = $('#emailList').text();
     for (mail in emails) {
       mail = mail.replace("remove", "");
     }
+    // TODO: send mails
+  });
+
+  $('#btnReturn').on('click', function(){
+    $(location).attr('href',"/user");
   });
 
 
@@ -93,29 +96,30 @@ $(document).ready(function() {
    */
   $('#addMail').on('click', function() {
     if (document.getElementById('mailAddress').checkValidity()) {
-      var mail = $('#mailAddress').val();
+      var mails = $('#mailAddress').val();
       // TODO: apply unique checks to single emails, not with ","
-      if (checkUnique(mail)) {
+      mails = mails.split(",");
+      for (var mail in mails) {
+        if (checkUnique(mails[mail])) {
 
-        mail = mail.split(",");
-        for (var address in mail) {
           $('#emailList').append(
             '<a class="list-group-item list-group-item-action clearfix">' +
-            mail +
+            mails[mail] +
             '<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>');
 
+        } else {
+          console.log("not a unique email");
         }
-      } else {
-        console.log("not a unique email");
       }
+
     } else {
-      console.log("not a valid email");
+      console.log("contains invalid email");
     }
   });
 
-/**
-* toggles the "new link" menu
-*/
+  /**
+   * toggles the "new link" menu
+   */
   $('#btnNewLink, #btnCancelLink').on('click', function() {
     $('#newLinkInputs').slideToggle();
   });
@@ -170,42 +174,42 @@ $(document).ready(function() {
       console.log("creating new link: " + newLinkData);
       let linkUrl = '/db/link';
       fetch(IP + linkUrl, {
-        headers: {
-          'Accept': 'application/json',
-          'Content-type': 'application/json'
-        },
-        method: 'POST',
-        body: newLinkData
-      })
-      .then((out) => {
-        console.log(out);
-        var url = "/db/links";
-        var query = "?SID=" + SID;
-        fetch(IP + url + query)
-        .then(res => res.json())
-        .then((links) => {
-          //adds the new survey link to the list be getting all and taking only the last. not DRY, beware
-          var link = links[links.length-1];
-          var newLinkDisplay = $('#linkDisplay').clone(true, true);
-          newLinkDisplay.find('#surveyLink').val("http://technikaffinitaet.de/form?inv=" + link.url);
-          if (link.expirationDate != null) {
-            newLinkDisplay.find('#expiration').css("display", "inherit");
-            console.log("expirationDate: " + link.expirationDate);
-            newLinkDisplay.find('#expirationDate').append(link.expirationDate);
-          }
-          if (link.usesLeft != null) {
-            newLinkDisplay.find('#limitedUses').css("display", "inherit");
-            console.log("usesLeft: " + link.usesLeft);
-            newLinkDisplay.find('#usesLeft').append(link.usesLeft);
-          }
-          newLinkDisplay.css("display", "inherit");
-          $('#linkContainer').append(newLinkDisplay);
+          headers: {
+            'Accept': 'application/json',
+            'Content-type': 'application/json'
+          },
+          method: 'POST',
+          body: newLinkData
+        })
+        .then((out) => {
+          console.log(out);
+          var url = "/db/links";
+          var query = "?SID=" + SID;
+          fetch(IP + url + query)
+            .then(res => res.json())
+            .then((links) => {
+              //adds the new survey link to the list be getting all and taking only the last. not DRY, beware
+              var link = links[links.length - 1];
+              var newLinkDisplay = $('#linkDisplay').clone(true, true);
+              newLinkDisplay.find('#surveyLink').val("http://technikaffinitaet.de/form?inv=" + link.url);
+              if (link.expirationDate != null) {
+                newLinkDisplay.find('#expiration').css("display", "inherit");
+                console.log("expirationDate: " + link.expirationDate);
+                newLinkDisplay.find('#expirationDate').append(link.expirationDate);
+              }
+              if (link.usesLeft != null) {
+                newLinkDisplay.find('#limitedUses').css("display", "inherit");
+                console.log("usesLeft: " + link.usesLeft);
+                newLinkDisplay.find('#usesLeft').append(link.usesLeft);
+              }
+              newLinkDisplay.css("display", "inherit");
+              $('#linkContainer').append(newLinkDisplay);
 
+            });
+        })
+        .catch(err => {
+          throw err
         });
-      })
-      .catch(err => {
-        throw err
-      });
     }
   });
 

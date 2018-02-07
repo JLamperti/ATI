@@ -74,8 +74,7 @@
                   <span class=" grey text-item-descr">
                 <%= __('user.period') %>
                 </span>
-                  <span id="beginDate"></span>
-                  <%= __('user.periodStart')%><span id="periodEndText" style="display:none"><%= __('user.periodEnd')%></span><span id="endDate"></span>
+                  <%= __('user.periodStart')%><span id="beginDate"></span><span id="periodEndText" style="display:none"><%= __('user.periodEnd')%></span><span id="endDate"></span>
                 </p>
               </div>
               <div>
@@ -133,11 +132,14 @@
 
                 <div id="releaseData">
                   <p>
+                    <a href="/surveyDetails">
+                      <button type="button" name="details">Details</button>
+                    </a>
                     <span class="grey text-item-descr"><%= __('user.releaseData') %></span>
                     <label>
-                  <input id="releaseDataCheckbox" type="checkbox"> <span class="glyphicons glyphicons-question-sign"></span>
-                  allow
-                </label>
+                      <input id="releaseDataCheckbox" type="checkbox"> <span class="glyphicons glyphicons-question-sign"></span>
+                      allow
+                    </label>
                   </p>
                 </div>
 

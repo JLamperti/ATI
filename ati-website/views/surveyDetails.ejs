@@ -31,10 +31,10 @@
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
           <a class="navbar-brand" href="/">ATI</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
@@ -134,8 +134,7 @@
               <span class=" grey text-item-descr">
               <%= __('user.period') %>
               </span>
-              <span id="beginDate"></span>
-              <%= __('user.periodStart')%><span id="periodEndText" style="display:none"><%= __('user.periodEnd')%></span><span id="endDate"></span>
+              <%= __('user.periodStart')%><span id="beginDate"></span><span id="periodEndText" style="display:none"><%= __('user.periodEnd')%></span><span id="endDate"></span>
             </p>
           </div>
           <div>
@@ -168,7 +167,7 @@
               <span class="itemValue" id="atiStd"></span>
             </p>
           </div>
-          <button type="button" name="showHideRawData" id="showHideRawData"><span id="buttonText" class="glyphicon glyphicon-menu-down">View Raw Data</span></button>
+          <button type="button" name="showHideRawData" id="showHideRawData" class="button-start bg-color-theme"><span id="buttonText" class="glyphicon glyphicon-menu-down"></span><span> View Raw Data</span> </button>
 
           <div id="rawData" class="" style="display:none">
             <table>
@@ -235,28 +234,26 @@
             <div class="float-left">
               <span class="grey text-item-descr">Addresses</span>
             </div>
-            <form class="" action="index.html" method="post">
-              <input type="email" multiple name="mailAddress" value="" style="width:100%-300px" id="mailAddress">
-              <!-- TODO: get glyphicons to work  -->
-              <button type="button" name="invite" id="addMail"><span class="glyphicons glyphicons-user-add">add</span></button>
-          </form>
+
+            <input type="email" multiple name="mailAddress" value="" style="width:100%; min-width:200px;" id="mailAddress">
+            <!-- TODO: get glyphicons to work  -->
+            <button type="button" name="invite" id="addMail"><span class="glyphicons glyphicons-user-add">add</span></button>
+
         </div>
         <br>
         <div id="mailsOverview" class="">
           <div id="emailList" class="list-group">
-            <a class="list-group-item list-group-item-action clearfix">Cras justo odio <button type="button" name="button" class="rm-on-click  pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
-            <a class="list-group-item list-group-item-action clearfix">Dapibus ac facilisis in<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
-            <a class="list-group-item list-group-item-action clearfix">Morbi leo risus<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
-            <a class="list-group-item list-group-item-action clearfix">Porta ac consectetur ac<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
-            <a class="list-group-item list-group-item-action clearfix">Vestibulum at eros<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
+
           </div>
 
         </div>
       </div>
-      <div class="" style="padding-top:30px;">
-        <button type="button" name="abort" class="float-left">Return to Profile</button>
+      <div class="float-left" style="padding-top:30px;">
+        <button id="btnReturn" type="button" name="abort" class="float-left">Return to Profile</button>
       </div>
-
+      <div class="float-right" style="padding-top:30px; padding-bottom:50px;">
+        <button id="inviteParticipants"type="button" name="invite" class="float-left">Invite Participants</button>
+      </div>
     </div>
 
 
