@@ -28,6 +28,14 @@ exports.deleteUser = function (req, res) {
 	dba.manipulateDB('DELETE FROM user WHERE UserID = ' + req.body.UID + ';', req, res);
 };
 
+/**
+* deletes a link
+* mandatory-parameter in body: url
+*/
+exports.deleteUser = function (req, res) {
+	dba.manipulateDB('DELETE FROM link WHERE url = ' + req.body.url + ';', req, res);
+};
+
 
 
 

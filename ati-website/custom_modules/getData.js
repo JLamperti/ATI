@@ -170,13 +170,12 @@ exports.selectSurvey = function(req, res) {
 };
 
 /**
-* select all surveys a specific user administrates
-* 
-* parameter (must-have, in url):
-* UID the user-ID
+* select all surveys the logged in user administrates
 */
 exports.selectSurveyByUser = function(req, res) {
-	dba.manipulateDB("SELECT * FROM survey WHERE UID=" + req.query.UID + ";", req, res);
+	if (req.session.user && req.cookies.user_sid) {
+		dba.manipulateDB("SELECT * FROM survey WHERE UID=" + req.session.user + ";", req, res);
+	}
 };
 
 /**

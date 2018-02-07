@@ -4,6 +4,7 @@ html {
 }
 
 /*color for anchors */
+
 a {
   color: white;
 }
@@ -38,6 +39,9 @@ h6 {
   font-family: "Titillium Web", sans-serif;
   font-weight: 500;
 }
+h4 {
+  margin-top: 1%;
+}
 
 h4 {
   font-size: 110%;
@@ -56,14 +60,6 @@ button {
   -moz-border-radius: 5px 5px 5px 5px;
   padding: 5px 15px;
 }
-.btn-index-lg {
-  width: 100%;
-  border-radius: 1rem;
-  height:5.5rem;
-}
-.row{
-  margin-bottom:2%;
-}
 
 /*inputs from the type number will look like textfields on Firefox */
 input[type="number"] {
@@ -72,16 +68,15 @@ input[type="number"] {
 input[type="radio"] {
   vertical-align: middle;
 }
-.vertical-btn {
-  vertical-align: middle;
-}
 #instructions {
   text-align: justify;
 }
+#chart {
+  height: 25%;
+  position: relative;
+  z-index: -1;
+}
 #img-scientist {
-  /* width:100%;
-  height:auto;  */
-
   background-image: url("/images/Forscher_Icon.png");
 }
 #img-developer {
@@ -90,7 +85,27 @@ input[type="radio"] {
 #img-teacher {
   background-image: url("/images/Kursleiter_Icon.png");
 }
-
+#descDef {
+  margin-top: -15%;
+}
+.btn-index-lg {
+  width: 100%;
+  border-radius: 1rem;
+  height: 5.5rem;
+}
+.vertical-btn {
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.separator-div {
+  height: 2rem;
+}
+.white-color {
+  color: white;
+}
+.flex-paper {
+  padding-bottom: 4rem;
+}
 /* format bg-images to fit the size of the container" */
 .bg-img-form {
   background-size: cover;
@@ -100,6 +115,21 @@ input[type="radio"] {
 .bg-img-container {
   width: 10em;
   height: 10em;
+}
+.index-margin-bottom {
+  margin-bottom: 3rem;
+}
+.index-padding-bottom {
+  margin-bottom: 2rem;
+}
+.age-label {
+  width: 30%;
+}
+.container-full-width {
+  width: 100%;
+}
+.neg-marg-top {
+  margin-top: -5%;
 }
 .vcenter {
   display: inline-block;
@@ -136,12 +166,14 @@ label {
 :-moz-ui-invalid {
   box-shadow: none;
 }
-#papers{
-  padding:2%;
-  background-color:lightgrey;
-  margin-top:2%;
-  border-radius:5px;
-  display:none;
+#papers {
+  padding: 2%;
+  background-color: lightgrey;
+  margin-top: 2%;
+  border-radius: 5px;
+  display: none;
+  width: 100%;
+  height: auto;
 }
 #userTypes {
   background-color: orange;
@@ -261,6 +293,36 @@ label {
 /*lightgrey background */
 .background-light-grey {
   background-color: #e4e4e4;
+}
+.dummie-container {
+  width: 10%;
+}
+.dummie-container-md {
+  width: 40%;
+}
+.dummie-container-sm {
+  width: 20%;
+}
+.dumie-container.lg {
+  width: 80%;
+}
+.scale-padding {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+.container-header-ati {
+  margin-left: 10%;
+  margin-top: 4rem;
+  width: auto;
+}
+.container-def-ati {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 4rem;
+}
+.img-title-screen {
+  width: 100%;
+  height: auto;
 }
 /* change color if hovered over elements in the navbar */
 .navbar-default .navbar-nav > li > a:hover,
@@ -392,6 +454,9 @@ input[type="radio"] {
   height: 10px;
   margin: 3rem 0rem;
 }
+.desc-questions {
+  font-size: 90%;
+}
 /* style labels on the charts */
 .ct-label {
   color: black;
@@ -474,7 +539,6 @@ input[type="radio"] {
     top: 0;
     border-width: 0 0 1px;
   }
- 
 
   /* flexbox column screenwidth > 768px */
   .flex-s-col {
@@ -607,12 +671,13 @@ input[type="radio"] {
     padding-left: 15%;
   }
   /*style buttons of the papers section */
-  .btn-papers-md{
-    width:16.6%;
+  .btn-papers-md {
+    width: 16.6%;
   }
   /* style textcontainer for the papers */
-  .paper-param-md{
-    width:75.4%;padding-left:2%
+  .paper-param-md {
+    width: 75.4%;
+    padding-left: 2%;
   }
   /*style Bars of the charts */
   #sexChart .ct-series-a .ct-bar,
@@ -665,7 +730,7 @@ input[type="radio"] {
   }
   /*center items*/
   .text-md-center {
-    text-align: center;
+    text-align: left;
     margin-top: auto;
     margin-bottom: auto;
   }
