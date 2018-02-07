@@ -5,12 +5,14 @@ var dba = require('../custom_modules/db-access.js');
 
 /* GET profile page. */
 router.get('/', function(req, res) {
-	if (req.session.user && req.cookies.user_sid) {
-      res.render('user', { title: 'ATI' });
-   } else {
-		 res.render('needToLogin');
-      // res.redirect('login');
-   }
+  if (req.session.user && req.cookies.user_sid) {
+    res.render('user', {
+      title: 'ATI'
+    });
+  } else {
+    res.render('needToLogin');
+    // res.redirect('login');
+  }
 
 
 });
@@ -21,16 +23,32 @@ router.put('/changeName', function(req, res, next) {
 });
 
 router.get('/newSurvey', function(req, res, next) {
-  res.render('newSurvey', {title:'ATI' });
+  if (req.session.user && req.cookies.user_sid) {
+    res.render('newSurvey', {
+      title: 'ATI'
+    });
+  } else {
+    res.render('needToLogin');
+    // res.redirect('login');
+  }
 });
 
 router.get('/surveyDetails', function(req, res, next) {
-  res.render('surveyDetails', {title:'ATI' });
+  if (req.session.user && req.cookies.user_sid) {
+    res.render('surveyDetails', {
+      title: 'ATI'
+    });
+  } else {
+    res.render('needToLogin');
+    // res.redirect('login');
+  }
 });
 
 /* GET profile page. */
 router.get('/', function(req, res, next) {
-  res.render('user', {title:'ATI' });
+  res.render('user', {
+    title: 'ATI'
+  });
 });
 
 
