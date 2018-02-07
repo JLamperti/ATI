@@ -79,7 +79,7 @@ router.get('/links', function(req, res) {
 		dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID=' + req.query.SID + ';', function(err, result) {
 			if (err || result == undefined) {
 				res.status(500).send('Something went wrong');
-				return console.log('db.js:exportCSV ' + err.toString());
+				return console.log('db.js:get links ' + err.toString());
 			}
 			let string = JSON.stringify(result);
 			let json =  JSON.parse(string);
@@ -103,7 +103,7 @@ router.get('/survey', function(req, res) {
 		dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID=' + req.query.SID + ';', function(err, result) {
 			if (err || result == undefined) {
 				res.status(500).send('Something went wrong');
-				return console.log('db.js:exportCSV ' + err.toString());
+				return console.log('db.js:get survey ' + err.toString());
 			}
 			let string = JSON.stringify(result);
 			let json =  JSON.parse(string);
@@ -142,7 +142,7 @@ router.post('/importCSV', function(req, res) {
 		dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID=' + req.body.SID + ';', function(err, result) {
 			if (err || result == undefined) {
 				res.status(500).send('Something went wrong');
-				return console.log('db.js:exportCSV ' + err.toString());
+				return console.log('db.js:importCSV ' + err.toString());
 			}
 			let string = JSON.stringify(result);
 			let json =  JSON.parse(string);
@@ -162,7 +162,7 @@ router.post('/link', function(req, res) {
 		dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID=' + req.body.SID + ';', function(err, result) {
 			if (err || result == undefined) {
 				res.status(500).send('Something went wrong');
-				return console.log('db.js:exportCSV ' + err.toString());
+				return console.log('db.js:post link ' + err.toString());
 			}
 			let string = JSON.stringify(result);
 			let json =  JSON.parse(string);
@@ -207,7 +207,7 @@ router.put('/survey', function(req, res) {
 		dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID=' + req.body.SID + ';', function(err, result) {
 			if (err || result == undefined) {
 				res.status(500).send('Something went wrong');
-				return console.log('db.js:exportCSV ' + err.toString());
+				return console.log('db.js:update survey ' + err.toString());
 			}
 			let string = JSON.stringify(result);
 			let json =  JSON.parse(string);
@@ -234,7 +234,7 @@ router.delete('/survey', function(req, res) {
 		dba.performQuery('SELECT IF(UID=' + req.session.user + ', true, false) AS b FROM Survey WHERE surveyID=' + req.body.SID + ';', function(err, result) {
 			if (err || result == undefined) {
 				res.status(500).send('Something went wrong');
-				return console.log('db.js:exportCSV ' + err.toString());
+				return console.log('db.js:delete survey ' + err.toString());
 			}
 			let string = JSON.stringify(result);
 			let json =  JSON.parse(string);
@@ -259,7 +259,7 @@ router.delete('/link', function(req, res) {
 			(SELECT SID FROM Link WHERE url=\'' + req.body.url + '\');', function(err, result) {
 			if (err || result == undefined) {
 				res.status(500).send('Something went wrong');
-				return console.log('db.js:exportCSV ' + err.toString());
+				return console.log('db.js:delete link ' + err.toString());
 			}
 			let string = JSON.stringify(result);
 			let json =  JSON.parse(string);

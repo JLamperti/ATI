@@ -63,7 +63,7 @@
 	"educationLevel.desc": "Höchste erreichte Bildungsstufe",
 	"educationLevel.noCertificate": "(noch) kein Schulabschluss",
 	"educationLevel.lesserThanAbitur": "Hauptschul- oder Realschulabschluss",
-	"educationLevel.aLevel": "Abitur/Fachhochschulreife",
+	"educationLevel.aLevel": "Abitur oder Fachhochschulreife",
 	"educationLevel.BMD": "Bachelor/Master/Diplom",
 	"educationLevel.hMD": "Promotion/Habilitation",
 	"educationLevel.vocationalSchool": "Berufsschulabschluss",
