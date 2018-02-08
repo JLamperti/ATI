@@ -1,161 +1,169 @@
 <%- include ./partials/head %>
-  <title>ATI - User</title>
-  <script src="/js/user.js"></script>
-  <link rel="stylesheet" href="/css/user.css">
-  </head>
+<title>ATI - User</title>
+<script src="/js/user.js"></script>
+<link rel="stylesheet" href="/css/user.css">
+</head>
 
-  <body>
-    <section id="header">
-      <header>
-        <%- include ./partials/header %>
-      </header>
+<body>
+  <section id="header">
+    <header>
+      <%- include ./partials/header %>
+    </header>
 
-    </section>
+  </section>
 
-    <section class="content">
-      <div id="userDetails" class="container" style="padding-top:130px;">
-        <div id="nameField" class="inline-block">
-          <h2 id="nameValue"></h2>
-        </div>
-        <div class="inline-block float-right" style="padding-top:20px;">
-          <button id="editUserDetails" type="button" class="button-start bg-color-theme" data-text-swap="Edit" data-text-original="Submit" style="padding-left:15px; padding-right:15px;">Edit</button>
-        </div>
-        <div id="titleField">
-          <h3 id="titleValue"></h3>
+  <section class="content" style="margin-top: 70px">
 
-        </div>
-        <hr>
-        <p>
-          <div id="emailField">
-            <span class="grey text-item-descr">Email</span>
-            <span id="emailValue"></span>
-          </div>
-        </p>
-        <p>
-          <div id="passwordField">
-            <span class="grey text-item-descr">Password</span>
-            <span>********</span>
-          </div>
-        </p>
+    <%- include ./partials/JSalert %>
+
+    <div id="userDetails" class="container" style="padding-top:130px;">
+      <div id="nameField" class="inline-block">
+        <h2 id="nameValue"></h2>
       </div>
-
-
-      <div id="surveyOverview" class="container">
-
-        <div id="overview-header" class="background-light-grey">
-          <img src="/images/Entwickler_Icon.png" alt="Studien" class="study-icon inline"></img>
-          <span style="padding-left:3px">
-        <%= __('user.yourSurveys') %>
-      </span>
-          <span id="openSurveysAmount"></span>
-          <!-- TODO: make this work -->
-          <!--<form class="search-form">
-            <input class="search" type="text" name="search" placeholder="<%- __('user.searchText')%> " style="background-image: url('/images/search_icon.png')"></input>
-          </form>-->
-
-        </div>
-
-        <div id="resultsArea" class="nested-container">
-
-          <div id="buttonContainer" style="padding-top: 20px;padding-bottom:10px; display: flex; justify-content: center; ">
-            <a href="/user/newSurvey">
-              <!-- TODO: do i need to transmit UID here? -->
-              <button type="button" class="button-start bg-color-theme "><%= __('user.newSurveyButton')%></button>
-            </a>
-          </div>
-
-          <div id="dummySurvey" class="nested-container background-light-grey surveyField" style="display:none">
-            <div id="baseData">
-              <div id="entryHeader">
-                <h3 id="surveyName" style="padding-top:15px;"></h3>
-              </div>
-
-              <div id="periodDisplay">
-                <p>
-                  <span class=" grey text-item-descr">
-                <%= __('user.period') %>
-                </span>
-                  <%= __('user.periodStart')%><span id="beginDate"></span><span id="periodEndText" style="display:none"><%= __('user.periodEnd')%></span><span id="endDate"></span>
-                </p>
-              </div>
-              <div>
-                <p>
-                  <span class="grey text-item-descr">
-                <%= __('user.participants') %>
-              </span>
-                  <span>
-                  <span id='participantsCurrent'></span><span id="participantTextMiddle" style="display:none"><%- __('user.participants.part1')%></span><span id="participantsTotal"></span>
-                  <%=__('user.participants.part2')%>
-                    </span>
-                </p>
-              </div>
-              <div style="display:inline-block">
-                <p>
-                  <span class="grey text-item-descr">
-                <%= __('user.status')%>
-              </span>
-                  <span id="status" class="text-item-descr">
-
-              </span>
-                </p>
-              </div>
-
-              <div id="toggleDetails" class="inline-block float-right uparrow">
-                <p>
-                  <span id="toggleDetailsArrow" class="glyphicon glyphicon-menu-down"></span>
-                </p>
-              </div>
-
-            </div>
-
-            <div id="details" style="display:none">
-
-              <hr>
-
-              <div id="detailsHeader">
-                <h4><%= __('user.detailsHeader') %></h4>
-              </div>
-
-              <div id="detailsData">
-                <div id="average">
-                  <p>
-                    <span class="grey text-item-descr"><%= __('user.average') %></span>
-                    <span id="avgAtiScore" class="itemValue"></span>
-                  </p>
-                </div>
-
-                <div id="deviation">
-                  <p>
-                    <span class="grey text-item-descr"><%= __('user.deviation')%></span>
-                    <span id="atiStd" class="itemValue"></span>
-                  </p>
-                </div>
-
-                <div id="releaseData">
-                  <p>
-                    <a id="linkSurveyDetails" href="/user/surveyDetails">
-                      <button type="button" name="details" class="button-start bg-color-theme">Details</button>
-                    </a>
-
-                  </p>
-                </div>
-
-              </div>
-              <!-- TODO: insert graph? -->
-              <!--<div id="graph">
-                NotAGraph
-              </div>-->
-
-            </div>
-          </div>
-        </div>
+      <div class="inline-block float-right" style="padding-top:20px;">
+        <button id="editUserDetails" type="button" class="button-start bg-color-theme" data-text-swap="Edit" data-text-original="Submit" style="padding-left:15px; padding-right:15px;">Edit</button>
       </div>
-    </section>
-    <footer>
-      <%- include ./partials/footer %>
-    </footer>
+      <div id="titleField">
+        <h3 id="titleValue"></h3>
 
-    <div id="invisibleVariableHolder">
+      </div>
+      <hr>
+      <p>
+        <div id="emailField">
+          <span class="grey text-item-descr">Email</span>
+          <span id="emailValue"></span>
+        </div>
+      </p>
+      <p>
+        <div id="passwordField">
+          <span class="grey text-item-descr">Password</span>
+          <span>********</span>
+        </div>
+      </p>
+    </div>
+
+
+    <div id="surveyOverview" class="container">
+
+      <div id="overview-header" class="background-light-grey">
+        <img src="/images/Entwickler_Icon.png" alt="Studien" class="study-icon inline"></img>
+        <span style="padding-left:3px">
+          <%= __('user.yourSurveys') %>
+        </span>
+        <span id="openSurveysAmount"></span>
+        <!-- TODO: make this work -->
+        <!--<form class="search-form">
+        <input class="search" type="text" name="search" placeholder="<%- __('user.searchText')%> " style="background-image: url('/images/search_icon.png')"></input>
+      </form>-->
 
     </div>
-  </body>
+
+    <div id="resultsArea" class="nested-container">
+
+      <div id="buttonContainer" style="padding-top: 20px;padding-bottom:10px; display: flex; justify-content: center; ">
+        <a href="/user/newSurvey">
+          <!-- TODO: do i need to transmit UID here? -->
+          <button type="button" class="button-start bg-color-theme "><%= __('user.newSurveyButton')%></button>
+        </a>
+      </div>
+
+      <div id="dummySurvey" class="nested-container background-light-grey surveyField container" style="display:none; margin-bottom: 15px; width: auto;">
+        <div id="baseData" class="column">
+          <div id="entryHeader">
+            <h3 id="surveyName" style="padding-top:15px;"></h3>
+          </div>
+
+          <div id="periodDisplay">
+            <p>
+              <span class="grey text-item-descr">
+                <%= __('user.period') %>
+              </span>
+              <span >
+                <%= __('user.periodStart')%>
+              </span>
+              <span id="beginDate"></span>
+              <span id="periodEndText" style="display:none"><%= __('user.periodEnd')%></span>
+              <span id="endDate"></span>
+            </p>
+          </div>
+          <div>
+            <p>
+              <span class="grey text-item-descr">
+                <%= __('user.participants') %>
+              </span>
+              <span>
+                <span id='participantsCurrent'></span><span id="participantTextMiddle" style="display:none"><%- __('user.participants.part1')%></span><span id="participantsTotal"></span>
+                <%=__('user.participants.part2')%>
+              </span>
+            </p>
+          </div>
+          <div style="display:inline-block">
+            <p>
+              <span class="grey text-item-descr">
+                <%= __('user.status')%>
+              </span>
+              <span id="status" class="text-item-descr">
+
+              </span>
+            </p>
+          </div>
+
+          <div id="toggleDetails" class="inline-block float-right uparrow">
+            <p>
+              <span id="toggleDetailsArrow" class="glyphicon glyphicon-menu-down"></span>
+            </p>
+          </div>
+
+        </div>
+
+        <div id="details" style="display:none">
+
+          <hr>
+
+          <div id="detailsHeader">
+            <h4><%= __('user.detailsHeader') %></h4>
+          </div>
+
+          <div id="detailsData">
+            <div id="average">
+              <p>
+                <span class="grey text-item-descr"><%= __('user.average') %></span>
+                <span id="avgAtiScore" class="itemValue"></span>
+              </p>
+            </div>
+
+            <div id="deviation">
+              <p>
+                <span class="grey text-item-descr"><%= __('user.deviation')%></span>
+                <span id="atiStd" class="itemValue"></span>
+              </p>
+            </div>
+
+            <div id="releaseData">
+              <p>
+                <a id="linkSurveyDetails" href="/user/surveyDetails">
+                  <button type="button" name="details" class="button-start bg-color-theme">Details</button>
+                </a>
+
+              </p>
+            </div>
+
+          </div>
+          <!-- TODO: insert graph? -->
+          <!--<div id="graph" style="display: none;">
+          NotAGraph
+        </div>-->
+
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<footer>
+  <%- include ./partials/footer %>
+</footer>
+
+<div id="invisibleVariableHolder">
+
+</div>
+</body>

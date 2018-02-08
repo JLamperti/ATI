@@ -73,6 +73,7 @@ textarea {
 .nested-container {
   padding-right: 16px;
   padding-left: 16px;
+  padding-bottom: 16px;
 }
 
 .text-item-descr {
@@ -89,6 +90,7 @@ textarea {
   padding-right: 5%;
   padding-bottom: 50px;
   padding-top: 3%;
+  margin-bottom: 5%;
 }
 
 .clearfix::after {

@@ -44,8 +44,8 @@ $(document).ready(function() {
         displayAvgAti(out[x].SurveyID, newSurveyDisplay);
         newSurveyDisplay.attr("id", "survey" + x);
         newSurveyDisplay.find('#surveyName').append(out[x].SurveyName);
-        newSurveyDisplay.find('#beginDate').append(out[x].SurveyBegin);
-        newSurveyDisplay.find('#endDate').append(out[x].SurveyEnd);
+        newSurveyDisplay.find('#beginDate').append(dateToString(out[x].SurveyBegin));
+        newSurveyDisplay.find('#endDate').append(dateToString(out[x].SurveyEnd));
         if (out[x].SurveyEnd != null) {
           newSurveyDisplay.find('#periodEndText').css("display", "inline");
         }
@@ -152,7 +152,7 @@ $(document).ready(function() {
         }
 
       }
-    
+
 
 
 
@@ -164,14 +164,24 @@ $(document).ready(function() {
     if (arrowItem.hasClass("glyphicon-menu-up")) {
       arrowItem.addClass("glyphicon-menu-down");
       arrowItem.removeClass("glyphicon-menu-up");
+      $(this).css("box-shadow", "0px 0px 0px");
     } else {
       arrowItem.addClass("glyphicon-menu-up");
       arrowItem.removeClass("glyphicon-menu-down");
+      $(this).css("box-shadow", "0.5px 0.5px 2px #888888");
     }
     $(this).find("#details").slideToggle();
   });
 
-
+  function dateToString(input) {
+    let date = new Date(input);
+    let str = " ";
+    if (date.getFullYear() == 1970) {
+      return str;
+    }
+    str = str + date.getDate() + "." + date.getMonth() + "." + date.getFullYear() + " ";
+    return str;
+  }
 
   function displayProbandCount(SID, element) {
     var url = "/db/countProbandInSurvey";
@@ -201,7 +211,7 @@ $(document).ready(function() {
       .then((avgAtiScore) => {
 
         //console.log("got avg ATI: " + IP + url + query + ": " + avgAtiScore[0].avgatiScore);
-        element.find('#avgAtiScore').append(avgAtiScore[0].avgatiScore);
+        element.find('#avgAtiScore').append(parseFloat(avgAtiScore[0].avgatiScore).toFixed(2));
       })
       .catch(err => {
         throw err
@@ -218,7 +228,7 @@ $(document).ready(function() {
       .then(res => res.json())
       .then((std) => {
         //console.log("got ATI STD: " + IP + url + query + ": " + std[0].stdatiScore);
-        element.find('#atiStd').append(std[0].stdatiScore);
+        element.find('#atiStd').append(parseFloat(std[0].stdatiScore).toFixed(2));
       })
       .catch(err => {
         throw err

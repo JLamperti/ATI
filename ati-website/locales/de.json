@@ -155,5 +155,8 @@
 	"questionnaire.dontSend": "Ich bin nicht damit einverstanden, dass meine Daten weiterverwendet werden",
 	"index.publication": "wissenschaftliche Publikationen",
 	"index.Poster": "Plakat",
-	"index.publicationIntro": "Hier finden Sie die wissenschaftlichen Publikationen zur ATI-Skala"
+	"index.publicationIntro": "Hier finden Sie die wissenschaftlichen Publikationen zur ATI-Skala",
+	"js.disabled": "In Ihrem Browser ist JavaScript abgeschaltet!",
+	"js.enable": "Damit diese Seite korrekt funktionieren kann, aktivieren Sie bitte JavaScript.",
+	"js.howto": "Hier finden Sie eine Anleitung wie JavaScript in Ihrem Browser zu aktivieren ist."
 }

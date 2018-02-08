@@ -34,6 +34,9 @@
                 </div>
             </div>
         </nav>
+
+        <%- include ./partials/JSalert %>
+
         <div id="questionnaireMain">
             <div class="container">
                 <h1>
@@ -430,7 +433,7 @@
                     </div>
                     <div class=" separator"></div>
                     <div align="center" class="container-full-width">
-                       <label><input type="checkbox" id="dontSendData" name="dontSendData"><strong><%= __('questionnaire.dontSend') %></strong></label> 
+                       <label><input type="checkbox" id="dontSendData" name="dontSendData"><strong><%= __('questionnaire.dontSend') %></strong></label>
                         <button class="button  button-start bg-color-theme" onclick="checkAnswers(),showResult(), defaultScale()" touchend="checkAnswers(),showResult(), defaultScale()"
                             style="margin-bottom:10px">
                             <%= __('btn.submit') %>
