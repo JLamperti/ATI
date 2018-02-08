@@ -155,5 +155,8 @@
 	"questionnaire.dontSend": "I don't agree that my data is used further",
 	"index.publication": "scientific publications",
 	"index.Poster": "Poster",
-	"index.publicationIntro": "Here you will find the scientific publications on the ATI scale"
+	"index.publicationIntro": "Here you will find the scientific publications on the ATI scale",
+	"js.disabled": "Your browser has JavaScript disabled!",
+	"js.enable": "Please enable this function. Because it is nessesary for this site to function properly.",
+	"js.howto": "How to enable JavaScript in your web browser."
 }

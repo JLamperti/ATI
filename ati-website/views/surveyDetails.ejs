@@ -68,18 +68,20 @@
     <div class="container">
       <div class="nested-container">
 
-        <h2 id="surveyName"></h2>
+        <h2 id="surveyName" style="margin-top-bottom: 5%"></h2>
         <div id="linkContainer" class="clearfix">
-          <div id="linkDisplay" class="clearfix">
+          <div id="linkDisplay" class="clearfix" style="margin-top-bottom: 5%;">
 
             <div class="float-left">
-              <span class="grey text-item-descr">Link</span>
+              <span class="grey text-item-descr" >Link</span>
             </div>
             <div class="float-left">
-              <input id="surveyLink" type="url" name="surveyLink" value="" readonly><button type="button" id="copyUrlBtn" class="button-start bg-color-theme">Copy</button><button type="button" id="deleteUrlBtn" class="button-start bg-color-theme">Delete</button>
+              <input id="surveyLink" type="url" name="surveyLink" value="" readonly>
+              <button type="button" id="copyUrlBtn" class="button bg-color-theme">Copy</button>
+              <button type="button" id="deleteUrlBtn" class="button bg-color-theme">Delete</button>
               <br>
             </div>
-            <div class="float-left">
+            <div class="float-left" style="padding-left: 5%">
               <p>
                 <!-- TODO: translation -->
                 <span id="expiration">Expires: <span id="expirationDate"></span></span>
@@ -102,8 +104,8 @@
                   <label>max. participants: <input id="inputMaxParticipants" type="number" name="expirationDate" value=""></label>
                 </div>
                 <div class="clearfix">
-                  <button id="btnCancelLink" type="button" name="cancel">Cancel</button>
-                  <button id="btnCreateLink" type="button" name="create">Create</button>
+                  <button id="btnCancelLink" class="button bg-color-theme" type="button" name="cancel">Cancel</button>
+                  <button id="btnCreateLink" class="button bg-color-theme" type="button" name="create">Create</button>
                 </div>
               </div>
             </div>
@@ -111,7 +113,7 @@
               <span class="grey text-item-descr">&nbsp;</span>
             </div>
             <div class="float-left clearfix">
-              <button id="btnNewLink" type="button" name="newLink"><strong>+</strong> create Link</button>
+              <button id="btnNewLink" class="button bg-color-theme" style="padding-top: 5%" type="button" name="newLink"><strong>+</strong> create Link</button>
             </div>
           </div>
         </div>
@@ -226,7 +228,7 @@
         </div>
         <hr>
 
-        <h2>Invite Participants</h2>
+        <!-- <h2>Invite Participants</h2>
         <div class="clearfix flex-row" style="flex-wrap:wrap">
           <div class="float-left grey text-item-descr" style="flex-basis:150px;">
             <span class="">Cover Letter</span>
@@ -244,7 +246,7 @@
             </div>
 
             <input type="email" multiple name="mailAddress" value="" style="width:100%; min-width:200px;" id="mailAddress">
-            <!-- TODO: get glyphicons to work  -->
+
             <button class="button-start bg-color-theme" type="button" name="invite" id="addMail"><span class="glyphicons glyphicons-user-add">add</span></button>
 
         </div>
@@ -255,14 +257,14 @@
           </div>
 
         </div>
-      </div>
+      </div> -->
       <div class="float-left" style="padding-top:30px;">
-        <button id="btnReturn" type="button" name="abort" class="float-left button-start bg-color-theme">Return to Profile</button>
+        <button id="btnReturn" type="button" name="abort" class="float-left button bg-color-theme">Return to Profile</button>
       </div>
-      <div class="float-right" style="padding-top:30px; padding-bottom:50px;">
-        <button id="inviteParticipants" type="button" name="invite" class="float-left button-start bg-color-theme">Invite Participants</button>
+      <div class="float-right" style="padding-top:30px; padding-bottom:50px; display: none">
+        <button id="inviteParticipants" type="button" name="invite" class="float-left button bg-color-theme">Invite Participants</button>
       </div>
-    </div>
+    </div style="margin-bottom: 10%">
 
 
 

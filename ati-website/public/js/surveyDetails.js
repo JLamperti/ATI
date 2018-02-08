@@ -15,8 +15,8 @@ $(document).ready(function() {
     .then(res => res.json())
     .then((res) => {
       $('#surveyName').append(res[0].SurveyName);
-      $('#beginDate').append(res[0].SurveyBegin);
-      $('#endDate').append(res[0].SurveyEnd);
+      $('#beginDate').append(dateToString(res[0].SurveyBegin));
+      $('#endDate').append(dateToString(res[0].SurveyEnd));
       if (res[0].SurveyEnd != null) {
         /* make the second part of the text visible again */
         $('#periodEndText').css("display", "inline");
@@ -201,7 +201,7 @@ $(document).ready(function() {
               if (link.expirationDate != null) {
                 newLinkDisplay.find('#expiration').css("display", "inherit");
                 console.log("expirationDate: " + link.expirationDate);
-                newLinkDisplay.find('#expirationDate').append(link.expirationDate);
+                newLinkDisplay.find('#expirationDate').append(dateToString(link.expirationDate));
               }
               if (link.usesLeft != null) {
                 newLinkDisplay.find('#limitedUses').css("display", "inherit");
@@ -219,6 +219,7 @@ $(document).ready(function() {
           throw err
         });
     }
+    $('#newLinkInputs').slideToggle();
   });
 
   /**
@@ -241,8 +242,8 @@ $(document).ready(function() {
 
             if (links[link].expirationDate != null) {
               newLinkDisplay.find('#expiration').css("display", "inherit");
-              console.log("expirationDate: " + links[link].expirationDate);
-              newLinkDisplay.find('#expirationDate').append(links[link].expirationDate);
+              console.log("expirationDate: " + dateToString(links[link].expirationDate));
+              newLinkDisplay.find('#expirationDate').append(dateToString(links[link].expirationDate));
             }
             if (links[link].usesLeft != null) {
               newLinkDisplay.find('#limitedUses').css("display", "inherit");
@@ -291,7 +292,7 @@ function displayAvgAti(SID) {
     })
     .then(res => res.json())
     .then((avgAtiScore) => {
-      $('#avgAtiScore').append(avgAtiScore[0].avgatiScore);
+      $('#avgAtiScore').append(parseFloat(avgAtiScore[0].avgatiScore).toFixed(3));
     })
     .catch(err => {
       throw err
@@ -309,11 +310,21 @@ function displayAtiStd(SID) {
     })
     .then(res => res.json())
     .then((std) => {
-      $('#atiStd').append(std[0].stdatiScore);
+      $('#atiStd').append(parseFloat(std[0].stdatiScore).toFixed(3));
     })
     .catch(err => {
       throw err
     });
+}
+
+function dateToString(input) {
+  let date = new Date(input);
+  let str = " ";
+  if (date.getFullYear() == 1970) {
+    return str;
+  }
+  str = str + date.getDate() + "." + date.getMonth() + "." + date.getFullYear() + " ";
+  return str;
 }
 
 function checkNewLinkInputs() {
