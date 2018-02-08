@@ -34,6 +34,9 @@
                 </div>
             </div>
         </nav>
+
+        <%- include ./partials/JSalert %>
+
         <div id="questionnaireMain">
             <div class="container">
                 <h1>
@@ -454,6 +457,14 @@
                                 </button>
                             </div>
                         </div>
+=======<!-- merge conflict reste
+                    <div align="center" class="container-full-width">
+                       <label><input type="checkbox" id="dontSendData" name="dontSendData"><strong><%= __('questionnaire.dontSend') %></strong></label>
+                        <button class="button  button-start bg-color-theme" onclick="checkAnswers(),showResult(), defaultScale()" touchend="checkAnswers(),showResult(), defaultScale()"
+                            style="margin-bottom:10px">
+                            <%= __('btn.submit') %>
+                        </button>
+                    </div>-->
             </div>
             </form>
 

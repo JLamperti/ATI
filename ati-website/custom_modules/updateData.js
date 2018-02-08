@@ -97,7 +97,7 @@ exports.updateSurvey = function (req, res) {
 *
 * parameters have to be in the body
 * mandatory-parameters: UID
-* optional-parameters: name, email, pw, PID
+* optional-parameters: name, email, pw, PID, scientist, developer, teacher
 *
 * for info on a specific line compare to other functions (e.g. in postData.js)
 */

@@ -8,12 +8,12 @@
 	"title2": "der Technikaffinität",
 	"title3": "in der Interaktion",
 	"definitionAffinityHeader": "Was bedeutet Technikaffinität?",
-	"definitionAffinity": "Die Eigenschaft der Technikaffinität beschreibt, wie gerne und interessiert Personen sich mit Technik und interaktiven Systemen auseinandersetzen. Wir haben einen Fragebogen entwickelt um die Technikaffinität zu bestimmen haben .",
+	"definitionAffinity": "Die Eigenschaft der Technikaffinität beschreibt, wie gerne und interessiert Personen sich mit Technik und interaktiven Systemen auseinandersetzen. Wir haben einen Fragebogen entwickelt um die Technikaffinität zu bestimmen haben.",
 	"theScale": "Die Skala",
 	"downloadText": "Nutzen Sie unseren Fragebogen für Entwicklungs- und Forschungszwecke. Laden Sie ihn für ihre Studie herunter.",
 	"buttonDownload": "PDF Herunterladen",
 	"alsoDownloadAs": "Sie können die Skala auch herunterladen als:",
-	"buttonTestYourself": "Teste dich",
+	"buttonTestYourself": "Testen Sie sich",
 	"testYourselfText": "Oder nutzen Sie den Fragebogen und finden schnell heraus, wie affin Sie selbst im Umgang mit Technik sind.",
 	"what": "Was",
 	"whatText": "Mit unserem Fragebogen können Sie schnell und unkompliziert ihre Technikaffinität oder die ihrer Probanden messen. Dazu kann der Fragebogen direkt auf dieser Seite ausgefüllt, oder einfach heruntergeladen werden. Das Ausfüllen nimmt fünf Minuten in Anspruch und ist auf diversen Gerät möglich. Außerdem gibt es viele weitere Features, wie den Vergleich einzelner Ergebnisse mit denen aller Teilnehmer.",
@@ -155,5 +155,8 @@
 	"questionnaire.dontSend": "Ich bin nicht damit einverstanden, dass meine Daten weiterverwendet werden",
 	"index.publication": "wissenschaftliche Publikationen",
 	"index.Poster": "Plakat",
-	"index.publicationIntro": "Hier finden Sie die wissenschaftlichen Publikationen zur ATI-Skala"
+	"index.publicationIntro": "Hier finden Sie die wissenschaftlichen Publikationen zur ATI-Skala",
+	"js.disabled": "In Ihrem Browser ist JavaScript abgeschaltet!",
+	"js.enable": "Damit diese Seite korrekt funktionieren kann, aktivieren Sie bitte JavaScript.",
+	"js.howto": "Hier finden Sie eine Anleitung wie JavaScript in Ihrem Browser zu aktivieren ist."
 }

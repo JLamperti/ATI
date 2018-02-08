@@ -41,6 +41,18 @@ exports.selectAll = function(req, res) {
 };
 
 /**
+* selects all probands from a survey
+* 
+* mandatory parameter ins body: SID
+*/
+exports.selectAllFromSurvey = function(req, res) {
+	dba.manipulateDB('SELECT * FROM Proband WHERE probandId IN (\
+				SELECT PID \
+				FROM partOf \
+				WHERE SID=' + req.query.SID + ');', req, res);
+};
+
+/**
 * selects the average of the handed parameters or all if none is handed
 * from either a survey or all probands without duplicates
 * 

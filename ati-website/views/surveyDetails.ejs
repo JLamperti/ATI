@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
   <script src="/js/jquery-3.2.1.min.js"></script>
   <script src="/js/bootstrap/bootstrap.min.js"></script>
-  <script src="/js/newSurvey.js"></script>
+  <script src="/js/surveyDetails.js"></script>
 
 
 
@@ -31,16 +31,16 @@
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
           <a class="navbar-brand" href="/">ATI</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
             <li>
-              <a >
+              <a>
                 Survey Details
               </a>
             </li>
@@ -64,19 +64,57 @@
   </section>
 
   <section class="content">
+    <span id="surveyId" style="display: none;"><%- surveyId %></span>
     <div class="container">
       <div class="nested-container">
 
+        <h2 id="surveyName" style="margin-top-bottom: 5%"></h2>
+        <div id="linkContainer" class="clearfix">
+          <div id="linkDisplay" class="clearfix" style="margin-top-bottom: 5%;">
 
-        <h2 id="surveyName"></h2>
-        <div class="clearfix">
-
-          <div class="float-left">
-            <span class="grey text-item-descr">Link</span>
+            <div class="float-left">
+              <span class="grey text-item-descr" >Link</span>
+            </div>
+            <div class="float-left">
+              <input id="surveyLink" type="url" name="surveyLink" value="" readonly>
+              <button type="button" id="copyUrlBtn" class="button bg-color-theme">Copy</button>
+              <button type="button" id="deleteUrlBtn" class="button bg-color-theme">Delete</button>
+              <br>
+            </div>
+            <div class="float-left" style="padding-left: 5%">
+              <p>
+                <!-- TODO: translation -->
+                <span id="expiration">Expires: <span id="expirationDate"></span></span>
+                <span id="limitedUses">Uses Left: <span id="usesLeft"></span></span>
+              </p>
+              <br>
+            </div>
           </div>
-          <div class="float-left">
-            <input id="surveyLink" type="url" name="surveyLink" value="https://ATI.coashdsa/918263" readonly><button type="button" id="copyUrlBtn">Copy</button>
-            <br>
+        </div>
+        <div class="clearfix">
+          <div id="createNewLink" class="">
+
+            <div id="newLinkInputs" class="">
+              <div class="spacer float-left">
+                <span class="grey text-item-descr">&nbsp;</span>
+              </div>
+              <div id="newLinkSettings" class="inline-block clearfix">
+                <div class="">
+                  <label>Expiration Date: <input id="inputExpirationDate" type="date" name="expirationDate" value=""></label>
+                  <label>max. participants: <input id="inputMaxParticipants" type="number" name="expirationDate" value=""></label>
+                </div>
+                <div class="clearfix">
+                  <button id="btnCancelLink" class="button bg-color-theme" type="button" name="cancel">Cancel</button>
+                  <button id="btnCreateLink" class="button bg-color-theme" type="button" name="create">Create</button>
+                </div>
+              </div>
+            </div>
+            <div class="spacer float-left">
+              <span class="grey text-item-descr">&nbsp;</span>
+            </div>
+            <div class="float-left clearfix">
+              <button id="btnNewLink" class="button bg-color-theme" style="padding-top: 5%" type="button" name="newLink"><strong>+</strong> create Link</button>
+            </div>
           </div>
         </div>
         <hr>
@@ -99,8 +137,7 @@
               <span class=" grey text-item-descr">
               <%= __('user.period') %>
               </span>
-              <span id="beginDate"></span>
-              <%= __('user.periodStart')%><span id="periodEndText" style="display:none"><%= __('user.periodEnd')%></span><span id="endDate"></span>
+              <%= __('user.periodStart')%><span id="beginDate"></span><span id="periodEndText" style="display:none"><%= __('user.periodEnd')%></span><span id="endDate"></span>
             </p>
           </div>
           <div>
@@ -133,20 +170,24 @@
               <span class="itemValue" id="atiStd"></span>
             </p>
           </div>
-          <button type="button" name="showHideRawData" id="showHideRawData"><span id="buttonText" class="glyphicon glyphicon-menu-down">View Raw Data</span></button>
+          <!-- TODO: make this work -->
+          <div class="" style="display:none">
 
-          <div id="rawData" class="" style="display:none">
-            <table>
-              <tr>
-                <th>asd</th>
-              </tr>
-              <tr>
-                <th>dfg</th>
-              </tr>
-              <tr>
-                <th>ghj</th>
-              </tr>
-            </table>
+            <button type="button" name="showHideRawData" id="showHideRawData" class="button-start bg-color-theme"><span id="buttonText" class="glyphicon glyphicon-menu-down"></span><span> View Raw Data</span> </button>
+
+            <div id="rawData" class="" style="display:none">
+              <table>
+                <tr>
+                  <th>asd</th>
+                </tr>
+                <tr>
+                  <th>dfg</th>
+                </tr>
+                <tr>
+                  <th>ghj</th>
+                </tr>
+              </table>
+            </div>
           </div>
           <div class="">
             <a id="exportCSV">
@@ -164,10 +205,8 @@
           </form>
           <script>
             let myFunction = function() {
-              console.log('blub');
               let data = new FormData();
               data.append('file', document.getElementById('theFile').files[0]);
-              console.log(data);
 
               let postUrl = '/db/importCSV?SID=1';
               fetch(postUrl, {
@@ -186,7 +225,7 @@
         </div>
         <hr>
 
-        <h2>Invite Participants</h2>
+        <!-- <h2>Invite Participants</h2>
         <div class="clearfix flex-row" style="flex-wrap:wrap">
           <div class="float-left grey text-item-descr" style="flex-basis:150px;">
             <span class="">Cover Letter</span>
@@ -202,29 +241,27 @@
             <div class="float-left">
               <span class="grey text-item-descr">Addresses</span>
             </div>
-            <form class="" action="index.html" method="post">
-              <input type="email" multiple name="mailAddress" value="" style="width:100%-300px" id="mailAddress">
-              <!-- TODO: get glyphicons to work  -->
-              <button type="button" name="invite" id="addMail"><span class="glyphicons glyphicons-user-add">add</span></button>
-            </form>
-          </div>
-          <br>
-          <div id="mailsOverview" class="">
-            <div id="emailList" class="list-group">
-              <a class="list-group-item list-group-item-action clearfix">Cras justo odio <button type="button" name="button" class="rm-on-click  pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
-              <a class="list-group-item list-group-item-action clearfix">Dapibus ac facilisis in<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
-              <a class="list-group-item list-group-item-action clearfix">Morbi leo risus<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
-              <a class="list-group-item list-group-item-action clearfix">Porta ac consectetur ac<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
-              <a class="list-group-item list-group-item-action clearfix">Vestibulum at eros<button type="button" name="button" class="rm-on-click pull-right"><span class="glyphicons glyphicons-delete">remove</span></button></a>
-            </div>
+
+            <input type="email" multiple name="mailAddress" value="" style="width:100%; min-width:200px;" id="mailAddress">
+
+            <button class="button-start bg-color-theme" type="button" name="invite" id="addMail"><span class="glyphicons glyphicons-user-add">add</span></button>
+
+        </div>
+        <br>
+        <div id="mailsOverview" class="">
+          <div id="emailList" class="list-group">
 
           </div>
-        </div>
-        <div class="" style="padding-top:30px;">
-          <button type="button" name="abort" class="float-left">Return to Profile</button>
-        </div>
 
+        </div>
+      </div> -->
+      <div class="float-left" style="padding-top:30px;">
+        <button id="btnReturn" type="button" name="abort" class="float-left button bg-color-theme">Return to Profile</button>
       </div>
+      <div class="float-right" style="padding-top:30px; padding-bottom:50px; display: none">
+        <button id="inviteParticipants" type="button" name="invite" class="float-left button bg-color-theme">Invite Participants</button>
+      </div>
+    </div style="margin-bottom: 10%">
 
 
 
