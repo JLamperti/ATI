@@ -45,7 +45,8 @@ $(document).ready(function() {
    * copies displayed URL into clipboard on click
    */
   function addCopyOnClick(linkDisplay) {
-    linkDisplay.find('#copyUrlBtn').addEventListener('click', function(event) {
+	  var btn = linkDisplay.find('#copyUrlBtn');
+    btn.on('click', function(event) {
       /* Get the text field */
       var copyText = linkDisplay.find('#surveyLink');
 
@@ -249,7 +250,7 @@ $(document).ready(function() {
               newLinkDisplay.find('#usesLeft').append(links[link].usesLeft);
             }
 
-            addCopyOnClick(newLinkDisplay));
+            addCopyOnClick(newLinkDisplay);
           newLinkDisplay.css("display", "inherit");
           $('#linkContainer').append(newLinkDisplay);
 
