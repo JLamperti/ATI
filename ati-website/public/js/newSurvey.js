@@ -16,7 +16,7 @@ $(document).ready(function() {
     var begin = $('#begin').val();
     var end = $('#end').val();
     // TODO: not working properly?
-    var status = ($('#enableMaxProbands').is(':checked'))? 'open':'closed';
+    var status = ($('#enableMaxProbands').is(':checked')) ? 'open' : 'closed';
     var takeAge = $('#takeAge').val();
     var takeSex = $('#takeSex').val();
     var takeEducation = $('#takeEducation').val();
@@ -25,7 +25,7 @@ $(document).ready(function() {
       var MaxProbands = $('#MaxProbands').val();
     }
 
-    let newSurveyData = JSON.stringify({
+    var newSurveyData = JSON.stringify({
       UID: UID,
       Name: surveyName,
       Description: description,
@@ -39,14 +39,14 @@ $(document).ready(function() {
       takeSex: takeSex
     });
 
-    let url = '/db/survey';
+    var url = '/db/survey';
     fetch(IP + url, {
         headers: {
           'Accept': 'application/json',
           'Content-type': 'application/json'
         },
         method: 'POST',
-		credentials: 'include',
+        credentials: 'include',
         body: newSurveyData
       })
       .then((out) => {
@@ -80,8 +80,8 @@ $(document).ready(function() {
 });
 
 /**
-*returns timezone-offset date
-*/
+ *returns timezone-offset date
+ */
 Date.prototype.toDateInputValue = (function() {
   var local = new Date(this);
   local.setMinutes(this.getMinutes() - this.getTimezoneOffset());

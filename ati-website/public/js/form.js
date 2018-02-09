@@ -37,7 +37,7 @@ if (invLink != null || invLink != undefined) {
     document.querySelector("#education").remove();
   }
   function deleteDumbData(){
-    document.getElementById('dontSendData').remove();
+    document.getElementById('dontSendDataDiv').remove();
   }
 }
 
