@@ -117,8 +117,9 @@ input[type="radio"] {
 }
 /* width/height of the container */
 .bg-img-container {
-  width: 10em;
-  height: 10em;
+  width: 8em;
+  height: 8em;
+  margin-top: -5rem;
 }
 .index-margin-bottom {
   margin-bottom: 3rem;
@@ -132,6 +133,7 @@ input[type="radio"] {
 .container-full-width {
   width: 100%;
 }
+
 .neg-marg-top {
   margin-top: -5%;
 }
@@ -465,6 +467,7 @@ input[type="radio"] {
 /* style labels on the charts */
 .ct-label {
   color: black;
+  font-size:2rem;
 }
 /*style Bars of the age charts */
 
