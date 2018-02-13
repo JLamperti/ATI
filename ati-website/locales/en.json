@@ -74,8 +74,8 @@
 	"createId.descFirstBirthplace": "Insert the first letter of your birthplace",
 	"createId.descLastBirthplace": "insert the last letter of your birthplace",
 	"createId.descBirthday": "Insert the day of your Birthday",
-	"createId.descFirstMother": "Insert the first letter of your mothers name (y if unknown)",
-	"createId.descFirstFather": "Insert the first letter of your fathers name (x if unknown)",
+	"createId.descFirstMother": "Insert the first letter of your mothers last name (y if unknown)",
+	"createId.descFirstFather": "Insert the first letter of your fathers last name (x if unknown)",
 	"createId.descGeburtsland": "Insert the country code of your country of birth (e.g. uk)",
 	"about.impressTitle": "Impress",
 	"about.uniLub": "University of Lübeck",
@@ -152,11 +152,14 @@
 	"chart.descDef": "The x-axis depict the ATI-score and the y-axis depict the amount of users ",
 	"chart.descSex": "The x-axis depict the sex and the y-axis depict the average ATI-score",
 	"chart.descAge": "The x-axis depict the age and the y-axis depict the average ATI-score",
-	"questionnaire.dontSend": "I don't agree that my data is used further",
+	"questionnaire.dontSend1": "I",
+	"questionnaire.dontSend2": "don't",
+	"questionnaire.dontSend3": "agree that my data is used further",
 	"index.publication": "scientific publications",
 	"index.Poster": "Poster",
 	"index.publicationIntro": "Here you will find the scientific publications on the ATI scale",
 	"js.disabled": "Your browser has JavaScript disabled!",
 	"js.enable": "Please enable this function. Because it is nessesary for this site to function properly.",
-	"js.howto": "How to enable JavaScript in your web browser."
+	"js.howto": "How to enable JavaScript in your web browser.",
+	"questionnaire.dontSend": "questionnaire.dontSend"
 }

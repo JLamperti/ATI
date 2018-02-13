@@ -1,7 +1,7 @@
 var reqAge = true,
   reqSex = true,
   reqEdu = true,
-  dumpData =false;
+  dumpData = false;
 var urlParams = new URLSearchParams(window.location.search);
 
 let invLink = urlParams.get("inv");
@@ -22,6 +22,9 @@ if (invLink != null || invLink != undefined) {
       reqAge === false ? deleteAge() : "";
       reqSex === false ? deleteSex() : "";
       reqEdu === false ? deleteEdu() : "";
+      reqEdu && reqSex && reqAge
+        ? document.getElementById("sepDiv").remove()
+        : "";
     })
     .catch(err => {
       throw err;
@@ -36,8 +39,8 @@ if (invLink != null || invLink != undefined) {
   function deleteEdu() {
     document.querySelector("#education").remove();
   }
-  function deleteDumbData(){
-    document.getElementById('dontSendDataDiv').remove();
+  function deleteDumbData() {
+    document.getElementById("dontSendDataDiv").remove();
   }
 }
 
@@ -130,8 +133,9 @@ function checkAnswers() {
       $.post("/db/probandLink", b);
       //console.log("probandLink");
     } else {
-      if(!dumpData){
-      $.post("/db/proband", b);}
+      if (!dumpData) {
+        // $.post("/db/proband", b);
+      }
       //console.log("proband");
     }
   }
@@ -143,6 +147,8 @@ function checkRadio(i, num) {
 
 function showResult() {
   if (isValid()) {
+    document.getElementById("defC").classList.add("highlighted-scale");
+    document.getElementById("defC").classList.remove("bg-color-theme");
     document.querySelector("#questionnaireMain").style.display = "none";
     document.querySelector("#questionnaireResult").style.display = "block";
   }
@@ -239,4 +245,9 @@ function defaultSetup() {
   for (i = 0; i < inputNumber.length; i++) {
     inputNumber[i].value = "";
   }
+}
+
+
+function dntSend(){ 
+  document.querySelector('input[name="dontSendData"]').checked === true ? document.querySelector('input[name="dontSendData"]').checked = false : document.querySelector('input[name="dontSendData"]').checked = true;
 }

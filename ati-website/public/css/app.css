@@ -69,7 +69,8 @@ input[type="radio"] {
   vertical-align: middle;
 }
 #instructions {
-  text-align: left;
+  text-align: justify;
+  font-size:80%;
 }
 #chart {
   height: 25%;
@@ -90,6 +91,9 @@ input[type="radio"] {
 }
 #dontSendData{
   margin-right:2rem;
+}
+.highlighted-scale{ 
+  background-color: #455964;
 }
 .btn-index-lg {
   width: 100%;

@@ -113,7 +113,7 @@
                     <%= __('instruction') %>
                   </strong>
                 </div>
-                <div class="ans-vis" id="instructions">
+                <div class="ans-vis text-justify" id="instructions">
                   <div class="col-md-1"></div>
 
                   <div class="col-sm-2 col-md-1 text-md-center">
@@ -436,18 +436,20 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class=" separator"></div>
+              </div>            
             </div>
+            <div class="separator" id="sepDiv"></div>
             <div id="dontSendDataDiv" class="container">
               <div class="flex-row">
                 <div>
                   <input type="checkbox" id="dontSendData" name="dontSendData">
                 </div>
-                <div>
-                  <strong>
-                    <%= __('questionnaire.dontSend') %>
-                  </strong>
+                <div onclick="dntSend()" touchend="dntSend()">
+                  <span>
+                    <%= __('questionnaire.dontSend1') %>
+                   <strong> <%= __('questionnaire.dontSend2') %></strong>
+                    <%= __('questionnaire.dontSend3') %>
+                  </span>
                 </div>
               </div>
               <div class="container" align="center">
@@ -497,13 +499,13 @@
           </p>
         </div>
         <div align="center" class="white-color">
-          <button onclick="defaultScale(),showChart('defaultChart')" touchend="defaultScale(),showChart('defaultChart')" class="button bg-color-theme">
+          <button id="defC" onclick="defaultScale(),showChart('defaultChart')" touchend="defaultScale(),showChart('defaultChart')" class="button bg-color-theme">
             <%= __('chart.default') %>
           </button>
-          <button onclick="ageScale(), showChart('ageChart')" touchend="ageScale(), showChart('ageChart')" class="button bg-color-theme">
+          <button id="ageC" onclick="ageScale(),showChart('ageChart')" touchend="ageScale(), showChart('ageChart')" class="button bg-color-theme">
             <%= __('chart.age') %>
           </button>
-          <button onclick="sexScale(), showChart('sexChart')" touchend="sexScale(), showChart('sexChart')" class="button bg-color-theme">
+          <button id="sexC" onclick="sexScale(),showChart('sexChart')" touchend="sexScale(), showChart('sexChart')" class="button bg-color-theme">
             <%= __('chart.sex') %>
           </button>
         </div>
@@ -577,12 +579,24 @@
         function showChart(elem) {
           if (elem === 'ageChart') {
             document.querySelector('#ageChart').style.display = 'block';
+            document.getElementById('ageC').classList.add('highlighted-scale');
+            document.getElementById('ageC').classList.remove('bg-color-theme');
+            document.getElementById('sexC').classList.remove('highlighted-scale');
+            document.getElementById('sexC').classList.add('bg-color-theme');
+            document.getElementById('defC').classList.remove('highlighted-scale');
+            document.getElementById('defC').classList.add('bg-color-theme');
             document.querySelector('#defaultChart').style.display = 'none';
             document.querySelector('#sexChart').style.display = 'none';
             showDesc('age');
 
           } else if (elem === 'defaultChart') {
             document.querySelector('#defaultChart').style.display = 'block';
+            document.getElementById('defC').classList.add('highlighted-scale');
+            document.getElementById('defC').classList.remove('bg-color-theme');
+            document.getElementById('sexC').classList.remove('highlighted-scale');
+            document.getElementById('sexC').classList.add('bg-color-theme');
+            document.getElementById('ageC').classList.remove('highlighted-scale');
+            document.getElementById('ageC').classList.add('bg-color-theme');
             document.querySelector('#ageChart').style.display = 'none';
             document.querySelector('#sexChart').style.display = 'none';
             showDesc('def');
@@ -591,6 +605,12 @@
             document.querySelector('#defaultChart').style.display = 'none';
             document.querySelector('#ageChart').style.display = 'none';
             document.querySelector('#sexChart').style.display = 'block';
+            document.getElementById('sexC').classList.add('highlighted-scale');
+            document.getElementById('sexC').classList.remove('bg-color-theme');
+            document.getElementById('ageC').classList.remove('highlighted-scale');
+            document.getElementById('ageC').classList.add('bg-color-theme');
+            document.getElementById('defC').classList.remove('highlighted-scale');
+            document.getElementById('defC').classList.add('bg-color-theme');
             showDesc('sex');
 
           }
@@ -598,12 +618,13 @@
         }
 
         function showDesc(elem) {
+          let a = document.getElementById('descDef');
           if (elem === 'def') {
             a.innerHTML = '<%= __('chart.descDef') %>';
           } else if (elem === 'age') {
             a.innerHTML = '<%= __('chart.descAge') %>';
           } else if (elem === 'sex') {
-            -                    a.innerHTML = '<%= __('chart.descSex') %>';
+            a.innerHTML = '<%= __('chart.descSex') %>';
           }
         }
 

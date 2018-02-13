@@ -74,8 +74,8 @@
 	"createId.descFirstBirthplace": "Gebe den ersten Buchstaben deines Geburtortes an",
 	"createId.descLastBirthplace": "Gebe den letzten Buchstaben deines Geburtortes an",
 	"createId.descBirthday": "Gebe den Tag deines Geburtsdatums an (z.B. 01)",
-	"createId.descFirstMother": "Gebe den ersten Buchstaben des Namens deiner Mutter ein (y falls unbekannt)",
-	"createId.descFirstFather": "Gebe den ersten Buchstaben des Namens deines Vaters ein (x falls unbekannt)",
+	"createId.descFirstMother": "Gebe den ersten Buchstaben des Nachnamens deiner Mutter ein (y falls unbekannt)",
+	"createId.descFirstFather": "Gebe den ersten Buchstaben des Nachnamens deines Vaters ein (x falls unbekannt)",
 	"createId.descGeburtsland": " Gebe die Abkürzung deines Geburtslandes an (z.B. de)",
 	"about.impressTitle": "Impressum",
 	"about.uniLub": "Universität zu Lübeck",
@@ -152,11 +152,14 @@
 	"chart.descDef": "Die x-Achse bildet die ATI-Werte ab und die y-Achse bildet die Anzahl der Nutzer ab",
 	"chart.descSex": "Die x-Achse bildet das Geschlecht ab und die y-Achse bildet den durchschnittlichen ATI-Wert ab",
 	"chart.descAge": "Die x-Achse bildet das Alter ab und die y-Achse bildet den durchschnittlichen ATI-Wert ab",
-	"questionnaire.dontSend": "Ich bin nicht damit einverstanden, dass meine Daten weiterverwendet werden",
+	"questionnaire.dontSend1": "Ich bin",
+	"questionnaire.dontSend2": "nicht ",
+	"questionnaire.dontSend3": "damit einverstanden, dass meine Daten weiterverwendet werden",
 	"index.publication": "wissenschaftliche Publikationen",
 	"index.Poster": "Plakat",
 	"index.publicationIntro": "Hier finden Sie die wissenschaftlichen Publikationen zur ATI-Skala",
 	"js.disabled": "In Ihrem Browser ist JavaScript abgeschaltet!",
 	"js.enable": "Damit diese Seite korrekt funktionieren kann, aktivieren Sie bitte JavaScript.",
-	"js.howto": "Hier finden Sie eine Anleitung wie JavaScript in Ihrem Browser zu aktivieren ist."
+	"js.howto": "Hier finden Sie eine Anleitung wie JavaScript in Ihrem Browser zu aktivieren ist.",
+	"questionnaire.dontSend": "questionnaire.dontSend"
 }
