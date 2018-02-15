@@ -449,9 +449,23 @@ input[type="radio"] {
   color: red;
 }
 /* set the background of every 2n+1 div to lightfgrey in the questionnaire */
-#dempographic-data .container:nth-child(odd),
+#dempographic-data .demo-elem:nth-child(odd),
 #questions .row:nth-child(odd) {
   background-color: lightgrey;
+}
+.demo{
+  padding-left:15px;
+
+}
+.btn-sbmt{
+  margin-bottom: 2rem;
+}
+.btn-home{
+  padding-left: 5%;
+  padding-right: 5%;
+  height: 5.5rem;
+  color: white;
+  border-radius: 1rem;
 }
 /* margins for the demographic data sex and age */
 #sex,

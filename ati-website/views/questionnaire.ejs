@@ -341,13 +341,12 @@
             </div>
 
 
-            <div class="">
+            <div>
               <div class="separator"> </div>
               <!-- demographic data -->
               <div id="dempographic-data">
                 <!-- sex -->
-
-                <div class="container" id="sex">
+                <div class="demo-elem demo" id="sex">
                   <div class="row demoData">
                     <div class="col-xs-12 col-md-4">
                       <label for="sex">
@@ -369,31 +368,25 @@
                     </div>
                   </div>
                 </div>
-
                 <!-- age -->
-                <div class="container" id="age">
+                <div class="demo-elem demo" id="age">
                   <div class="row demoData">
                     <div class="col-xs-12 col-md-4">
                       <label for="age" class="age-label">
                         <%= __('age.desc') %>:
                       </label>
                     </div>
-
-
-
                     <div class="col-xs-3 col-md-1 ">
                       <input type="number" min="0" max="150" name="age" class="vertical" required placeholder="0" id="age-Input"> </div>
                     <div class="col-xs-9 col-md-7">
                       <p>
                         <%= __('age.unit') %>
                       </p>
-
-
                     </div>
                   </div>
                 </div>
                 <!-- education -->
-                <div class="container" id="education">
+                <div class="demo-elem demo" id="education">
                   <div class="row demoData">
                     <div class="col-xs-12 ">
                       <label for="edu" id="defEdu">
@@ -436,7 +429,7 @@
                     </div>
                   </div>
                 </div>
-              </div>            
+              </div>
             </div>
             <div class="separator" id="sepDiv"></div>
             <div id="dontSendDataDiv" class="container">
@@ -447,13 +440,15 @@
                 <div onclick="dntSend()" touchend="dntSend()">
                   <span>
                     <%= __('questionnaire.dontSend1') %>
-                   <strong> <%= __('questionnaire.dontSend2') %></strong>
-                    <%= __('questionnaire.dontSend3') %>
+                      <strong>
+                        <%= __('questionnaire.dontSend2') %>
+                      </strong>
+                      <%= __('questionnaire.dontSend3') %>
                   </span>
                 </div>
               </div>
               <div class="container" align="center">
-                <button class="button  button-start bg-color-theme btn-sbmt" onclick="checkAnswers(),showResult(), defaultScale()" touchend="checkAnswers(),showResult(), defaultScale()">
+               <button class="button  button-start bg-color-theme btn-sbmt" onclick="checkAnswers(),showResult(), defaultScale()" touchend="checkAnswers(),showResult(), defaultScale()">
                   <%= __('btn.submit') %>
                 </button>
               </div>
@@ -471,20 +466,31 @@
 
       </div>
       <div id="questionnaireResult" class="container index-padding-bottom" style="display:none;" align="center">
-
-        <p>
-          <%= __('questionnaire.result') %>
-        </p>
-        <p>
-          <%= __('questionnaire.resultDesc1') %>
-            <strong>
-              <span id="uSc"></span>
-            </strong>
-            <%= __('questionnaire.resultDesc2') %>
-        </p>
-        <p>
-          <%= __('questionnaire.result2') %>
-        </p>
+        <div class="row">
+          <div class="col-sm-4">
+              <a href="/"><button class="button bg-color-theme btn-home">Home</button></a> 
+          </div>
+          <div class="col-sm-8">
+            <p>
+              <%= __('questionnaire.result') %>
+            </p>
+          </div>         
+        </div>
+        <div class="row">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-8">
+            <p>
+              <%= __('questionnaire.resultDesc1') %>
+                <strong>
+                  <span id="uSc"></span>
+                </strong>
+                <%= __('questionnaire.resultDesc2') %>
+            </p>
+            <p>
+              <%= __('questionnaire.result2') %>
+            </p>
+          </div>
+        </div>
 
         <div id="chart">
           <div id="defaultChart" class="ct-chart ct-perfect-fourth"></div>
@@ -499,7 +505,8 @@
           </p>
         </div>
         <div align="center" class="white-color">
-          <button id="defC" onclick="defaultScale(),showChart('defaultChart')" touchend="defaultScale(),showChart('defaultChart')" class="button bg-color-theme">
+          <button id="defC" onclick="defaultScale(),showChart('defaultChart')" touchend="defaultScale(),showChart('defaultChart')"
+            class="button bg-color-theme">
             <%= __('chart.default') %>
           </button>
           <button id="ageC" onclick="ageScale(),showChart('ageChart')" touchend="ageScale(), showChart('ageChart')" class="button bg-color-theme">
