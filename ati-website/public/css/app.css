@@ -70,7 +70,7 @@ input[type="radio"] {
 }
 #instructions {
   text-align: justify;
-  font-size:80%;
+  font-size: 80%;
 }
 #chart {
   height: 25%;
@@ -89,10 +89,10 @@ input[type="radio"] {
 #descDef {
   margin-top: -15%;
 }
-#dontSendData{
-  margin-right:2rem;
+#dontSendData {
+  margin-right: 2rem;
 }
-.highlighted-scale{ 
+.highlighted-scale {
   background-color: #455964;
 }
 .btn-index-lg {
@@ -119,12 +119,7 @@ input[type="radio"] {
   background-size: cover;
   background-position: center center;
 }
-/* width/height of the container */
-.bg-img-container {
-  width: 8em;
-  height: 8em;
-  margin-top: -5rem;
-}
+
 .index-margin-bottom {
   margin-bottom: 3rem;
 }
@@ -453,14 +448,14 @@ input[type="radio"] {
 #questions .row:nth-child(odd) {
   background-color: lightgrey;
 }
-.demo{
-  padding-left:15px;
-
+.demo {
+  padding-left: 15px;
 }
-.btn-sbmt{
+.btn-sbmt {
   margin-bottom: 2rem;
 }
-.btn-home{
+.btn-home {
+  width: 100%;
   padding-left: 5%;
   padding-right: 5%;
   height: 5.5rem;
@@ -485,7 +480,7 @@ input[type="radio"] {
 /* style labels on the charts */
 .ct-label {
   color: black;
-  font-size:2rem;
+  font-size: 2rem;
 }
 /*style Bars of the age charts */
 
@@ -519,15 +514,21 @@ input[type="radio"] {
     flex-wrap: nowrap;
     justify-content: flex-start;
   }
-  .questionnaire-radio{
+  .questionnaire-radio {
     margin-left: 2.5rem;
   }
   .langImgQuestionnaire {
     height: 30%;
     width: 30%;
   }
-  #age-Input{
-    width:75px;
+  #age-Input {
+    width: 75px;
+  }
+  /* width/height of the container */
+  .bg-img-container {
+    width: 7.5em;
+    height: 7.5em;
+    margin-top: 0em;
   }
 
   /*move the right element of the navbar to the side */
@@ -550,10 +551,9 @@ input[type="radio"] {
   .questionaire-height-md {
     height: 3em;
   }
-  .questionnaire-radio{
+  .questionnaire-radio {
     margin-left: 1rem;
   }
-  
 }
 @media (max-width: 768px) {
   /* container of the element to change the language. screen-width <768px */
@@ -561,15 +561,11 @@ input[type="radio"] {
     width: 100%;
     font-size: medium;
   }
-  /* width/height of the container */
-  .bg-img-container {
-    width: 7.5em;
-    height: 7.5em;
+
+  #age-Input {
+    width: 50px;
   }
-  #age-Input{
-    width:50px;
-  }
-  
+
   /* fixed header for devices with a screenwidth < 768px */
   .fixed-header-top {
     /* margin-bottom: 21.75%;
@@ -660,10 +656,8 @@ input[type="radio"] {
     height: 10%;
     width: 10%;
   }
-  /* width/height of the container */
-  .bg-img-container {
-    width: 5em;
-    height: 5em;
+  a .btn-home-margin{
+    margin-bottom: 1rem;
   }
 
   /* flexbox direction column sw < 480 */
@@ -691,6 +685,14 @@ input[type="radio"] {
 }
 
 @media (min-width: 360px) {
+  /* width/height of the container */
+  .bg-img-container {
+    width: 5em;
+    height: 5em;
+    margin-top: -1rem;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 }
 
 @media (min-width: 480px) {
@@ -713,8 +715,14 @@ input[type="radio"] {
     padding-top: 7.5%;
     padding-left: 15%;
   }
-  .questionnaire-radio{
+  .questionnaire-radio {
     margin-left: 2.5rem;
+  }
+  /* width/height of the container */
+  .bg-img-container {
+    width: 8em;
+    height: 8em;
+    margin-top: -5rem;
   }
   /*style buttons of the papers section */
   .btn-papers-md {
@@ -771,7 +779,7 @@ input[type="radio"] {
     height: 0px;
   }
   /* set height for the answers in the questionnaire for width > 1200px */
- 
+
   /*center items*/
   .text-md-center {
     text-align: left;
@@ -801,12 +809,13 @@ input[type="radio"] {
     margin-left: auto;
     margin-right: auto;
   }
+
   /* style iframe */
   .iframe-xs {
     width: 100%;
     height: 200px;
   }
- #instructions{
+  #instructions {
     font-size: 70%;
   }
 
@@ -828,6 +837,14 @@ input[type="radio"] {
     height: auto;
 
     margin-top: -20px;
+  }
+}
+@media (max-width: 360px){
+   /* width/height of the container */
+   .bg-img-container {
+    width: 5em;
+    height: 5em;
+    margin-top:0em;
   }
 }
 

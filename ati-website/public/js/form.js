@@ -148,9 +148,10 @@ function checkRadio(i, num) {
 function showResult() {
   if (isValid()) {
     document.getElementById("defC").classList.add("highlighted-scale");
-    document.getElementById("defC").classList.remove("bg-color-theme");
+    document.getElementById("defC").classList.remove("bg-color-theme");   
     document.querySelector("#questionnaireMain").style.display = "none";
     document.querySelector("#questionnaireResult").style.display = "block";
+    document.getElementById('questionnaireResult').scrollIntoView();
   }
 }
 var isValid = function() {
