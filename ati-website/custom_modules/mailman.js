@@ -10,9 +10,10 @@ var mail = require('./mailman.js');
     STMP is mail server which is responsible for sending and recieving email.
 */
 var smtpTransport = nodemailer.createTransport({
-    // service: "GMX Freemail",
     host: keys.mail.server,
-    secure: true,
+    secure: false,
+    port: 587,
+    requireTLS: true,
     auth: {
         user: keys.mail.username,
         pass: keys.mail.password
@@ -22,7 +23,7 @@ var smtpTransport = nodemailer.createTransport({
 
 exports.sendMail = function(mailto, subject , msgtxt, res) {
   var mailOptions={
-        from: "ATI Webseite <" + keys.mail.username +">",
+        from: "ATI Webseite <" + keys.mail.username +"@imis.uni-luebeck.de>",
         to : mailto,
         subject : subject,
         html : msgtxt
