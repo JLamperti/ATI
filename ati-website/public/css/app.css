@@ -240,10 +240,11 @@ label {
 }
 /* class for the Image of index.ejs */
 .title-screen {
-  width: 100%;
+  margin-left:auto; margin-right:auto;
+  width: 80%;
   height: auto;
-  margin-top: -20px;
-}
+  margin-top:-20px;
+ }
 
 /*position navbar on the upper edge */
 .navbar-noMargin {
@@ -311,9 +312,8 @@ label {
 .dumie-container.lg {
   width: 80%;
 }
-.scale-padding {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+.index-container-margin-bottom  .scale-padding {  
+  padding-bottom: 2rem;
 }
 .container-header-ati {
   margin-left: 10%;
@@ -334,6 +334,13 @@ label {
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
   color: #c5eff7;
+}
+a h3 b{
+  color: #344853;
+
+}
+a h3 b:hover{
+  color: #344853;
 }
 
 /* scales the images of the Scientist/Developer/Teacher */
@@ -722,7 +729,7 @@ input[type="radio"] {
   .bg-img-container {
     width: 8em;
     height: 8em;
-    margin-top: -5rem;
+    margin-top: 0rem;
   }
   /*style buttons of the papers section */
   .btn-papers-md {

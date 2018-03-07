@@ -65,7 +65,7 @@
 	"educationLevel.lesserThanAbitur": "Hauptschul- oder Realschulabschluss",
 	"educationLevel.aLevel": "Abitur oder Fachhochschulreife",
 	"educationLevel.BMD": "Bachelor/Master/Diplom",
-	"educationLevel.hMD": "Promotion/Habilitation",
+	"educationLevel.hMD": "Promotion",
 	"educationLevel.vocationalSchool": "Berufsschulabschluss",
 	"educationLevel.masterCraftsman": "Meister",
 	"descQuestionnaire": "Vielen Dank, dass Sie sich entschieden haben, unseren Fragebogen zu nutzen und ihre Technikaffinität in der Interaktion herauszufinden.",
@@ -161,5 +161,6 @@
 	"js.disabled": "In Ihrem Browser ist JavaScript abgeschaltet!",
 	"js.enable": "Damit diese Seite korrekt funktionieren kann, aktivieren Sie bitte JavaScript.",
 	"js.howto": "Hier finden Sie eine Anleitung wie JavaScript in Ihrem Browser zu aktivieren ist.",
-	"questionnaire.dontSend": "questionnaire.dontSend"
+	"questionnaire.dontSend": "questionnaire.dontSend",
+	"index.questionnaire": "Fragebogen"
 }

@@ -1,5 +1,7 @@
 <%- include ./partials/head %>
-  <title>ATI</title>
+  <title>Questionnaire Scale to Assess Affinity for Technology Interaction</title>
+  <meta name="keywords" content="scale, user-centered design, hci, technology interaction, human-technology interaction, human-computer interaction, usability, user diversity, personality assessment, bias, sample">
+  <meta name="description" content="9-item questionnaire scale to assess affinity for technology interaction, a key facet of user personality. Download the scale for your research and get information on scale characteristics." />
   </head>
 
   <body onload="setLang()" lang="<%= __('html.lang') %>" >
@@ -15,12 +17,11 @@
 
 
 
-   <div class="imagesPadding flex-row padding-left-right-SDT" align="center">
+   <!-- <div class="imagesPadding flex-row padding-left-right-SDT" align="center">
      
       <div>
         <a href="#scientist" >
-         <div class="bg-img-container bg-img-form"  id="img-scientist" alt="scientist" alt="scientist"></div>
-        </a>
+         <div class="bg-img-container bg-img-form"  id="img-scientist" alt="scientist" alt="scientist"></div>        
         <p class="scientist-developer-teacher-text">
           <h3>
             <b>
@@ -28,37 +29,36 @@
             </b>
           </h3>
         </p>
+      </a>
       </div>
 
       <div class="horizontal">
         <a href="#developer">
-          <div id="img-developer" src="./images/Entwickler_Icon.png"  class="bg-img-container bg-img-form" href="#developer" alt="developer"></div>
-        </a>
+          <div id="img-developer" src="./images/Entwickler_Icon.png"  class="bg-img-container bg-img-form" href="#developer" alt="developer"></div>        
         <p class="scientist-developer-teacher-text">
           <h3>
             <b>
               <%= __('developer') %>
             </b>
           </h3>
-        </p>
+        </p></a>
       </div>
 
       <div>
         <a href="#teacher">
-          <div id="img-teacher" alt="Kursleiter" class="bg-img-container bg-img-form" alt="teacher"></div>
-        </a>
-
+          <div id="img-teacher" alt="Kursleiter" class="bg-img-container bg-img-form" alt="teacher"></div>       
         <p>
           <h3>
             <b>
               <%= __('teacher') %>
             </b>
           </h3>
-        </p>
+        </p> </a>
+
       </div>
 
 
-    </div>
+    </div> -->
 
     <div class="flex-lg-row scale-txt-home-sm container-header-ati" >
       <h2>
@@ -67,9 +67,17 @@
     </div>
 
     <div class=" flex-lg-row container-def-ati" >
+      <div>
       <p>
-        <%= __('definitionAffinity') %>
+        <%= __('definitionAffinity0') %><strong><%= __('definitionAffinity1') %></strong><%= __('definitionAffinity2') %>
       </p>
+      <p>
+        <%= __('definitionAffinity3') %><strong><%= __('definitionAffinity4') %></strong><%= __('definitionAffinity5') %><strong><%= __('definitionAffinity6') %></strong><%= __('definitionAffinity7') %>
+      </p>
+      <p>
+        <%= __('definitionAffinity8') %>
+      </p>
+    </div>
     </div>
 
 
@@ -93,6 +101,7 @@
       <div class="dummie-container"></div>
 
       <div class="div-scale scale-padding">
+        <h2 align="center">Downloads</h3>
           <div class="dummie-container-lg">
               <%= __('downloadText') %>
             </div>
@@ -105,25 +114,25 @@
             </a>
             <a href="./dl1">
               <button type="button" class="button-start bg-color-theme btn-s-negMargin button-xs button-md">
-                Word (.docx)
+                Download Word (.docx)
               </button>
             </a>
           </div>
           <div class="flex-row-wrap flex-s-col">
             <a href="./dl3">
               <button type="button" class="button-start  bg-color-theme button-xs button-md">
-                LimeSurvey (en)
+                Download LimeSurvey (en)
               </button>
             </a>
             <a href="./dl4">
               <button type="button" class="button-start  bg-color-theme button-xs button-md">
-                LimeSurvey (de)
+                Download LimeSurvey (de)
               </button>
             </a>
           </div>
           <a href="./dl2">
             <button type="button" class="button-start bg-color-theme btn-s-negMargin button-xs button-md">
-              Text (.txt)
+              Download Text (.txt)
             </button>
           </a>
         </div>
@@ -134,7 +143,7 @@
       <div class="dummie-container"></div>
 
       <div class="div-scale scale-padding" >
-
+        <h2 align="center"><%= __('index.questionnaire') %></h2>
         <div class="dummie-container-lg">
           <%= __('testYourselfText') %>
         </div>
@@ -151,8 +160,37 @@
     </div>
 
     <div id="information">
-
-      <div class="flex-md-col flex-lg-row div-padding-row bg-color-theme" id="div-what-why-how">
+        <div class="flex-col div-padding-row bg-color-theme" id="div-what-why-how">
+          <h2 align="center"><%= __('index.background.header') %></h2>
+          <p>
+            <h3><%= __('index.background.firstTitle') %></h3>
+            <p><%= __('index.background.firstPara') %><strong><%= __('index.background.strongItem') %></strong></p>
+          </p>
+          <p>
+            <h3><%= __('index.background.secondTitle') %></h3>
+            <p>
+              <p> <%= __('index.background.secondPara0') %></p>
+              <p> <%= __('index.background.secondPara1') %></p>
+              <p> <%= __('index.background.secondPara2') %></p>
+            </p>
+          </p>
+          <p>
+            <h3><%= __('index.background.thirdTitle') %></h3>
+            <p><%= __('index.background.thirdPara0') %><strong><%= __('index.background.thirdPara1') %></strong><%= __('index.background.thirdPara2') %></p>
+            <div class="iframe-md iframe-xs">
+                <iframe class="" src="https://www.youtube.com/embed/tbyKkZZNUzA" allowfullscreen  alt="in this video Prof. Franke discusses why ATI is relevant"></iframe>
+            </div>
+          </p>
+          <p>
+            <h3><%= __('index.background.fourthTitle') %></h3>
+            <p><%= __('index.background.fourthPara0') %><a href="./#scale"><strong><%= __('index.background.fourthParaHere') %></strong></a><%= __('index.background.fourthPara2') %><strong><%= __('index.background.fourthParaHere') %></strong>.</p>
+          </p>
+          <p>
+            <h3><%= __('index.background.fifthTitle') %></h3>
+            <p><%= __('index.background.fithPara') %></p>
+          </p>
+          
+      <!-- <div class="flex-md-col flex-lg-row div-padding-row bg-color-theme" id="div-what-why-how">
 
         <div class="div-padding-min" >
           <h2>
@@ -179,12 +217,12 @@
           <p>
             <%= __('whyText') %>
           </p>
-        </div>
+        </div> -->
 
       </div>
+</div>
 
-
-      <div class="div-padding-row-SDT flex-row flex-xs-col">
+      <!-- <div class="div-padding-row-SDT flex-row flex-xs-col">
 
         <div>
           <img src="./images/Forscher_Icon.png" alt="Entwickler" class="SDT-images" href="#developer"></img>
@@ -273,7 +311,7 @@
 
       </div>
 
-    </div>
+    </div> -->
 
     <div class="div-padding-row background-light-grey" id="authors">
 
@@ -292,7 +330,7 @@
           </br>
 
           <h4>
-            <%- __('frankeName') %>
+            <strong><%- __('frankeName') %></strong>
           </h4>
 
           <p >
@@ -308,11 +346,11 @@
           </br>
 
           <h4>
-            <%- __('attigName') %>
+              <strong><%- __('attigName') %></strong>
           </h4>
 
           <p >
-            <%= __('attigText') %>
+           <%= __('attigText') %>
           </p>
 
         </div>
@@ -324,7 +362,7 @@
           </br>
 
           <h4>
-            <%- __('wesselName') %>
+            <strong> <%- __('wesselName') %></strong>
           </h4>
 
           <p>

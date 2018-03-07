@@ -19,7 +19,7 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-
+            <li><a href="/">Home</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right" style="height:100%">
 
@@ -452,15 +452,7 @@
                   <%= __('btn.submit') %>
                 </button>
               </div>
-            </div>
-            <!-- merge conflict reste
-                    <div align="center" class="container-full-width">
-                       <label><input type="checkbox" id="dontSendData" name="dontSendData"><strong><%= __('questionnaire.dontSend') %></strong></label>
-                        <button class="button  button-start bg-color-theme" onclick="checkAnswers(),showResult(), defaultScale()" touchend="checkAnswers(),showResult(), defaultScale()"
-                            style="margin-bottom:10px">
-                            <%= __('btn.submit') %>
-                        </button>
-                    </div>-->
+            </div>     
         </div>
         </form>
 
@@ -479,13 +471,13 @@
         <div class="row">
           <div class="col-sm-2"></div>
           <div class="col-sm-10">
-            <p>
+            <h3>
               <%= __('questionnaire.resultDesc1') %>
                 <strong>
                   <span id="uSc"></span>
                 </strong>
                 <%= __('questionnaire.resultDesc2') %>
-            </p>
+              </h3>
             <p>
               <%= __('questionnaire.result2') %>
             </p>
@@ -538,7 +530,7 @@
                 series: [
                   []
                 ]
-              };
+              };            
               for (i = 0; i < 5; i++) {
                 data.series[0][i] = out[i].amount;
               };
