@@ -5,7 +5,9 @@ console.log(document.cookie);
   //get the language of the Browser
   let userLang = navigator.language || navigator.userLanguage.toString();
   console.log(document.cookie);
-  let val = userLang == "en-US" ? "en" : "de";
+  // let val = userLang == "en-US" ? "en" : "de";
+  //set the cookie of this site only to english
+  let val = "en"
   //create cookie
   document.cookie = "locale=" + val + "; path=/";}
 
