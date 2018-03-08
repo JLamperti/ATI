@@ -106,7 +106,7 @@
               <%= __('downloadText') %>
             </div>
         <div class="flex-col">
-          <div class="flex-row-wrap flex-s-col">
+          <div class="flex-row-wrap flex-s-col flex-center-something" >
             <a href="./dl0">
               <button type="button" class="button-start bg-color-theme btn-s-negMargin button-xs button-md">
                 <%= __('buttonDownload') %>
@@ -118,7 +118,7 @@
               </button>
             </a>
           </div>
-          <div class="flex-row-wrap flex-s-col">
+          <div class="flex-row-wrap flex-s-col flex-center-something">
             <a href="./dl3">
               <button type="button" class="button-start  bg-color-theme button-xs button-md">
                 Download LimeSurvey (en)
@@ -130,7 +130,7 @@
               </button>
             </a>
           </div>
-          <a href="./dl2">
+          <a href="./dl2" class="flex-center-something">
             <button type="button" class="button-start bg-color-theme btn-s-negMargin button-xs button-md">
               Download Text (.txt)
             </button>
@@ -147,12 +147,13 @@
         <div class="dummie-container-lg">
           <%= __('testYourselfText') %>
         </div>
-
-        <a href="./form">
+        <div class="flex-center-something button-md" >
+        <a href="./form" >
           <button type="button" class="button-start bg-color-theme button-xs button-md">
             <%= __('buttonTestYourself') %>
           </button>
         </a>
+      </div>
       </div>
     </div>
     <div class="dummie-container"></div>
@@ -183,7 +184,7 @@
           </p>
           <p>
             <h3><%= __('index.background.fourthTitle') %></h3>
-            <p><%= __('index.background.fourthPara0') %><a href="./#scale"><strong><%= __('index.background.fourthParaHere') %></strong></a><%= __('index.background.fourthPara2') %><strong><%= __('index.background.fourthParaHere') %></strong>.</p>
+            <p><%= __('index.background.fourthPara0') %><a href="./#scale"><strong><%= __('index.background.fourthParaHere') %></strong></a>. <%= __('index.background.fourthPara2') %><a href="./#scale"><strong><%= __('index.background.fourthParaHere') %></strong></a>.</p>
           </p>
           <p>
             <h3><%= __('index.background.fifthTitle') %></h3>
@@ -341,7 +342,7 @@
 
         <div class="div-padding-min author-width-md author-margin-xs" align="center">
 
-          <img src="./images/attig_400px.jpg" alt="Christiane Attig" class="author-images rounded-img"></img>
+          <img src="./images/attig_400px.png" alt="Christiane Attig" class="author-images rounded-img"></img>
 
           </br>
 

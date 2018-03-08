@@ -369,6 +369,8 @@ a h3 b:hover{
   flex-wrap: nowrap;
   justify-content: flex-start;
 }
+.flex-center-something{margin-left:auto;margin-right:auto}
+
 
 /* margin for the container which contains the DL and the form button */
 .index-container-margin-bottom-bot {
@@ -520,6 +522,10 @@ input[type="radio"] {
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: flex-start;
+  }
+  .button-md{
+    width: 20rem;
+
   }
   .questionnaire-radio {
     margin-left: 2.5rem;
@@ -777,7 +783,8 @@ input[type="radio"] {
   }
   /* equal width for the buttons of the index.ejs */
   .button-md {
-    width: 17rem;
+    min-width:20rem;
+    width: 20rem;
   }
 
   /* visibility of the answers near the radio buttons */
