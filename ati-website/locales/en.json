@@ -71,6 +71,7 @@
 	"descQuestionnaire": "Thank you for using our scale to measure your affinity for technology-interaction.",
 	"descQuestionnaire2": "This survey consists of three parts. In the first part, there are three questions to create your personal identifier (token). This token is needed to make sure that one person can not take part of this survey more than once. The second part of survey consists of nine questions to determine your affinity for technology-interaction. The third and last part consists of a few questions about your demographic data.",
 	"descQuestionnaire3": "For us as researchers and developers of the ATI-Scale it is interesting to see how the results are related to specific population groups. For each question exactly one answer can be given. Completing this survey takes about 5 minutes. Please note that the survey is conducted completely anonymous. Your answers can not and will not be associated with you personally.",
+	"descQuestionnaire4":"Technical systems are systems which provide functions. Examples of technical systems are cars, computer and smartphones",
 	"createId.descFirstBirthplace": "Insert the first letter of your birthplace",
 	"createId.descLastBirthplace": "insert the last letter of your birthplace",
 	"createId.descBirthday": "Insert the day of your Birthday",
