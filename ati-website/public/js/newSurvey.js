@@ -68,6 +68,11 @@ $(document).ready(function() {
 
   });
 
+  $('#abort').on('click', function() {
+    window.location.href = "/user";
+
+  });
+
 
   /**
    * sets default start date of a survey to today
