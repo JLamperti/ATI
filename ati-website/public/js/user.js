@@ -55,13 +55,13 @@ $(document).ready(function() {
           newSurveyDisplay.find('#participantTextMiddle').css("display", "inherit");
         }
         newSurveyDisplay.find('#status').append(out[x].SurveyStatus);
-        $('#btnCreateLink').on('click', function() {
-          fetch("/user/surveyDetails/"+out[x].SurveyID, {
+        newSurveyDisplay.find('#linkSurveyDetails').attr("href", "/user/surveyDetails/" + out[x].SurveyID);
+        newSurveyDisplay.find('#linkSurveyDetails').on('click', function() {
+          fetch("/user/surveyDetails/" + out[x].SurveyID, {
               credentials: 'include'
             });
 
         });
-        
         newSurveyDisplay.css("display", "inherit");
         newSurveyDisplay.appendTo('#resultsArea');
 
