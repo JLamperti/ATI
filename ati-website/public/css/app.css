@@ -8,6 +8,12 @@ html {
 a {
   color: white;
 }
+
+/* some anchors need to be dark */
+.a-dark {
+  color: #0000EE;
+}
+
 /* removes the border which appears after a user clicked on an anchor */
 *:focus {
   outline: none;
@@ -312,7 +318,7 @@ label {
 .dumie-container.lg {
   width: 80%;
 }
-.index-container-margin-bottom  .scale-padding {  
+.index-container-margin-bottom  .scale-padding {
   padding-bottom: 2rem;
 }
 .container-header-ati {

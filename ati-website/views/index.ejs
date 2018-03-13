@@ -18,10 +18,10 @@
 
 
    <!-- <div class="imagesPadding flex-row padding-left-right-SDT" align="center">
-     
+
       <div>
         <a href="#scientist" >
-         <div class="bg-img-container bg-img-form"  id="img-scientist" alt="scientist" alt="scientist"></div>        
+         <div class="bg-img-container bg-img-form"  id="img-scientist" alt="scientist" alt="scientist"></div>
         <p class="scientist-developer-teacher-text">
           <h3>
             <b>
@@ -34,7 +34,7 @@
 
       <div class="horizontal">
         <a href="#developer">
-          <div id="img-developer" src="./images/Entwickler_Icon.png"  class="bg-img-container bg-img-form" href="#developer" alt="developer"></div>        
+          <div id="img-developer" src="./images/Entwickler_Icon.png"  class="bg-img-container bg-img-form" href="#developer" alt="developer"></div>
         <p class="scientist-developer-teacher-text">
           <h3>
             <b>
@@ -46,7 +46,7 @@
 
       <div>
         <a href="#teacher">
-          <div id="img-teacher" alt="Kursleiter" class="bg-img-container bg-img-form" alt="teacher"></div>       
+          <div id="img-teacher" alt="Kursleiter" class="bg-img-container bg-img-form" alt="teacher"></div>
         <p>
           <h3>
             <b>
@@ -75,7 +75,7 @@
         <%= __('definitionAffinity3') %><strong><%= __('definitionAffinity4') %></strong><%= __('definitionAffinity5') %><strong><%= __('definitionAffinity6') %></strong><%= __('definitionAffinity7') %>
       </p>
       <p>
-        <%= __('definitionAffinity8') %>
+        <%- __('definitionAffinity8') %>
       </p>
     </div>
     </div>
@@ -190,7 +190,7 @@
             <h3><%= __('index.background.fifthTitle') %></h3>
             <p><%= __('index.background.fithPara') %></p>
           </p>
-          
+
       <!-- <div class="flex-md-col flex-lg-row div-padding-row bg-color-theme" id="div-what-why-how">
 
         <div class="div-padding-min" >
@@ -248,7 +248,7 @@
               <div class=""  id="papers" style="display:none">
                 <p class="index-padding-bottom"><%= __('index.publicationIntro') %></p>
                 <div class="flex-row flex-s-col flex-paper">
-                  <div class="btn-papers-md">  
+                  <div class="btn-papers-md">
                     <a href="https://www.researchgate.net/publication/318745431_Assessing_Affinity_for_Technology_Interaction_-_The_Affinity_for_Technology_Interaction_ATI_Scale_Scale_Description_-_English_and_German_Scale_Version">
                     <button type="button" class="button bg-color-theme btn-index-lg">Paper</button>
                     </a>
@@ -257,7 +257,7 @@
                   </div>
                 </div>
                 <div class="flex-row flex-s-col flex-paper">
-                    <div class="btn-papers-md" >  
+                    <div class="btn-papers-md" >
                       <a href="/dlPoster">
                       <button type="button" class="button bg-color-theme btn-index-lg"><%= __('index.Poster') %></button>
                       </a>
@@ -265,7 +265,7 @@
                     <div class="paper-param-md"> Franke, Thomas & Attig, Christiane & Wessel, Daniel. (2017). Assessing Personality Differences in Human-technology Interaction: An Overview of Key Self-report Scales to Predict Successful Interaction & a New Scale to Assess Affinity for Technology
                     </div>
                   </div>
-              </div>              
+              </div>
         </div>
 
       </div>
@@ -399,7 +399,7 @@
             if (target.length) {
               // Only prevent default if animation is actually gonna happen
               event.preventDefault();
-              $('html, body').animate({               
+              $('html, body').animate({
                 scrollTop: target.offset().top - 70+'px'
               }, 1000, function () {
                 // Callback after animation
