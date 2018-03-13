@@ -16,7 +16,7 @@ $(document).ready(function() {
     var begin = $('#begin').val();
     var end = $('#end').val();
     // TODO: not working properly?
-    var status = ($('#enableMaxProbands').is(':checked')) ? 'open' : 'closed';
+    var status = ($('#closeSurvey').is(':checked')) ? 'closed' : 'open';
     var takeAge = $('#takeAge').val();
     var takeSex = $('#takeSex').val();
     var takeEducation = $('#takeEducation').val();
@@ -51,20 +51,20 @@ $(document).ready(function() {
       })
       .then((out) => {
         console.log(out);
+
+        /**
+        *redirect to surveyDetails
+        */
+        //window.location.hostname
+        //window.location.pathname;
+        // TODO: redirect to new SID
+        SID = 1;
+        window.location.href = "/user";
       })
       .catch(err => {
         throw err
       });
 
-
-    /**
-     *redirect to surveyDetails
-     */
-    //window.location.hostname
-    //window.location.pathname;
-    // TODO: redirect to new SID
-    SID = 1;
-    window.location.href = "/user";
 
   });
 
