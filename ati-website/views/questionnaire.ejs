@@ -22,14 +22,11 @@
             <li><a href="/">Home</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right" style="height:100%">
-
-            <li class="li-header-right">
-              <!-- class="imgLangSmall li-header-right" style="margin-right: -5%"> -->
+            <!-- <li class="li-header-right">             
               <a href="" onclick="changeLang()" touchend="changeLang()">
                 <img src="./images/lang_de_en.png" class="langImgQuestionnaire">
-
               </a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -521,7 +518,9 @@
             height: '75%',
             axisY: {
               onlyInteger: true,
-            },
+            }, 
+            high: 6,
+            low:0
           };
           fetch(url)
             .then(res => res.json())
@@ -551,7 +550,9 @@
               type: Chartist.AutoScaleAxis,
               onlyInteger: true
             },
-            height: '75%'
+            height: '75%',
+            high: 6,
+            low:0
           };
           var data = {
             labels: [],
@@ -640,7 +641,8 @@
               //onlyInteger: true
             },
             seriesBarDistance: 15,
-            height: '75%'
+            height: '75%', high: 6,
+            low:0
           };
           var data = {
             labels: [m, f, o],
