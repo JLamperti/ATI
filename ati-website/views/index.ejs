@@ -1,23 +1,26 @@
 <%- include ./partials/head %>
   <title>Questionnaire Scale to Assess Affinity for Technology Interaction</title>
   <meta name="keywords" content="scale, user-centered design, hci, technology interaction, human-technology interaction, human-computer interaction, usability, user diversity, personality assessment, bias, sample">
-  <meta name="description" content="9-item questionnaire scale to assess affinity for technology interaction, a key facet of user personality. Download the scale for your research and get information on scale characteristics." />
+  <meta name="description" content="9-item questionnaire scale to assess affinity for technology interaction, a key facet of user personality. Download the scale for your research and get information on scale characteristics."
+  />
   </head>
 
-  <body onload="setLang()" lang="<%= __('html.lang') %>" >
+  <body onload="setLang()" lang="<%= __('html.lang') %>">
     <header id="indexHeader">
       <%- include ./partials/header %>
     </header>
-<main>
-    <div class="title-screen " align="center">
+    <main>
+      <div class="title-screen " align="center">
 
-      <img class="img-title-screen" src='<%= __('titleImg') %>'></img>
+        <img class="img-title-screen" src='<%= __('titleImg') %>'></img>
 
-    </div>
+      </div>
+<div style="width:100%;" align="center">  
+    <a href="./#scale"><button type="button" class="button-start bg-color-theme btn-s-negMargin button-xs button-md button-no-padding" align="center"><%= __('downloadTitle') %></button></a>
+</div>
 
 
-
-   <!-- <div class="imagesPadding flex-row padding-left-right-SDT" align="center">
+      <!-- <div class="imagesPadding flex-row padding-left-right-SDT" align="center">
 
       <div>
         <a href="#scientist" >
@@ -60,138 +63,236 @@
 
     </div> -->
 
-    <div class="flex-lg-row scale-txt-home-sm container-header-ati" >
-      <h2>
-        <%= __('definitionAffinityHeader') %>
-      </h2>
-    </div>
-
-    <div class=" flex-lg-row container-def-ati" >
-      <div>
-      <p>
-        <%= __('definitionAffinity0') %><strong><%= __('definitionAffinity1') %></strong><%= __('definitionAffinity2') %>
-      </p>
-      <p>
-        <%= __('definitionAffinity3') %><strong><%= __('definitionAffinity4') %></strong><%= __('definitionAffinity5') %><strong><%= __('definitionAffinity6') %></strong><%= __('definitionAffinity7') %>
-      </p>
-      <p>
-        <%- __('definitionAffinity8') %>
-      </p>
-    </div>
-    </div>
-
-
-
-    <div id="scale" class="container-flex-scale-title index-container-margin-top-bot flex-lg-row">
-
-      <div class="dummie-container-md"></div>
-
-      <div class="dummie-container-sm horizontal" align="center" >
-        <h2 >
-          <%= __('theScale') %>
+      <div class="flex-lg-row scale-txt-home-sm container-header-ati">
+        <h2>
+          <%= __('definitionAffinityHeader') %>
         </h2>
       </div>
 
-      <div class="dummie-container-md"></div>
-
-    </div>
-
-    <div class="index-container-margin-bottom flex-lg-row flex-md-col index-margin-bottom" >
-
-      <div class="dummie-container"></div>
-
-      <div class="div-scale scale-padding">
-        <h2 align="center">Downloads</h3>
-          <div class="dummie-container-lg">
-              <%= __('downloadText') %>
-            </div>
-        <div class="flex-col">
-          <div class="flex-row-wrap flex-s-col flex-center-something" >
-            <a href="./dl0">
-              <button type="button" class="button-start bg-color-theme btn-s-negMargin button-xs button-md">
-                <%= __('buttonDownload') %>
-              </button>
-            </a>
-            <a href="./dl1">
-              <button type="button" class="button-start bg-color-theme btn-s-negMargin button-xs button-md">
-                Download Word (.docx)
-              </button>
-            </a>
-          </div>
-          <div class="flex-row-wrap flex-s-col flex-center-something">
-            <a href="./dl3">
-              <button type="button" class="button-start  bg-color-theme button-xs button-md">
-                Download LimeSurvey (en)
-              </button>
-            </a>
-            <a href="./dl4">
-              <button type="button" class="button-start  bg-color-theme button-xs button-md">
-                Download LimeSurvey (de)
-              </button>
-            </a>
-          </div>
-          <a href="./dl2" class="flex-center-something">
-            <button type="button" class="button-start bg-color-theme btn-s-negMargin button-xs button-md">
-              Download Text (.txt)
-            </button>
-          </a>
-        </div>
-
-
-      </div>
-
-      <div class="dummie-container"></div>
-
-      <div class="div-scale scale-padding" >
-        <h2 align="center"><%= __('index.questionnaire') %></h2>
-        <div class="dummie-container-lg">
-          <%= __('testYourselfText') %>
-        </div>
-        <div class="flex-center-something button-md" >
-        <a href="./form" >
-          <button type="button" class="button-start bg-color-theme button-xs button-md">
-            <%= __('buttonTestYourself') %>
-          </button>
-        </a>
-      </div>
-      </div>
-    </div>
-    <div class="dummie-container"></div>
-
-    </div>
-
-    <div id="information">
-        <div class="flex-col div-padding-row bg-color-theme" id="div-what-why-how">
-          <h2 align="center"><%= __('index.background.header') %></h2>
+      <div class=" flex-lg-row container-def-ati">
+        <div>
           <p>
-            <h3><%= __('index.background.firstTitle') %></h3>
-            <p><%= __('index.background.firstPara') %><strong><%= __('index.background.strongItem') %></strong></p>
+            <%= __('definitionAffinity0') %>
+              <strong>
+                <%= __('definitionAffinity1') %>
+              </strong>
+              <%= __('definitionAffinity2') %>
           </p>
           <p>
-            <h3><%= __('index.background.secondTitle') %></h3>
+            <%= __('definitionAffinity3') %>
+              <strong>
+                <%= __('definitionAffinity4') %>
+              </strong>
+              <%= __('definitionAffinity5') %>
+                <strong>
+                  <%= __('definitionAffinity6') %>
+                </strong>
+                <%= __('definitionAffinity7') %>
+          </p>
+          <p>
+            <%- __('definitionAffinity8') %>
+          </p>
+        </div>
+      </div>
+
+
+
+      <div id="scale" class="container-flex-scale-title index-container-margin-top-bot flex-lg-row">
+
+        <div class="dummie-container-md"></div>
+
+        <!-- <div class="dummie-container-sm horizontal" align="center">
+          <h2>
+            <%= __('theScale') %>
+          </h2>
+        </div> -->
+
+        <!-- <div class="dummie-container-md"></div> -->
+
+      </div>
+
+      <div class="index-container-margin-bottom flex-lg-row flex-md-col index-margin-bottom " align="center">
+          <div class=" scale-padding horizontal" >
+              <h2 align="center">Downloads</h3>
+                <div class="dummie-container-lg">
+                  <%= __('downloadText') %>
+                </div>
+                <div class="flex-col">
+                  <div class="flex-row-wrap flex-s-col flex-center-something">
+                    <a href="./dl0">
+                      <button type="button" class="button-start bg-color-theme btn-s-negMargin button-xs button-md">
+                        <%= __('buttonDownload') %>
+                      </button>
+                    </a>
+                    <a href="./dl1">
+                      <button type="button" class="button-start bg-color-theme btn-s-negMargin button-xs button-md">
+                        Download Word (.docx)
+                      </button>
+                    </a>
+                    <a href="./dl2" class="flex-center-something">
+                      <button type="button" class="button-start bg-color-theme btn-s-negMargin button-xs button-md">
+                        Download Text (.txt)
+                      </button>
+                    </a>
+                  </div>
+                  <div class="flex-row-wrap flex-s-col flex-center-something">
+                    <a href="./dl3">
+                      <button type="button" class="button-start  bg-color-theme button-xs button-md">
+                        Download LimeSurvey (en)
+                      </button>
+                    </a>
+                    <a href="./dl4">
+                      <button type="button" class="button-start  bg-color-theme button-xs button-md">
+                        Download LimeSurvey (de)
+                      </button>
+                    </a>
+                  </div>
+                 
+                </div>
+      </div>
+      <!-- <div class="index-container-margin-bottom flex-lg-row flex-md-col index-margin-bottom">
+
+        <!-- <div class="dummie-container"></div> -->
+
+        <!-- <div class="div-scale scale-padding">
+          <h2 align="center">Downloads</h3>
+            <div class="dummie-container-lg">
+              <%= __('downloadText') %>
+            </div>
+            <div class="flex-col">
+              <div class="flex-row-wrap flex-s-col flex-center-something">
+                <a href="./dl0">
+                  <button type="button" class="button-start bg-color-theme btn-s-negMargin button-xs button-md">
+                    <%= __('buttonDownload') %>
+                  </button>
+                </a>
+                <a href="./dl1">
+                  <button type="button" class="button-start bg-color-theme btn-s-negMargin button-xs button-md">
+                    Download Word (.docx)
+                  </button>
+                </a>
+              </div>
+              <div class="flex-row-wrap flex-s-col flex-center-something">
+                <a href="./dl3">
+                  <button type="button" class="button-start  bg-color-theme button-xs button-md">
+                    Download LimeSurvey (en)
+                  </button>
+                </a>
+                <a href="./dl4">
+                  <button type="button" class="button-start  bg-color-theme button-xs button-md">
+                    Download LimeSurvey (de)
+                  </button>
+                </a>
+              </div>
+              <a href="./dl2" class="flex-center-something">
+                <button type="button" class="button-start bg-color-theme btn-s-negMargin button-xs button-md">
+                  Download Text (.txt)
+                </button>
+              </a>
+            </div> -->
+        </div> -->
+<!-- 
+        <div class="dummie-container"></div>
+
+        <div class="div-scale scale-padding">
+          <h2 align="center">
+            <%= __('index.questionnaire') %>
+          </h2>
+          <div class="dummie-container-lg">
+            <%= __('testYourselfText') %>
+          </div>
+          <div class="flex-center-something button-md">
+            <a href="./form">
+              <button type="button" class="button-start bg-color-theme button-xs button-md">
+                <%= __('buttonTestYourself') %>
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="dummie-container"></div> -->
+
+      </div>
+
+      <div id="information">
+        <div class="flex-col div-padding-row bg-color-theme" id="div-what-why-how">
+          <h2 align="center">
+            <%= __('index.background.header') %>
+          </h2>
+          <p>
+            <h3>
+              <%= __('index.background.firstTitle') %>
+            </h3>
             <p>
-              <p> <%= __('index.background.secondPara0') %></p>
-              <p> <%= __('index.background.secondPara1') %></p>
-              <p> <%= __('index.background.secondPara2') %></p>
+              <%= __('index.background.firstPara') %>
+                <strong>
+                  <%= __('index.background.strongItem') %>
+                </strong>
             </p>
           </p>
           <p>
-            <h3><%= __('index.background.thirdTitle') %></h3>
-            <p><%= __('index.background.thirdPara0') %><strong><%= __('index.background.thirdPara1') %></strong><%= __('index.background.thirdPara2') %></p>
-            <div class="iframe-md iframe-xs">
-                <iframe class="" src="https://www.youtube.com/embed/tbyKkZZNUzA" allowfullscreen  alt="in this video Prof. Franke discusses why ATI is relevant"></iframe>
+            <h3>
+              <%= __('index.background.secondTitle') %>
+            </h3>
+            <p>
+              <p>
+                <%= __('index.background.secondPara0') %>
+              </p>
+              <p>
+                <%= __('index.background.secondPara1') %>
+              </p>
+              <p>
+                <%= __('index.background.secondPara2') %>
+              </p>
+            </p>
+          </p>
+          <p>
+            <h3>
+              <%= __('index.background.thirdTitle') %>
+            </h3>
+            <p>
+              <%= __('index.background.thirdPara0') %>
+                <strong>
+                  <%= __('index.background.thirdPara1') %>
+                </strong>
+                <%= __('index.background.thirdPara2') %>
+            </p>
+
+            <!-- <div class="iframe-md iframe-xs"> -->
+            <div class="iframe-container flex-center-something">
+              <div class="embed-responsive embed-responsive-4by3">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tbyKkZZNUzA" allowfullscreen alt="in this video Prof. Franke discusses why ATI is relevant"></iframe>
+              </div>
             </div>
           </p>
           <p>
-            <h3><%= __('index.background.fourthTitle') %></h3>
-            <p><%= __('index.background.fourthPara0') %><a href="./#scale"><strong><%= __('index.background.fourthParaHere') %></strong></a>. <%= __('index.background.fourthPara2') %><a href="./#scale"><strong><%= __('index.background.fourthParaHere') %></strong></a>.</p>
+            <h3>
+              <%= __('index.background.fourthTitle') %>
+            </h3>
+            <p class="background-p4">
+              <%= __('index.background.fourthPara0') %>
+                <a class="email" href="./#scale">
+                  <strong>
+                    <%= __('index.background.fourthParaHere') %>
+                  </strong>
+                </a>.
+                <%= __('index.background.fourthPara2') %>
+                  <a href="./#scale">
+                    <strong>
+                      <%= __('index.background.fourthParaHere') %>
+                    </strong>
+                  </a>.</p>
           </p>
           <p>
-            <h3><%= __('index.background.fifthTitle') %></h3>
-            <p><%- __('index.background.fithPara') %></p>
+            <h3>
+              <%= __('index.background.fifthTitle') %>
+            </h3>
+            <p>
+              <%- __('index.background.fithPara') %>
+            </p>
           </p>
 
-      <!-- <div class="flex-md-col flex-lg-row div-padding-row bg-color-theme" id="div-what-why-how">
+          <!-- <div class="flex-md-col flex-lg-row div-padding-row bg-color-theme" id="div-what-why-how">
 
         <div class="div-padding-min" >
           <h2>
@@ -220,8 +321,8 @@
           </p>
         </div> -->
 
+        </div>
       </div>
-</div>
 
       <!-- <div class="div-padding-row-SDT flex-row flex-xs-col">
 
@@ -314,69 +415,75 @@
 
     </div> -->
 
-    <div class="div-padding-row background-light-grey" id="authors">
+      <div class="div-padding-row background-light-grey" id="authors">
 
-      <div align="center">
-        <h3>
-          <%= __('whoWeAre') %>
-        </h3>
+        <div align="center">
+          <h2>
+            <%= __('whoWeAre') %>
+          </h2>
+        </div>
+
+        <div class="flex-lg-row div-padding-row neg-marg-top">
+
+          <div class="div-padding-min author-width-md author-margin-xs" align="center">
+
+            <img src="./images/franke_400px.jpg" alt="Thomas Franke" class="author-images rounded-img"></img>
+
+            </br>
+
+            <h4>
+              <strong>
+                <%- __('frankeName') %>
+              </strong>
+            </h4>
+
+            <p>
+              <%= __('frankeText') %>
+            </p>
+
+          </div>
+
+          <div class="div-padding-min author-width-md author-margin-xs" align="center">
+
+            <img src="./images/attig_400px.png" alt="Christiane Attig" class="author-images rounded-img"></img>
+
+            </br>
+
+            <h4>
+              <strong>
+                <%- __('attigName') %>
+              </strong>
+            </h4>
+
+            <p>
+              <%= __('attigText') %>
+            </p>
+
+          </div>
+
+          <div class="div-padding-min author-width-md author-margin-xs" align="center">
+
+            <img src="./images/wessel_400px.png" alt="Daniel Wessel" class="author-images rounded-img"></img>
+
+            </br>
+
+            <h4>
+              <strong>
+                <%- __('wesselName') %>
+              </strong>
+            </h4>
+
+            <p>
+              <%= __('wesselText') %>
+            </p>
+
+          </div>
+
+        </div>
+
       </div>
 
-      <div class="flex-lg-row div-padding-row neg-marg-top">
-
-        <div class="div-padding-min author-width-md author-margin-xs" align="center">
-
-          <img src="./images/franke_400px.jpg" alt="Thomas Franke" class="author-images rounded-img"></img>
-
-          </br>
-
-          <h4>
-            <strong><%- __('frankeName') %></strong>
-          </h4>
-
-          <p >
-            <%= __('frankeText') %>
-          </p>
-
-        </div>
-
-        <div class="div-padding-min author-width-md author-margin-xs" align="center">
-
-          <img src="./images/attig_400px.png" alt="Christiane Attig" class="author-images rounded-img"></img>
-
-          </br>
-
-          <h4>
-              <strong><%- __('attigName') %></strong>
-          </h4>
-
-          <p >
-           <%= __('attigText') %>
-          </p>
-
-        </div>
-
-        <div class="div-padding-min author-width-md author-margin-xs" align="center">
-
-          <img src="./images/wessel_400px.png" alt="Daniel Wessel" class="author-images rounded-img"></img>
-
-          </br>
-
-          <h4>
-            <strong> <%- __('wesselName') %></strong>
-          </h4>
-
-          <p>
-            <%= __('wesselText') %>
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </main>
+    </main>
     <footer class="bg-color-theme">
       <%- include ./partials/footer %>
     </footer>
@@ -400,7 +507,7 @@
               // Only prevent default if animation is actually gonna happen
               event.preventDefault();
               $('html, body').animate({
-                scrollTop: target.offset().top - 70+'px'
+                scrollTop: target.offset().top - 70 + 'px'
               }, 1000, function () {
                 // Callback after animation
                 // Must change focus!
@@ -416,26 +523,26 @@
             }
           }
         });
-        $('.navbar-collapse a').click(function(){
-    $(".navbar-collapse").collapse('hide');
-});
+      $('.navbar-collapse a').click(function () {
+        $(".navbar-collapse").collapse('hide');
+      });
 
-  /*fixed header */
-  var m = document.querySelector("main"),
-      h = document.querySelector("header"),
-      hHeight;
+      /*fixed header */
+      var m = document.querySelector("main"),
+        h = document.querySelector("header"),
+        hHeight;
 
-  function setTopPadding() {
-    hHeight = h.offsetHeight;
-    m.style.paddingTop = hHeight + "px";
-  }
+      function setTopPadding() {
+        hHeight = h.offsetHeight;
+        m.style.paddingTop = hHeight + "px";
+      }
 
-  window.onload = function() {
-    setTopPadding();
-  };
-  window.onresize = function() {
-    setTopPadding();
-  };
+      window.onload = function () {
+        setTopPadding();
+      };
+      window.onresize = function () {
+        setTopPadding();
+      };
     </script>
   </body>
 
